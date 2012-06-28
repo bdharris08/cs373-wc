@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ elementFormDefault="qualified">
+ 
+<xs:element name="worldCrises">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="crises" type="crisesType" />
+<xs:element name="organizations" type="organizationsType" />
+<xs:element name="people" type="peopleType" />
+        </xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:complexType name="crisesType">
+<xs:sequence>
+<xs:element name="crisis" type="crisisType" minOccurs="1" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="organizationsType">
+<xs:sequence>
+<xs:element name="organization" type="organizationType" minOccurs="1" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="peopleType">
+<xs:sequence>
+<xs:element name="person" type="personType" minOccurs="1" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crisisType">
+
+<xs:sequence>
+<xs:element name="name" type="xs:normalizedString" />
+
+<xs:element name="kind" type="xs:normalizedString" />
+
+<xs:element name="description" type="xs:string" />
+
+<xs:element name="date">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:normalizedString">
+<xs:attribute name="note" type="xs:normalizedString" use="optional" />
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="location" type="xs:normalizedString" />
+
+<xs:element name="humanImpact" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:string">
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="economicImpact" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:string">
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="resourceNeeded" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:string">
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="wayToHelp" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:string">
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:group ref="externals" />
+
+<xs:element name="organizationRef" minOccurs="1" maxOccurs="unbounded">	
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:IDREF">
+<xs:attribute name="note" type="xs:normalizedString" use="optional" />
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="personRef" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:IDREF">
+<xs:attribute name="note" type="xs:normalizedString" use="optional" />
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+</xs:sequence>
+
+<xs:attribute name="id" type="xs:ID" use="required" />
+</xs:complexType>
+
+<xs:complexType name="organizationType">
+
+<xs:sequence>
+<xs:element name="name" type="xs:normalizedString" />
+
+<xs:element name="kind" type="xs:normalizedString" />
+
+<xs:element name="description" type="xs:string" />
+
+<xs:element name="dateFounded" type="xs:normalizedString" />
+
+<xs:element name="location" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:normalizedString">
+<xs:attribute name="note" type="xs:normalizedString" use="optional" />
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:group ref="externals" />
+
+<xs:element name="crisisRef" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:IDREF">
+<xs:attribute name="note" type="xs:normalizedString" use="optional" />
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="personRef" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:IDREF">
+<xs:attribute name="note" type="xs:normalizedString" use="optional" />
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+</xs:sequence>
+<xs:attribute name="id" type="xs:ID" use="required" />
+</xs:complexType>
+
+
+<xs:complexType name="personType">
+
+<xs:sequence>
+<xs:element name="name" type="xs:normalizedString" />
+
+<xs:element name="kind" type="xs:normalizedString" />
+
+<xs:element name="description" type="xs:normalizedString" />
+
+<xs:group ref="externals" />
+
+<xs:element name="organizationRef" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:IDREF">
+<xs:attribute name="note" type="xs:normalizedString" use="optional" />
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="crisisRef" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:IDREF">
+<xs:attribute name="note" type="xs:normalizedString" use="optional" />
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+</xs:sequence>
+<xs:attribute name="id" type="xs:ID" use="required" />
+</xs:complexType>
+
+<xs:group name="externals">
+<xs:sequence>
+<xs:element name="image" type="imageType" minOccurs="1" maxOccurs="unbounded" />
+<xs:element name="video" type="videoType" minOccurs="1" maxOccurs="unbounded" />
+<xs:element name="social" type="socialType" minOccurs="1" maxOccurs="unbounded" />
+<xs:element name="extLink" type="extLinkType" minOccurs="1" maxOccurs="unbounded" />
+</xs:sequence>
+</xs:group>
+
+<xs:complexType name="imageType">
+<xs:sequence>
+<xs:element name="link" type="xs:token" />
+<xs:element name="title" type="xs:normalizedString" />
+<xs:element name="description" type="xs:normalizedString" minOccurs="0" maxOccurs="1"/>
+</xs:sequence>
+<xs:attribute name="kind" type="xs:normalizedString" />
+
+</xs:complexType>
+
+<xs:complexType name="videoType">
+
+<xs:sequence>
+<xs:element name="link" type="xs:token" />
+<xs:element name="title" type="xs:normalizedString" />
+<xs:element name="description" type="xs:normalizedString" minOccurs="0" maxOccurs="1" />
+</xs:sequence>
+
+<xs:attribute name="kind" type="xs:normalizedString" />
+</xs:complexType>
+
+<xs:complexType name="socialType">
+
+<xs:sequence>
+<xs:element name="link" type="xs:token" />
+<xs:element name="title" type="xs:normalizedString" />
+<xs:element name="description" type="xs:normalizedString" minOccurs="0" maxOccurs="1" />
+</xs:sequence>
+
+<xs:attribute name="kind" type="xs:normalizedString" />
+
+</xs:complexType>
+
+<xs:complexType name="extLinkType">
+<xs:sequence>
+<xs:element name="link" type="xs:token" />
+<xs:element name="title" type="xs:normalizedString" />
+<xs:element name="description" type="xs:normalizedString" minOccurs="0" maxOccurs="1" />
+</xs:sequence>
+</xs:complexType>
+
+</xs:schema>
