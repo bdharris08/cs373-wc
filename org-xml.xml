@@ -74,9 +74,7 @@
             <personRef note="Michele Leonhart, DEA Administrator">michele_leonhart</personRef>
 
         </organization>
-    </organizations>
     
-    <organizations>
         <organization id="department_of_defense">
             <name>United States Department of Defense (USDoD)</name>
             <kind>The Executive Department of the Government of the United States of America charged with coordinating and supervising all agencies and functions of the government concerned directly with national security and the United States armed forces.</kind>
@@ -104,9 +102,7 @@
             <personRef note="Kim Jong-Un, Leader of North Korea">kim_jong_un</personRef>
 
         </organization>
-    </organizations>
-    
-    <organizations>
+        
         <organization id="federal_reserve_system">
             <name>The Federal Reserve System</name>
             <kind>The central banking system of the United States</kind>
@@ -134,9 +130,7 @@
             <personRef note="Barack Obama, President of the United States">barack_obama</personRef>
 
         </organization>
-    </organizations>
-    
-    <organizations>
+
         <organization id="united_nations">
             <name>United Nations (UN)</name>
             <kind>An international assembly of 193 member states</kind>

@@ -3,10 +3,10 @@
         <crisis id="Bath_Salts">
             <name>Bath Salts</name>
             <kind>Drug Epidemic</kind>
-            <description>A drug epidemic where users snort bath salts in order to get a high.</description>
+            <description>A drug epidemic where users snort "bath salts" in order to get a high.</description>
             <date>2003-present</date>
             <location>United States</location>
-	    <humanImpact>According to a CDC report of bath salt abusers in Michigan, users not only experience psychological side effects -- there were physical ones too. In fact, 91 percent of users had neurological damage, while 77 percent experienced cardiovascular damage and 49 percent had psychological difficulties associated with the drug. Those difficulties could be severe: 37 percent of the people who suffered mental health problems reported attempting suicide or having suicidal thoughts, related to bath salts.</humanImpact>
+            <humanImpact>According to a CDC report of bath salt abusers in Michigan, users not only experience psychological side effects -- there were physical ones too. In fact, 91 percent of users had neurological damage, while 77 percent experienced cardiovascular damage and 49 percent had psychological difficulties associated with the drug. Those difficulties could be severe: 37 percent of the people who suffered mental health problems reported attempting suicide or having suicidal thoughts, related to bath salts.</humanImpact>
             <economicImpact>Little economic impact</economicImpact>
             <resourceNeeded>More drug rehabilitation centers</resourceNeeded>
             <wayToHelp>Raise awareness through word of mouth</wayToHelp>
@@ -35,113 +35,113 @@
             <personRef note="Michelle Leonhart is the administrator of the DEA">michelle_leonhart</personRef>
         </crisis>
         <crisis id="Global_Financial_Crisis">
-	  <name>Global Financial Crisis</name>
-	  <kind>Global Depression</kind>
-	  <description>A global economic depression</description>
-	  <date>2007-2012</date>
-	  <location>Global</location>
-	  <humanImpact>Large-scale unemployment, reduction of the work week to 33 hours in the US</humanImpact>
-	  <economicImpact>Global Recession, Widening of the wealth gap in the United States.</economicImpact>
-	  <resourceNeeded>The economy has mostly stabilized, however more stimulus in certain areas will be required to get the economy fully back to normal</resourceNeeded>
-	  <wayToHelp>Get involved in awareness</wayToHelp>
-	  <image kind = "header">
-	    <link>http://api.ning.com/files/MBEap-467Djs5j04yvDcr8o4Pf6l6tD8cQi3Tj-YdiTfvANU9qFyXlpIS2sVikborntRIJiakcBgl-pShOWjGeJ6nu8y8-84/ChenWenlingWhatYouseeMightNotBeReal.jpg</link>
-	    <title>Chen Wenling - What You See Might Not be Real</title>
-	  </image>
-	  <video kind="youtube">
-	      <link>http://www.youtube.com/embed/Q-zp5Mb7FV0</link>
-	      <title>Video describing the economic crisis</title>
-	  </video>
-	  <social kind="twitter">
-	    <link>https://twitter.com/#!/search/global%20financial%20crisis</link>
-	    <title>Up to date twitter news on the global financial crisis</title>
-	  </social>
-	  <extLink>
-	    <link>http://www.imf.org/external/np/exr/key/finstab.htm</link>
-	    <title>IMF website detailing the Economic Crisis</title>
-	  </extLink>
-	  <extLink>
-	    <link>http://en.wikipedia.org/wiki/2007–2012_global_financial_crisis</link>
-	    <title>Wikipedia page on the Global Financial Crisis</title>
-	  </extLink>
-	  <organizationRef>federal_reserve</organizationRef>
-	  <personRef note="President Obama is a key person in creating reforms that will help the country out of the recession">barack_obama</personRef>	  
-	</crisis>
+            <name>Global Financial Crisis</name>
+            <kind>Global Depression</kind>
+            <description>A global economic depression</description>
+            <date>2007-2012</date>
+            <location>Global</location>
+            <humanImpact>Large-scale unemployment, reduction of the work week to 33 hours in the US</humanImpact>
+            <economicImpact>Global Recession, Widening of the wealth gap in the United States.</economicImpact>
+            <resourceNeeded>The economy has mostly stabilized, however more stimulus in certain areas will be required to get the economy fully back to normal</resourceNeeded>
+            <wayToHelp>Get involved in awareness</wayToHelp>
+            <image kind = "header">
+                <link>http://api.ning.com/files/MBEap-467Djs5j04yvDcr8o4Pf6l6tD8cQi3Tj-YdiTfvANU9qFyXlpIS2sVikborntRIJiakcBgl-pShOWjGeJ6nu8y8-84/ChenWenlingWhatYouseeMightNotBeReal.jpg</link>
+                <title>Chen Wenling - What You See Might Not be Real</title>
+            </image>
+            <video kind="youtube">
+                <link>http://www.youtube.com/embed/Q-zp5Mb7FV0</link>
+                <title>Video describing the economic crisis</title>
+            </video>
+            <social kind="twitter">
+                <link>https://twitter.com/#!/search/global%20financial%20crisis</link>
+                <title>Up to date twitter news on the global financial crisis</title>
+            </social>
+            <extLink>
+                <link>http://www.imf.org/external/np/exr/key/finstab.htm</link>
+                <title>IMF website detailing the Economic Crisis</title>
+            </extLink>
+            <extLink>
+                <link>http://en.wikipedia.org/wiki/2007–2012_global_financial_crisis</link>
+                <title>Wikipedia page on the Global Financial Crisis</title>
+            </extLink>
+            <organizationRef>federal_reserve</organizationRef>
+            <personRef note="President Obama is a key person in creating reforms that will help the country out of the recession">barack_obama</personRef>	  
+        </crisis>
 	
-	<crisis id="North_Korea">
-	  <name>North Korea and Nuclear Weapons</name>
-	  <kind>Nuclear threat</kind>
-	  <description>North Korea's nuclear program is of concern for the rest of the world because of their unstable government</description>
-	  <date>1956-present</date>
-	  <location>South East Asia</location>
-	  <humanImpact>It is unknown if there are any deaths caused by the North Korean nuclear program</humanImpact>
-	  <economicImpact>Due to the secrecy of the North Korean government it is unknown what the cost of North Korea's nuclear program is.</economicImpact>
-	  <resourceNeeded>Increased international pressure on North Korea to cut their nuclear weapons program</resourceNeeded>
-	  <wayToHelp>Join the Free North Korea Coalition and raise awareness</wayToHelp>
-	  <image kind="header">
-	    <link>http://cache.boston.com/bonzai-fba/Third_Party_Photo/2005/03/19/1111248871_9419.jpg</link>
-	    <title>Photograph of the nuclear missile and Sattelite imagery of the launch site</title>
-	  </image>
-	  <video kind="youtube">
-	    <link>http://youtu.be/P59KMyZ-3QM</link>
-	    <title>Video describing the North Korean nuclear launch</title>
-	  </video>
-	  <social kind="twitter">
-	    <link>http://twitter.com/#!/freenorthkorea</link>
-	    <title>Free North Korea Twitter</title>
-	  </social>
-	  <extLink>
-	    <link>http://en.wikipedia.org/wiki/North_Korea_and_weapons_of_mass_destruction</link>
-	    <title>Wikipedia article about North Korea and Weapons of Mass Destruction</title>
-	  </extLink>
-	  <extLink>
-	    <link>http://www.nkfreedom.org/</link>
-	    <title>North Korea Freedom</title>
-	  </extLink>
-	  <organizationRef>department_of_defense</organizationRef>
-	  <personRef note="Kim Jung Un is the current Leader of North Korea">kim_jung_un</personRef>
-	</crisis>
+        <crisis id="North_Korea">
+            <name>North Korea and Nuclear Weapons</name>
+            <kind>Nuclear threat</kind>
+            <description>North Korea's nuclear program is of concern for the rest of the world because of their unstable government</description>
+            <date>1956-present</date>
+            <location>South East Asia</location>
+            <humanImpact>It is unknown if there are any deaths caused by the North Korean nuclear program</humanImpact>
+            <economicImpact>Due to the secrecy of the North Korean government it is unknown what the cost of North Korea's nuclear program is.</economicImpact>
+            <resourceNeeded>Increased international pressure on North Korea to cut their nuclear weapons program</resourceNeeded>
+            <wayToHelp>Join the Free North Korea Coalition and raise awareness</wayToHelp>
+            <image kind="header">
+                <link>http://cache.boston.com/bonzai-fba/Third_Party_Photo/2005/03/19/1111248871_9419.jpg</link>
+                <title>Photograph of the nuclear missile and Sattelite imagery of the launch site</title>
+            </image>
+            <video kind="youtube">
+                <link>http://youtu.be/P59KMyZ-3QM</link>
+                <title>Video describing the North Korean nuclear launch</title>
+            </video>
+            <social kind="twitter">
+                <link>http://twitter.com/#!/freenorthkorea</link>
+                <title>Free North Korea Twitter</title>
+            </social>
+            <extLink>
+                <link>http://en.wikipedia.org/wiki/North_Korea_and_weapons_of_mass_destruction</link>
+                <title>Wikipedia article about North Korea and Weapons of Mass Destruction</title>
+            </extLink>
+            <extLink>
+                <link>http://www.nkfreedom.org/</link>
+                <title>North Korea Freedom</title>
+            </extLink>
+            <organizationRef>department_of_defense</organizationRef>
+            <personRef note="Kim Jung Un is the current Leader of North Korea">kim_jung_un</personRef>
+        </crisis>
 	
-	<crisis id = "Tibet">
-	  <name>Tibetan Occupation</name>
-	  <kind>Cultural Genocide</kind>
-	  <description>China's contraversal occupation of Tibet has resulted in many suicides and what some have claimed cultural genocide</description>
-	  <date>1950's-presnt</date>
-	  <location>South Asia</location>
-	  <humanImpact>Mass suicides, Cultural Genocide, Death toll estimated to be 1,200,000.</humanImpact>
-	  <economicImpact>China's control has created an economic boom, with Tibet's GDP being 65 times what it was before China's control</economicImpact>
-	  <resourceNeeded>Donations to Tibetan awareness organizations</resourceNeeded>
-	  <wayToHelp>Join an awareness organization, donate to the various organizations aiming to free tibet, join a boycott of goods made in China</wayToHelp>
-	  <image kind = "header">
-	    <link>http://ligress.files.wordpress.com/2009/04/tibet_map.gif</link>
-	    <title>Map showing location of Tibet in proximity to China</title>
-	  </image>
-	  <image kind = "body">
-	    <link>http://worldsfamousphotos.com/wp-content/uploads/2007/04/budist_monk_on_fire.jpg</link>
-	    <title>Monk setting his body on fire in protest of the occupation</title>
-	  </image>
-	  <video kind = "youtube">
-	    <link>http://www.youtube.com/embed/bWnfJqqW2Yk</link>
-	    <title>Video depicting the Chinese Occupatin of Tibet</title>
-	  </video>
-	  <social kind = "facebook">
-	    <link>https://www.facebook.com/pages/Free-Tibet-Campaign/107981189223849</link>
-	    <title>Facebook page of the Free Tibet Campaign</title>
-	  </social>
-	  <social kind = "twitter">
-	     <link>https://twitter.com/#!/freetibetorg</link>
-	     <title>Twitter page of the Free-Tibet Organization</title>
-	  </social>
-	  <extLink>
-	    <link>http://www.freetibet.org/</link>
-	    <title>Website for the Free Tibet Organization</title>
-	  </extLink>
-	  <extLink>
-	    <link>https://www.studentsforafreetibet.org/</link>
-	    <title>Website for Students for a Free Tibet</title>
-	  </extLink>
-	  <organizationRef>united_nations</organizationRef>
-	  <personRef note = "The Dalai Lama is the exiled leader of Tibetan Buddhism">  dalai_lama</personRef>
-	</crisis>	  
+        <crisis id = "Tibet">
+            <name>Tibetan Occupation</name>
+            <kind>Cultural Genocide</kind>
+            <description>China's contraversal occupation of Tibet has resulted in many suicides and what some have claimed cultural genocide</description>
+            <date>1950's-presnt</date>
+            <location>South Asia</location>
+            <humanImpact>Mass suicides, Cultural Genocide, Death toll estimated to be 1,200,000.</humanImpact>
+            <economicImpact>China's control has created an economic boom, with Tibet's GDP being 65 times what it was before China's control</economicImpact>
+            <resourceNeeded>Donations to Tibetan awareness organizations</resourceNeeded>
+            <wayToHelp>Join an awareness organization, donate to the various organizations aiming to free tibet, join a boycott of goods made in China</wayToHelp>
+            <image kind = "header">
+                <link>http://ligress.files.wordpress.com/2009/04/tibet_map.gif</link>
+                <title>Map showing location of Tibet in proximity to China</title>
+            </image>
+            <image kind = "body">
+                <link>http://worldsfamousphotos.com/wp-content/uploads/2007/04/budist_monk_on_fire.jpg</link>
+                <title>Monk setting his body on fire in protest of the occupation</title>
+            </image>
+            <video kind = "youtube">
+                <link>http://www.youtube.com/embed/bWnfJqqW2Yk</link>
+                <title>Video depicting the Chinese Occupatin of Tibet</title>
+            </video>
+            <social kind = "facebook">
+                <link>https://www.facebook.com/pages/Free-Tibet-Campaign/107981189223849</link>
+                <title>Facebook page of the Free Tibet Campaign</title>
+            </social>
+            <social kind = "twitter">
+                <link>https://twitter.com/#!/freetibetorg</link>
+                <title>Twitter page of the Free-Tibet Organization</title>
+            </social>
+            <extLink>
+                <link>http://www.freetibet.org/</link>
+                <title>Website for the Free Tibet Organization</title>
+            </extLink>
+            <extLink>
+                <link>https://www.studentsforafreetibet.org/</link>
+                <title>Website for Students for a Free Tibet</title>
+            </extLink>
+            <organizationRef>united_nations</organizationRef>
+            <personRef note = "The Dalai Lama is the exiled leader of Tibetan Buddhism">  dalai_lama</personRef>
+        </crisis>	  
     </crises>
 </worldCrises>
