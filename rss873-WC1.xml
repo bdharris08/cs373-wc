@@ -1,6 +1,6 @@
 <worldCrises>
     <crises>
-        <crisis id="Bath_Salts">
+        <crisis id="bath_salts">
             <name>Bath Salts</name>
             <kind>Drug Epidemic</kind>
             <description>A drug epidemic where users snort "bath salts" in order to get a high.</description>
@@ -32,9 +32,9 @@
                 <title>Wikipedia</title>
             </extLink>
             <organizationRef>drug_enforcement_admin</organizationRef>
-            <personRef note="Michelle Leonhart is the administrator of the DEA">michelle_leonhart</personRef>
+            <personRef note="Michelle Leonhart is the administrator of the DEA">michele_leonhart</personRef>
         </crisis>
-        <crisis id="Global_Financial_Crisis">
+        <crisis id="global_economic_crisis">
             <name>Global Financial Crisis</name>
             <kind>Global Depression</kind>
             <description>A global economic depression</description>
@@ -64,11 +64,11 @@
                 <link>http://en.wikipedia.org/wiki/2007–2012_global_financial_crisis</link>
                 <title>Wikipedia page on the Global Financial Crisis</title>
             </extLink>
-            <organizationRef>federal_reserve</organizationRef>
+            <organizationRef>federal_reserve_system</organizationRef>
             <personRef note="President Obama is a key person in creating reforms that will help the country out of the recession">barack_obama</personRef>	  
         </crisis>
 	
-        <crisis id="North_Korea">
+        <crisis id="north_korea">
             <name>North Korea and Nuclear Weapons</name>
             <kind>Nuclear threat</kind>
             <description>North Korea's nuclear program is of concern for the rest of the world because of their unstable government</description>
@@ -99,10 +99,10 @@
                 <title>North Korea Freedom</title>
             </extLink>
             <organizationRef>department_of_defense</organizationRef>
-            <personRef note="Kim Jung Un is the current Leader of North Korea">kim_jung_un</personRef>
+            <personRef note="Kim Jung Un is the current Leader of North Korea">kim_jong_un</personRef>
         </crisis>
 	
-        <crisis id = "Tibet">
+        <crisis id = "tibet">
             <name>Tibetan Occupation</name>
             <kind>Cultural Genocide</kind>
             <description>China's contraversal occupation of Tibet has resulted in many suicides and what some have claimed cultural genocide</description>
@@ -141,7 +141,7 @@
                 <title>Website for Students for a Free Tibet</title>
             </extLink>
             <organizationRef>united_nations</organizationRef>
-            <personRef note = "The Dalai Lama is the exiled leader of Tibetan Buddhism">  dalai_lama</personRef>
+            <personRef note = "The Dalai Lama is the exiled leader of Tibetan Buddhism">dalai_lama</personRef>
         </crisis>	  
     </crises>
     <organizations>
@@ -168,7 +168,7 @@
                 <link>http://www.justice.gov/dea/</link>
                 <title>Official website</title>
             </extLink>
-            <crisisRef>Bath_Salts</crisisRef>
+            <crisisRef>bath_salts</crisisRef>
             <personRef note="Michele Leonhart, DEA Administrator">michele_leonhart</personRef>
         </organization>
         <organization id="department_of_defense">
@@ -194,7 +194,7 @@
                 <link>http://www.defense.gov/</link>
                 <title>Official website</title>
             </extLink>
-            <crisisRef>North_Korea</crisisRef>
+            <crisisRef>north_korea</crisisRef>
             <personRef note="Kim Jong-Un, Leader of North Korea">kim_jong_un</personRef>
         </organization>
         <organization id="federal_reserve_system">
@@ -220,7 +220,7 @@
                 <link>http://www.federalreserve.gov/</link>
                 <title>Official website</title>
             </extLink>
-            <crisisRef>Global_Economic_Crisis</crisisRef>
+            <crisisRef>global_economic_crisis</crisisRef>
             <personRef note="Barack Obama, President of the United States">barack_obama</personRef>
         </organization>
         <organization id="united_nations">
@@ -246,12 +246,12 @@
                 <link>www.un.org</link>
                 <title>Official website</title>
             </extLink>
-            <crisisRef>Tibet</crisisRef>
+            <crisisRef>tibet</crisisRef>
             <personRef note="His Holiness, the Dalai Lama">dalai_lama</personRef>
         </organization>
     </organizations>
     <people>
-        <person id="tenzin_gyatso">
+        <person id="dalai_lama">
             <name>Tenzin Gyatso</name>
             <kind>14th Dalai Lama</kind>
             <birthday>July 6, 1935</birthday>
@@ -306,7 +306,7 @@
                 <title>President Barack Obama Website</title>
                 <description>Contains information about President Obama and his campaign</description>
             </extLink>
-            <organizationRef>federal_reserve</organizationRef>
+            <organizationRef>federal_reserve_system</organizationRef>
             <crisisRef>global_economic_crisis</crisisRef>
         </person>
         <person id="michele_leonhart">

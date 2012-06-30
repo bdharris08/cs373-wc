@@ -239,3 +239,4 @@
 		<xs:element name="description" type="xs:normalizedString" minOccurs="0" maxOccurs="1" />
 	</xs:sequence>
 </xs:complexType>
+</xs:schema>
