@@ -41,6 +41,47 @@
             <organizationRef>united_nations</organizationRef>
             <personRef note = "The Dalai Lama is the exiled leader of Tibetan Buddhism">dalai_lama</personRef>
         </crisis>
+        <crisis id = "tibet">
+            <name>Tibetan Occupation</name>
+            <kind>Cultural Genocide</kind>
+            <description>China's contraversal occupation of Tibet has resulted in many suicides and what some have claimed cultural genocide</description>
+            <date>1950's-presnt</date>
+            <location>South Asia</location>
+            <humanImpact>Mass suicides, Cultural Genocide, Death toll estimated to be 1,200,000.</humanImpact>
+            <economicImpact>China's control has created an economic boom, with Tibet's GDP being 65 times what it was before China's control</economicImpact>
+            <resourceNeeded>Donations to Tibetan awareness organizations</resourceNeeded>
+            <wayToHelp>Join an awareness organization, donate to the various organizations aiming to free tibet, join a boycott of goods made in China</wayToHelp>
+            <image kind = "header">
+                <link>http://ligress.files.wordpress.com/2009/04/tibet_map.gif</link>
+                <title>Map showing location of Tibet in proximity to China</title>
+            </image>
+            <image kind = "body">
+                <link>http://worldsfamousphotos.com/wp-content/uploads/2007/04/budist_monk_on_fire.jpg</link>
+                <title>Monk setting his body on fire in protest of the occupation</title>
+            </image>
+            <video kind = "youtube">
+                <link>http://www.youtube.com/embed/bWnfJqqW2Yk</link>
+                <title>Video depicting the Chinese Occupatin of Tibet</title>
+            </video>
+            <social kind = "facebook">
+                <link>https://www.facebook.com/pages/Free-Tibet-Campaign/107981189223849</link>
+                <title>Facebook page of the Free Tibet Campaign</title>
+            </social>
+            <social kind = "twitter">
+                <link>https://twitter.com/#!/freetibetorg</link>
+                <title>Twitter page of the Free-Tibet Organization</title>
+            </social>
+            <extLink>
+                <link>http://www.freetibet.org/</link>
+                <title>Website for the Free Tibet Organization</title>
+            </extLink>
+            <extLink>
+                <link>https://www.studentsforafreetibet.org/</link>
+                <title>Website for Students for a Free Tibet</title>
+            </extLink>
+            <organizationRef>united_nations</organizationRef>
+            <personRef note = "The Dalai Lama is the exiled leader of Tibetan Buddhism">dalai_lama</personRef>
+        </crisis>
     </crises>
     <organizations>
         <organization id="united_nations">

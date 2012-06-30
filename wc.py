@@ -9,7 +9,17 @@ jinja_environment = jinja2.Environment(
 from google.appengine.ext import db
 from google.appengine.api import users
 
+tree = ElementTree()
+tree.parse("test.xml")
+crisis = tree.find("crises/crisis")
+taglist = list(crisis.iter())
+class crisis (db.Model):
+    name = db.StringProperty()
 
+c = crisis()
+c.name = taglist[1].text
+
+print c.name
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
