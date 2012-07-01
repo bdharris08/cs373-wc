@@ -1,20 +1,19 @@
 #!/usr/bin/env python
+import sys
+
 
 from xml.etree.ElementTree import ElementTree
 
-from google.appengine.ext import db
 
 import pprint
 
 pp = pprint.PrettyPrinter(indent=4)
 tree = ElementTree()
-tree.parse("test.xml")
-crisis = tree.find("crises/crisis")
-taglist = list(crisis.iter())
-print taglist[1].text
-
-class crisis (db.Model):
-    name = db.StringProperty()
+tree.parse("rss873-WC1.xml")
+crisis = tree.findall("crises/crisis")
+insideC = list(crisis[0].iter())
+pp.pprint(insideC)
 
 
-print "done"
+print "Last thing in the class"
+
