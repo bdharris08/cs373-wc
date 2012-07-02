@@ -2,8 +2,6 @@ import webapp2
 import jinja2
 import os
 import urllib
-import pprint
-import itertools
 
 
 jinja_environment = jinja2.Environment(
@@ -11,14 +9,11 @@ jinja_environment = jinja2.Environment(
     
 from xml.etree.ElementTree import ElementTree
 from google.appengine.ext import db
-from google.appengine.api import users
 from google.appengine.ext import blobstore
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import blobstore_handlers
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
-import xmlToET
-
 
 
 class MainPage(webapp2.RequestHandler):
@@ -273,7 +268,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     
     #self.redirect('/serve/%s' % blob_info.key())
     #blobkey = blob_info.key()
-    #self.response.write()
+    self.redirect('/')
 
 class ExportHandler(webapp.RequestHandler):
     def get(self):

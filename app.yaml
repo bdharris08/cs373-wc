@@ -7,8 +7,9 @@ threadsafe: true
 handlers:
 - url: /.*
   script: wc.app
+- url: /test.*
+  login: admin
+  script: gaeunit.py
 libraries:
 - name: jinja2
-  version: latest
-- name: lxml
   version: latest
