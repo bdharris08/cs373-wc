@@ -3,6 +3,9 @@ import jinja2
 import os
 import urllib
 
+from genxmlif import GenXmlIfError
+from minixsv import pyxsval
+
 
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
@@ -94,11 +97,272 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     upload_files = self.get_uploads('file')  # 'file' is file upload field in the form
     blob_info = upload_files[0]
     blob_reader = blob_info.open()
+    other_blob_reader = blob_info.open()
     tree = ElementTree()
-    assert blob_info.content_type == "text/xml"
+    try:
+        assert blob_info.content_type == "text/xml"
+    except Exception as e:
+        self.redirect("/xmlerror")
+        
+        
+    xsdText = """<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ elementFormDefault="qualified">
+ 
+<xs:element name="worldCrises">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="crises"        type="crisesType" />
+			<xs:element name="organizations" type="organizationsType" />
+			<xs:element name="people"        type="peopleType" />
+        </xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:complexType name="crisesType">
+	<xs:sequence>
+		<xs:element name="crisis" type="crisisType" minOccurs="1" maxOccurs="unbounded" />
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="organizationsType">
+	<xs:sequence>
+		<xs:element name="organization" type="organizationType" minOccurs="1" maxOccurs="unbounded" />
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="peopleType">
+	<xs:sequence>
+		<xs:element name="person" type="personType" minOccurs="1" maxOccurs="unbounded" />
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crisisType">
+
+<xs:sequence>
+<xs:element name="name" type="xs:normalizedString" />
+
+<xs:element name="kind" type="xs:normalizedString" />
+
+<xs:element name="description" type="xs:string" />
+
+<xs:element name="date">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:normalizedString">
+<xs:attribute name="note" type="xs:normalizedString" use="optional" />
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="location" type="xs:normalizedString" />
+
+<xs:element name="humanImpact" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:string">
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="economicImpact" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:string">
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="resourceNeeded" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:string">
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="wayToHelp" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:string">
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:group ref="externals" />
+
+<xs:element name="organizationRef" minOccurs="1" maxOccurs="unbounded">	
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:IDREF">
+<xs:attribute name="note" type="xs:normalizedString" use="optional" />
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="personRef" minOccurs="1" maxOccurs="unbounded">
+<xs:complexType>
+<xs:simpleContent>
+<xs:extension base="xs:IDREF">
+<xs:attribute name="note" type="xs:normalizedString" use="optional" />
+</xs:extension></xs:simpleContent>
+</xs:complexType>
+</xs:element>
+
+</xs:sequence>
+
+<xs:attribute name="id" type="xs:ID" use="required" />
+</xs:complexType>
+
+<xs:complexType name="organizationType">
+
+	<xs:sequence>
+		<xs:element name="name" type="xs:normalizedString" />
+
+		<xs:element name="kind" type="xs:normalizedString" />
+
+		<xs:element name="description" type="xs:string" />
+		
+		<xs:element name="relationToCrisis" type="xs:string" />
+
+		<xs:element name="dateFounded" type="xs:normalizedString" />
+
+		<xs:element name="location" minOccurs="1" maxOccurs="unbounded">
+			<xs:complexType>
+			 <xs:simpleContent>
+			  <xs:extension base="xs:normalizedString">
+			   <xs:attribute name="note" type="xs:normalizedString" use="optional" />
+			  </xs:extension></xs:simpleContent>
+			</xs:complexType>
+		</xs:element>
+
+		<xs:group ref="externals" />
+
+		<xs:element name="crisisRef" minOccurs="1" maxOccurs="unbounded">
+			<xs:complexType>
+			 <xs:simpleContent>
+			  <xs:extension base="xs:IDREF">
+			   <xs:attribute name="note" type="xs:normalizedString" use="optional" />
+			  </xs:extension></xs:simpleContent>
+			</xs:complexType>
+		</xs:element>
+
+		<xs:element name="personRef" minOccurs="1" maxOccurs="unbounded">
+			<xs:complexType>
+			 <xs:simpleContent>
+			  <xs:extension base="xs:IDREF">
+			   <xs:attribute name="note" type="xs:normalizedString" use="optional" />
+			  </xs:extension></xs:simpleContent>
+			</xs:complexType>
+		</xs:element>
+
+	</xs:sequence>
+	<xs:attribute name="id" type="xs:ID" use="required" />
+</xs:complexType>
+
+<xs:complexType name="personType">
+	
+	<xs:sequence>
+		<xs:element name="name" type="xs:normalizedString" />
+		
+		<xs:element name="kind" type="xs:normalizedString" />
+        
+        <xs:element name="birthday" type="xs:normalizedString" />
+        
+        <xs:element name="nationality" type="xs:normalizedString" />
+		
+		<xs:element name="description" type="xs:normalizedString" />
+		
+		<xs:group ref="externals" />
+		
+		<xs:element name="organizationRef" minOccurs="1" maxOccurs="unbounded">
+			<xs:complexType>
+			 <xs:simpleContent>
+			  <xs:extension base="xs:IDREF">
+			   <xs:attribute name="note" type="xs:normalizedString" use="optional" />
+			  </xs:extension></xs:simpleContent>
+			</xs:complexType>
+		</xs:element>
+		
+		<xs:element name="crisisRef" minOccurs="1" maxOccurs="unbounded">
+			<xs:complexType>
+			 <xs:simpleContent>
+			  <xs:extension base="xs:IDREF">
+			   <xs:attribute name="note" type="xs:normalizedString" use="optional" />
+			  </xs:extension></xs:simpleContent>
+			</xs:complexType>
+		</xs:element>
+		
+	</xs:sequence>
+	<xs:attribute name="id" type="xs:ID" use="required" />
+</xs:complexType>
+
+<xs:group name="externals">
+	<xs:sequence>
+		<xs:element name="image"   type="imageType" minOccurs="1" maxOccurs="unbounded"   />
+		<xs:element name="video"   type="videoType" minOccurs="1" maxOccurs="unbounded"   />
+		<xs:element name="social"  type="socialType" minOccurs="1" maxOccurs="unbounded"  />
+		<xs:element name="extLink" type="extLinkType" minOccurs="1" maxOccurs="unbounded" />
+	</xs:sequence>
+</xs:group>
+
+<xs:complexType name="imageType">
+	<xs:sequence>
+		<xs:element name="link" type="xs:token" />
+		<xs:element name="title" type="xs:normalizedString" />
+		<xs:element name="description" type="xs:normalizedString" minOccurs="0" maxOccurs="1"/>
+	</xs:sequence>
+	<xs:attribute name="kind" type="xs:normalizedString" />
+	
+</xs:complexType>
+
+<xs:complexType name="videoType">
+	
+	<xs:sequence>
+		<xs:element name="link" type="xs:token" />
+		<xs:element name="title" type="xs:normalizedString" />
+		<xs:element name="description" type="xs:normalizedString" minOccurs="0" maxOccurs="1" />
+	</xs:sequence>
+	
+	<xs:attribute name="kind" type="xs:normalizedString" />
+</xs:complexType>
+
+<xs:complexType name="socialType">
+	
+	<xs:sequence>
+		<xs:element name="link" type="xs:token" />
+		<xs:element name="title" type="xs:normalizedString" />
+		<xs:element name="description" type="xs:normalizedString" minOccurs="0" maxOccurs="1" />
+	</xs:sequence>
+	
+	<xs:attribute name="kind" type="xs:normalizedString" />
+	
+</xs:complexType>
+
+<xs:complexType name="extLinkType">
+	<xs:sequence>
+		<xs:element name="link" type="xs:token" />
+		<xs:element name="title" type="xs:normalizedString" />
+		<xs:element name="description" type="xs:normalizedString" minOccurs="0" maxOccurs="1" />
+	</xs:sequence>
+</xs:complexType>
+</xs:schema>
+"""    
+        
+    try:
+        # call validator with non-default values
+        elementTreeWrapper = pyxsval.parseAndValidateXmlInputString (other_blob_reader.read(), xsdText)
+
+    except pyxsval.XsvalError, errstr:
+        print errstr
+        print "Validation aborted!"
+    
+    except GenXmlIfError, errstr:
+        print errstr
+        print "Parsing aborted!"
+    
     tree.parse(blob_reader)
 
-    
     crises = tree.findall("crises/crisis")
     organizations = tree.findall("organizations/organization")
     people = tree.findall("people/person")
