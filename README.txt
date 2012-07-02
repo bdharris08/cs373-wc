@@ -38,7 +38,7 @@ Group Member Point Adjustment: <only if you're leader>
 
 Group Member First Name:       Matthew
 Group Member Last Name:        Granado
-Group Member EID:
+Group Member EID:              mjg2243
 Group Member E-mail:           mattg@utexas.edu
 Group Member Rating:           <from the list below>
 Group Member Point Adjustment: <only if you're leader>
