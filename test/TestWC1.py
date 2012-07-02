@@ -112,27 +112,40 @@ class ModelTest(unittest.TestCase):
         self.assertTrue(entity.location == "location")
         
     def test_new_Crisis_entity2(self):
-        images = wc.Images()
-        entity = wc.Crisis()
+        entity = wc.Crisis(id = "tibet", kindd = "tibet")
+        self.assertTrue(entity.id == "tibet")
+        self.assertTrue(entity.kindd == "tibet")
            
     def test_new_Crisis_entity3(self):
-        assert True;
+        entity = wc.Crisis(date = "12/21/2012", humanImpact = "nothing really")
+        self.assertTrue(entity.date == "12/21/2012")
+        self.assertTrue(entity.humanImpact == "nothing really")
     
     def test_new_Org_entity1(self):
-        assert True;
+        entity = wc.Organization(id = "DEA", name = "Drug Enforcement Administration")
+        self.assertTrue(entity.id == "DEA")
+        self.assertTrue(entity.name == "Drug Enforcement Administration")
     
     def test_new_Org_entity2(self):
-        assert True;
+        entity = wc.Organization(kindd = "federal agency", dateFounded = "9/9/99")
+        self.assertTrue(entity.kindd == "federal agency")
+        self.assertTrue(entity.dateFounded == "9/9/99")
     
     def test_new_Org_entity3(self):
-        assert True;
-    
+        entity = wc.Organization(location = "Virginia, USA")
+        self.assertTrue(entity.location == "Virginia, USA")
+
     def test_new_Person_entity1(self):
-        assert True;
+    	entity = wc.Person(id = "Dalai", name = "Dalai Lama")
+        self.assertTrue(entity.id == "Dalai")
+        self.assertTrue(entity.name == "Dalai Lama")
     
     def test_new_person_entity2(self):
-        assert True;
+        entity = wc.Person(birthday = "July 6, 1935", nationality = "Tibet")
+        self.assertTrue(entity.birthday == "July 6, 1935")
+        self.assertTrue(entity.nationality == "Tibet")
         
     def test_new_person_entity3(self):
-        assert True;
+        entity = wc.Person(description = "14th and current head of Tibetan Buddhism")
+        self.assertTrue(entity.description == "14th and current head of Tibetan Buddhism")
             
