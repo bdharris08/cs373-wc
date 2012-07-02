@@ -52,7 +52,7 @@ Group Member Point Adjustment: <only if you're leader>
 
 Group Member First Name:       Elizabeth
 Group Member Last Name:        Hayden
-Group Member EID:              
+Group Member EID:              eh7984
 Group Member E-mail:           23beth@gmail.com
 Group Member Rating:           <from the list below>
 Group Member Point Adjustment: <only if you're leader>
