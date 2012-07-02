@@ -86,26 +86,53 @@ class webTest(unittest.TestCase):
         self.assertTrue('<worldCrises>' in response)
     '''
    
-"""        
+       
 class ModelTest(unittest.TestCase):
+    def test_new_Images_entity(self):
+        entity = wc.Images(urls = ["link"], titles = ["title"])
+        self.assertTrue(entity.urls == ["link"])
+        self.assertTrue(entity.titles == ["title"])
+    
+    def test_new_Videos_entity(self):
+        entity = wc.Videos(urls = ["video"], titles = ["title", "title1"])
+        self.assertTrue(entity.urls == ["video"])
+        self.assertTrue(entity.titles[1] == "title1")
+    
+    def test_new_Socials_entity(self):
+        entity = wc.Socials(urls = ["twitter.com"], titles = ["useless"])
+        self.assertTrue(entity.urls == ["twitter.com"] and entity.titles[0] == "useless")
+    
+    def test_new_ExtLinks_entity(self):
+        entity = wc.ExtLinks(urls = ["0", "1", "2", "3", "4"], titles = ["obamacare"])
+        self.assertTrue(entity.urls[2] == "2" and entity.titles[0] == "obamacare")
+
     def test_new_Crisis_entity1(self):
-        entity = model.Crisis()
-        self.assertEqual('', entity.)
+        entity = wc.Crisis(name = "crisis", location = "location")
+        self.assertTrue(entity.name == "crisis")
+        self.assertTrue(entity.location == "location")
         
     def test_new_Crisis_entity2(self):
-    
+        images = wc.Images()
+        entity = wc.Crisis()
+           
     def test_new_Crisis_entity3(self):
+        assert True;
     
     def test_new_Org_entity1(self):
+        assert True;
     
     def test_new_Org_entity2(self):
+        assert True;
     
     def test_new_Org_entity3(self):
+        assert True;
     
     def test_new_Person_entity1(self):
+        assert True;
     
     def test_new_person_entity2(self):
-    
-    def test_new_person_entity3(self):"""
-    
+        assert True;
+        
+    def test_new_person_entity3(self):
+        assert True;
             
