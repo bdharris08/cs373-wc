@@ -17,7 +17,7 @@ Google App Engine URL:  jontitan-cs373-wc.appspot.com
 
 Group Member First Name:       Rohan
 Group Member Last Name:        Shah
-Group Member EID:              
+Group Member EID:              rss873
 Group Member E-mail:           rohan8@gmail.com
 Group Member Rating:           <from the list below>
 Group Member Point Adjustment: <only if you're leader>
