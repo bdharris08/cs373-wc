@@ -2,14 +2,15 @@ application: jontitan-cs373-wc
 version: 1
 runtime: python27
 api_version: 1
-threadsafe: true
+threadsafe: false
 
 handlers:
+- url: /test.*
+  script: gaeunit.py
 - url: /.*
   script: wc.app
-- url: /test.*
-  login: admin
-  script: gaeunit.py
 libraries:
 - name: jinja2
+  version: latest
+- name: django
   version: latest

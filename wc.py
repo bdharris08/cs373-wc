@@ -120,151 +120,156 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     plist = [p1,p2,p3,p4]
     
     count = 0
-    for c in crises:
-        it = c.iter()
-        clist[count].id = it.next().get("id")
-        clist[count].name = it.next().text
-        clist[count].kindd = it.next().text
-        clist[count].description = it.next().text
-        clist[count].date = it.next().text
-        clist[count].location = it.next().text
-        clist[count].humanImpact = it.next().text
-        clist[count].economicImpact = it.next().text
-        clist[count].resourceNeeded = it.next().text
-        clist[count].wayToHelp = it.next().text
-        images = Images()
-        videos = Videos()
-        socials = Socials()
-        extLinks = ExtLinks()
-        while(True):
-            x = it.next().text
-            if (x == "image"):
-                images.urls.append(it.next().text)
-                images.titles.append(it.next().text)
-            elif (x == "video"):
-                videos.urls.append(it.next().text)
-                videos.titles.append(it.next().text)
-            elif (x == "social"):
-                socials.urls.append(it.next().text)
-                socials.titles.append(it.next().text)
-            elif (x == "extLink"):
-                extLinks.urls.append(it.next().text)
-                extLinks.titles.append(it.next().text)
-            else :
-                images.put()
-                videos.put()
-                socials.put()
-                extLinks.put()
-                clist[count].organizationRef = x
-                clist[count].personRef = it.next().text
-                break
-                
-        clist[count].images = images
-        clist[count].videos = videos
-        clist[count].socials = socials
-        clist[count].extLinks = extLinks
-        count+= 1
-    
-    count = 0            
-    for o in organizations:
-        it = o.iter()
-        olist[count].id = it.next().get("id")
-        olist[count].name = it.next().text
-        olist[count].kindd = it.next().text
-        olist[count].description = it.next().text
-        olist[count].dateFounded = it.next().text
-        olist[count].location = it.next().text
-        olist[count].humanImpact = it.next().text
-        olist[count].economicImpact = it.next().text
-        olist[count].resourceNeeded = it.next().text
-        olist[count].wayToHelp = it.next().text
-        images = Images()
-        videos = Videos()
-        socials = Socials()
-        extLinks = ExtLinks()
-        while(True):
-            x = it.next().text
-            if (x == "image"):
-                images.urls.append(it.next().text)
-                images.titles.append(it.next().text)
-            elif (x == "video"):
-                videos.urls.append(it.next().text)
-                videos.titles.append(it.next().text)
-            elif (x == "social"):
-                socials.urls.append(it.next().text)
-                socials.titles.append(it.next().text)
-            elif (x == "extLink"):
-                extLinks.urls.append(it.next().text)
-                extLinks.titles.append(it.next().text)
-            else :
-                images.put()
-                videos.put()
-                socials.put()
-                extLinks.put()
-                olist[count].crisisRef = x
-                olist[count].personRef = it.next().text
-                break
-                
-        olist[count].images = images
-        olist[count].videos = videos
-        olist[count].socials = socials
-        olist[count].extLinks = extLinks
-        count+= 1
+    try:
+        for c in crises:
+            it = c.iter()
+            clist[count].id = it.next().get("id")
+            clist[count].name = it.next().text
+            clist[count].kindd = it.next().text
+            clist[count].description = it.next().text
+            clist[count].date = it.next().text
+            clist[count].location = it.next().text
+            clist[count].humanImpact = it.next().text
+            clist[count].economicImpact = it.next().text
+            clist[count].resourceNeeded = it.next().text
+            clist[count].wayToHelp = it.next().text
+            images = Images()
+            videos = Videos()
+            socials = Socials()
+            extLinks = ExtLinks()
+            while(True):
+                x = it.next().text
+                if (x == "image"):
+                    images.urls.append(it.next().text)
+                    images.titles.append(it.next().text)
+                elif (x == "video"):
+                    videos.urls.append(it.next().text)
+                    videos.titles.append(it.next().text)
+                elif (x == "social"):
+                    socials.urls.append(it.next().text)
+                    socials.titles.append(it.next().text)
+                elif (x == "extLink"):
+                    extLinks.urls.append(it.next().text)
+                    extLinks.titles.append(it.next().text)
+                else :
+                    images.put()
+                    videos.put()
+                    socials.put()
+                    extLinks.put()
+                    clist[count].organizationRef = x
+                    clist[count].personRef = it.next().text
+                    break
+                    
+            clist[count].images = images
+            clist[count].videos = videos
+            clist[count].socials = socials
+            clist[count].extLinks = extLinks
+            count+= 1
         
-    count = 0   
-    for p in people:
-        it = p.iter()
-        plist[count].id = it.next().get("id")
-        plist[count].name = it.next().text
-        plist[count].birthday = it.next().text
-        plist[count].nationality = it.next().text
-        plist[count].description = it.next().text
-        images = Images()
-        videos = Videos()
-        socials = Socials()
-        extLinks = ExtLinks()
-        while(True):
-            x = it.next().text
-            if (x == "image"):
-                images.urls.append(it.next().text)
-                images.titles.append(it.next().text)
-            elif (x == "video"):
-                videos.urls.append(it.next().text)
-                videos.titles.append(it.next().text)
-            elif (x == "social"):
-                socials.urls.append(it.next().text)
-                socials.titles.append(it.next().text)
-            elif (x == "extLink"):
-                extLinks.urls.append(it.next().text)
-                extLinks.titles.append(it.next().text)
-            else :
-                images.put()
-                videos.put()
-                socials.put()
-                extLinks.put()
-                plist[count].crisisRef = x
-                plist[count].personRef = it.next().text
-                break
-                
-        plist[count].images = images
-        plist[count].videos = videos
-        plist[count].socials = socials
-        plist[count].extLinks = extLinks
-        count+= 1
+        count = 0            
+        for o in organizations:
+            it = o.iter()
+            olist[count].id = it.next().get("id")
+            olist[count].name = it.next().text
+            olist[count].kindd = it.next().text
+            olist[count].description = it.next().text
+            olist[count].dateFounded = it.next().text
+            olist[count].location = it.next().text
+            olist[count].humanImpact = it.next().text
+            olist[count].economicImpact = it.next().text
+            olist[count].resourceNeeded = it.next().text
+            olist[count].wayToHelp = it.next().text
+            images = Images()
+            videos = Videos()
+            socials = Socials()
+            extLinks = ExtLinks()
+            while(True):
+                x = it.next().text
+                if (x == "image"):
+                    images.urls.append(it.next().text)
+                    images.titles.append(it.next().text)
+                elif (x == "video"):
+                    videos.urls.append(it.next().text)
+                    videos.titles.append(it.next().text)
+                elif (x == "social"):
+                    socials.urls.append(it.next().text)
+                    socials.titles.append(it.next().text)
+                elif (x == "extLink"):
+                    extLinks.urls.append(it.next().text)
+                    extLinks.titles.append(it.next().text)
+                else :
+                    images.put()
+                    videos.put()
+                    socials.put()
+                    extLinks.put()
+                    olist[count].crisisRef = x
+                    olist[count].personRef = it.next().text
+                    break
+                    
+            olist[count].images = images
+            olist[count].videos = videos
+            olist[count].socials = socials
+            olist[count].extLinks = extLinks
+            count+= 1
+            
+        count = 0   
+        for p in people:
+            it = p.iter()
+            plist[count].id = it.next().get("id")
+            plist[count].name = it.next().text
+            plist[count].birthday = it.next().text
+            plist[count].nationality = it.next().text
+            plist[count].description = it.next().text
+            images = Images()
+            videos = Videos()
+            socials = Socials()
+            extLinks = ExtLinks()
+            while(True):
+                x = it.next().text
+                if (x == "image"):
+                    images.urls.append(it.next().text)
+                    images.titles.append(it.next().text)
+                elif (x == "video"):
+                    videos.urls.append(it.next().text)
+                    videos.titles.append(it.next().text)
+                elif (x == "social"):
+                    socials.urls.append(it.next().text)
+                    socials.titles.append(it.next().text)
+                elif (x == "extLink"):
+                    extLinks.urls.append(it.next().text)
+                    extLinks.titles.append(it.next().text)
+                else :
+                    images.put()
+                    videos.put()
+                    socials.put()
+                    extLinks.put()
+                    plist[count].crisisRef = x
+                    plist[count].personRef = it.next().text
+                    break
+                    
+            plist[count].images = images
+            plist[count].videos = videos
+            plist[count].socials = socials
+            plist[count].extLinks = extLinks
+            count+= 1
+            
+        #put all the models
+        c1.put()
+        c2.put()
+        c3.put()
+        c4.put()
+        o1.put()
+        o2.put()
+        o3.put()
+        o4.put()
+        p1.put()
+        p2.put()
+        p3.put()
+        p4.put()
+    except Exception as e:
+        self.redirect('/xmlerror')
         
-    #put all the models
-    c1.put()
-    c2.put()
-    c3.put()
-    c4.put()
-    o1.put()
-    o2.put()
-    o3.put()
-    o4.put()
-    p1.put()
-    p2.put()
-    p3.put()
-    p4.put()
+            
     
     #self.redirect('/serve/%s' % blob_info.key())
     #blobkey = blob_info.key()
