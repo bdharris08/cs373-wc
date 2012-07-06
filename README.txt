@@ -1,12 +1,12 @@
 Course Name: CS373
 Unique: 91055
 
-First Name:
-Last Name:
-EID:
-E-mail:
-Estimated number of hours:
-Actual    number of hours:
+First Name:             Benjamin
+Last Name:              Harris
+EID:                    bdh729
+E-mail:                 harris.benjamin@utexas.edu
+Estimated number of hours: 15
+Actual    number of hours: ~20
 
 Turnin CS Username:     rss873
 GitHub ID:              bdharris08
@@ -19,42 +19,35 @@ Group Member First Name:       Rohan
 Group Member Last Name:        Shah
 Group Member EID:              rss873
 Group Member E-mail:           rohan8@gmail.com
-Group Member Rating:           <from the list below>
+Group Member Rating:           Very Good
 Group Member Point Adjustment: <only if you're leader>
 
 Group Member First Name:       Ting-yi
 Group Member Last Name:        Chen
 Group Member EID:              tc8436
 Group Member E-mail:           jontitan@gmail.com
-Group Member Rating:           <from the list below>
-Group Member Point Adjustment: <only if you're leader>
-
-Group Member First Name:       Benjamin
-Group Member Last Name:        Harris
-Group Member EID:              bdh729
-Group Member E-mail:           harris.benjamin@utexas.edu
-Group Member Rating:           <from the list below>
+Group Member Rating:           Excellent
 Group Member Point Adjustment: <only if you're leader>
 
 Group Member First Name:       Matthew
 Group Member Last Name:        Granado
 Group Member EID:              mjg2243
 Group Member E-mail:           mattg@utexas.edu
-Group Member Rating:           <from the list below>
+Group Member Rating:           Very Good
 Group Member Point Adjustment: <only if you're leader>
 
 Group Member First Name:       Victor
 Group Member Last Name:        Pang
 Group Member EID:              vhp75
 Group Member E-mail:           v.h.pang@gmail.com
-Group Member Rating:           <from the list below>
+Group Member Rating:           Very Good
 Group Member Point Adjustment: <only if you're leader>
 
 Group Member First Name:       Elizabeth
 Group Member Last Name:        Hayden
 Group Member EID:              eh7984
 Group Member E-mail:           23beth@gmail.com
-Group Member Rating:           <from the list below>
+Group Member Rating:           Satisfactory - joined group late due to class stuff
 Group Member Point Adjustment: <only if you're leader>
 
 Comments:
