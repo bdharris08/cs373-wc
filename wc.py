@@ -99,6 +99,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     blob_reader = blob_info.open()
     other_blob_reader = blob_info.open()
     tree = ElementTree()
+    
     try:
         assert blob_info.content_type == "text/xml"
     except Exception as e:
@@ -568,32 +569,101 @@ class ServeHandler(blobstore_handlers.BlobstoreDownloadHandler):
         blob_info = blobstore.BlobInfo.get(resource)
         self.send_blob(blob_info)
     
-class date(db.Model):
+    
+    
+
+class Crisis (db.Model):
+    name = db.StringProperty()
+    #info
+    #ref
+    misc = db.StringProperty()
+    orgs = db.ListProperty(db.Key)
+    person = db.ListProperty(db.Key)
+    
+class Organization(db.Model):
+    name = db.StringProperty()
+    #info
+    #ref  
+    misc = db.StringProperty()
+    crisis = db.ListProperty(db.Key)
+    person = db.ListProperty(db.Key)
+    
+class Person(db.Model):
+    name = db.StringProperty()
+    #info
+    #ref
+    misc = db.StringProperty()
+    crisis = db.ListProperty(db.Key)
+    org = db.ListProperty(db.Key)
+    
+class CrisisInfo (db.Model):
+    crisis = db.ReferenceProperty(Crisis, collection_name = 'info')
+    history = db.StringProperty()
+    help = db.StringProperty()
+    type = db.StringProperty() 
+    #time
+    #location
+    #humanImpact
+    #economicImpact
+    
+class OrgInfo (db.Model):
+    organization = db.ReferenceProperty(Organization, collection_name = 'info')
+    type = db.StringProperty()
+    history = db.StringProperty() 
+    #contact
+    #location
+    
+class PersonInfo (db.Model):
+    person = db.ReferenceProperty(Person, collection_name = 'info')
+    type = db.StringProperty()
+    #birthdate
+    nationality = db.StringProperty() 
+    biography = db.StringProperty()
+
+    
+class ExternalLink (db.Model):
+    crisis = db.ReferenceProperty(Crisis, collection_name = 'ref')
+    organization = db.ReferenceProperty(Organization, collection_name = 'ref')
+    person = db.ReferenceProperty(Person, collection_name = 'ref')
+    ref_type = db.StringProperty(choices=('primaryImage', 'image', 'video', 'social', 'ext'))
+    site = db.StringProperty()
+    title = db.StringProperty()
+    url = db.LinkProperty()
+    description = db.StringProperty()
+    
+    
+class Date(db.Model):
+    crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'date')
+    personInfo = db.ReferenceProperty(PersonInfo, collection_name = 'birthdate')
     time = db.StringProperty()
     day = db.IntegerProperty()
     month = db.IntegerProperty()
     year = db.IntegerProperty()
     misc = db.StringProperty()
     
-
-class location (db.Model):
+class Location (db.Model):
+    crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'location')
+    orgInfo = db.ReferenceProperty(OrgInfo, collection_name = 'location')
     city = db.StringProperty()
     region = db.StringProperty()
     country = db.StringProperty() 
-       
-class fullAddr (db.Model):
+
+class Contact (db.Model):
+    orgInfo = db.ReferenceProperty(OrgInfo, collection_name = 'contact')
+    phone = db.StringProperty()
+    email = db.StringProperty()
+    #mail
+           
+class FullAddr (db.Model):
+    contact = db.ReferenceProperty(Contact, collection_name = 'mail')
     address = db.StringProperty()
     city = db.StringProperty()
     state = db.StringProperty()
     country = db.StringProperty()
     zip = db.StringProperty()
-    
-class contact (db.Model):
-    phone = db.StringProperty()
-    email = db.StringProperty()
-    mail = db.ReferenceProperty(reference_class=fullAddr)
-    
+
 class humanImpact (db.Model):
+    crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'humanImpact')
     death = db.IntegerProperty()
     displaced = db.IntegerProperty()
     injured = db.IntegerProperty()
@@ -601,74 +671,11 @@ class humanImpact (db.Model):
     misc = db.StringProperty()
     
 class economicImpact (db.Model):
+    crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'economicImpact')
     amount = db.IntegerProperty()
     currency = db.StringProperty()
     misc = db.StringProperty()
     
-class impact (db.Model):
-    human = db.ReferenceProperty(reference_class=humanImpact)
-    economic = db.ReferenceProperty(reference_class=economicImpact)
-
-class external (db.Model):
-    site = db.StringProperty()
-    title = db.StringProperty()
-    url = db.LinkProperty()
-    description = db.StringProperty()
-    
-class externalLink (db.Model):
-    primaryImage = db.ReferenceProperty(reference_class=external)
-    image = db.ReferenceProperty(reference_class=external)
-    video = db.ReferenceProperty(reference_class=external)
-    social = db.ReferenceProperty(reference_class=external)
-    ext = db.ReferenceProperty(reference_class=external)
-
-class crisisInfo (db.Model):
-    history = db.StringProperty()
-    help = db.StringProperty()
-    type = db.StringProperty() 
-    time = db.ReferenceProperty(reference_class=date)
-    location = db.ReferenceProperty(reference_class=location)
-    impact = db.ReferenceProperty(reference_class=impact)
-    
-class orgInfo (db.Model):
-    type = db.StringProperty()
-    history = db.StringProperty() 
-    contact = db.ReferenceProperty(reference_class=contact)
-    location = db.ReferenceProperty(reference_class=location)
-    
-class personInfo (db.Model):
-    type = db.StringProperty()
-    birthdate = db.ReferenceProperty(reference_class=date)
-    nationality = db.StringProperty() 
-    biography = db.StringProperty()
-    
-
-class crisis (db.Model):
-    name = db.StringProperty()
-    info = db.ReferenceProperty(reference_class=crisisInfo)
-    ref = db.ReferenceProperty(reference_class=externalLink)
-    misc = db.StringProperty()
-    org = db.ReferenceProperty()
-    person = db.ReferenceProperty()
-    
-class organization(db.Model):
-    name = db.StringProperty()
-    info = db.ReferenceProperty(reference_class=orgInfo)
-    ref = db.ReferenceProperty(reference_class=externalLink)
-    misc = db.StringProperty()
-    crisis = db.ReferenceProperty()
-    person = db.ReferenceProperty()
-    
-class Person(db.Model):
-    name = db.StringProperty()
-    info = db.ReferenceProperty(reference_class=personInfo)
-    ref = db.ReferenceProperty(reference_class=externalLink)
-    misc = db.StringProperty()
-    crisis = db.ReferenceProperty()
-    org = db.ReferenceProperty()
-    
-    
-
 
 
 app = webapp2.WSGIApplication([('/', MainPage), ('/tibet', tibet), ('/gec', gec), 
