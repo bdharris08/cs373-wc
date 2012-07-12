@@ -294,10 +294,12 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     assert(people != [])
     
     wc = WorldCrises()
+    wc.put()
     
     for c in crises:
         
         crisis = Crisis()
+        crisis.worldCrises = wc
         crisis.id = c.get("id")
         crisis.name = c.find("name").text
         crisis.put()
@@ -406,8 +408,17 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
             ref.description = i.find("description").text
             ref.put()
             
+        
     
+            
+    x = wc.crises
     
+    for c in x :
+        print c.name + "<br>"
+        for i in c.info :
+            print i.properties()
+            print "<br>"
+        
     
     
     #self.redirect('/serve/%s' % blob_info.key())
