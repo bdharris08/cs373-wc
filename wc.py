@@ -105,249 +105,170 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     except Exception as e:
         self.redirect("/xmlerror")
         
-        
     xsdText = """<?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
- elementFormDefault="qualified">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<xsd:element name="worldCrises">
+    <xsd:complexType>
+        <xsd:sequence>
+            <xsd:element name="crisis" type="crisisType"  maxOccurs="unbounded"/>
+            <xsd:element name="organization" type="organizationType"  maxOccurs="unbounded"/>
+            <xsd:element name="person" type="personType"  maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:element>
  
-<xs:element name="worldCrises">
-	<xs:complexType>
-		<xs:sequence>
-			<xs:element name="crises"        type="crisesType" />
-			<xs:element name="organizations" type="organizationsType" />
-			<xs:element name="people"        type="peopleType" />
-        </xs:sequence>
-	</xs:complexType>
-</xs:element>
+<xsd:complexType name = "crisisType">
+    <xsd:sequence>
+        <xsd:element name="name" type="xsd:normalizedString"/>
+        <xsd:element name="info" type="crisisInfoType"/>
+        <xsd:element name="ref" type="extLinkType"/>
+        <xsd:element name="misc" type="xsd:string"/>
+        <xsd:element name="org" type="referenceType" maxOccurs="unbounded"/>
+        <xsd:element name="person" type="referenceType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:ID" use="required"/>
+</xsd:complexType>
+ 
+<xsd:complexType name="organizationType">
+    <xsd:sequence>
+        <xsd:element name="name" type="xsd:normalizedString"/>
+        <xsd:element name="info" type="orgInfoType"/>
+        <xsd:element name="ref" type="extLinkType"/>
+        <xsd:element name="misc" type="xsd:string"/>
+        <xsd:element name="crisis" type="referenceType" maxOccurs="unbounded"/>
+        <xsd:element name="person" type="referenceType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:ID" use="required"/>
+</xsd:complexType>
 
-<xs:complexType name="crisesType">
-	<xs:sequence>
-		<xs:element name="crisis" type="crisisType" minOccurs="1" maxOccurs="unbounded" />
-	</xs:sequence>
-</xs:complexType>
+<xsd:complexType name="personType">  
+    <xsd:sequence>
+        <xsd:element name="name" type="xsd:normalizedString"/>
+        <xsd:element name="info" type="personInfoType"/>
+        <xsd:element name="ref" type="extLinkType"/>
+        <xsd:element name="misc" type="xsd:string"/>
+        <xsd:element name="crisis" type="referenceType" maxOccurs="unbounded"/>
+        <xsd:element name="org" type="referenceType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="id" type="xsd:ID" use="required"/>
+</xsd:complexType>
 
-<xs:complexType name="organizationsType">
-	<xs:sequence>
-		<xs:element name="organization" type="organizationType" minOccurs="1" maxOccurs="unbounded" />
-	</xs:sequence>
-</xs:complexType>
+<xsd:complexType name="locationType">
+    <xsd:sequence>
+        <xsd:element name="city" type="xsd:normalizedString"/>
+        <xsd:element name="region" type="xsd:normalizedString"/>
+        <xsd:element name="country" type="xsd:normalizedString"/>
+    </xsd:sequence>
+</xsd:complexType>
 
-<xs:complexType name="peopleType">
-	<xs:sequence>
-		<xs:element name="person" type="personType" minOccurs="1" maxOccurs="unbounded" />
-	</xs:sequence>
-</xs:complexType>
+<xsd:complexType name="dateType">
+    <xsd:sequence>
+        <xsd:element name="time" type="xsd:string"/>
+        <xsd:element name="day" type="xsd:integer"/>
+        <xsd:element name="month" type="xsd:integer"/>
+        <xsd:element name="year" type="xsd:integer"/>
+        <xsd:element name="misc" type="xsd:string"/>
+    </xsd:sequence>
+</xsd:complexType>
 
-<xs:complexType name="crisisType">
+<xsd:complexType name="crisisInfoType">
+    <xsd:sequence>
+        <xsd:element name="history" type="xsd:string"/>
+        <xsd:element name="help" type="xsd:string"/>
+        <xsd:element name="resources" type="xsd:string"/>
+        <xsd:element name="type" type="xsd:normalizedString"/>
+        <xsd:element name="time" type="dateType"/>
+        <xsd:element name="loc" type="locationType"/>
+        <xsd:element name="impact" type="impactType"/>   
+    </xsd:sequence>
+</xsd:complexType>
 
-<xs:sequence>
-<xs:element name="name" type="xs:normalizedString" />
+<xsd:complexType name="orgInfoType">
+    <xsd:sequence>
+        <xsd:element name="type" type="xsd:string"/>
+        <xsd:element name="history" type="xsd:string"/>
+        <xsd:element name="contact" type="contactsType"/>
+        <xsd:element name="loc" type="locationType"/>
+    </xsd:sequence>
+</xsd:complexType>
 
-<xs:element name="kind" type="xs:normalizedString" />
+<xsd:complexType name="personInfoType">
+    <xsd:sequence>
+        <xsd:element name="type" type="xsd:normalizedString"/>
+        <xsd:element name="birthdate" type="dateType"/>
+        <xsd:element name="nationality" type="xsd:normalizedString"/>
+        <xsd:element name="biography" type="xsd:string"/>
+    </xsd:sequence>
+</xsd:complexType>
 
-<xs:element name="description" type="xs:string" />
+<xsd:complexType name="fulladdrType">
+    <xsd:sequence>
+        <xsd:element name="address" type="xsd:string"/>
+        <xsd:element name="city" type="xsd:normalizedString"/>
+        <xsd:element name="state" type="xsd:normalizedString"/>
+        <xsd:element name="country" type="xsd:normalizedString"/>
+        <xsd:element name="zip" type="xsd:normalizedString"/>
+    </xsd:sequence>
+</xsd:complexType>
 
-<xs:element name="date">
-<xs:complexType>
-<xs:simpleContent>
-<xs:extension base="xs:normalizedString">
-<xs:attribute name="note" type="xs:normalizedString" use="optional" />
-</xs:extension></xs:simpleContent>
-</xs:complexType>
-</xs:element>
+<xsd:complexType name="contactsType">
+    <xsd:sequence>
+        <xsd:element name="phone" type="xsd:normalizedString"/>
+        <xsd:element name="email" type="xsd:normalizedString"/>
+        <xsd:element name="mail" type="fulladdrType"/>
+    </xsd:sequence>
+</xsd:complexType>
 
-<xs:element name="location" type="xs:normalizedString" />
+<xsd:complexType name="impactType">
+    <xsd:sequence>
+        <xsd:element name="human" type="humanImpType"/>
+        <xsd:element name="economic" type="econImpType"/>
+    </xsd:sequence>
+</xsd:complexType>
 
-<xs:element name="humanImpact" minOccurs="1" maxOccurs="unbounded">
-<xs:complexType>
-<xs:simpleContent>
-<xs:extension base="xs:string">
-</xs:extension></xs:simpleContent>
-</xs:complexType>
-</xs:element>
+<xsd:complexType name="humanImpType">
+    <xsd:sequence>
+        <xsd:element name="deaths" type="xsd:integer"/>
+        <xsd:element name="displaced" type="xsd:integer"/>
+        <xsd:element name="injured" type="xsd:integer"/>
+        <xsd:element name="missing" type="xsd:integer"/>
+        <xsd:element name="misc" type="xsd:string"/>
+    </xsd:sequence>
+</xsd:complexType>
 
-<xs:element name="economicImpact" minOccurs="1" maxOccurs="unbounded">
-<xs:complexType>
-<xs:simpleContent>
-<xs:extension base="xs:string">
-</xs:extension></xs:simpleContent>
-</xs:complexType>
-</xs:element>
+<xsd:complexType name="econImpType">
+    <xsd:sequence>
+        <xsd:element name="amount" type="xsd:integer"/>
+        <xsd:element name="currency" type="xsd:normalizedString"/>
+        <xsd:element name="misc" type="xsd:string"/>
+    </xsd:sequence>
+</xsd:complexType>
+   
+<xsd:complexType name="extType">
+    <xsd:sequence>
+        <xsd:element name="site" type="xsd:normalizedString"/>
+        <xsd:element name="title" type="xsd:normalizedString"/>
+        <xsd:element name="url" type="xsd:token"/>
+        <xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+</xsd:complexType>
 
-<xs:element name="resourceNeeded" minOccurs="1" maxOccurs="unbounded">
-<xs:complexType>
-<xs:simpleContent>
-<xs:extension base="xs:string">
-</xs:extension></xs:simpleContent>
-</xs:complexType>
-</xs:element>
+<xsd:complexType name="extLinkType">
+    <xsd:sequence>
+        <xsd:element name="primaryImage" type="extType" />
+        <xsd:element name="image" type="extType" minOccurs="1" maxOccurs="unbounded"/>
+        <xsd:element name="video" type="extType" minOccurs="1" maxOccurs="unbounded"/>
+        <xsd:element name="social" type="extType" minOccurs="1" maxOccurs="unbounded"/>
+        <xsd:element name="ext" type="extType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+</xsd:complexType>
 
-<xs:element name="wayToHelp" minOccurs="1" maxOccurs="unbounded">
-<xs:complexType>
-<xs:simpleContent>
-<xs:extension base="xs:string">
-</xs:extension></xs:simpleContent>
-</xs:complexType>
-</xs:element>
+<xsd:complexType name="referenceType">
+    <xsd:attribute name="idref" type="xsd:IDREF" use="required"/>
+</xsd:complexType>
 
-<xs:group ref="externals" />
-
-<xs:element name="organizationRef" minOccurs="1" maxOccurs="unbounded">	
-<xs:complexType>
-<xs:simpleContent>
-<xs:extension base="xs:IDREF">
-<xs:attribute name="note" type="xs:normalizedString" use="optional" />
-</xs:extension></xs:simpleContent>
-</xs:complexType>
-</xs:element>
-
-<xs:element name="personRef" minOccurs="1" maxOccurs="unbounded">
-<xs:complexType>
-<xs:simpleContent>
-<xs:extension base="xs:IDREF">
-<xs:attribute name="note" type="xs:normalizedString" use="optional" />
-</xs:extension></xs:simpleContent>
-</xs:complexType>
-</xs:element>
-
-</xs:sequence>
-
-<xs:attribute name="id" type="xs:ID" use="required" />
-</xs:complexType>
-
-<xs:complexType name="organizationType">
-
-	<xs:sequence>
-		<xs:element name="name" type="xs:normalizedString" />
-
-		<xs:element name="kind" type="xs:normalizedString" />
-
-		<xs:element name="description" type="xs:string" />
-		
-		<xs:element name="relationToCrisis" type="xs:string" />
-
-		<xs:element name="dateFounded" type="xs:normalizedString" />
-
-		<xs:element name="location" minOccurs="1" maxOccurs="unbounded">
-			<xs:complexType>
-			 <xs:simpleContent>
-			  <xs:extension base="xs:normalizedString">
-			   <xs:attribute name="note" type="xs:normalizedString" use="optional" />
-			  </xs:extension></xs:simpleContent>
-			</xs:complexType>
-		</xs:element>
-
-		<xs:group ref="externals" />
-
-		<xs:element name="crisisRef" minOccurs="1" maxOccurs="unbounded">
-			<xs:complexType>
-			 <xs:simpleContent>
-			  <xs:extension base="xs:IDREF">
-			   <xs:attribute name="note" type="xs:normalizedString" use="optional" />
-			  </xs:extension></xs:simpleContent>
-			</xs:complexType>
-		</xs:element>
-
-		<xs:element name="personRef" minOccurs="1" maxOccurs="unbounded">
-			<xs:complexType>
-			 <xs:simpleContent>
-			  <xs:extension base="xs:IDREF">
-			   <xs:attribute name="note" type="xs:normalizedString" use="optional" />
-			  </xs:extension></xs:simpleContent>
-			</xs:complexType>
-		</xs:element>
-
-	</xs:sequence>
-	<xs:attribute name="id" type="xs:ID" use="required" />
-</xs:complexType>
-
-<xs:complexType name="personType">
-	
-	<xs:sequence>
-		<xs:element name="name" type="xs:normalizedString" />
-		
-		<xs:element name="kind" type="xs:normalizedString" />
-        
-        <xs:element name="birthday" type="xs:normalizedString" />
-        
-        <xs:element name="nationality" type="xs:normalizedString" />
-		
-		<xs:element name="description" type="xs:normalizedString" />
-		
-		<xs:group ref="externals" />
-		
-		<xs:element name="organizationRef" minOccurs="1" maxOccurs="unbounded">
-			<xs:complexType>
-			 <xs:simpleContent>
-			  <xs:extension base="xs:IDREF">
-			   <xs:attribute name="note" type="xs:normalizedString" use="optional" />
-			  </xs:extension></xs:simpleContent>
-			</xs:complexType>
-		</xs:element>
-		
-		<xs:element name="crisisRef" minOccurs="1" maxOccurs="unbounded">
-			<xs:complexType>
-			 <xs:simpleContent>
-			  <xs:extension base="xs:IDREF">
-			   <xs:attribute name="note" type="xs:normalizedString" use="optional" />
-			  </xs:extension></xs:simpleContent>
-			</xs:complexType>
-		</xs:element>
-		
-	</xs:sequence>
-	<xs:attribute name="id" type="xs:ID" use="required" />
-</xs:complexType>
-
-<xs:group name="externals">
-	<xs:sequence>
-		<xs:element name="image"   type="imageType" minOccurs="1" maxOccurs="unbounded"   />
-		<xs:element name="video"   type="videoType" minOccurs="1" maxOccurs="unbounded"   />
-		<xs:element name="social"  type="socialType" minOccurs="1" maxOccurs="unbounded"  />
-		<xs:element name="extLink" type="extLinkType" minOccurs="1" maxOccurs="unbounded" />
-	</xs:sequence>
-</xs:group>
-
-<xs:complexType name="imageType">
-	<xs:sequence>
-		<xs:element name="link" type="xs:token" />
-		<xs:element name="title" type="xs:normalizedString" />
-		<xs:element name="description" type="xs:normalizedString" minOccurs="0" maxOccurs="1"/>
-	</xs:sequence>
-	<xs:attribute name="kind" type="xs:normalizedString" />
-	
-</xs:complexType>
-
-<xs:complexType name="videoType">
-	
-	<xs:sequence>
-		<xs:element name="link" type="xs:token" />
-		<xs:element name="title" type="xs:normalizedString" />
-		<xs:element name="description" type="xs:normalizedString" minOccurs="0" maxOccurs="1" />
-	</xs:sequence>
-	
-	<xs:attribute name="kind" type="xs:normalizedString" />
-</xs:complexType>
-
-<xs:complexType name="socialType">
-	
-	<xs:sequence>
-		<xs:element name="link" type="xs:token" />
-		<xs:element name="title" type="xs:normalizedString" />
-		<xs:element name="description" type="xs:normalizedString" minOccurs="0" maxOccurs="1" />
-	</xs:sequence>
-	
-	<xs:attribute name="kind" type="xs:normalizedString" />
-	
-</xs:complexType>
-
-<xs:complexType name="extLinkType">
-	<xs:sequence>
-		<xs:element name="link" type="xs:token" />
-		<xs:element name="title" type="xs:normalizedString" />
-		<xs:element name="description" type="xs:normalizedString" minOccurs="0" maxOccurs="1" />
-	</xs:sequence>
-</xs:complexType>
-</xs:schema>
+</xsd:schema>
 """    
         
     try:
@@ -365,181 +286,133 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     tree.parse(blob_reader)
     
 
-    crises = tree.findall("crises/crisis")
-    organizations = tree.findall("organizations/organization")
-    people = tree.findall("people/person")
+    crises = tree.findall("crisis")
+    assert(crises != [])
+    organizations = tree.findall("organization")
+    assert(organizations != [])
+    people = tree.findall("person")
+    assert(people != [])
     
-    c1 = Crisis()
-    c2 = Crisis()
-    c3 = Crisis()
-    c4 = Crisis()
-    clist = [c1, c2, c3, c4]
-    o1 = Organization()
-    o2 = Organization()
-    o3 = Organization()
-    o4 = Organization()
-    olist = [o1, o2, o3, o4]
-    p1 = Person()
-    p2 = Person()
-    p3 = Person()
-    p4 = Person()
-    plist = [p1,p2,p3,p4]
+    wc = WorldCrises()
     
-    count = 0
-    try:
-        for c in crises:
-            it = c.iter()
-            clist[count].id = it.next().get("id")
-            clist[count].name = it.next().text
-            clist[count].kindd = it.next().text
-            clist[count].description = it.next().text
-            clist[count].date = it.next().text
-            clist[count].location = it.next().text
-            clist[count].humanImpact = it.next().text
-            clist[count].economicImpact = it.next().text
-            clist[count].resourceNeeded = it.next().text
-            clist[count].wayToHelp = it.next().text
-            images = Images()
-            videos = Videos()
-            socials = Socials()
-            extLinks = ExtLinks()
-            while(True):
-                x = it.next().text
-                if (x == "image"):
-                    images.urls.append(it.next().text)
-                    images.titles.append(it.next().text)
-                elif (x == "video"):
-                    videos.urls.append(it.next().text)
-                    videos.titles.append(it.next().text)
-                elif (x == "social"):
-                    socials.urls.append(it.next().text)
-                    socials.titles.append(it.next().text)
-                elif (x == "extLink"):
-                    extLinks.urls.append(it.next().text)
-                    extLinks.titles.append(it.next().text)
-                else :
-                    images.put()
-                    videos.put()
-                    socials.put()
-                    extLinks.put()
-                    clist[count].organizationRef = x
-                    clist[count].personRef = it.next().text
-                    break
-                    
-            clist[count].images = images
-            clist[count].videos = videos
-            clist[count].socials = socials
-            clist[count].extLinks = extLinks
-            count+= 1
+    for c in crises:
         
-        count = 0            
-        for o in organizations:
-            it = o.iter()
-            olist[count].id = it.next().get("id")
-            olist[count].name = it.next().text
-            olist[count].kindd = it.next().text
-            olist[count].description = it.next().text
-            olist[count].dateFounded = it.next().text
-            olist[count].location = it.next().text
-            olist[count].humanImpact = it.next().text
-            olist[count].economicImpact = it.next().text
-            olist[count].resourceNeeded = it.next().text
-            olist[count].wayToHelp = it.next().text
-            images = Images()
-            videos = Videos()
-            socials = Socials()
-            extLinks = ExtLinks()
-            while(True):
-                x = it.next().text
-                if (x == "image"):
-                    images.urls.append(it.next().text)
-                    images.titles.append(it.next().text)
-                elif (x == "video"):
-                    videos.urls.append(it.next().text)
-                    videos.titles.append(it.next().text)
-                elif (x == "social"):
-                    socials.urls.append(it.next().text)
-                    socials.titles.append(it.next().text)
-                elif (x == "extLink"):
-                    extLinks.urls.append(it.next().text)
-                    extLinks.titles.append(it.next().text)
-                else :
-                    images.put()
-                    videos.put()
-                    socials.put()
-                    extLinks.put()
-                    olist[count].crisisRef = x
-                    olist[count].personRef = it.next().text
-                    break
-                    
-            olist[count].images = images
-            olist[count].videos = videos
-            olist[count].socials = socials
-            olist[count].extLinks = extLinks
-            count+= 1
-            
-        count = 0   
-        for p in people:
-            it = p.iter()
-            plist[count].id = it.next().get("id")
-            plist[count].name = it.next().text
-            plist[count].birthday = it.next().text
-            plist[count].nationality = it.next().text
-            plist[count].description = it.next().text
-            images = Images()
-            videos = Videos()
-            socials = Socials()
-            extLinks = ExtLinks()
-            while(True):
-                x = it.next().text
-                if (x == "image"):
-                    images.urls.append(it.next().text)
-                    images.titles.append(it.next().text)
-                elif (x == "video"):
-                    videos.urls.append(it.next().text)
-                    videos.titles.append(it.next().text)
-                elif (x == "social"):
-                    socials.urls.append(it.next().text)
-                    socials.titles.append(it.next().text)
-                elif (x == "extLink"):
-                    extLinks.urls.append(it.next().text)
-                    extLinks.titles.append(it.next().text)
-                else :
-                    images.put()
-                    videos.put()
-                    socials.put()
-                    extLinks.put()
-                    plist[count].crisisRef = x
-                    plist[count].personRef = it.next().text
-                    break
-                    
-            plist[count].images = images
-            plist[count].videos = videos
-            plist[count].socials = socials
-            plist[count].extLinks = extLinks
-            count+= 1
-            
-        #put all the models
-        c1.put()
-        c2.put()
-        c3.put()
-        c4.put()
-        o1.put()
-        o2.put()
-        o3.put()
-        o4.put()
-        p1.put()
-        p2.put()
-        p3.put()
-        p4.put()
-    except Exception as e:
-        self.redirect('/xmlerror')
+        crisis = Crisis()
+        crisis.id = c.get("id")
+        crisis.name = c.find("name").text
+        crisis.put()
+        #print "dummy"
+        #print "id: " + crisis.id
+        #print "name: " + crisis.name
         
+        ci = c.find("info")
+        crisisInfo = CrisisInfo()
+        crisisInfo.crisis = crisis
+        crisisInfo.history = ci.find("history").text
+        crisisInfo.help = ci.find("help").text
+        crisisInfo.resources = ci.find("resources").text
+        crisisInfo.type = ci.find("type").text
+        crisisInfo.put()
+        
+        t = ci.find("time")
+        time = Date()
+        time.crisisInfo = crisisInfo
+        time.time = t.find("time").text
+        time.day = int(t.find("day").text)
+        time.month = int(t.find("month").text)
+        time.year = int(t.find("year").text)
+        time.misc = t.find("misc").text
+        time.put()
+        
+        l = ci.find("loc")
+        location = Location()
+        location.crsisInfo = crisisInfo
+        location.city = l.find("city").text
+        location.region = l.find("region").text
+        location.country = l.find("country").text
+        location.put()
+        
+        i = ci.find("impact")
+        
+        hi = i.find("human")
+        humanImpact = HumanImpact()
+        humanImpact.deaths = int(hi.find("deaths").text)
+        humanImpact.displaced = int(hi.find("displaced").text)
+        humanImpact.injured = int(hi.find("injured").text)
+        humanImpact.missing = int(hi.find("missing").text)
+        humanImpact.misc = hi.find("misc").text
+        humanImpact.put()
+        
+        ei = i.find("economic")
+        economicImpact = EconomicImpact()
+        economicImpact.amount = int(ei.find("amount").text)
+        economicImpact.currency = ei.find("currency").text
+        economicImpact.misc = ei.find("misc").text
+        economicImpact.put()
+        
+        r = c.find("ref")
+        
+        pi = r.find("primaryImage")
+        piRef = ExternalLink()
+        piRef.crisis = crisis
+        piRef.ref_type = "primaryImage"
+        piRef.site = pi.find("site").text
+        piRef.title = pi.find("title").text
+        piRef.url = pi.find("url").text
+        piRef.description = pi.find("description").text
+        piRef.put()
+        
+        image = r.findall("image")
+        for i in image:
+            ref = ExternalLink()
+            ref.crisis = crisis
+            ref.ref_type = "image"
+            ref.site = i.find("site").text
+            ref.title = i.find("title").text
+            ref.url = i.find("url").text
+            ref.description = i.find("description").text
+            ref.put()      
             
+        v = r.findall("video")
+        for i in v:
+            ref = ExternalLink()
+            ref.crisis = crisis
+            ref.ref_type = "video"
+            ref.site = i.find("site").text
+            ref.title = i.find("title").text
+            ref.url = i.find("url").text
+            ref.description = i.find("description").text
+            ref.put()
+            
+        s = r.findall("social")
+        for i in s:
+            ref = ExternalLink()
+            ref.crisis = crisis
+            ref.ref_type = "social"
+            ref.site = i.find("site").text
+            ref.title = i.find("title").text
+            ref.url = i.find("url").text
+            ref.description = i.find("description").text
+            ref.put()  
+    
+        e = r.findall("ext")
+        for i in e:
+            ref = ExternalLink()
+            ref.crisis = crisis
+            ref.ref_type = "ext"
+            ref.site = i.find("site").text
+            ref.title = i.find("title").text
+            ref.url = i.find("url").text
+            ref.description = i.find("description").text
+            ref.put()
+            
+    
+    
+    
     
     #self.redirect('/serve/%s' % blob_info.key())
     #blobkey = blob_info.key()
-    self.redirect('/')
+    #self.redirect('/')
 
 class ExportHandler(webapp.RequestHandler):
     def get(self):
@@ -570,9 +443,18 @@ class ServeHandler(blobstore_handlers.BlobstoreDownloadHandler):
         self.send_blob(blob_info)
     
     
+class WorldCrises (db.Model):
+    #crises
+    #organizations
+    #persons
+    countCrisis = db.IntegerProperty()
+    countOrg = db.IntegerProperty()
+    countPerson = db.IntegerProperty()
     
-
+    
 class Crisis (db.Model):
+    worldCrises = db.ReferenceProperty(WorldCrises , collection_name = 'crises')
+    id = db.StringProperty()
     name = db.StringProperty()
     #info
     #ref
@@ -581,6 +463,8 @@ class Crisis (db.Model):
     person = db.ListProperty(db.Key)
     
 class Organization(db.Model):
+    worldCrises  = db.ReferenceProperty(WorldCrises, collection_name = 'organizations')
+    id = db.StringProperty()
     name = db.StringProperty()
     #info
     #ref  
@@ -589,6 +473,8 @@ class Organization(db.Model):
     person = db.ListProperty(db.Key)
     
 class Person(db.Model):
+    worldCrises  = db.ReferenceProperty(WorldCrises, collection_name = 'persons')
+    id = db.StringProperty()
     name = db.StringProperty()
     #info
     #ref
@@ -597,9 +483,11 @@ class Person(db.Model):
     org = db.ListProperty(db.Key)
     
 class CrisisInfo (db.Model):
+    id = db.StringProperty()
     crisis = db.ReferenceProperty(Crisis, collection_name = 'info')
     history = db.StringProperty()
     help = db.StringProperty()
+    resources = db.StringProperty()
     type = db.StringProperty() 
     #time
     #location
@@ -607,6 +495,7 @@ class CrisisInfo (db.Model):
     #economicImpact
     
 class OrgInfo (db.Model):
+    id = db.StringProperty()
     organization = db.ReferenceProperty(Organization, collection_name = 'info')
     type = db.StringProperty()
     history = db.StringProperty() 
@@ -614,6 +503,7 @@ class OrgInfo (db.Model):
     #location
     
 class PersonInfo (db.Model):
+    id = db.StringProperty()
     person = db.ReferenceProperty(Person, collection_name = 'info')
     type = db.StringProperty()
     #birthdate
@@ -622,6 +512,7 @@ class PersonInfo (db.Model):
 
     
 class ExternalLink (db.Model):
+    id = db.StringProperty()
     crisis = db.ReferenceProperty(Crisis, collection_name = 'ref')
     organization = db.ReferenceProperty(Organization, collection_name = 'ref')
     person = db.ReferenceProperty(Person, collection_name = 'ref')
@@ -633,7 +524,8 @@ class ExternalLink (db.Model):
     
     
 class Date(db.Model):
-    crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'date')
+    id = db.StringProperty()
+    crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'time')
     personInfo = db.ReferenceProperty(PersonInfo, collection_name = 'birthdate')
     time = db.StringProperty()
     day = db.IntegerProperty()
@@ -642,6 +534,7 @@ class Date(db.Model):
     misc = db.StringProperty()
     
 class Location (db.Model):
+    id = db.StringProperty()
     crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'location')
     orgInfo = db.ReferenceProperty(OrgInfo, collection_name = 'location')
     city = db.StringProperty()
@@ -649,12 +542,14 @@ class Location (db.Model):
     country = db.StringProperty() 
 
 class Contact (db.Model):
+    id = db.StringProperty()
     orgInfo = db.ReferenceProperty(OrgInfo, collection_name = 'contact')
     phone = db.StringProperty()
     email = db.StringProperty()
     #mail
            
 class FullAddr (db.Model):
+    id = db.StringProperty()
     contact = db.ReferenceProperty(Contact, collection_name = 'mail')
     address = db.StringProperty()
     city = db.StringProperty()
@@ -662,15 +557,17 @@ class FullAddr (db.Model):
     country = db.StringProperty()
     zip = db.StringProperty()
 
-class humanImpact (db.Model):
+class HumanImpact (db.Model):
+    id = db.StringProperty()
     crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'humanImpact')
-    death = db.IntegerProperty()
+    deaths = db.IntegerProperty()
     displaced = db.IntegerProperty()
     injured = db.IntegerProperty()
     missing = db.IntegerProperty()
     misc = db.StringProperty()
     
-class economicImpact (db.Model):
+class EconomicImpact (db.Model):
+    id = db.StringProperty()
     crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'economicImpact')
     amount = db.IntegerProperty()
     currency = db.StringProperty()
