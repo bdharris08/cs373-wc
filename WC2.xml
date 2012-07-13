@@ -4,16 +4,16 @@
     <crisis id="bath_salts">
         <name>Bath Salts</name>
 		<info>
-			<history>A drug epidemic where users snort "bath salts" in order to get a high.</history>
+			<history>Bath Salts are legal designer drugs sold as "bath salts" where users snort the bath salts for a high similar to amphetamines. The chemicals in bath salts have been around for almost a century but in the last decade bath salts have emerged in mainstream America as a legal way to get "high." The drug first came to the attention of authorities in 2010 after reports from U.S. poison centers.</history>
 			<help>Raise awareness through word of mouth</help>
 			<resources>More drug rehabilitation centers</resources>
 			<type>Drug Epidemic</type>
 			<time>
 				<time></time>
-				<day>-1</day>
-				<month>-1</month>
-				<year>2003</year>
-				<misc></misc>
+				<day>21</day>
+				<month>12</month>
+				<year>2010</year>
+				<misc>Bath salt compounds have been around for at least a century, but did not become a national crisis until 2010 when the first warning was issued.</misc>
 			</time>
 			<loc>
 				<city></city>
@@ -22,14 +22,14 @@
 			</loc>
 			<impact>
 				<human>
-					<deaths>-1</deaths>
-					<displaced>-1</displaced>
-					<injured>-1</injured>
-					<missing>-1</missing>
-					<misc>According to a CDC report of bath salt abusers in Michigan, users not only experience psychological side effects -- there were physical ones too. In fact, 91 percent of users had neurological damage, while 77 percent experienced cardiovascular damage and 49 percent had psychological difficulties associated with the drug. Those difficulties could be severe: 37 percent of the people who suffered mental health problems reported attempting suicide or having suicidal thoughts, related to bath salts.</misc>
+					<deaths>0</deaths> <!-- Unsure -->
+					<displaced>0</displaced>
+					<injured>500</injured> <!-- Ballpark figure -->
+					<missing>0</missing>
+					<misc>According to a CDC report of bath salt abusers in Michigan, users not only experience psychological side effects -- there were physical ones too. In fact, 91 percent of users had neurological damage, while 77 percent experienced cardiovascular damage and 49 percent had psychological difficulties associated with the drug. Those difficulties could be severe: 37 percent of the people who suffered mental health problems reported attempting suicide or having suicidal thoughts, related to bath salts. It is unknown how many people have died of bath salts, if any.</misc>
 				</human>
 				<economic>
-					<amount>-1</amount>
+					<amount>0</amount>
 					<currency></currency>
 					<misc></misc>
 				</economic>
@@ -39,18 +39,18 @@
 			<primaryImage>
 				<site></site>
 				<title>Bath Salts</title>
-				<url>http://www.accessrx.com/blog/wp-content/uploads/2011/01/Bath-Salts-Lines.jpg"</url>
+				<url>http://www.radaronline.com/sites/radaronline.com/files/imagecache/350width/bath-salts-drugs.png</url>
 				<description></description>
 			</primaryImage>
 			<image>
 				<site></site>
-				<title></title>
-				<url></url>
-				<description></description>
+				<title>Bath Salts</title>
+				<url>http://media2.wptv.com//photo/2012/05/31/Designer_drugs8cdd7e33-58d0-477a-b9be-42b7ed4228ab0000_20120531232903_320_240.JPG</url>
+				<description>Picture of various brands of bath salts</description>
 			</image>
 			<video>
 				<site>Youtube</site>
-				<title></title>
+				<title>Bath Salts blamed for Zombie attack in Florida</title>
 				<url>http://www.youtube.com/embed/C0Q4dRzECUs</url>
 				<description>News segment on Bath Salts</description>
 			</video>
@@ -58,7 +58,7 @@
             	<site>Facebook</site>
                 <title>Bath Salts</title>
                 <url>https://www.facebook.com/pages/Ban-Bath-Salts/199330996776489</url>
-                <description></description>
+                <description>Facebook page advocating the criminalization of bath salts</description>
             </social>
             <ext>
             	<site>DEA</site>
@@ -84,16 +84,16 @@
 	<crisis id="global_economic_crisis">
         <name>Global Financial Crisis</name>
 		<info>
-			<history>A global economic depression</history>
-			<help>Get involved in awareness</help>
+			<history>The financial crisis began in 2007 when the U.S. housing bubble burst as a result of predatory lending and lax business regulations. In addition, many other countries at the time were having financial difficulties, causing markets to crash worldwide.</history>
+			<help>Better business regulation</help>
 			<resources>The economy has mostly stabilized, however more stimulus in certain areas will be required to get the economy fully back to normal</resources>
 			<type>Global Depression</type>
 			<time>
 				<time></time>
-				<day>-1</day>
-				<month>-1</month>
+				<day>1</day>
+				<month>2</month>
 				<year>2007</year>
-				<misc></misc>
+				<misc>The global financial crisis began in February of 2007 when the U.S. housing bubble burst, but conditions had been leading up to the crisis for several years prior to the drop in the stock market.</misc>
 			</time>
 			<loc>
 				<city></city>
@@ -102,15 +102,15 @@
 			</loc>
 			<impact>
 				<human>
-					<deaths>-1</deaths>
-					<displaced>-1</displaced>
-					<injured>-1</injured>
-					<missing>-1</missing>
-					<misc>Large-scale unemployment, reduction of the work week to 33 hours in the US</misc>
+					<deaths>0</deaths>
+					<displaced>0</displaced>
+					<injured>0</injured>
+					<missing>0</missing>
+					<misc>While there were no physical injuries as a result of the financial criis, it did lead to large-scale unemployment and the downfall of many large financial institutions.</misc>
 				</human>
 				<economic>
-					<amount>-1</amount>
-					<currency>-1</currency>
+					<amount>3000000000000</amount>
+					<currency>U.S.</currency>
 					<misc>Global Recession, Widening of the wealth gap in the United States.</misc>
 				</economic>
 			</impact>
@@ -118,19 +118,19 @@
 		<ref>
 			<primaryImage>
 				<site></site>
-				<title>Chen Wenling - What You See Might Not be Real</title>
-				<url>http://api.ning.com/files/MBEap-467Djs5j04yvDcr8o4Pf6l6tD8cQi3Tj-YdiTfvANU9qFyXlpIS2sVikborntRIJiakcBgl-pShOWjGeJ6nu8y8-84/ChenWenlingWhatYouseeMightNotBeReal.jpg</url>
-				<description></description>
+				<title>Lehman Brothers Headquarters</title>
+				<url>http://upload.wikimedia.org/wikipedia/commons/5/53/Lehman_Brothers_Times_Square_by_David_Shankbone.jpg</url>
+				<description>Lehman Brothers Headquarters</description>
 			</primaryImage>
 			<image>
 				<site></site>
-				<title></title>
-				<url></url>
+				<title>TED Spread</title>
+				<url>http://upload.wikimedia.org/wikipedia/commons/9/92/TED_Spread.png</url>
 				<description></description>
 			</image>
 			<video>
 				<site>Youtube</site>
-				<title></title>
+				<title>Global Financial Crisis</title>
 				<url>http://www.youtube.com/embed/Q-zp5Mb7FV0</url>
 				<description>Video describing the economic crisis</description>
 			</video>
@@ -142,7 +142,7 @@
             </social>
             <ext>
             	<site>IMF</site>
-                <title></title>
+                <title>IMF Website</title>
                 <url>http://www.imf.org/external/np/exr/key/finstab.htm</url>
                 <description>IMF website detailing the Economic Crisis</description>
             </ext>
@@ -163,16 +163,16 @@
 		<crisis id="north_korea">
         <name>North Korea and Nuclear Weapons</name>
 		<info>
-			<history>North Korea's nuclear program is of concern for the rest of the world because of their unstable government</history>
+			<history>On October 9, 2006 the North Korean government announced that it had successfully conducted a nuclear test for the first time. Since then the government has declared that they have nuclear weapons of mass destruction. In addition, the CIA assesses that North Korea also has a substantial array of chemical weapons. Because of the instability of the North Korean government and huge potential for danger with nuclear and chemical weapons, this presents a worldwide threat.</history>
 			<help>Join the Free North Korea Coalition and raise awareness</help>
 			<resources>Increased international pressure on North Korea to cut their nuclear weapons program</resources>
 			<type>Nuclear threat</type>
 			<time>
 				<time></time>
-				<day>-1</day>
-				<month>-1</month>
-				<year>1956</year>
-				<misc></misc>
+				<day>9</day>
+				<month>10</month>
+				<year>2006</year>
+				<misc>On October 9, 2006 the North Korean government announced that it had successfully conducted a nuclear test for the first time.</misc>
 			</time>
 			<loc>
 				<city></city>
@@ -181,14 +181,14 @@
 			</loc>
 			<impact>
 				<human>
-					<deaths>-1</deaths>
-					<displaced>-1</displaced>
-					<injured>-1</injured>
-					<missing>-1</missing>
+					<deaths>0</deaths>
+					<displaced>0</displaced>
+					<injured>0</injured>
+					<missing>0</missing>
 					<misc></misc>
 				</human>
 				<economic>
-					<amount>-1</amount>
+					<amount>0</amount>
 					<currency></currency>
 					<misc></misc>
 				</economic>
@@ -197,19 +197,19 @@
 		<ref>
 			<primaryImage>
 				<site></site>
-				<title></title>
+				<title>Nuclear Launch Site</title>
 				<url>http://cache.boston.com/bonzai-fba/Third_Party_Photo/2005/03/19/1111248871_9419.jpg</url>
 				<description>Photograph of the nuclear missile and Sattelite imagery of the launch site</description>
 			</primaryImage>
 			<image>
 				<site></site>
 				<title></title>
-				<url></url>
+				<url>http://upload.wikimedia.org/wikipedia/commons/f/f1/North_Korea_nuclear.svg</url>
 				<description></description>
 			</image>
 			<video>
 				<site>Youtube</site>
-				<title></title>
+				<title>North Korea Missile Launch Fails</title>
 				<url>http://youtu.be/P59KMyZ-3QM</url>
 				<description>Video describing the North Korean nuclear launch</description>
 			</video>
@@ -217,13 +217,13 @@
             	<site>Twitter</site>
                 <title>Free North Korea</title>
                 <url>http://twitter.com/#!/freenorthkorea</url>
-                <description></description>
+                <description>Twitter for the Free North Korea movement</description>
             </social>
             <ext>
             	<site>North Korea Freedom</site>
                 <title>North Korea Freedom</title>
                 <url>http://www.nkfreedom.org/</url>
-                <description>IMF website detailing the Economic Crisis</description>
+                <description>North Korea Freedom Coalition website</description>
             </ext>
 			<ext>
             	<site>Wikipedia</site>
@@ -242,16 +242,16 @@
 	<crisis id="tibet">
         <name>Tibetan Occupation</name>
 		<info>
-			<history>China's contraversal occupation of Tibet has resulted in many suicides and what some have claimed cultural genocide</history>
+			<history>China's controversial occupation of Tibet has resulted in many suicides and what some have claimed to be cultural genocide.</history>
 			<help>Join an awareness organization, donate to the various organizations aiming to free tibet, join a boycott of goods made in China</help>
 			<resources>Donations to Tibetan awareness organizations</resources>
 			<type>Cultural Genocide</type>
 			<time>
 				<time></time>
-				<day>-1</day>
-				<month>-1</month>
+				<day>7</day>
+				<month>10</month>
 				<year>1950</year>
-				<misc></misc>
+				<misc>On October 7, 1950 the People's Liberation Army invaded Tibet.</misc>
 			</time>
 			<loc>
 				<city></city>
@@ -261,13 +261,13 @@
 			<impact>
 				<human>
 					<deaths>1200000</deaths>
-					<displaced>-1</displaced>
-					<injured>-1</injured>
-					<missing>-1</missing>
+					<displaced>0</displaced>
+					<injured>0</injured>
+					<missing>0</missing>
 					<misc>Mass suicides and Cultural Genocide</misc>
 				</human>
 				<economic>
-					<amount>-1</amount>
+					<amount>0</amount>
 					<currency></currency>
 					<misc>China's control has created an economic boom, with Tibet's GDP being 65 times what it was before China's control</misc>
 				</economic>
@@ -276,13 +276,13 @@
 		<ref>
 			<primaryImage>
 				<site></site>
-				<title></title>
+				<title>Tibet</title>
 				<url>http://ligress.files.wordpress.com/2009/04/tibet_map.gif</url>
 				<description>Map showing location of Tibet in proximity to China</description>
 			</primaryImage>
 			<image>
 				<site></site>
-				<title></title>
+				<title>Budhist Monk On Fire</title>
 				<url>http://worldsfamousphotos.com/wp-content/uploads/2007/04/budist_monk_on_fire.jpg</url>
 				<description>Monk setting his body on fire in protest of the occupation</description>
 			</image>
@@ -300,7 +300,7 @@
             </social>
 			<social>
             	<site>Twitter</site>
-                <title></title>
+                <title>Free Tibet</title>
                 <url>https://twitter.com/#!/freetibetorg</url>
                 <description>Twitter page of the Free-Tibet Organization</description>
             </social>
@@ -312,7 +312,7 @@
             </ext>
 			<ext>
             	<site>Students for a free Tibet</site>
-                <title></title>
+                <title>Students for a Free Tibet</title>
                 <url>https://www.studentsforafreetibet.org/</url>
                 <description>Website for Students for a Free Tibet</description>
             </ext>
@@ -333,11 +333,11 @@
                 <phone></phone>
                 <email></email>
                 <mail>
-                    <address></address>
-                    <city></city>
-                    <state></state>
-                    <country></country>
-                    <zip></zip>
+                    <address>8701 Morrissette Drive</address>
+                    <city>Springfield</city>
+                    <state>Virginia</state>
+                    <country>United States</country>
+                    <zip>22152</zip>
                 </mail>
             </contact>
             <loc>
@@ -348,16 +348,16 @@
         </info>
         <ref>
 			<primaryImage>
-	            <site></site>
+	            <site>Wikipedia</site>
                 <title>DEA Seal</title>
                 <url>http://upload.wikimedia.org/wikipedia/commons/thumb/5/54/US-DrugEnforcementAdministration-Seal.svg/600px-US-DrugEnforcementAdministration-Seal.svg.png</url>
                 <description></description>
             </primaryImage>
             <image>
 	            <site></site>
-                <title></title>
-                <url></url>
-                <description></description>
+                <title>DEA Badge</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/8/83/DEA_badge_C.PNG</url>
+                <description>Badge of the DEA</description>
             </image>
             <video>
                 <site>Youtube</site>
@@ -391,14 +391,14 @@
             <type>The Executive Department of the Government of the United States of America charged with coordinating and supervising all agencies and functions of the government concerned directly with national security and the United States armed forces.</type>
             <history>The US Congress created the War Department in 1789 and the Navy Department in 1798. In 1945 President Truman proposed the creation of a unified department of state defense, citing both wasteful military spending and inter-departmental conflicts. In 1947, President Truman signed the National Security Act of 1947, which set up a unified military command known as the National Military Establishment. The National Military Establishment was renamed the Department of Defense on August 10, 1949, in an amendment to the original 1947 law.</history>
             <contact>
-                <phone></phone>
+                <phone>703-571-3343</phone>
                 <email></email>
                 <mail>
-                    <address></address>
-                    <city></city>
-                    <state></state>
-                    <country></country>
-                    <zip></zip>
+                    <address>1400 Defense Pentagon</address>
+                    <city>Washington</city>
+                    <state>DC</state>
+                    <country>USA</country>
+                    <zip>20301</zip>
                 </mail>
             </contact>
             <loc>
@@ -412,12 +412,12 @@
 	            <site></site>
                 <title>The Pentagon</title>
                 <url>http://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/The_Pentagon_US_Department_of_Defense_building.jpg/800px-The_Pentagon_US_Department_of_Defense_building.jpg</url>
-                <description></description>
+                <description>Department of Defense offices at the Pentagon</description>
             </primaryImage>
             <image>
-	            <site></site>
-                <title></title>
-                <url></url>
+	            <site>Wikipedia</site>
+                <title>Department of Defense Seal</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/United_States_Department_of_Defense_Seal.svg/500px-United_States_Department_of_Defense_Seal.svg.png</url>
                 <description></description>
             </image>
             <video>
@@ -476,9 +476,9 @@
                 <description></description>
             </primaryImage>
             <image>
-	            <site></site>
-                <title></title>
-                <url></url>
+	            <site>Wikipedia</site>
+                <title>Federal Reserve Seal</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/US-FederalReserveSystem-Seal.svg/500px-US-FederalReserveSystem-Seal.svg.png</url>
                 <description></description>
             </image>
             <video>
@@ -537,9 +537,9 @@
                 <description>The UN headquarters in New York City</description>
             </primaryImage>
             <image>
-	            <site></site>
-                <title></title>
-                <url></url>
+	            <site>Wikipedia</site>
+                <title>Logo for the UN</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Emblem_of_the_United_Nations.svg/500px-Emblem_of_the_United_Nations.svg.png</url>
                 <description></description>
             </image>
             <video>
@@ -579,7 +579,7 @@
                 <year>1935</year>
                 <misc></misc>
             </birthdate>
-            <nationality>14th Dalai Lama</nationality>
+            <nationality>Tibetan</nationality>
             <biography>The 14th Dalai Lama, Jetsun Jamphel Ngawang Lobsang Yeshe Tenzin Gyatso (Tenzin Gyatso for short), was born Lhamo Dondrub in Takster, China. He is the spiritual leader of the Gelugpa lineage of Tibetan Buddhists, and after fleeing to India in the 1959 Tibetan Uprising against China, he established the Tibetan government in exile. Since then, he has traveled the world teaching Tibetan Buddhism and advocating for the welfare of Tibetans.</biography>
         </info>
         <ref>
@@ -590,10 +590,10 @@
                 <description>Tenzin Gyatso, the 14th Dalai Lama, smiles and claps his hands.</description>
             </primaryImage>
             <image>
-            	<site></site>
-                <title></title>
-                <url></url>
-                <description></description>
+            	<site>Wikipedia</site>
+                <title>First Dalai Lama</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/f/fb/1st_Dalai_Lama.jpg</url>
+                <description>Gendun Drup, 1st Dalai Lama</description>
             </image>
             <video>
                 <site>Youtube</site>
@@ -643,10 +643,10 @@
                 <description>Official Portrait of Barack Obama</description>
             </primaryImage>
             <image>
-            	<site></site>
-                <title></title>
-                <url></url>
-                <description></description>
+            	<site>Wikipedia</site>
+                <title>The First Family</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Barack_Obama_family_portrait_2011.jpg/300px-Barack_Obama_family_portrait_2011.jpg</url>
+                <description>Barack Obama's family</description>
             </image>
             <video>
                 <site>Youtube</site>
@@ -703,8 +703,8 @@
             </primaryImage>
             <image>
             	<site></site>
-                <title></title>
-                <url></url>
+                <title>Michele Leonhart</title>
+                <url>http://www.roembus.org/english/visite/2005/feb_National_Prayer_Breakfast/Pavel_Abraham/images/intalnire%20Mrs.%20Michele%20Leonhart.jpg</url>
                 <description></description>
             </image>
             <video>
@@ -757,8 +757,8 @@
             </primaryImage>
             <image>
             	<site></site>
-                <title></title>
-                <url></url>
+                <title>Kim Johg Un</title>
+                <url>http://1.bp.blogspot.com/-nfF7p8sthG4/T28kYkruUkI/AAAAAAAAAMI/Wp3oDx8ZgZA/s1600/KimJong-un.jpg</url>
                 <description></description>
             </image>
             <video>
