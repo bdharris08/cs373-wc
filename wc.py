@@ -55,9 +55,16 @@ class CrisisHandler(webapp2.RequestHandler):
             else: 
                 dictionary[type] = [r]
                 
-        orgRefs = crisis.crisisOrg.fetch(None)
+        qOrgRefs = crisis.crisisOrg.fetch(None)
+        orgRefs = []
+        for o in qOrgRefs :
+            orgRefs.append(o.crisis)
         dictionary["orgRefs"] = orgRefs
-        personRefs = crisis.crisisPerson.fetch(None)
+        
+        qPersonRefs = crisis.crisisPerson.fetch(None)
+        personRefs = []
+        for p in qPersonRefs :
+            personRefs.append(p.crisis)
         dictionary["personRefs"] = personRefs
       
         path = os.path.join(os.path.dirname(__file__), 'crisisTemp.html')
