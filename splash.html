@@ -1,4 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    </head>
 	<h1>Splash Page</h1>
 		<h2>Group Name</h2>
 			<p>Super Seniors</p>
@@ -10,23 +14,13 @@
 			<li> Ting-Yi Chen</li>
 			<li> Matt Granado</li>
 			<li> Elizabeth Hayden</li>
-			</ul></p>
-        
-        <h2>django Criris</h2>
+			</ul></p>  
+        <h2>Criris</h2>
             <p> <ul>
 			{% for crisis in crises %}
-			    <li>{{ crisis.name }}</li>
-			    <li><a href="http://localhost:8083/crisis/{{crisis.id}}" >link</a> </li></li>
+			    <li><a href="http://localhost:8083/crisis/{{crisis.id}}" >{{ crisis.name }}</a> </li></li>
 			{% endfor %}
             </ul></p>
-            
-		<h2>Crises</h2>
-			<p> <ul>
-			<li> <a href="http://www.jontitan-cs373-wc.appspot.com/tibet" >Tibet</a> </li>
-			<li> <a href="http://www.jontitan-cs373-wc.appspot.com/gec" >Global Economic Crisis</a> </li>
-			<li> <a href="http://www.jontitan-cs373-wc.appspot.com/bathsalts" >Bath Salts</a> </li>
-			<li> <a href="http://www.jontitan-cs373-wc.appspot.com/nkorea" >North Korea and nuclear weapons</a> </li>
-			</ul></p>
 
 		<h2>Organizations</h2>
 			<p> <ul>
