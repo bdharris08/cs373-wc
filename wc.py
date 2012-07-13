@@ -19,10 +19,25 @@ from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
 
 
+
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template('splash.html')
-        self.response.out.write(template.render())
+        # wc = WorldCrisis.all()
+        # counts
+        qCrises = Crisis.all()
+        crises = qCrises.fetch(4)
+        
+        path = os.path.join(os.path.dirname(__file__), 'splash.html')
+        self.response.out.write(template.render(path, {"crises": crises}))
+        
+        #template = jinja_environment.get_template('splash.html')
+        #self.response.out.write(template.render())
+
+class CrisisHandler(webapp2.RequestHandler):
+    def get(self):
+        
+        path = os.path.join(os.path.dirname(__file__), 'crisisTemp.html')
+        self.response.out.write(template.render(path, {}))
         
 class tibet(webapp2.RequestHandler):
     def get(self):
@@ -422,26 +437,10 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         orgInfo.type = oi.find("type").text
         orgInfo.history = oi.find("history").text
         orgInfo.put()
-        
-    
-        
-            
-        
-    
-            
-    x = wc.crises
-    
-    for c in x :
-        print c.name + "<br>"
-        for i in c.info :
-            print i.properties()
-            print "<br>"
-        
-    
-    
+
     #self.redirect('/serve/%s' % blob_info.key())
     #blobkey = blob_info.key()
-    #self.redirect('/')
+    self.redirect('/')
 
 class ExportHandler(webapp.RequestHandler):
     def get(self):
@@ -525,7 +524,7 @@ class CrisisInfo (db.Model):
 class OrgInfo (db.Model):
     organization = db.ReferenceProperty(Organization, collection_name = 'info')
     type = db.StringProperty()
-    history = db.StringProperty() 
+    history = db.TextProperty() 
     #contact
     #location
     
@@ -599,4 +598,5 @@ app = webapp2.WSGIApplication([('/', MainPage), ('/tibet', tibet), ('/gec', gec)
 							('/frs', frs), ('/dea', dea), ('/dod', dod), 
 							('/dali', dali), ('/mml', mml), ('/obama', obama), 
 							('/kju', kju), ('/import', ImportHandler), ('/upload', UploadHandler),
-                            ('/serve/([^/]+)?', ServeHandler), ('/export', ExportHandler)], debug=True)
+                            ('/serve/([^/]+)?', ServeHandler), ('/export', ExportHandler)], 
+                            ('/crisis/([^/]+)?', CrisisHandler),debug=True)

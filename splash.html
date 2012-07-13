@@ -11,7 +11,15 @@
 			<li> Matt Granado</li>
 			<li> Elizabeth Hayden</li>
 			</ul></p>
-
+        
+        <h2>django Criris</h2>
+            <p> <ul>
+			{% for crisis in crises %}
+			    <li>{{ crisis.name }}</li>
+			    <li><a href="http://localhost:8083/crisis/{{crisis.name}}" ></a> </li></li>
+			{% endfor %}
+            </ul></p>
+            
 		<h2>Crises</h2>
 			<p> <ul>
 			<li> <a href="http://www.jontitan-cs373-wc.appspot.com/tibet" >Tibet</a> </li>
