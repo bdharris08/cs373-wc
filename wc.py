@@ -600,7 +600,32 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
             ref.url = i.find("url").text
             ref.description = i.find("description").text
             ref.put()
-
+    
+    CrisisQuery = Crisis.all().fetch(1000)
+    OrgQuery = Organization.all()
+    
+    for c in CrisisQuery :
+        relatedOrg = c.find("org")
+        for o in relatedOrg :
+        	orgID = o.get("idref")
+        	relation = CrisisOrganization()
+        	relation.crisis = c
+        	relation.organization = db.Model.get_by_id(orgID)
+        relatedPerson = c.find("person")
+        for p in relatedPerson :
+        	personID = p.get("idref")
+        	relation = CrisisPerson()
+        	relation.crisis = c
+        	relation.person = db.Model.get_by_id(personID)
+        	
+    for o in OrgQuery :
+    	relatedPerson = o.find("person")
+        for p in relatedPerson :
+        	personID = p.get("idref")
+        	relation = OrganizationPerson()
+        	relation.organization = o
+        	relation.person = db.Model.get_by_id(personID)
+        
     #self.redirect('/serve/%s' % blob_info.key())
     #blobkey = blob_info.key()
     self.redirect('/')
@@ -754,6 +779,17 @@ class EconomicImpact (db.Model):
     currency = db.StringProperty()
     misc = db.StringProperty()
     
+class CrisisOrganization (db.Model):
+    crisis = db.ReferenceProperty(Crisis, required = True, collection_name = 'crises')
+    organization = db.ReferenceProperty(Organization, required = True, collection_name = 'organizations')
+
+class CrisisPerson (db.Model):
+    crisis = db.ReferenceProperty(Crisis, required = True, collection_name = 'crises')
+    person = db.ReferenceProperty(Person, required = True, collection_name = 'persons')
+    
+class OrganizationPerson (db.Model):
+    organization = db.ReferenceProperty(Organization, required = True, collection_name = 'organizations')
+    person = db.ReferenceProperty(Person, required = True, collection_name = 'persons')
 
 
 app = webapp2.WSGIApplication([('/', MainPage), ('/tibet', tibet), ('/gec', gec), 
