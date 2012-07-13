@@ -50,10 +50,11 @@ class CrisisHandler(webapp2.RequestHandler):
         for r in extRefs :
             type = r.ref_type
             if(type in dictionary):
-                value = dictionary.get(type)
-                dictionary[type] = value.append(r)
+                value = dictionary[type]
+                dictionary[type].append(r)
             else: 
                 dictionary[type] = [r]
+                
         orgRefs = crisis.crisisOrg.fetch(None)
         dictionary["orgRefs"] = orgRefs
         personRefs = crisis.crisisPerson.fetch(None)
@@ -628,29 +629,36 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
             ref.description = i.find("description").text
             ref.put()
     
-  
     for c in crises :
-        relatedOrg = c.find("org")
+        crisis = Crisis.all().filter("id =", c.get("id")).fetch(1).pop()
+        
+        relatedOrg = c.findall("org")
         for o in relatedOrg :
-        	orgID = o.get("idref")
+        	org = Organization.all().filter("id =", o.get("idref")).fetch(1).pop()
         	relation = CrisisOrganization()
-        	relation.crisis = c
-        	relation.organization = db.Model.get_by_id(orgID)
-        relatedPerson = c.find("person")
+        	relation.organization = crisis
+        	relation.crisis = org
+        	relation.put()
+        	
+        relatedPerson = c.findall("person")
         for p in relatedPerson :
-        	personID = p.get("idref")
+        	person = Person.all().filter("id =", p.get("idref")).fetch(1).pop()
         	relation = CrisisPerson()
-        	relation.crisis = c
-        	relation.person = db.Model.get_by_id(personID)
+        	relation.crisis = person
+        	relation.person = crisis
+        	relation.put()
         	
     for o in organizations :
-    	relatedPerson = o.find("person")
+        org = Organization.all().filter("id =", o.get("id")).fetch(1).pop()
+    
+    	relatedPerson = o.findall("person")
         for p in relatedPerson :
-        	personID = p.get("idref")
-        	relation = OrganizationPerson()
-        	relation.organization = o
-        	relation.person = db.Model.get_by_id(personID)
-        
+            person = Person.all().filter("id =", p.get("idref")).fetch(1).pop()
+            relation = OrganizationPerson()
+            relation.organization = person
+            relation.person = org
+            relation.put()
+            
     #self.redirect('/serve/%s' % blob_info.key())
     #blobkey = blob_info.key()
     self.redirect('/')
@@ -805,16 +813,16 @@ class EconomicImpact (db.Model):
     misc = db.StringProperty()
     
 class CrisisOrganization (db.Model):
-    crisis = db.ReferenceProperty(Organization, required = True, collection_name = 'orgCrisis')
-    organization = db.ReferenceProperty(Crisis, required = True, collection_name = 'crisisOrg')
+    crisis = db.ReferenceProperty(Organization, collection_name = 'orgCrisis')
+    organization = db.ReferenceProperty(Crisis, collection_name = 'crisisOrg')
 
 class CrisisPerson (db.Model):
-    crisis = db.ReferenceProperty(Person, required = True, collection_name = 'personCrisis')
-    person = db.ReferenceProperty(Crisis, required = True, collection_name = 'crisisPerson')
+    crisis = db.ReferenceProperty(Person, collection_name = 'personCrisis')
+    person = db.ReferenceProperty(Crisis, collection_name = 'crisisPerson')
     
 class OrganizationPerson (db.Model):
-    organization = db.ReferenceProperty(Person, required = True, collection_name = 'personOrg')
-    person = db.ReferenceProperty(Organization, required = True, collection_name = 'orgPerson')
+    organization = db.ReferenceProperty(Person, collection_name = 'personOrg')
+    person = db.ReferenceProperty(Organization, collection_name = 'orgPerson')
 
 
 app = webapp2.WSGIApplication([('/', MainPage), ('/tibet', tibet), ('/gec', gec), 
