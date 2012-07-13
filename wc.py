@@ -19,33 +19,46 @@ from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
 
 
-
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        qCrises = Crisis.all()
-        crises = qCrises.fetch(None)
-        
+        wc = WorldCrises.all().fetch(1).pop()
+        crises = wc.crises.fetch(None)
+        orgs = wc.organizations.fetch(None)
+        persons = wc.persons.fetch(None)
+            
         path = os.path.join(os.path.dirname(__file__), 'splash.html')
-        self.response.out.write(template.render(path, {"crises": crises}))
-        
-        #template = jinja_environment.get_template('splash.html')
-        #self.response.out.write(template.render())
-
+        self.response.out.write(template.render(path, {"crises": crises, "orgs" : orgs, "persons" : persons}))
+      
 class CrisisHandler(webapp2.RequestHandler):
     def get(self, resource):
         dictionary = {}
         resource = str(urllib.unquote(resource))
-        qCrises = Crisis.all()
-        qCrises.filter("id =", resource)
-        crises = qCrises.fetch(1)
-        crisis = crises.pop()
+        crisis = Crisis.all().filter("id =", resource).fetch(1).pop()
         dictionary["crisis"] = crisis
-        qci = crisis.info
-        ci = qci.fetch(1)
-        crisisInfo = ci.pop()
+        crisisInfo = crisis.info.fetch(1).pop()
         dictionary["crisisInfo"] = crisisInfo
-        qri = crisis.ref
-        ri = qri.fetch(None)
+        time = crisisInfo.time.fetch(1).pop()
+        dictionary["time"] = time
+        loc = crisisInfo.location.fetch(1).pop()
+        dictionary["loc"] = loc
+        humanImpact = crisisInfo.humanImpact.fetch(1).pop()
+        dictionary["humanImpact"] = humanImpact
+        economicImpact = crisisInfo.economicImpact.fetch(1).pop()
+        dictionary["economicImpact"] = economicImpact
+        
+        extRefs = crisis.ref.fetch(None)
+        for r in extRefs :
+            type = r.ref_type
+            if(type in dictionary):
+                value = dictionary.get(type)
+                dictionary[type] = value.append(r)
+            else: 
+                dictionary[type] = [r]
+        orgRefs = crisis.crisisOrg.fetch(None)
+        dictionary["orgRefs"] = orgRefs
+        personRefs = crisis.crisisPerson.fetch(None)
+        dictionary["personRefs"] = personRefs
+      
         path = os.path.join(os.path.dirname(__file__), 'crisisTemp.html')
         self.response.out.write(template.render(path, dictionary))
         
@@ -318,6 +331,8 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     people = tree.findall("person")
     assert(people != [])
     
+    db.delete(db.Query())  #Wipe out the datastore data
+    
     wc = WorldCrises()
     wc.put()
     
@@ -353,7 +368,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         
         l = ci.find("loc")
         location = Location()
-        location.crsisInfo = crisisInfo
+        location.crisisInfo = crisisInfo
         location.city = l.find("city").text
         location.region = l.find("region").text
         location.country = l.find("country").text
@@ -363,6 +378,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         
         hi = i.find("human")
         humanImpact = HumanImpact()
+        humanImpact.crisisInfo = crisisInfo
         humanImpact.deaths = int(hi.find("deaths").text)
         humanImpact.displaced = int(hi.find("displaced").text)
         humanImpact.injured = int(hi.find("injured").text)
@@ -372,6 +388,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         
         ei = i.find("economic")
         economicImpact = EconomicImpact()
+        economicImpact.crisisInfo = crisisInfo
         economicImpact.amount = int(ei.find("amount").text)
         economicImpact.currency = ei.find("currency").text
         economicImpact.misc = ei.find("misc").text
@@ -611,10 +628,8 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
             ref.description = i.find("description").text
             ref.put()
     
-    CrisisQuery = Crisis.all().fetch(1000)
-    OrgQuery = Organization.all()
-    
-    for c in CrisisQuery :
+  
+    for c in crises :
         relatedOrg = c.find("org")
         for o in relatedOrg :
         	orgID = o.get("idref")
@@ -628,7 +643,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         	relation.crisis = c
         	relation.person = db.Model.get_by_id(personID)
         	
-    for o in OrgQuery :
+    for o in organizations :
     	relatedPerson = o.find("person")
         for p in relatedPerson :
         	personID = p.get("idref")
@@ -790,16 +805,16 @@ class EconomicImpact (db.Model):
     misc = db.StringProperty()
     
 class CrisisOrganization (db.Model):
-    crisis = db.ReferenceProperty(Crisis, required = True, collection_name = 'crises')
-    organization = db.ReferenceProperty(Organization, required = True, collection_name = 'organizations')
+    crisis = db.ReferenceProperty(Organization, required = True, collection_name = 'orgCrisis')
+    organization = db.ReferenceProperty(Crisis, required = True, collection_name = 'crisisOrg')
 
 class CrisisPerson (db.Model):
-    crisis = db.ReferenceProperty(Crisis, required = True, collection_name = 'crises')
-    person = db.ReferenceProperty(Person, required = True, collection_name = 'persons')
+    crisis = db.ReferenceProperty(Person, required = True, collection_name = 'personCrisis')
+    person = db.ReferenceProperty(Crisis, required = True, collection_name = 'crisisPerson')
     
 class OrganizationPerson (db.Model):
-    organization = db.ReferenceProperty(Organization, required = True, collection_name = 'organizations')
-    person = db.ReferenceProperty(Person, required = True, collection_name = 'persons')
+    organization = db.ReferenceProperty(Person, required = True, collection_name = 'personOrg')
+    person = db.ReferenceProperty(Organization, required = True, collection_name = 'orgPerson')
 
 
 app = webapp2.WSGIApplication([('/', MainPage), ('/tibet', tibet), ('/gec', gec), 
