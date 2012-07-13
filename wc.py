@@ -408,6 +408,24 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
             ref.description = i.find("description").text
             ref.put()
             
+    for o in organizations:
+        org = Organization()
+        org.worldCrises = wc
+        org.id = o.get("id")
+        org.name = o.find("name").text
+        org.misc = o.find("misc").text
+        org.put()
+        
+        oi = o.find("info")
+        orgInfo = OrgInfo()
+        orgInfo.org = org
+        orgInfo.type = oi.find("type").text
+        orgInfo.history = oi.find("history").text
+        orgInfo.put()
+        
+    
+        
+            
         
     
             
@@ -494,7 +512,6 @@ class Person(db.Model):
     org = db.ListProperty(db.Key)
     
 class CrisisInfo (db.Model):
-    id = db.StringProperty()
     crisis = db.ReferenceProperty(Crisis, collection_name = 'info')
     history = db.StringProperty()
     help = db.StringProperty()
@@ -506,7 +523,6 @@ class CrisisInfo (db.Model):
     #economicImpact
     
 class OrgInfo (db.Model):
-    id = db.StringProperty()
     organization = db.ReferenceProperty(Organization, collection_name = 'info')
     type = db.StringProperty()
     history = db.StringProperty() 
@@ -514,7 +530,6 @@ class OrgInfo (db.Model):
     #location
     
 class PersonInfo (db.Model):
-    id = db.StringProperty()
     person = db.ReferenceProperty(Person, collection_name = 'info')
     type = db.StringProperty()
     #birthdate
@@ -523,7 +538,6 @@ class PersonInfo (db.Model):
 
     
 class ExternalLink (db.Model):
-    id = db.StringProperty()
     crisis = db.ReferenceProperty(Crisis, collection_name = 'ref')
     organization = db.ReferenceProperty(Organization, collection_name = 'ref')
     person = db.ReferenceProperty(Person, collection_name = 'ref')
@@ -535,7 +549,6 @@ class ExternalLink (db.Model):
     
     
 class Date(db.Model):
-    id = db.StringProperty()
     crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'time')
     personInfo = db.ReferenceProperty(PersonInfo, collection_name = 'birthdate')
     time = db.StringProperty()
@@ -545,7 +558,6 @@ class Date(db.Model):
     misc = db.StringProperty()
     
 class Location (db.Model):
-    id = db.StringProperty()
     crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'location')
     orgInfo = db.ReferenceProperty(OrgInfo, collection_name = 'location')
     city = db.StringProperty()
@@ -553,14 +565,12 @@ class Location (db.Model):
     country = db.StringProperty() 
 
 class Contact (db.Model):
-    id = db.StringProperty()
     orgInfo = db.ReferenceProperty(OrgInfo, collection_name = 'contact')
     phone = db.StringProperty()
     email = db.StringProperty()
     #mail
            
 class FullAddr (db.Model):
-    id = db.StringProperty()
     contact = db.ReferenceProperty(Contact, collection_name = 'mail')
     address = db.StringProperty()
     city = db.StringProperty()
@@ -569,7 +579,6 @@ class FullAddr (db.Model):
     zip = db.StringProperty()
 
 class HumanImpact (db.Model):
-    id = db.StringProperty()
     crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'humanImpact')
     deaths = db.IntegerProperty()
     displaced = db.IntegerProperty()
@@ -578,7 +587,6 @@ class HumanImpact (db.Model):
     misc = db.StringProperty()
     
 class EconomicImpact (db.Model):
-    id = db.StringProperty()
     crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'economicImpact')
     amount = db.IntegerProperty()
     currency = db.StringProperty()
