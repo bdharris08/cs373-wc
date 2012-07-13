@@ -445,7 +445,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         contact.email = c.find("email").text
         contact.put()
         
-        fa = c.find("fulladdrType")
+        fa = c.find("mail")
         fullAddr = FullAddr()
         fullAddr.contact = contact
         fullAddr.address = fa.find("address").text
@@ -527,7 +527,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         person.misc = p.find("misc").text
         person.put()
         
-        pi = p.find("personInfoType")
+        pi = p.find("info")
         pInfo = PersonInfo()
         pInfo.person = person
         pInfo.type = pi.find("type").text
@@ -535,13 +535,13 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         pInfo.biography = pi.find("biography").text
         pInfo.put()
         
-        bd = pi.find("dateType")
+        bd = pi.find("birthdate")
         birthDate = Date()
         birthDate.personInfo = pInfo
         birthDate.time = bd.find("time").text
-        birthDate.day = bd.find("day").text
-        birthDate.month = bd.find("month").text
-        birthDate.year = bd.find("year").text
+        birthDate.day = int(bd.find("day").text)
+        birthDate.month = int(bd.find("month").text)
+        birthDate.year = int(bd.find("year").text)
         birthDate.misc = bd.find("misc").text
         birthDate.put()
         
@@ -675,9 +675,9 @@ class Person(db.Model):
     
 class CrisisInfo (db.Model):
     crisis = db.ReferenceProperty(Crisis, collection_name = 'info')
-    history = db.StringProperty()
-    help = db.StringProperty()
-    resources = db.StringProperty()
+    history = db.TextProperty()
+    help = db.TextProperty()
+    resources = db.TextProperty()
     type = db.StringProperty() 
     #time
     #location
@@ -696,7 +696,7 @@ class PersonInfo (db.Model):
     type = db.StringProperty()
     #birthdate
     nationality = db.StringProperty() 
-    biography = db.StringProperty()
+    biography = db.TextProperty()
 
     
 class ExternalLink (db.Model):
@@ -706,7 +706,7 @@ class ExternalLink (db.Model):
     ref_type = db.StringProperty(choices=('primaryImage', 'image', 'video', 'social', 'ext'))
     site = db.StringProperty()
     title = db.StringProperty()
-    url = db.LinkProperty()
+    url = db.StringProperty()
     description = db.StringProperty()
     
     
@@ -762,4 +762,4 @@ app = webapp2.WSGIApplication([('/', MainPage), ('/tibet', tibet), ('/gec', gec)
 							('/dali', dali), ('/mml', mml), ('/obama', obama), 
 							('/kju', kju), ('/import', ImportHandler), ('/upload', UploadHandler),
                             ('/serve/([^/]+)?', ServeHandler), ('/export', ExportHandler)], 
-                            ('/crisis/([^/]+)?', CrisisHandler),debug=True)
+                            debug=True)
