@@ -22,10 +22,8 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        # wc = WorldCrisis.all()
-        # counts
         qCrises = Crisis.all()
-        crises = qCrises.fetch(4)
+        crises = qCrises.fetch(None)
         
         path = os.path.join(os.path.dirname(__file__), 'splash.html')
         self.response.out.write(template.render(path, {"crises": crises}))
@@ -34,10 +32,22 @@ class MainPage(webapp2.RequestHandler):
         #self.response.out.write(template.render())
 
 class CrisisHandler(webapp2.RequestHandler):
-    def get(self):
-        
+    def get(self, resource):
+        dictionary = {}
+        resource = str(urllib.unquote(resource))
+        qCrises = Crisis.all()
+        qCrises.filter("id =", resource)
+        crises = qCrises.fetch(1)
+        crisis = crises.pop()
+        dictionary["crisis"] = crisis
+        qci = crisis.info
+        ci = qci.fetch(1)
+        crisisInfo = ci.pop()
+        dictionary["crisisInfo"] = crisisInfo
+        qri = crisis.ref
+        ri = qri.fetch(None)
         path = os.path.join(os.path.dirname(__file__), 'crisisTemp.html')
-        self.response.out.write(template.render(path, {}))
+        self.response.out.write(template.render(path, dictionary))
         
 class tibet(webapp2.RequestHandler):
     def get(self):
@@ -761,5 +771,5 @@ app = webapp2.WSGIApplication([('/', MainPage), ('/tibet', tibet), ('/gec', gec)
 							('/frs', frs), ('/dea', dea), ('/dod', dod), 
 							('/dali', dali), ('/mml', mml), ('/obama', obama), 
 							('/kju', kju), ('/import', ImportHandler), ('/upload', UploadHandler),
-                            ('/serve/([^/]+)?', ServeHandler), ('/export', ExportHandler)], 
-                            debug=True)
+                            ('/serve/([^/]+)?', ServeHandler), ('/export', ExportHandler), 
+                            ('/crisis/([^/]+)?', CrisisHandler)], debug=True)
