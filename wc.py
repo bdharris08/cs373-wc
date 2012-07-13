@@ -433,10 +433,173 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         
         oi = o.find("info")
         orgInfo = OrgInfo()
-        orgInfo.org = org
+        orgInfo.organization = org
         orgInfo.type = oi.find("type").text
         orgInfo.history = oi.find("history").text
         orgInfo.put()
+        
+        c = oi.find("contact")
+        contact = Contact()
+        contact.orgInfo = orgInfo
+        contact.phone = c.find("phone").text
+        contact.email = c.find("email").text
+        contact.put()
+        
+        fa = c.find("fulladdrType")
+        fullAddr = FullAddr()
+        fullAddr.contact = contact
+        fullAddr.address = fa.find("address").text
+        fullAddr.city = fa.find("city").text
+        fullAddr.state = fa.find("state").text
+        fullAddr.country = fa.find("country").text
+        fullAddr.zip = fa.find("zip").text
+        fullAddr.put()
+        
+        l = oi.find("loc")
+        loc = Location()
+        loc.orgInfo = orgInfo
+        loc.city = l.find("city").text
+        loc.region = l.find("region").text
+        loc.country = l.find("country").text
+        loc.put()
+        
+        r = o.find("ref")
+        
+        pi = r.find("primaryImage")
+        piRef = ExternalLink()
+        piRef.organization = org
+        piRef.ref_type = "primaryImage"
+        piRef.site = pi.find("site").text
+        piRef.title = pi.find("title").text
+        piRef.url = pi.find("url").text
+        piRef.description = pi.find("description").text
+        piRef.put()
+        
+        image = r.findall("image")
+        for i in image:
+            ref = ExternalLink()
+            ref.organization = org
+            ref.ref_type = "image"
+            ref.site = i.find("site").text
+            ref.title = i.find("title").text
+            ref.url = i.find("url").text
+            ref.description = i.find("description").text
+            ref.put()      
+            
+        v = r.findall("video")
+        for i in v:
+            ref = ExternalLink()
+            ref.organization = org
+            ref.ref_type = "video"
+            ref.site = i.find("site").text
+            ref.title = i.find("title").text
+            ref.url = i.find("url").text
+            ref.description = i.find("description").text
+            ref.put()
+            
+        s = r.findall("social")
+        for i in s:
+            ref = ExternalLink()
+            ref.organization = org
+            ref.ref_type = "social"
+            ref.site = i.find("site").text
+            ref.title = i.find("title").text
+            ref.url = i.find("url").text
+            ref.description = i.find("description").text
+            ref.put()  
+    
+        e = r.findall("ext")
+        for i in e:
+            ref = ExternalLink()
+            ref.organization = org
+            ref.ref_type = "ext"
+            ref.site = i.find("site").text
+            ref.title = i.find("title").text
+            ref.url = i.find("url").text
+            ref.description = i.find("description").text
+            ref.put()
+            
+    for p in people :
+    	person = Person()
+        person.worldCrises = wc
+        person.id = p.get("id")
+        person.name = p.find("name").text
+        person.misc = p.find("misc").text
+        person.put()
+        
+        pi = p.find("personInfoType")
+        pInfo = PersonInfo()
+        pInfo.person = person
+        pInfo.type = pi.find("type").text
+        pInfo.nationality = pi.find("nationality").text
+        pInfo.biography = pi.find("biography").text
+        pInfo.put()
+        
+        bd = pi.find("dateType")
+        birthDate = Date()
+        birthDate.personInfo = pInfo
+        birthDate.time = bd.find("time").text
+        birthDate.day = bd.find("day").text
+        birthDate.month = bd.find("month").text
+        birthDate.year = bd.find("year").text
+        birthDate.misc = bd.find("misc").text
+        birthDate.put()
+        
+        r = p.find("ref")
+        
+        pi = r.find("primaryImage")
+        piRef = ExternalLink()
+        piRef.person = person
+        piRef.ref_type = "primaryImage"
+        piRef.site = pi.find("site").text
+        piRef.title = pi.find("title").text
+        piRef.url = pi.find("url").text
+        piRef.description = pi.find("description").text
+        piRef.put()
+        
+        image = r.findall("image")
+        for i in image:
+            ref = ExternalLink()
+            ref.person = person
+            ref.ref_type = "image"
+            ref.site = i.find("site").text
+            ref.title = i.find("title").text
+            ref.url = i.find("url").text
+            ref.description = i.find("description").text
+            ref.put()      
+            
+        v = r.findall("video")
+        for i in v:
+            ref = ExternalLink()
+            ref.person = person
+            ref.ref_type = "video"
+            ref.site = i.find("site").text
+            ref.title = i.find("title").text
+            ref.url = i.find("url").text
+            ref.description = i.find("description").text
+            ref.put()
+            
+        s = r.findall("social")
+        for i in s:
+            ref = ExternalLink()
+            ref.person = person
+            ref.ref_type = "social"
+            ref.site = i.find("site").text
+            ref.title = i.find("title").text
+            ref.url = i.find("url").text
+            ref.description = i.find("description").text
+            ref.put()  
+    
+        e = r.findall("ext")
+        for i in e:
+            ref = ExternalLink()
+            ref.person = person
+            ref.ref_type = "ext"
+            ref.site = i.find("site").text
+            ref.title = i.find("title").text
+            ref.url = i.find("url").text
+            ref.description = i.find("description").text
+            ref.put()
 
     #self.redirect('/serve/%s' % blob_info.key())
     #blobkey = blob_info.key()
