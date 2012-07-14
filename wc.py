@@ -712,17 +712,29 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 
 class ExportHandler(webapp.RequestHandler):
     def get(self):
-        CrisisQuery = Crisis.all().fetch(1000)
-        OrgQuery = Organization.all()
-        PeopleQuery = Person.all()
+        CrisisQuery = Crisis.all().fetch(None)
+        OrgQuery = Organization.all().fetch(None)
+        PeopleQuery = Person.all().fetch(None)
+                
+        root = ElementTree.Element("worldCrises")
+        child = ElementTree.Element("crises")
+        for c in CrisisQuery :
+            crisis = ElementTree.SubElement(root, "crisis")
+            crisis.set("id=", c.id)
+            name = ElementTree.SubElement(crisis, "name")
+            name.set(c.name)
+        tree = ElementTree.ElementTree(root)
+        tree.write("treetest.xhtml")
         #tree = ElementTree()
         #treebuilder = tree.TreeBuilder()
         #build tree using models
         #write .xml file to blobstore using tree.write
         #redirect to servehandler to output
+        '''
         xml = '<?xml version="1.0" encoding="UTF-8"?>\n<worldCrises>\n\t<crises>'
         for c in CrisisQuery:
             xml = xml + c.to_xml()
+        '''
         #self.response.headers['Content-Type']='text/xml; charset=utf-8'
         #self.response.out.write(xml)
         #self.redirect('/serve/%s' % blob_info.key())
