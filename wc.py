@@ -687,9 +687,9 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 
 class ExportHandler(webapp.RequestHandler):
     def get(self):
-        CrisisQuery = Crisis.all().fetch(none)
-        OrgQuery = Organization.all().fetch(none)
-        PeopleQuery = Person.all().fetch(none)
+        CrisisQuery = Crisis.all().fetch(None)
+        OrgQuery = Organization.all().fetch(None)
+        PeopleQuery = Person.all().fetch(None)
                 
         root = ElementTree.Element("worldCrises")
         child = ElementTree.Element("crises")
