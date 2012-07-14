@@ -58,16 +58,90 @@ class CrisisHandler(webapp2.RequestHandler):
         qOrgRefs = crisis.crisisOrg.fetch(None)
         orgRefs = []
         for o in qOrgRefs :
-            orgRefs.append(o.crisis)
+            orgRefs.append(o.crisis) #?? Should this be o.org?
         dictionary["orgRefs"] = orgRefs
         
         qPersonRefs = crisis.crisisPerson.fetch(None)
         personRefs = []
         for p in qPersonRefs :
-            personRefs.append(p.crisis)
+            personRefs.append(p.crisis) #??Should this be p.person?
         dictionary["personRefs"] = personRefs
       
         path = os.path.join(os.path.dirname(__file__), 'crisisTemp.html')
+        self.response.out.write(template.render(path, dictionary))
+        
+class OrganizationHandler(webapp2.RequestHandler):
+    def get(self, resource):
+        dictionary = {}
+        resource = str(urllib.unquote(resource))
+        organization = Organization.all().filter("id =", resource).fetch(1).pop()
+        dictionary["organization"] = organization
+        orgInfo = organization.info.fetch(1).pop()
+        dictionary["orgInfo"] = orgInfo
+        contact = orgInfo.contact.fetch(1).pop()
+        dictionary["contact"] = contact
+        loc = orgInfo.location.fetch(1).pop()
+        dictionary["loc"] = loc
+        address = contact.mail.fetch(1).pop()
+        dictionary["address"] = address
+        
+        extRefs = org.ref.fetch(None)
+        for r in extRefs :
+            type = r.ref_type
+            if(type in dictionary):
+                value = dictionary[type]
+                dictionary[type].append(r)
+            else: 
+                dictionary[type] = [r]
+                
+        qCrisisRefs = org.orgCrisis.fetch(None)
+        crisisRefs = []
+        for c in qCrisisRefs :
+            crisisRefs.append(c.org) #?? Should this be c.crisis?
+        dictionary["crisisRefs"] = crisisRefs
+        
+        qPersonRefs = crisis.orgPerson.fetch(None)
+        personRefs = []
+        for p in qPersonRefs :
+            personRefs.append(p.org) #?? Should this be p.person?
+        dictionary["personRefs"] = personRefs
+      
+        path = os.path.join(os.path.dirname(__file__), 'orgTemp.html')
+        self.response.out.write(template.render(path, dictionary))
+        
+class PersonHandler(webapp2.RequestHandler):
+    def get(self, resource):
+        dictionary = {}
+        resource = str(urllib.unquote(resource))
+        person = Person.all().filter("id =", resource).fetch(1).pop()
+        dictionary["person"] = person
+        personInfo = person.info.fetch(1).pop()
+        dictionary["personInfo"] = personInfo
+        birthdate = personInfo.birthdate.fetch(1).pop()
+        dictionary["birthdate"] = birthdate
+        
+        extRefs = person.ref.fetch(None)
+        for r in extRefs :
+            type = r.ref_type
+            if(type in dictionary):
+                value = dictionary[type]
+                dictionary[type].append(r)
+            else: 
+                dictionary[type] = [r]
+                
+        qOrgRefs = person.personOrg.fetch(None)
+        orgRefs = []
+        for o in qOrgRefs :
+            orgRefs.append(o.person) #?? Should this be o.org?
+        dictionary["orgRefs"] = orgRefs
+        
+        qCrisisRefs = person.personCrisis.fetch(None)
+        crisisRefs = []
+        for p in qCrisisRefs :
+            crisisRefs.append(p.person) #??Should this be p.person?
+        dictionary["crisisRefs"] = crisisRefs
+      
+        path = os.path.join(os.path.dirname(__file__), 'personTemp.html')
         self.response.out.write(template.render(path, dictionary))
         
 class tibet(webapp2.RequestHandler):
