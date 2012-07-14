@@ -354,7 +354,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     people = tree.findall("person")
     assert(people != [])
     
-    db.delete(db.Query())  #Wipe out the datastore data
+    #db.delete(db.Query())  #Wipe out the datastore data
     
     wc = WorldCrises()
     wc.put()
