@@ -203,7 +203,7 @@
 			</primaryImage>
 			<image>
 				<site></site>
-				<title></title>
+				<title>North Korea Nuclear War</title>
 				<url>http://upload.wikimedia.org/wikipedia/commons/f/f1/North_Korea_nuclear.svg</url>
 				<description></description>
 			</image>
@@ -288,7 +288,7 @@
 			</image>
 			<video>
 				<site>Youtube</site>
-				<title></title>
+				<title>Chinese Occupation of Tibet</title>
 				<url>http://www.youtube.com/embed/bWnfJqqW2Yk</url>
 				<description>Video depicting the Chinese Occupatin of Tibet</description>
 			</video>
@@ -306,7 +306,7 @@
             </social>
             <ext>
             	<site>Free Tibet</site>
-                <title></title>
+                <title>Free Tibet Organization</title>
                 <url>http://www.freetibet.org/</url>
                 <description>Website for the Free Tibet Organizations</description>
             </ext>
@@ -361,13 +361,13 @@
             </image>
             <video>
                 <site>Youtube</site>
-                <title></title>
+                <title>DEA Team</title>
                 <url>http://www.youtube.com/embed/dSUGY8qV6Jc</url>
                 <description>DEA FAST team</description>
             </video>
             <social>
 	            <site>Twitter</site>
-                <title></title>
+                <title>DEA Twitter</title>
                 <url>http://twitter.com/#!/DEAEdFoundation</url>
                 <description>DEA Education Foundation twitter</description>
             </social>
@@ -422,19 +422,19 @@
             </image>
             <video>
                 <site>Youtube</site>
-                <title></title>
+                <title>Future Soldiers, Pentagon Youtube Channel</title>
                 <url>http://www.youtube.com/embed/bJ76-dVSrBc</url>
                 <description>The Pentagon Channel: Future Soldier</description>
             </video>
             <social>
 	            <site>Twitter</site>
-                <title></title>
+                <title>DoD Twitter</title>
                 <url>http://twitter.com/#!/DeptofDefense</url>
                 <description>Department of Defense Twitter</description>
             </social>
             <ext>
             	<site></site>
-                <title></title>
+                <title>DoD Website</title>
                 <url>http://www.defense.gov/</url>
                 <description>Official website</description>
             </ext>
@@ -483,19 +483,19 @@
             </image>
             <video>
                 <site>Youtube</site>
-                <title></title>
+                <title>Federal Reserve Documentary</title>
                 <url>http://www.youtube.com/embed/pQGhfQnRzYk</url>
                 <description>Money, Banking, and the Federal Reserve Documentary</description>
             </video>
             <social>
 	            <site>Twitter</site>
-                <title></title>
+                <title>Federal Reserve Twitter</title>
                 <url>http://twitter.com/#!/federalreserve</url>
                 <description>Federal Reserve Twitter</description>
             </social>
             <ext>
             	<site></site>
-                <title></title>
+                <title>Website for the Federal Reserve</title>
                 <url>http://www.federalreserve.gov/</url>
                 <description>Official website</description>
             </ext>
@@ -550,13 +550,13 @@
             </video>
             <social>
 	            <site>Twitter</site>
-                <title></title>
+                <title>United Nations Twitter</title>
                 <url>http://twitter.com/#!/UN</url>
                 <description>United Nations twitter</description>
             </social>
             <ext>
             	<site></site>
-                <title></title>
+                <title>Official Website for the United Nations</title>
                 <url>www.un.org</url>
                 <description>Official website</description>
             </ext>
@@ -603,7 +603,7 @@
             </video>
             <social>
             	<site>Facebook</site>
-                <title></title>
+                <title>Dalai Lama's Facebook page</title>
                 <url>https://www.facebook.com/DalaiLama</url>
                 <description>14th Dalai Lama facebook page</description>
             </social>
@@ -656,13 +656,13 @@
             </video>
             <social>
             	<site>Facebook</site>
-                <title></title>
+                <title>President Obama's Facebook page</title>
                 <url>http://www.facebook.com/barackobama</url>
                 <description>Official facebook page for President Obama</description>
             </social>
 			<social>
             	<site>Twitter</site>
-                <title></title>
+                <title>Twitter page of President Obama</title>
                 <url>http://twitter.com/#!/BarackObama/</url>
                 <description>Official twitter page for President Obama</description>
             </social>
@@ -715,7 +715,7 @@
             </video>
             <social>
             	<site>Facebook</site>
-                <title></title>
+                <title>DEA Facebook page</title>
                 <url>https://www.facebook.com/DrugEnforcementAdministration</url>
                 <description>Unofficial DEA Facebook</description>
             </social>
@@ -763,13 +763,13 @@
             </image>
             <video>
                 <site>Youtube</site>
-                <title></title>
+                <title>Kim Jong-Un's first speech</title>
                 <url>http://www.youtube.com/embed/lG31fvXEIU8</url>
                 <description>Kim Jong-un gives first speech</description>
             </video>
             <social>
             	<site>Twitter</site>
-                <title></title>
+                <title>Kim Jong Un Twitter</title>
                 <url>http://twitter.com/#!/KimJongNumberUn</url>
                 <description>Fake Twitter account for Kim Jong Un</description>
             </social>
