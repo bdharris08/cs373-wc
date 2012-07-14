@@ -28,7 +28,14 @@ class MainPage(webapp2.RequestHandler):
             
         path = os.path.join(os.path.dirname(__file__), 'splash.html')
         self.response.out.write(template.render(path, {"crises": crises, "orgs" : orgs, "persons" : persons}))
-      
+
+class TempHandler(webapp2.RequestHandler):
+    def get(self, resource):
+        resource = str(urllib.unquote(resource))
+        path = os.path.join(os.path.dirname(__file__), 'junk.html')
+        crisis = Crisis.all().filter("id =", resource).fetch(1).pop()
+        self.response.out.write(template.render(path, {"junk" : crisis}))
+
 class CrisisHandler(webapp2.RequestHandler):
     def get(self, resource):
         dictionary = {}
@@ -154,6 +161,7 @@ class ImportHandler(webapp.RequestHandler):
         name="submit" value="Submit"> </form></body></html>""")
         
 class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
+
   def post(self):
     upload_files = self.get_uploads('file')  # 'file' is file upload field in the form
     blob_info = upload_files[0]
@@ -354,8 +362,25 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     people = tree.findall("person")
     assert(people != [])
     
-    #db.delete(db.Query())  #Wipe out the datastore data
-    
+    #Wipe out the datastore data
+    db.delete(WorldCrises.all())
+    db.delete(Crisis.all())
+    db.delete(Organization.all())
+    db.delete(Person.all())
+    db.delete(CrisisInfo.all())
+    db.delete(OrgInfo.all())
+    db.delete(PersonInfo.all())
+    db.delete(ExternalLink.all())
+    db.delete(Date.all())
+    db.delete(Location.all())
+    db.delete(Contact.all())
+    db.delete(FullAddr.all())
+    db.delete(HumanImpact.all())
+    db.delete(EconomicImpact.all())
+    db.delete(CrisisOrganization.all())
+    db.delete(CrisisPerson.all())
+    db.delete(OrganizationPerson.all())
+   
     wc = WorldCrises()
     wc.put()
     
@@ -851,4 +876,5 @@ app = webapp2.WSGIApplication([('/', MainPage), ('/import', ImportHandler), ('/u
                             ('/serve/([^/]+)?', ServeHandler), ('/export', ExportHandler), 
                             ('/crisis/([^/]+)?', CrisisHandler),
                             ('/org/([^/]+)?', OrgHandler), 
-                            ('/person/([^/]+)?', PersonHandler)], debug=True)
+                            ('/person/([^/]+)?', PersonHandler), 
+                            ('/temp/([^/]+)?', TempHandler)], debug=True)

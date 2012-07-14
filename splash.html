@@ -25,14 +25,14 @@
 		<h2>Organizations</h2>
 			<p> <ul>
 			{% for org in orgs %}
-			    <li><a href="http://www.jontitan-cs373-wc.appspot.com/crisis/{{org.id}}" >{{ org.name }}</a> </li></li>
+			    <li><a href="http://www.jontitan-cs373-wc.appspot.com/org/{{org.id}}" >{{ org.name }}</a> </li></li>
 			{% endfor %}
             </ul></p>
 
 		<h2>People</h2>
 			<p> <ul>
 			{% for person in persons %}
-			    <li><a href="http://www.jontitan-cs373-wc.appspot.com/crisis/{{person.id}}" >{{ person.name }}</a> </li></li>
+			    <li><a href="http://www.jontitan-cs373-wc.appspot.com/person/{{person.id}}" >{{ person.name }}</a> </li></li>
 			{% endfor %}
             </ul></p>
 
