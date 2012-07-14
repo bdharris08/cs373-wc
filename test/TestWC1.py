@@ -2,6 +2,8 @@ import unittest
 import wc
 from google.appengine.ext import db
 from google.appengine.ext import webapp
+from google.appengine.api import files
+from __future__ import with_statement
 import webapp2
 from webtest import TestApp
 
@@ -21,65 +23,70 @@ class webTest(unittest.TestCase):
     
     def test_tibet(self):
         app = TestApp(self.application)
-        response = app.get('/tibet')
+        response = app.get('/crisis/tibet')
         self.assertTrue('Crisis: Tibetan Occupation' in response) 
     
     def test_gec(self):
         app = TestApp(self.application)
-        response = app.get('/gec')
+        response = app.get('/crisis/global_economic_crisis')
         self.assertTrue('Crisis: Global Financial Crisis' in response)     
     def test_bathsalts(self):
         app = TestApp(self.application)
-        response = app.get('/bathsalts')
+        response = app.get('/crisis/bath_salts')
         self.assertTrue('Crisis: Bath Salts' in response)     
     def test_nkorea(self):
         app = TestApp(self.application)
-        response = app.get('/nkorea')
+        response = app.get('/crisis/north_korea')
         self.assertTrue('North Korea and Nuclear Weapons' in response)     
     def test_UN(self):
         app = TestApp(self.application)
-        response = app.get('/un')
+        response = app.get('/organization/united_nations')
         self.assertTrue('Organization: United Nations' in response) 
     def test_fed(self):
         app = TestApp(self.application)
-        response = app.get('/frs')
+        response = app.get('/organization/federal_reserve_system')
         self.assertTrue('Organization: The Federal Reserve' in response)         
     
     def test_dea(self):
         app = TestApp(self.application)
-        response = app.get('/dea')
+        response = app.get('/organization/drug_enforcement_admin')
         self.assertTrue('Organization: Drug Enforcement Administration' in response)         
     
     def test_dod(self):
         app = TestApp(self.application)
-        response = app.get('/dod')
+        response = app.get('/organization/department_of_defense')
         self.assertTrue('United States Department of Defense' in response)
     
     def test_dalailama(self):
         app = TestApp(self.application)
-        response = app.get('/dali')
+        response = app.get('/person/dalai_lama')
         self.assertTrue('Person: Dalai Lama (Tenzin Gyatso)' in response)  
     
     def test_obama(self):
         app = TestApp(self.application)
-        response = app.get('/obama')
+        response = app.get('/person/barack_obama')
         self.assertTrue('Person: President Barack Obama' in response)         
     
     def test_leonhart(self):
         app = TestApp(self.application)
-        response = app.get('/mml')
+        response = app.get('/person/michele_leonhart')
         self.assertTrue('Person: Michele M. Leonhart' in response)  
     
     def test_kimjongun(self):
         app = TestApp(self.application)
-        response = app.get('/kju')
+        response = app.get('/person/kim_jong_un')
         self.assertTrue('Person: Kim Jong-un' in response)
-    '''    
-    def test_import(self):
+    
+
+    def test_ImportHandler(self):
         app = TestApp(self.application)
         response = app.get('/import')
-        self.assertTrue('Upload File' in response)         
+        self.assertTrue('Upload File' in response)    
     
+    def test_UploadHandler(self):
+        app = TestApp(self.application)
+        
+    '''
     def test_export(self):
         app = TestApp(self.application)
         response = app.get('/export')
@@ -148,4 +155,5 @@ class ModelTest(unittest.TestCase):
     def test_new_person_entity3(self):
         entity = wc.Person(description = "14th and current head of Tibetan Buddhism")
         self.assertTrue(entity.description == "14th and current head of Tibetan Buddhism")
+
             
