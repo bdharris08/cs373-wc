@@ -4,5 +4,77 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 </head>
 <body>
+<h1>Person: {{person.name}}</h1>
+
+<h2>Type</h2>
+<p>{{personInfo.type}}</p>
+
+<h2>BirthDate</h2>
+<p>
+    <ul>
+        <li>{{birthdate.day}}/{{birthdate.month}}/{{birthdate.year}}</li>
+    </ul>
+</p>
+
+<h2>Nationality</h2>
+<p>{{personInfo.nationality}}</p>
+
+<h2>Biography</h2>
+<p>{{personInfo.biography}}</p>
+
+
+<h2>Misc</h2>
+<p>{{person.misc}}</p>
+
+<h2>Primary Image</h2>
+<p>
+    {% for i in primaryImage %}
+    <img src = {{i.url}}>
+    {% endfor %}
+</p>
+
+<h2>Images</h2>
+<p>
+    {% for i in image %}
+    <img src = {{i.url}}><br>
+    {% endfor %}
+</p>
+
+<h2>Vidos</h2>
+<p>
+    {% for i in video %}
+    <iframe width="420" height="315" src={{i.url}} frameborder="0" allowfullscreen></iframe><br>
+    {% endfor %}
+</p>
+
+<h2>Social</h2>
+<p>
+    {% for i in social %}
+    <a href={{i.url}}> {{i.title}} </a><br>
+    {% endfor %}
+</p>
+
+<h2>External Links</h2>
+<p>
+    {% for i in ext %}
+    <a href={{i.url}}> {{i.title}} </a><br>
+    {% endfor %}
+</p>
+
+<h2>Internal Links</h2>
+<p>
+    <h3>Related Crises</h3>
+    <p>
+    {% for c in crisisRefs %}
+    <a href="/crisis/{{c.id}}"> {{c.name}} </a><br>
+    {% endfor %}
+    </p>
+    <h3>Related Organizations</h3>
+    <p>
+    {% for o in orgRefs %}
+        <a href='/org/{{o.id}}'> {{o.name}} </a><br>    
+    {% endfor %}
+    </p>
+</p>
 </body>
 </html>
