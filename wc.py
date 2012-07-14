@@ -5,10 +5,6 @@ import urllib
 
 from genxmlif import GenXmlIfError
 from minixsv import pyxsval
-
-
-jinja_environment = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
     
 from xml.etree.ElementTree import ElementTree
 from google.appengine.ext import db
@@ -28,13 +24,6 @@ class MainPage(webapp2.RequestHandler):
             
         path = os.path.join(os.path.dirname(__file__), 'splash.html')
         self.response.out.write(template.render(path, {"crises": crises, "orgs" : orgs, "persons" : persons}))
-
-class TempHandler(webapp2.RequestHandler):
-    def get(self, resource):
-        resource = str(urllib.unquote(resource))
-        path = os.path.join(os.path.dirname(__file__), 'junk.html')
-        crisis = Crisis.all().filter("id =", resource).fetch(1).pop()
-        self.response.out.write(template.render(path, {"junk" : crisis}))
 
 class CrisisHandler(webapp2.RequestHandler):
     def get(self, resource):
@@ -65,13 +54,13 @@ class CrisisHandler(webapp2.RequestHandler):
         qOrgRefs = crisis.crisisOrg.fetch(None)
         orgRefs = []
         for o in qOrgRefs :
-            orgRefs.append(o.crisis) #?? Should this be o.org?
+            orgRefs.append(o.crisis)
         dictionary["orgRefs"] = orgRefs
         
         qPersonRefs = crisis.crisisPerson.fetch(None)
         personRefs = []
         for p in qPersonRefs :
-            personRefs.append(p.crisis) #??Should this be p.person?
+            personRefs.append(p.crisis)
         dictionary["personRefs"] = personRefs
       
         path = os.path.join(os.path.dirname(__file__), 'crisisTemp.html')
@@ -104,13 +93,13 @@ class OrgHandler(webapp2.RequestHandler):
         qCrisisRefs = organization.orgCrisis.fetch(None)
         crisisRefs = []
         for c in qCrisisRefs :
-            crisisRefs.append(c.organization) #?? Should this be c.crisis?
+            crisisRefs.append(c.organization) 
         dictionary["crisisRefs"] = crisisRefs
         
         qPersonRefs = organization.orgPerson.fetch(None)
         personRefs = []
         for p in qPersonRefs :
-            personRefs.append(p.organization) #?? Should this be p.person?
+            personRefs.append(p.organization)
         dictionary["personRefs"] = personRefs
       
         path = os.path.join(os.path.dirname(__file__), 'orgTemp.html')
@@ -139,13 +128,13 @@ class PersonHandler(webapp2.RequestHandler):
         qOrgRefs = person.personOrg.fetch(None)
         orgRefs = []
         for o in qOrgRefs :
-            orgRefs.append(o.person) #?? Should this be o.org?
+            orgRefs.append(o.person)
         dictionary["orgRefs"] = orgRefs
         
         qCrisisRefs = person.personCrisis.fetch(None)
         crisisRefs = []
         for p in qCrisisRefs :
-            crisisRefs.append(p.person) #??Should this be p.person?
+            crisisRefs.append(p.person)
         dictionary["crisisRefs"] = crisisRefs
       
         path = os.path.join(os.path.dirname(__file__), 'personTemp.html')
@@ -353,7 +342,6 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         print "Parsing aborted!"
     
     tree.parse(blob_reader)
-    
 
     crises = tree.findall("crisis")
     assert(crises != [])
@@ -391,9 +379,6 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         crisis.id = c.get("id")
         crisis.name = c.find("name").text
         crisis.put()
-        #print "dummy"
-        #print "id: " + crisis.id
-        #print "name: " + crisis.name
         
         ci = c.find("info")
         crisisInfo = CrisisInfo()
@@ -706,8 +691,6 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
             relation.person = org
             relation.put()
             
-    #self.redirect('/serve/%s' % blob_info.key())
-    #blobkey = blob_info.key()
     self.redirect('/')
 
 class ExportHandler(webapp.RequestHandler):
@@ -767,8 +750,6 @@ class Crisis (db.Model):
     #info
     #ref
     misc = db.StringProperty()
-    orgs = db.ListProperty(db.Key)
-    person = db.ListProperty(db.Key)
     
 class Organization(db.Model):
     worldCrises  = db.ReferenceProperty(WorldCrises, collection_name = 'organizations')
@@ -777,8 +758,6 @@ class Organization(db.Model):
     #info
     #ref  
     misc = db.StringProperty()
-    crisis = db.ListProperty(db.Key)
-    person = db.ListProperty(db.Key)
     
 class Person(db.Model):
     worldCrises  = db.ReferenceProperty(WorldCrises, collection_name = 'persons')
@@ -787,8 +766,6 @@ class Person(db.Model):
     #info
     #ref
     misc = db.StringProperty()
-    crisis = db.ListProperty(db.Key)
-    org = db.ListProperty(db.Key)
     
 class CrisisInfo (db.Model):
     crisis = db.ReferenceProperty(Crisis, collection_name = 'info')
@@ -888,5 +865,4 @@ app = webapp2.WSGIApplication([('/', MainPage), ('/import', ImportHandler), ('/u
                             ('/serve/([^/]+)?', ServeHandler), ('/export', ExportHandler), 
                             ('/crisis/([^/]+)?', CrisisHandler),
                             ('/org/([^/]+)?', OrgHandler), 
-                            ('/person/([^/]+)?', PersonHandler), 
-                            ('/temp/([^/]+)?', TempHandler)], debug=True)
+                            ('/person/([^/]+)?', PersonHandler)], debug=True)
