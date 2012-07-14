@@ -70,7 +70,7 @@ class CrisisHandler(webapp2.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'crisisTemp.html')
         self.response.out.write(template.render(path, dictionary))
         
-class OrganizationHandler(webapp2.RequestHandler):
+class OrgHandler(webapp2.RequestHandler):
     def get(self, resource):
         dictionary = {}
         resource = str(urllib.unquote(resource))
@@ -85,7 +85,7 @@ class OrganizationHandler(webapp2.RequestHandler):
         address = contact.mail.fetch(1).pop()
         dictionary["address"] = address
         
-        extRefs = org.ref.fetch(None)
+        extRefs = organization.ref.fetch(None)
         for r in extRefs :
             type = r.ref_type
             if(type in dictionary):
@@ -94,16 +94,16 @@ class OrganizationHandler(webapp2.RequestHandler):
             else: 
                 dictionary[type] = [r]
                 
-        qCrisisRefs = org.orgCrisis.fetch(None)
+        qCrisisRefs = organization.orgCrisis.fetch(None)
         crisisRefs = []
         for c in qCrisisRefs :
-            crisisRefs.append(c.org) #?? Should this be c.crisis?
+            crisisRefs.append(c.organization) #?? Should this be c.crisis?
         dictionary["crisisRefs"] = crisisRefs
         
-        qPersonRefs = crisis.orgPerson.fetch(None)
+        qPersonRefs = organization.orgPerson.fetch(None)
         personRefs = []
         for p in qPersonRefs :
-            personRefs.append(p.org) #?? Should this be p.person?
+            personRefs.append(p.organization) #?? Should this be p.person?
         dictionary["personRefs"] = personRefs
       
         path = os.path.join(os.path.dirname(__file__), 'orgTemp.html')
@@ -912,4 +912,6 @@ app = webapp2.WSGIApplication([('/', MainPage), ('/tibet', tibet), ('/gec', gec)
 							('/dali', dali), ('/mml', mml), ('/obama', obama), 
 							('/kju', kju), ('/import', ImportHandler), ('/upload', UploadHandler),
                             ('/serve/([^/]+)?', ServeHandler), ('/export', ExportHandler), 
-                            ('/crisis/([^/]+)?', CrisisHandler)], debug=True)
+                            ('/crisis/([^/]+)?', CrisisHandler),
+                            ('/org/([^/]+)?', OrgHandler), 
+                            ('/person/([^/]+)?', PersonHandler)], debug=True)

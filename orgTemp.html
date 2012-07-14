@@ -4,38 +4,36 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 </head>
 <body>
-<h1>Crisis: {{crisis.name}}</h1>
+<h1>Organization: {{organization.name}}</h1>
 
-<h2>History:</h2>
+<h2>Type</h2>
 <p>
-{{crisisInfo.history}}
+{{orgInfo.type}}
 </p>
 
-<h2>Help:</h2>
-<p>
-{{crisisInfo.help}}
-</p>
-
-
-<h2>Resources:</h2>
-<p>
-{{crisisInfo.resources}}
-</p>
-
-<h2>Type:</h2>
-<p>
-{{crisisInfo.type}}
-</p>
-
-<h2>Time</h2>
+<h2>Contact</h2>
 <p>
     <ul>
-        <li>Time: {{time.time}} </li>
-        <li>Day: {{time.day}} </li>
-        <li>Month: {{time.month}} </li>
-        <li>Year: {{time.year}} </li>
-        <li>Misc: {{time.misc}} </li>
+        <li>Phone:{{contact.phone}}</li>
+        <li>Email:{{contact.email}}</li>
+        <li>Address:{{address.address}}</li> 
+        <li>        {{address.city}}, {{address.state}}</li>
+        <li>        {{address.country}} {{address.zip}}</li>
     </ul>
+</p>
+
+<h2>Location</h2>
+<p>
+    <ul>
+        <li>City:{{loc.city}}</li>
+        <li>Region:{{loc.region}}</li>
+        <li>Country:{{loc.country}}</li>
+    </ul>
+</p>
+
+<h2>History</h2>
+<p>
+{{orgInfo.history}}
 </p>
 
 <h2>Location</h2>
@@ -47,25 +45,11 @@
     </ul>
 </p>
 
-<h2>Human Impact</h2>
+<h2>Misc</h2>
 <p>
-    <ul>
-        <li>Deaths: {{humanImpact.deaths}} </li>
-        <li>Displaced: {{humanImpact.displaced}} </li>
-        <li>Injured: {{humanImpact.injured}} </li>
-        <li>Missing: {{humanImpact.missing}} </li>
-        <li>Misc: {{humanImpact.misc}} </li>
-    </ul>
+{{organization.misc}}
 </p>
 
-<h2>Economic Impact</h2>
-<p>
-    <ul>
-        <li>Amount: {{economicImpact.deaths}} </li>
-        <li>Currency: {{economicImpact.displaced}} </li>
-        <li>Misc: {{economicImpact.misc}} </li>
-    </ul>
-</p>
 
 <h2>Primary Image</h2>
 <p>
@@ -106,8 +90,8 @@
 <p>
     <h3>Related Organizations</h3>
     <p>
-    {% for o in orgRefs %}
-    <a href="/organization/{{o.id}}"> {{o.name}} </a><br>
+    {% for c in crisisRefs %}
+    <a href="/crisis/{{c.id}}"> {{c.name}} </a><br>
     {% endfor %}
     </p>
     <h3>Related People</h3>

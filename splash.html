@@ -15,7 +15,7 @@
 			<li> Matt Granado</li>
 			<li> Elizabeth Hayden</li>
 			</ul></p>  
-        <h2>Criris</h2>
+        <h2>Crises</h2>
             <p> <ul>
 			{% for crisis in crises %}
 			    <li><a href="http://www.jontitan-cs373-wc.appspot.com/crisis/{{crisis.id}}" >{{ crisis.name }}</a> </li></li>
@@ -24,19 +24,17 @@
 
 		<h2>Organizations</h2>
 			<p> <ul>
-			<li> <a href="http://www.jontitan-cs373-wc.appspot.com/un" >The U.N</a> </li>
-			<li> <a href="http://www.jontitan-cs373-wc.appspot.com/frs" >The Federal Reserve</a> </li>
-			<li> <a href="http://www.jontitan-cs373-wc.appspot.com/dea" >Drug Enforcement Administration</a> </li>
-			<li> <a href="http://www.jontitan-cs373-wc.appspot.com/dod" >Department of Defense</a> </li>
-			</ul></p>
+			{% for org in orgs %}
+			    <li><a href="http://www.jontitan-cs373-wc.appspot.com/crisis/{{org.id}}" >{{ org.name }}</a> </li></li>
+			{% endfor %}
+            </ul></p>
 
 		<h2>People</h2>
 			<p> <ul>
-			<li> <a href="http://www.jontitan-cs373-wc.appspot.com/dali" >Dalai Lama</a> </li>
-			<li> <a href="http://www.jontitan-cs373-wc.appspot.com/obama" >President Obama</a> </li>
-			<li> <a href="http://www.jontitan-cs373-wc.appspot.com/mml" >Michelle M. Leonhart</a> </li>
-			<li> <a href="http://www.jontitan-cs373-wc.appspot.com/kju" >Kim Jong-Un</a> </li>
-			</ul></p>
+			{% for person in persons %}
+			    <li><a href="http://www.jontitan-cs373-wc.appspot.com/crisis/{{person.id}}" >{{ person.name }}</a> </li></li>
+			{% endfor %}
+            </ul></p>
 
 		<h2>link to import/export</h2>
 		    <p> <ul>
