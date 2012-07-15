@@ -702,18 +702,116 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 class ExportHandler(webapp.RequestHandler):
     def get(self):
         CrisisQuery = Crisis.all().fetch(None)
+        CrisisInfoQuery = CrisisInfo.all().fetch(None)
+        OrgQuery = Organization.all().fetch(None)
+        OrgInfoQuery = OrgInfo.all().fetch(None)
+        PeopleQuery = Person.all().fetch(None)
+        PeopleInfoQuery = PersonInfo.all().fetch(None)
+        ExtLinkQuery = ExternalLink.all().fetch(None)
+        DateQuery = Date.all().fetch(None)
+        LocationQuery = Location.all().fetch(None)
+        ContactQuery = Contact.all().fetch(None)
+        FullAddrQuery = FullAddr.all().fetch(None)
+        HumanImpactQuery = HumanImpact.all().fetch(None)
+        EconImpactQuery = EconomicImpact.all().fetch(None)
+        COQuery = CrisisOrganization.all().fetch(None)
+        CPQuery = CrisisPerson.all().fetch(None)
+        OPQuery = OrganizationPerson.all().fetch(None)
+
+        crisisList = []
+        orgList = []
+        personList = []
+        
         OrgQuery = Organization.all().fetch(None)
         PeopleQuery = Person.all().fetch(None)
-                
-        root = ElementTree.Element("worldCrises")
-        child = ElementTree.Element("crises")
+
         for c in CrisisQuery :
-            crisis = ElementTree.SubElement(root, "crisis")
-            crisis.set("id=", c.id)
-            name = ElementTree.SubElement(crisis, "name")
-            name.set(c.name)
-        tree = ElementTree.ElementTree(root)
-        tree.write("treetest.xhtml")
+            clist = [c]
+            for ci in CrisisInfoQuery :
+                if ci.crisis == c :
+                    clist += ci
+                    for d in DateQuery :
+                        if d.crisisInfo == ci :
+                            clist += d
+                    for l in LocationQuery :
+                        if l.crisisInfo == ci :
+                            clist += l
+                    for hi in HumanImpactQuery :
+                        if hi.crisisInfo == ci :
+                            clist += hi
+                    for ei in EconImpactQuery :
+                        if ei.crisisInfo == ci :
+                            clist += ei
+            for e in ExtLinkQuery :
+                if e.crisis == c :
+                    clist += e
+            for co in COQuery :
+                if co.organization == c :
+                    clist += co
+            for cp in CPQuery :
+                if cp.person == c :
+                    clist += cp
+            crisisList.append(clist)
+
+        for o in OrgQuery :
+            olist = [o]
+            for oi in OrgInfoQuery :
+                if oi.organization == o :
+                    olist += oi
+                    for c in ContactQuery :
+                        if c.orgInfo == oi :
+                            olist += c
+                            for a in FullAddrQuery :
+                                if a.contact == c :
+                                    olist += a
+                for l in LocationQuery :
+                    if l.orgInfo == oi :
+                        olist += l
+            for e in ExtLinkQuery :
+                if e.organization == o :
+                    olist += e
+            for co in COQuery :
+                if co.crisis == o :
+                    olist += co
+            for op in OPQuery :
+                if op.person == o :
+                    olist += op
+            orgList.append(olist)
+
+        for p in PeopleQuery :
+            plist = [p]
+            for pi in PeopleInfoQuery :
+                if pi.person == p :
+                    plist += pi
+                for d in DateQuery :
+                    if d.personInfo == pi :
+                        plist += d
+            for e in ExtLinkQuery :
+                if e.person == p :
+                    plist += e
+            for cp in CPQuery :
+                if cp.crisis == p :
+                    plist += cp
+            for op in OPQuery :
+                if op.organization == p :
+                    plist += op
+            personList.append(plist)
+        '''
+        path2 = os.path.join(os.path.dirname(__file__), 'export.xml')
+        t = loader.get_template(path2)
+        c = Context({"crises": crisisList, "orgs" : orgList, "persons" : personList})
+        return HttpResponse(t.render(c), mimetype="text/xml")
+        '''  
+        '''    
+        path2 = os.path.join(os.path.dirname(__file__), 'export.xml')
+        c = app.test_request_context(path2)
+        return render_to_response(path2, {"crises": crisisList, "orgs" : orgList, "persons" : personList}, context_list, mimetype='text/xml')
+        '''
+
+        path2 = os.path.join(os.path.dirname(__file__), 'export.xml')      
+        self.response.out.write(template.render(path2, {"crises": crisisList, "orgs" : orgList, "persons" : personList},'text/xml'))
+
+        
         #tree = ElementTree()
         #treebuilder = tree.TreeBuilder()
         #build tree using models
@@ -727,10 +825,11 @@ class ExportHandler(webapp.RequestHandler):
         #self.response.headers['Content-Type']='text/xml; charset=utf-8'
         #self.response.out.write(xml)
         #self.redirect('/serve/%s' % blob_info.key())
+        '''
         BlobQuery = blobstore.BlobInfo.gql("Order BY creation DESC")
         blob = BlobQuery.get()
         self.redirect('/serve/%s' % blob.key())
-        
+        '''
         
 
 class ServeHandler(blobstore_handlers.BlobstoreDownloadHandler):
