@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
     </head>
 	<h1>Splash Page</h1>
-		<h2>Group Name</h2>
-			<p>Super Seniors</p>
-		<h2>Group Members</h2>
-			<p> <ul>
-			<li> Rohan Shah</li>
-			<li> Benjamin David Harris</li>
-			<li> Victor Pang</li>
-			<li> Ting-Yi Chen</li>
-			<li> Matt Granado</li>
-			<li> Elizabeth Hayden</li>
-			</ul></p>  
+		
+		
+		
+		<div class = "container-fluid">
+		<div class = "row-fluid">
+		<div class = "span3">    
+		    <h2>Group Name</h2>
+			    <p>Super Seniors</p>
+		    <h2>Group Members</h2>
+			    <p> <ul>
+    			<li> Rohan Shah</li>
+	    		<li> Benjamin David Harris</li>
+		    	<li> Victor Pang</li>
+			    <li> Ting-Yi Chen</li>
+    			<li> Matt Granado</li>
+	    		<li> Elizabeth Hayden</li>
+		    	</ul></p>
+		</div>	
+		
+			
+		<div class = "span9"> 	  
         <h2>Crises</h2>
             <p> <ul>
 			{% for crisis in crises %}
@@ -45,4 +55,8 @@
 		    <p> <ul>
 		    <li> <a href="http://www.jontitan-cs373-wc.appspot.com/test">Test</a></li>
 		    </ul></p>
+		    </div>
+</div>	
+</div>	
+
 </html>

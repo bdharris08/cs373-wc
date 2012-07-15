@@ -5,10 +5,19 @@ api_version: 1
 threadsafe: false
 
 handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /bootstrap/css
+  static_dir: /bootstrap/css
+  
 - url: /test.*
   script: gaeunit.py
+  
 - url: /.*
   script: wc.app
+
+  
 libraries:
 - name: jinja2
   version: latest
@@ -16,3 +25,6 @@ libraries:
   version: latest
 - name: lxml
   version: latest
+  
+
+  

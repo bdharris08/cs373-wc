@@ -25,6 +25,12 @@ class MainPage(webapp2.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'splash.html')
         self.response.out.write(template.render(path, {"crises": crises, "orgs" : orgs, "persons" : persons}))
 
+class TempHandler(webapp2.RequestHandler):
+    def get(self):
+        path = os.path.join(os.path.dirname(__file__), 'temp.html')
+        self.response.out.write(template.render(path, {}))
+        
+        
 class CrisisHandler(webapp2.RequestHandler):
     def get(self, resource):
         dictionary = {}
@@ -865,4 +871,5 @@ app = webapp2.WSGIApplication([('/', MainPage), ('/import', ImportHandler), ('/u
                             ('/serve/([^/]+)?', ServeHandler), ('/export', ExportHandler), 
                             ('/crisis/([^/]+)?', CrisisHandler),
                             ('/org/([^/]+)?', OrgHandler), 
-                            ('/person/([^/]+)?', PersonHandler)], debug=True)
+                            ('/person/([^/]+)?', PersonHandler),
+                            ('/temp', TempHandler)], debug=True)
