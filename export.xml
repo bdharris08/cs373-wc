@@ -4,5 +4,20 @@
         <crisis id="{{crisis.0.id}}">
             <name>{{crisis.0.name}}</name>
         </crisis>
+        <info>
+            <history>{{crisis.1.history}}</history>
+            <help>{{crisis.1.help}}</help>
+            <resources>{{crisis.1.resources}}</resources>
+            <type>{{crisis.1.type}}</type>
+            <time>
+                <day>{{crisis.2.day}}</day>
+                <month>{{crisis.2.month}}</month>
+                <year>{{crisis.2.year}}</year>
+                <misc>{{crisis.2.misc}}</misc>
+            </time>
+            <location>
+                <city>{{crisis.3.city}}</city>
+            </location>
+        </info>
     {% endfor %}
 </worldCrises>
