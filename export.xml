@@ -16,8 +16,8 @@
                 </time>
                 <location>
                     <city>{{crisis.3.city}}</city>
-                    <region>{{crisis.4.region}}</region>
-                    <country>{{crisis.4.country}}</country>
+                    <region>{{crisis.3.region}}</region>
+                    <country>{{crisis.3.country}}</country>
                 </location>
                 <impact>
                     <human>
