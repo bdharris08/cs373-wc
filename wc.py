@@ -586,7 +586,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
             ref.put()
             
     for p in people :
-    	person = Person()
+        person = Person()
         person.worldCrises = wc
         person.id = p.get("id")
         person.name = p.find("name").text
@@ -672,24 +672,24 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         
         relatedOrg = c.findall("org")
         for o in relatedOrg :
-        	org = Organization.all().filter("id =", o.get("idref")).fetch(1).pop()
-        	relation = CrisisOrganization()
-        	relation.organization = crisis
-        	relation.crisis = org
-        	relation.put()
-        	
+            org = Organization.all().filter("id =", o.get("idref")).fetch(1).pop()
+            relation = CrisisOrganization()
+            relation.organization = crisis
+            relation.crisis = org
+            relation.put()
+            
         relatedPerson = c.findall("person")
         for p in relatedPerson :
-        	person = Person.all().filter("id =", p.get("idref")).fetch(1).pop()
-        	relation = CrisisPerson()
-        	relation.crisis = person
-        	relation.person = crisis
-        	relation.put()
-        	
+            person = Person.all().filter("id =", p.get("idref")).fetch(1).pop()
+            relation = CrisisPerson()
+            relation.crisis = person
+            relation.person = crisis
+            relation.put()
+            
     for o in organizations :
         org = Organization.all().filter("id =", o.get("id")).fetch(1).pop()
     
-    	relatedPerson = o.findall("person")
+        relatedPerson = o.findall("person")
         for p in relatedPerson :
             person = Person.all().filter("id =", p.get("idref")).fetch(1).pop()
             relation = OrganizationPerson()
@@ -707,77 +707,64 @@ class ExportHandler(webapp.RequestHandler):
         COQuery = CrisisOrganization.all().fetch(None)
         CPQuery = CrisisPerson.all().fetch(None)
         OPQuery = OrganizationPerson.all().fetch(None)
-		'''
-		CrisisInfoQuery = CrisisInfo.all().fetch(None)
-        OrgInfoQuery = OrgInfo.all().fetch(None)
-        PeopleInfoQuery = PersonInfo.all().fetch(None)
-        ExtLinkQuery = ExternalLink.all().fetch(None)
-        DateQuery = Date.all().fetch(None)
-        LocationQuery = Location.all().fetch(None)
-        ContactQuery = Contact.all().fetch(None)
-        FullAddrQuery = FullAddr.all().fetch(None)
-        HumanImpactQuery = HumanImpact.all().fetch(None)
-        EconImpactQuery = EconomicImpact.all().fetch(None)
-
-		'''
 
         crisisList = []
         orgList = []
         personList = []
-		
-		for c in CrisisQuery :
-			clist = [c]
-			cinfo = c.info
-			clist += cinfo
-			clist += cinfo.time
-			clist += cinfo.location
-			clist += cinfo.humanImpact
-			clist += cinfo.economicImpact
-			clist += c.ref
-			for co in COQuery :
-				if co.organization.name == c.name :
-					clist += co
-			for cp in CPQuery
-				if cp.person.name == c.name
-					clist += cp
-			crisisList.append(clist)
-			
-		for o in OrgQuery :
-			olist = [o]
-			oinfo = o.info
-			olist += oinfo
-			ocontact = oinfo.contact
-			olist += ocontact
-			olist += ocontact.mail
-			olist += oinfo.location
-			olist += o.ref
-			for co in COQuery :
-				if co.crisis.name == o.name :
-					olist += co
-			for op in OPQuery :
-				if op.person.name == o.name :
-					olist += op
-			orgList.append(olist)
-			
-		for p in PersonQuery :
-			plist = [p]
-			pinfo = p.info
-			plist += pinfo
-			plist += pinfo.birthdate
-			plist = p.ref
-			for cp in CPQuery :
-				if cp.crisis.name == p.name :
-					plist += cp
-			for op in OPQuery :
-				if op.organization.name == p.name :
-					plist += op
-			personList.append(plist)
-		
+        
+        for c in CrisisQuery :
+            clist = [c]
+            cinfo = c.info.fetch(None).pop()
+            clist.append(cinfo)
+            clist.append(cinfo.time)
+            clist.append(cinfo.location)
+            clist.append(cinfo.humanImpact)
+            clist.append(cinfo.economicImpact)
+            clist.append(c.ref)
+            for co in COQuery :
+                if co.organization.name == c.name :
+                    clist.append(co)
+            for cp in CPQuery : 
+                if cp.person.name == c.name :
+                    clist.append(cp)
+            crisisList.append(clist)
+            
+        for o in OrgQuery :
+            olist = [o]
+            oinfo = o.info.fetch(None).pop()
+            olist.append(oinfo)
+            ocontact = oinfo.contact.fetch(None).pop()
+            olist.append(ocontact)
+            olist.append(ocontact.mail)
+            olist.append(oinfo.location)
+            olist.append(o.ref)
+            for co in COQuery :
+                if co.crisis.name == o.name :
+                    olist.append(co)
+            for op in OPQuery :
+                if op.person.name == o.name :
+                    olist.append(op)
+            orgList.append(olist)
+            
+        for p in PeopleQuery :
+            plist = [p]
+            pinfo = p.info.fetch(None).pop()
+            plist.append(pinfo)
+            plist.append(pinfo.birthdate)
+            plist.append(p.ref)
+            for cp in CPQuery :
+                if cp.crisis.name == p.name :
+                    plist.append(cp)    
+            for op in OPQuery :
+                if op.organization.name == p.name :
+                    plist.append(op)
+            personList.append(plist)
+        
         path2 = os.path.join(os.path.dirname(__file__), 'export.xml')
-		self.response.headers['Content-Type'] = 'text/xml'
+        self.response.headers['Content-Type'] = 'text/xml'
         self.response.out.write(template.render(path2, {"crises": crisisList, "orgs" : orgList, "persons" : personList},'text/xml'))
 
-		'''
+        '''
         for c in CrisisQuery :
             clist = [c]
             for ci in CrisisInfoQuery :
@@ -849,7 +836,7 @@ class ExportHandler(webapp.RequestHandler):
                 if op.organization == p :
                     plist += op
             personList.append(plist)
-		'''
+        '''
         '''
         path2 = os.path.join(os.path.dirname(__file__), 'export.xml')
         t = loader.get_template(path2)
