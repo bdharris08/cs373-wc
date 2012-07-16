@@ -1,0 +1,86 @@
+*{
+	background-color: black;
+}
+
+.header{
+	background-color: rgb(10, 220, 220);
+	color: black;
+	width: 1000px;
+	padding: 10px;
+	margin: 20px auto 20px auto;
+}
+
+.page{
+	width: 1000px;
+	margin: 20px auto 20px auto;
+	padding: 10px;
+	text-align: center;
+	color: white;
+}
+
+.col1, .col2{
+	float: left;
+	margin: 10px;
+	padding: 5px;
+	width: 455;
+	border: 2px solid black;
+	text-align: center;
+}
+
+.selection{
+	width: 1000px;
+	background-color: rgb(0, 160, 160);
+}
+
+p{
+	margin: 10px;
+	padding: 10px;
+	color: white;
+}
+
+h1{ /* For the header itself */
+	width: 100%;
+	font-size: 72px;
+	background-color: transparent;
+	text-align: center;
+}
+
+h2{ /* For the title of a page */
+	font-size: 48px;
+	color: white;
+	background-color: transparent;
+	text-align: center;
+	border: 5px solid rgb(250, 0, 0);
+	margin: 5px;
+}
+ 
+h3{ /* For a subheading */
+	width: 100%;
+	font-size: 25px;
+	color: white;
+	margin: 5px;
+}
+
+#unknownSize{
+	max-width: 100%;
+}
+
+ul{
+	width: 100%;
+	padding: 30px;
+	margin: 0px auto 0px auto;
+	text-align: center;
+	background-color: transparent;
+	color: black;
+}
+
+li{
+	display: inline;
+	margin: 0px 10px;
+	background-color: transparent;
+	color: black;
+	font-size: 25px;
+}
+
+
+
