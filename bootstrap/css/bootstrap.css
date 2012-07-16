@@ -161,7 +161,7 @@ body {
   font-size: 13px;
   line-height: 18px;
   color: #333333;
-  background-color: #ffffff;
+  background-color: #fffffff;
 }
 
 a {
@@ -460,7 +460,7 @@ h6 small {
 }
 
 h1 {
-  font-size: 45px;
+  font-size: 30px;
   line-height: 36px;
 }
 
@@ -4981,3 +4981,4 @@ a.badge:hover {
 .invisible {
   visibility: hidden;
 }
+
