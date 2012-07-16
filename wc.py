@@ -728,11 +728,11 @@ class ExportHandler(webapp.RequestHandler):
         for c in CrisisQuery :
             clist = [c]
             for ci in CrisisInfoQuery :
-                if ci.crisis == c :
-                    clist += ci
+                if ci.crisis.name == c.name :
+                    clist.append(ci)
                     for d in DateQuery :
-                        if d.crisisInfo == ci :
-                            clist += d
+                        if d.crisisInfo.history == ci.history :
+                            clist.append(d)
                     for l in LocationQuery :
                         if l.crisisInfo == ci :
                             clist += l
