@@ -702,10 +702,14 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 class ExportHandler(webapp.RequestHandler):
     def get(self):
         CrisisQuery = Crisis.all().fetch(None)
-        CrisisInfoQuery = CrisisInfo.all().fetch(None)
         OrgQuery = Organization.all().fetch(None)
-        OrgInfoQuery = OrgInfo.all().fetch(None)
         PeopleQuery = Person.all().fetch(None)
+        COQuery = CrisisOrganization.all().fetch(None)
+        CPQuery = CrisisPerson.all().fetch(None)
+        OPQuery = OrganizationPerson.all().fetch(None)
+		'''
+		CrisisInfoQuery = CrisisInfo.all().fetch(None)
+        OrgInfoQuery = OrgInfo.all().fetch(None)
         PeopleInfoQuery = PersonInfo.all().fetch(None)
         ExtLinkQuery = ExternalLink.all().fetch(None)
         DateQuery = Date.all().fetch(None)
@@ -714,17 +718,66 @@ class ExportHandler(webapp.RequestHandler):
         FullAddrQuery = FullAddr.all().fetch(None)
         HumanImpactQuery = HumanImpact.all().fetch(None)
         EconImpactQuery = EconomicImpact.all().fetch(None)
-        COQuery = CrisisOrganization.all().fetch(None)
-        CPQuery = CrisisPerson.all().fetch(None)
-        OPQuery = OrganizationPerson.all().fetch(None)
+
+		'''
 
         crisisList = []
         orgList = []
         personList = []
-        
-        OrgQuery = Organization.all().fetch(None)
-        PeopleQuery = Person.all().fetch(None)
+		
+		for c in CrisisQuery :
+			clist = [c]
+			cinfo = c.info
+			clist += cinfo
+			clist += cinfo.time
+			clist += cinfo.location
+			clist += cinfo.humanImpact
+			clist += cinfo.economicImpact
+			clist += c.ref
+			for co in COQuery :
+				if co.organization.name == c.name :
+					clist += co
+			for cp in CPQuery
+				if cp.person.name == c.name
+					clist += cp
+			crisisList.append(clist)
+			
+		for o in OrgQuery :
+			olist = [o]
+			oinfo = o.info
+			olist += oinfo
+			ocontact = oinfo.contact
+			olist += ocontact
+			olist += ocontact.mail
+			olist += oinfo.location
+			olist += o.ref
+			for co in COQuery :
+				if co.crisis.name == o.name :
+					olist += co
+			for op in OPQuery :
+				if op.person.name == o.name :
+					olist += op
+			orgList.append(olist)
+			
+		for p in PersonQuery :
+			plist = [p]
+			pinfo = p.info
+			plist += pinfo
+			plist += pinfo.birthdate
+			plist = p.ref
+			for cp in CPQuery :
+				if cp.crisis.name == p.name :
+					plist += cp
+			for op in OPQuery :
+				if op.organization.name == p.name :
+					plist += op
+			personList.append(plist)
+		
+        path2 = os.path.join(os.path.dirname(__file__), 'export.xml')
+		self.response.headers['Content-Type'] = 'text/xml'
+        self.response.out.write(template.render(path2, {"crises": crisisList, "orgs" : orgList, "persons" : personList},'text/xml'))
 
+		'''
         for c in CrisisQuery :
             clist = [c]
             for ci in CrisisInfoQuery :
@@ -796,6 +849,7 @@ class ExportHandler(webapp.RequestHandler):
                 if op.organization == p :
                     plist += op
             personList.append(plist)
+		'''
         '''
         path2 = os.path.join(os.path.dirname(__file__), 'export.xml')
         t = loader.get_template(path2)
@@ -808,8 +862,6 @@ class ExportHandler(webapp.RequestHandler):
         return render_to_response(path2, {"crises": crisisList, "orgs" : orgList, "persons" : personList}, context_list, mimetype='text/xml')
         '''
 
-        path2 = os.path.join(os.path.dirname(__file__), 'export.xml')      
-        self.response.out.write(template.render(path2, {"crises": crisisList, "orgs" : orgList, "persons" : personList},'text/xml'))
 
         
         #tree = ElementTree()
