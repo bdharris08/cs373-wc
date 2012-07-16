@@ -1,62 +1,98 @@
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
-    </head>
-    
-		<body  style = "background-color:rgb(218, 232, 181)">
-	<h1>Splash Page</h1>
-		
-		<div class = "container-fluid">
-		<div class = "row-fluid">
-		<div class = "span3" style = "background-color:rgb(110, 100, 73)"> 
-		    <h2>Group Name</h2>
-			    <p>Super Seniors</p>
-		    <h2>Group Members</h2>
-			    <p> <ul>
-    			<li> Rohan Shah</li>
-	    		<li> Benjamin David Harris</li>
-		    	<li> Victor Pang</li>
-			    <li> Ting-Yi Chen</li>
-    			<li> Matt Granado</li>
-	    		<li> Elizabeth Hayden</li>
-		    	</ul></p>
-		</div>
-		
-			
-		<div class = "span9"> 	  
-        <h2>Crises</h2>
-            <p> <ul>
-			{% for crisis in crises %}
-			    <li><a href="http://www.jontitan-cs373-wc.appspot.com/crisis/{{crisis.id}}" >{{ crisis.name }}</a> </li></li>
-			{% endfor %}
-            </ul></p>
+  <head>
+    <meta charset="utf-8">
+    <title>World Crises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-		<h2>Organizations</h2>
-			<p> <ul>
-			{% for org in orgs %}
-			    <li><a href="http://www.jontitan-cs373-wc.appspot.com/org/{{org.id}}" >{{ org.name }}</a> </li></li>
-			{% endfor %}
-            </ul></p>
+    <!-- Le styles -->
+    <link href="stylesheets/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 10px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
 
-		<h2>People</h2>
-			<p> <ul>
-			{% for person in persons %}
-			    <li><a href="http://www.jontitan-cs373-wc.appspot.com/person/{{person.id}}" >{{ person.name }}</a> </li></li>
-			{% endfor %}
-            </ul></p>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-		<h2>link to import/export</h2>
-		    <p> <ul>
-		    <li> <a href="http://www.jontitan-cs373-wc.appspot.com/import">Import</a> </li>
-		    <li> <a href="http://www.jontitan-cs373-wc.appspot.com/export">Export</a></li>
-		    </ul></p>
-		<h2>link to gaeunit</h2>
-		    <p> <ul>
-		    <li> <a href="http://www.jontitan-cs373-wc.appspot.com/test">Test</a></li>
-		    </ul></p>
-		    </div>
-</div>	
-</div>	
-</body>
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body style = "background-color:rgb(218, 232, 181)">
+  
+  <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+          <h1><center>World Crises</center></h1>
+          <a href="http://www.jontitan-cs373-wc.appspot.com"><img src="http://i.imgur.com/OIjCU.gif" /></a>
+                <hr>
+              <center><h2>Crises</h2></center>
+              <a href="http://www.jontitan-cs373-wc.appspot.com/crisis"><center><img src="http://i.imgur.com/jGGmg.gif" width="201px" height="147px"></center></a>
+              <center><h2>Organizations</h2></center>
+              <a href="http://www.jontitan-cs373-wc.appspot.com/org"><center><img src="http://i.imgur.com/gfFLY.gif" width="201px" height="147px"></center></a>
+              <center><h2>People</h2></center>
+              <a href="http://www.jontitan-cs373-wc.appspot.com/person"><center><img src="http://i.imgur.com/ttSbO.gif" width="201px" height="147px"></center></a>
+              <hr>
+              <center><h2>Utility</h2></center>
+              <center>
+              <a class="btn" href="http://www.jontitan-cs373-wc.appspot.com/import">Import</a>
+              <a class="btn" href="http://www.jontitan-cs373-wc.appspot.com/export">Export</a>
+              <a class="btn" href="http://www.jontitan-cs373-wc.appspot.com/person">Unit Test</a>
+              </center>
+            
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+        <center>
+        <h1> UTCS Students Care </h1>
+        <br><br><br>
+        <img src=" http://i.imgur.com/2uvse.jpg">
+        </center>
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <p>&copy; Super Seniors</p>
+        <p> Rohan Shah | Benjamin David Harris | Victor Pang | Ting-Yi Chen | Matt Granado</p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
 </html>

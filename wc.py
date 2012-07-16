@@ -30,6 +30,56 @@ class TempHandler(webapp2.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'temp.html')
         self.response.out.write(template.render(path, {}))
         
+class CrisisDisplayHandler(webapp2.RequestHandler):
+    def get(self):
+        dictionary = {}
+        wc = WorldCrises.all().fetch(1).pop()
+        crises = wc.crises.fetch(None)
+        dictionary["crises"] = crises
+        images = []
+        for c in crises :
+            extRefs = c.ref.fetch(None)
+            for r in extRefs :
+                if(r.ref_type == "primaryImage") :
+                    images.append(r.url)
+                    break
+        dictionary["images"] = images
+        path = os.path.join(os.path.dirname(__file__), 'crisis_display.html')
+        self.response.out.write(template.render(path, dictionary))
+
+class OrgDisplayHandler(webapp2.RequestHandler):
+    def get(self):
+        dictionary = {}
+        wc = WorldCrises.all().fetch(1).pop()
+        orgs = wc.organizations.fetch(None)
+        dictionary["orgs"] = orgs
+        images = []
+        for o in orgs :
+            extRefs = o.ref.fetch(None)
+            for r in extRefs :
+                if(r.ref_type == "primaryImage") :
+                    images.append(r.url)
+                    break
+        dictionary["images"] = images
+        path = os.path.join(os.path.dirname(__file__), 'org_display.html')
+        self.response.out.write(template.render(path, dictionary))
+        
+class PersonDisplayHandler(webapp2.RequestHandler):
+    def get(self):
+        dictionary = {}
+        wc = WorldCrises.all().fetch(1).pop()
+        persons = wc.persons.fetch(None)
+        dictionary["persons"] = persons
+        images = []
+        for p in persons :
+            extRefs = p.ref.fetch(None)
+            for r in extRefs :
+                if(r.ref_type == "primaryImage") :
+                    images.append(r.url)
+                    break
+        dictionary["images"] = images
+        path = os.path.join(os.path.dirname(__file__), 'person_display.html')
+        self.response.out.write(template.render(path, dictionary))
         
 class CrisisHandler(webapp2.RequestHandler):
     def get(self, resource):
@@ -69,7 +119,7 @@ class CrisisHandler(webapp2.RequestHandler):
             personRefs.append(p.crisis)
         dictionary["personRefs"] = personRefs
       
-        path = os.path.join(os.path.dirname(__file__), 'crisisTemp.html')
+        path = os.path.join(os.path.dirname(__file__), 'temp_crisis.html')
         self.response.out.write(template.render(path, dictionary))
         
 class OrgHandler(webapp2.RequestHandler):
@@ -108,7 +158,7 @@ class OrgHandler(webapp2.RequestHandler):
             personRefs.append(p.organization)
         dictionary["personRefs"] = personRefs
       
-        path = os.path.join(os.path.dirname(__file__), 'orgTemp.html')
+        path = os.path.join(os.path.dirname(__file__), 'temp_org.html')
         self.response.out.write(template.render(path, dictionary))
         
 class PersonHandler(webapp2.RequestHandler):
@@ -143,7 +193,7 @@ class PersonHandler(webapp2.RequestHandler):
             crisisRefs.append(p.person)
         dictionary["crisisRefs"] = crisisRefs
       
-        path = os.path.join(os.path.dirname(__file__), 'personTemp.html')
+        path = os.path.join(os.path.dirname(__file__), 'temp_person.html')
         self.response.out.write(template.render(path, dictionary))
         
         
@@ -971,4 +1021,7 @@ app = webapp2.WSGIApplication([('/', MainPage), ('/import', ImportHandler), ('/u
                             ('/crisis/([^/]+)?', CrisisHandler),
                             ('/org/([^/]+)?', OrgHandler), 
                             ('/person/([^/]+)?', PersonHandler),
-                            ('/temp', TempHandler)], debug=True)
+                            ('/temp', TempHandler),
+                            ('/crisis', CrisisDisplayHandler),
+                            ('/org', OrgDisplayHandler),
+                            ('/person', PersonDisplayHandler)], debug=True)
