@@ -3,21 +3,225 @@
     {% for crisis in crises %}
         <crisis id="{{crisis.0.id}}">
             <name>{{crisis.0.name}}</name>
+            <info>
+                <history>{{crisis.1.history}}</history>
+                <help>{{crisis.1.help}}</help>
+                <resources>{{crisis.1.resources}}</resources>
+                <type>{{crisis.1.type}}</type>
+                <time>
+                    <day>{{crisis.2.day}}</day>
+                    <month>{{crisis.2.month}}</month>
+                    <year>{{crisis.2.year}}</year>
+                    <misc>{{crisis.2.misc}}</misc>
+                </time>
+                <location>
+                    <city>{{crisis.3.city}}</city>
+                    <region>{{crisis.4.region}}</region>
+                    <country>{{crisis.4.country}}</country>
+                </location>
+                <impact>
+                    <human>
+                        <death>{{crisis.4.deaths}}</death>
+                        <displaced>{{crisis.4.displaced}}</displaced>
+                        <injured>{{crisis.4.injured}}</injured>
+                        <missing>{{crisis.4.missing}}</missing>
+                        <misc>{{crisis.4.misc}}</misc>
+                    </human>
+                    <economic>
+                        <amount>{{crisis.5.amount}}</amount>
+                        <currency>{{crisis.5.currency}}</currency>
+                        <misc>{{crisis.5.misc}}</misc>
+                    </economic>
+                </impact>
+            </info>
+            <ref>
+                <primaryImage>
+                    <site>{{crisis.6.site}}</site>
+                    <title>{{crisis.6.title}}</title>
+                    <url>{{crisis.6.url}}</url>
+                    <description>{{crisis.6.description}}</description>
+                </primaryImage>
+                {% for i in crisis.7 %}
+                <image>
+                    <site>{{i.site}}</site>
+                    <title>{{i.title}}</title>
+                    <url>{{i.url}}</url>
+                    <description>{{i.description}}</description>
+                </image>
+                {% endfor %}
+                {% for i in crisis.8 %}
+                <video>
+                    <site>{{i.site}}</site>
+                    <title>{{i.title}}</title>
+                    <url>{{i.url}}</url>
+                    <description>{{i.description}}</description>
+                </video>
+                {% endfor %}
+                {% for i in crisis.9 %}
+                <social>
+                    <site>{{i.site}}</site>
+                    <title>{{i.title}}</title>
+                    <url>{{i.url}}</url>
+                    <description>{{i.description}}</description>
+                </social>
+                {% endfor %}
+                {% for i in crisis.10 %}
+                <ext>
+                    <site>{{i.site}}</site>
+                    <title>{{i.title}}</title>
+                    <url>{{i.url}}</url>
+                    <description>{{i.description}}</description>
+                </ext>
+                {% endfor %}
+            </ref>
+            <misc>{{crisis.0.misc}}</misc>
+            {% for o in crisis.11 %}
+            <org idref="{{o.id}}"/>
+            {% endfor %}
+            {% for p in crisis.12 %}
+            <person idref="{{p.id}}"/>
+            {% endfor %}
         </crisis>
-        <info>
-            <history>{{crisis.1.history}}</history>
-            <help>{{crisis.1.help}}</help>
-            <resources>{{crisis.1.resources}}</resources>
-            <type>{{crisis.1.type}}</type>
-            <time>
-                <day>{{crisis.2.day}}</day>
-                <month>{{crisis.2.month}}</month>
-                <year>{{crisis.2.year}}</year>
-                <misc>{{crisis.2.misc}}</misc>
-            </time>
-            <location>
-                <city>{{crisis.3.city}}</city>
-            </location>
-        </info>
     {% endfor %}
+
+    {% for org in orgs%}
+        <organization id="{{org.0.id}}">
+            <name>{{org.0.name}}</name>
+            <info>
+                <type>{{org.1.type}}</type>
+                <history>{{org.1.history}}</history>
+                <contact>
+                    <phone>{{org.2.phone}}</phone>
+                    <email>{{org.2.email}}</email>
+                    <mail>
+                        <address>{{org.3.address}}</address>
+                        <city>{{org.3.city}}</city>
+                        <state>{{org.3.state}}</state>
+                        <country>{{org.3.country}}</country>
+                        <zip>{{org.3.zip}}</zip>
+                    </mail>
+                </contact>
+                <loc>
+                    <city>{{org.4.city}}</city>
+                    <region>{{org.4.region}}</region>
+                    <country>{{org.4.country}}</country>
+                </loc>
+            </info>
+            <ref>
+                <primaryImage>
+                    <site>{{org.5.site}}</site>
+                    <title>{{org.5.title}}</title>
+                    <url>{{org.5.url}}</url>
+                    <description>{{org.5.description}}</description>
+                </primaryImage>
+                {% for i in org.6 %}
+                <image>
+                    <site>{{i.site}}</site>
+                    <title>{{i.title}}</title>
+                    <url>{{i.url}}</url>
+                    <description>{{i.description}}</description>
+                </image>
+                {% endfor %}
+                {% for i in org.7 %}
+                <video>
+                    <site>{{i.site}}</site>
+                    <title>{{i.title}}</title>
+                    <url>{{i.url}}</url>
+                    <description>{{i.description}}</description>
+                </video>
+                {% endfor %}
+                {% for i in org.8 %}
+                <social>
+                    <site>{{i.site}}</site>
+                    <title>{{i.title}}</title>
+                    <url>{{i.url}}</url>
+                    <description>{{i.description}}</description>
+                </social>
+                {% endfor %}
+                {% for i in org.9 %}
+                <ext>
+                    <site>{{i.site}}</site>
+                    <title>{{i.title}}</title>
+                    <url>{{i.url}}</url>
+                    <description>{{i.description}}</description>
+                </ext>
+                {% endfor %}
+            </ref>
+            <misc>{{org.0.misc}}</misc>
+            {% for c in org.10 %}
+            <crisis idref="{{c.id}}"/>
+            {% endfor %}
+            {% for p in org.11 %}
+            <person idref="{{p.id}}"/>
+            {% endfor %}
+        </organization>
+    {% endfor %}
+
+    {% for person in persons %}
+        <person id="{{person.0.id}}">
+            <name>{{person.0.name}}</name>
+            <info>
+                <type>{{person.1.type}}</type>
+                <birthdate>
+                    <time>{{person.2.time}}</time>
+                    <day>{{person.2.day}}</day>
+                    <month>{{person.2.month}}</month>
+                    <year>{{person.2.year}}</year>
+                    <misc>{{person.2.misc}}</misc>
+                </birthdate>
+                <nationality>{{person.1.nationality}}</nationality>
+                <biography>{{person.1.biography}}</biography>
+            </info>
+            <ref>
+                <primaryImage>
+                    <site>{{person.3.site}}</site>
+                    <title>{{person.3.title}}</title>
+                    <url>{{person.3.url}}</url>
+                    <description>{{person.3.description}}</description>
+                </primaryImage>
+                {% for i in person.4 %}
+                <image>
+                    <site>{{i.site}}</site>
+                    <title>{{i.title}}</title>
+                    <url>{{i.url}}</url>
+                    <description>{{i.description}}</description>
+                </image>
+                {% endfor %}
+                {% for i in person.5 %}
+                <video>
+                    <site>{{i.site}}</site>
+                    <title>{{i.title}}</title>
+                    <url>{{i.url}}</url>
+                    <description>{{i.description}}</description>
+                </video>
+                {% endfor %}
+                {% for i in person.6 %}
+                <social>
+                    <site>{{i.site}}</site>
+                    <title>{{i.title}}</title>
+                    <url>{{i.url}}</url>
+                    <description>{{i.description}}</description>
+                </social>
+                {% endfor %}
+                {% for i in person.7 %}
+                <ext>
+                    <site>{{i.site}}</site>
+                    <title>{{i.title}}</title>
+                    <url>{{i.url}}</url>
+                    <description>{{i.description}}</description>
+                </ext>
+                {% endfor %}
+            </ref>
+            <misc></misc>
+            {% for c in person.8 %}
+            <crisis idref="{{c.id}}"/>
+            {% endfor %}
+            {% for o in person.9 %}
+            <organization idref="{{o.id}}"/>
+            {% endfor %}
+        </person>
+
+    {% endfor %}
+
+    
 </worldCrises>
