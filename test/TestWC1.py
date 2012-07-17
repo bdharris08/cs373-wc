@@ -1,20 +1,23 @@
+from __future__ import with_statement
 import unittest
 import wc
 from google.appengine.ext import db
 from google.appengine.ext import webapp
 from google.appengine.api import files
-from __future__ import with_statement
 import webapp2
 from webtest import TestApp
 
 class webTest(unittest.TestCase):
     def setUp(self):
-        self.application = webapp2.WSGIApplication([('/', wc.MainPage), ('/tibet', wc.tibet), ('/gec', wc.gec), 
-							('/bathsalts', wc.bathsalts), ('/nkorea', wc.nkorea), ('/un', wc.un), 
-							('/frs', wc.frs), ('/dea', wc.dea), ('/dod', wc.dod), 
-							('/dali', wc.dali), ('/mml', wc.mml), ('/obama', wc.obama), 
-							('/kju', wc.kju), ('/import', wc.ImportHandler), ('/upload', wc.UploadHandler),
-                            ('/serve/([^/]+)?', wc.ServeHandler), ('/export', wc.ExportHandler)], debug=True)
+        self.application = webapp2.WSGIApplication([('/', wc.MainPage), ('/import', wc.ImportHandler), ('/upload', wc.UploadHandler),
+                            ('/serve/([^/]+)?', wc.ServeHandler), ('/export', wc.ExportHandler), 
+                            ('/crisis/([^/]+)?', wc.CrisisHandler),
+                            ('/org/([^/]+)?', wc.OrgHandler), 
+                            ('/person/([^/]+)?', wc.PersonHandler),
+                            ('/temp', wc.TempHandler),
+                            ('/crisis', wc.CrisisDisplayHandler),
+                            ('/org', wc.OrgDisplayHandler),
+                            ('/person', wc.PersonDisplayHandler)], debug=True)
 
     def test_index(self):
         app = TestApp(self.application)
