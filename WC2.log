@@ -1,0 +1,738 @@
+commit ed6f8db90358e913dd2ad4076fbd87c1eef2a569
+Merge: 4328332 5bfcf6b
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Mon Jul 16 19:48:37 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit 4328332f13db51947a4f1f666282b975fcab7906
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Mon Jul 16 19:48:29 2012 -0500
+
+    added technical report draft
+
+commit 5bfcf6b457e9e7fb54b670f41cf5bc9b3f1f9b33
+Merge: 5264763 75663c6
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 16 19:48:25 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit 526476361ceed3e18e02d88290eeee5e225d96ce
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 16 19:48:20 2012 -0500
+
+    trying to merge everything
+
+commit 75663c6f5d298133a5c840a9b5fa82b4a9df4790
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Mon Jul 16 19:44:33 2012 -0500
+
+    added new pydoc
+
+commit f2bfccb440f2847b2ef581424d34ef54de0134e4
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Mon Jul 16 19:19:35 2012 -0500
+
+    updated testwc1.py
+
+commit 373491994bc9f0c4b33865e73f2fe0255cc760cd
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Mon Jul 16 18:45:17 2012 -0500
+
+    almost done with technical
+
+commit 06f2e13d400035e73d086dec2c27eae933b2ee34
+Author: Matthew Granado <mattg@utexas.edu>
+Date:   Mon Jul 16 15:48:15 2012 -0500
+
+    Adding technical report, plus bug fixes
+
+commit e5845b5e90f3f6194d2f825a22748a39104bb2af
+Author: Matthew Granado <mattg@utexas.edu>
+Date:   Mon Jul 16 15:19:31 2012 -0500
+
+    Finished export
+
+commit ddfbf0c1c49422b4a32021e280a5817a1aae5f1c
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 16 02:11:17 2012 -0500
+
+    made the left nav bar fixed position
+
+commit 1e570750adc0748e5be7a4ccd6ec9b953cfc6695
+Merge: 12fe3c3 2e3d533
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Mon Jul 16 01:48:53 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit 12fe3c3a250892ed83e13bc235c32aa57654978c
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Mon Jul 16 01:48:43 2012 -0500
+
+    debugged exporthandler
+
+commit 2e3d533290d147b37b501e96b1076347450db723
+Merge: a81f24f 7307c7e
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 16 01:45:20 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit a81f24f1991008dbc2377e4aadd912a86fdadd84
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 16 01:45:16 2012 -0500
+
+    done with css design
+
+commit dbd707fc70ceab4e38beef35abd70494798cda29
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 16 01:43:56 2012 -0500
+
+    done with css design
+
+commit 7307c7e423e8225affd8659742126b2febcb900f
+Author: Matthew Granado <mattg@utexas.edu>
+Date:   Mon Jul 16 01:25:07 2012 -0500
+
+    Changed export
+
+commit 7c9a1119885de8c62ac677e2cf77b99ac0d19ec1
+Merge: f4d4735 ba8bfc7
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sun Jul 15 19:29:38 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit f4d4735bf20cd27b667d31b96cfcfd0a441eb2d5
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sun Jul 15 19:29:24 2012 -0500
+
+    working on css
+
+commit ba8bfc79fc8256ad7efe7d57875de810617ad465
+Merge: 4664a5c 3e2c1fb
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Sat Jul 14 23:21:02 2012 -0500
+
+    minor changes
+
+commit 4664a5cd518a9f62a4071338ac98b7b57a4139b5
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Sat Jul 14 23:18:11 2012 -0500
+
+    minor changes to export for wc.py. need to find a way to check equiv for empty attributes
+
+commit 3e2c1fb06f2cf3459393d8f28a1258d6f2603186
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Sat Jul 14 23:04:25 2012 -0500
+
+    testbrown
+
+commit f349df3387bd448313757fe62d652e989c66067f
+Author: Matthew Granado <mattg@utexas.edu>
+Date:   Sat Jul 14 22:31:37 2012 -0500
+
+    Adding Export functions
+
+commit 39ed3dea2fa382c98e228a788c94350cb2a96839
+Author: Rohan Shah <rohan8@gmail.com>
+Date:   Sat Jul 14 21:47:31 2012 -0500
+
+    Commit texture
+
+commit b80f0e91a6d102de9a9ce640614a0fdda83e51bc
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sat Jul 14 21:43:37 2012 -0500
+
+    working on UI
+
+commit 6f3614cd13c7b390ffce203d53f9ce15c1b64b97
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sat Jul 14 17:06:44 2012 -0500
+
+    cleaned up wc.py
+
+commit ff193e0ada6d63f30fc60f0280ca11a85b6c832d
+Merge: b780037 7840ef0
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sat Jul 14 16:14:12 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit 7840ef0a1824bb336d78ceaa7f7488fba7d516bd
+Author: Rohan Shah <rohan8@gmail.com>
+Date:   Sat Jul 14 16:13:18 2012 -0500
+
+    Updated TestWC1.py
+
+commit b780037e898e24db980e1873386731d903064f88
+Merge: 16a70dc 2114e44
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sat Jul 14 16:13:14 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit 16a70dc80d783dd2ccae228db5537b574a06aa9e
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sat Jul 14 16:13:08 2012 -0500
+
+    deploy version works
+
+commit 2114e44cf1272413c6e88eb82591ab5c3be073c3
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Sat Jul 14 15:35:34 2012 -0500
+
+    fixed none to None
+
+commit 6b09e46652dec8d8476e959f5a728f4e5aa74059
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Sat Jul 14 15:17:15 2012 -0500
+
+    export test
+
+commit 4222a1d45cdb6dc454ea3ff9d3c91ecfbde39e1b
+Merge: 747eede b4bf19a
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sat Jul 14 14:20:38 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit 747eede80e4e8f71ec828a3d01a296b114585c36
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sat Jul 14 14:20:34 2012 -0500
+
+    commented out wipe datasotre
+
+commit b4bf19acc3c020f626006796670539a92b330903
+Author: Rohan Shah <rohan8@gmail.com>
+Date:   Sat Jul 14 14:14:28 2012 -0500
+
+    Updated XML 7/14/12
+
+commit 014d14b03ee88a173e708d1560fc27038769fb2a
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Sat Jul 14 14:00:15 2012 -0500
+
+    added minixsv
+
+commit a29aee53ebb1ee479687c14dff3e735bd1d97097
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Sat Jul 14 13:57:57 2012 -0500
+
+    fixed wc2.xml human impact misc too long and wc.py
+
+commit 579b949ea081b4288f9b85e42ed4df6153d26f1a
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Sat Jul 14 13:32:06 2012 -0500
+
+    updated orgTemp and personTemp
+
+commit f164ff6d3f1226146c32f06ab7de2bdce791570a
+Merge: ab625af 91f9609
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Sat Jul 14 13:19:10 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit ab625af17bb1aec224e04cee234676f8bf98b2c9
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Sat Jul 14 13:19:04 2012 -0500
+
+    added personTemp and orgTemp
+
+commit 91f960998a1b458d75dbc9869114b4fd0d3cef08
+Author: Rohan Shah <rohan8@gmail.com>
+Date:   Fri Jul 13 15:07:02 2012 -0500
+
+    Updated XML 6/13
+
+commit e92a65cba3853eeac5b9c986a65096086c8e6268
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Sat Jul 14 12:20:26 2012 -0500
+
+    updated django stuff for org/people, added uml diagram
+
+commit ef70f2247f3a3f0adc00e4f297df8f99eb648999
+Author: Jonathan <jontitan@gmail.com>
+Date:   Fri Jul 13 02:23:59 2012 -0500
+
+    Crisis all done, added bootstrap into the repo
+
+commit c72c6419725cb8d299f015991c283e0df1e9b132
+Author: Jonathan <jontitan@gmail.com>
+Date:   Fri Jul 13 02:23:18 2012 -0500
+
+    Crisis all done, added bootstrap into the repo
+
+commit 39a5814a0f49db32cf00bf895e5922f21a8f9b86
+Author: Jonathan <jontitan@gmail.com>
+Date:   Fri Jul 13 01:41:52 2012 -0500
+
+    linking between topics works, oh yay :D
+
+commit b237c4613f2159c8c862b160a1d0e008aa0d527f
+Author: Jonathan <jontitan@gmail.com>
+Date:   Fri Jul 13 01:22:20 2012 -0500
+
+    fixed relation models quite significantly, Matt and Victor plz take a look :)
+
+commit d9d21b3c7fa741be84f1a1f1baf16fe5728feaae
+Author: Jonathan <jontitan@gmail.com>
+Date:   Thu Jul 12 23:49:18 2012 -0500
+
+    complete crisisHandler, added wiping out datastore when import
+
+commit 8f9a7c9ce1910d60edbe12155b2e9daacc6f9c60
+Merge: cfe5bc2 b8402fe
+Author: Jonathan <jontitan@gmail.com>
+Date:   Thu Jul 12 21:58:26 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit cfe5bc20f3691695aef3b642d89393428f6a6dd6
+Author: Jonathan <jontitan@gmail.com>
+Date:   Thu Jul 12 21:58:21 2012 -0500
+
+    django templates
+
+commit b8402fe80d7c7e6796b925a6985337772234c286
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Thu Jul 12 21:54:55 2012 -0500
+
+    added relations between orgs-crises-people
+
+commit 56b01bdaa22a8b914a5b7f1b7381fe2cbe662b65
+Author: Jonathan <jontitan@gmail.com>
+Date:   Thu Jul 12 21:11:52 2012 -0500
+
+    full import
+
+commit 240f942062aaa03688ba96795d96afd3ded4217c
+Author: Jonathan <jontitan@gmail.com>
+Date:   Thu Jul 12 20:45:30 2012 -0500
+
+    full import
+
+commit 8cb87d5e74ab39c0c89bdc449a14392d4a1cfebb
+Merge: 6ae90cd 1c01e06
+Author: Jonathan <jontitan@gmail.com>
+Date:   Thu Jul 12 20:35:51 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit 6ae90cd354edd43728315e5e7ac41f26efc82b5e
+Author: Jonathan <jontitan@gmail.com>
+Date:   Thu Jul 12 20:35:41 2012 -0500
+
+    doing django
+
+commit 1c01e06d1c9446c373d2ba67f85991a45ce003e8
+Author: Elizabeth Hayden <23beth@gmail.com>
+Date:   Thu Jul 12 20:31:10 2012 -0500
+
+    adding current html template
+
+commit 17b714c124b2fda03430ee9de552a5859ab65ce1
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Thu Jul 12 19:25:34 2012 -0500
+
+    started import orgs
+
+commit af9740510746749bd46c7b85a792c38a17cded33
+Author: Jonathan <jontitan@gmail.com>
+Date:   Wed Jul 11 21:59:22 2012 -0500
+
+    trying to verify
+
+commit adcac2f9fc26f4a555f70052cab43bbcbcc5a3bb
+Author: Jonathan <jontitan@gmail.com>
+Date:   Wed Jul 11 21:24:25 2012 -0500
+
+    fixed import for crisis
+
+commit 4537b21ac77378623117db6cd68f92b388cad8a8
+Author: Jonathan <jontitan@gmail.com>
+Date:   Wed Jul 11 19:33:43 2012 -0500
+
+    fixed models, trying to fix import from XML now
+
+commit 469c0523b49bbcb71bbae143ba71ebf6f1084cae
+Author: Jonathan <jontitan@gmail.com>
+Date:   Tue Jul 10 13:39:41 2012 -0500
+
+    New data models
+
+commit 60a4e60fd6d052a9e7b724a796de7d73763732a2
+Author: Elizabeth Hayden <ehayden@utexas.edu>
+Date:   Mon Jul 9 19:05:02 2012 -0500
+
+    adding new xml instance adapted for schema
+
+commit 15cfd6c8363024b3b5678bb135c988588b881462
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Fri Jul 6 10:55:33 2012 -0500
+
+    added schema for phase 2
+
+commit 3a22e7b964d4afbd95b0f4a9bb3057fbcdc2f244
+Merge: ca92f47 c8bb436
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Mon Jul 2 18:57:57 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit ca92f47dcd9af8196de6ce38813962a944990d01
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Mon Jul 2 18:57:29 2012 -0500
+
+    added pydoc
+
+commit c8bb4367c72ead78b8f4b3344b090143eadc0c65
+Author: Rohan Shah <rohan8@gmail.com>
+Date:   Mon Jul 2 18:21:25 2012 -0500
+
+    Added WC1.log
+
+commit 8d3ca4aaf707cc01c0e3d69988aa725542fdc2bf
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 2 18:08:30 2012 -0500
+
+    added testwc1.out
+
+commit ab3af26a70b5f5014c6921beb34c75ff2102191e
+Merge: 05f5872 cc1472e
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 2 17:58:15 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit 05f5872b06925c49bf0ccbcbe5f6e71b2fe244f7
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 2 17:58:03 2012 -0500
+
+    done
+
+commit cc1472e39708c7eb2aabae81b452a4b908c847e4
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Mon Jul 2 17:38:58 2012 -0500
+
+    added eid for elizabeth
+
+commit 8c6a34c670ffc3c52d095d3044fbd4d1948e6941
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Mon Jul 2 16:58:09 2012 -0500
+
+    added more tests
+
+commit 4e3f1be4d3ce717a52d2e30357194a6416479bab
+Merge: 8b5beba bd1021d
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 2 16:40:05 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit 8b5beba5e3fe1e85b93c96f6de4576faa53f2853
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 2 16:39:51 2012 -0500
+
+    down to the wire
+
+commit bd1021df5ffb8e36bdb5e8c8fdabafae3a658579
+Author: Rohan Shah <rohan8@gmail.com>
+Date:   Mon Jul 2 16:16:45 2012 -0500
+
+    Updated some HTML Links
+
+commit d9911a35c8e1d9823bdaef3dbd9ba9674c947bfa
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 2 16:15:11 2012 -0500
+
+    changed org-dea and splash
+
+commit c2ecd80a76068055382e490e3d63d43462481c82
+Merge: 4a6d60d 0996e42
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 2 16:07:12 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit 4a6d60ddfe1315cf94b061fe3e6127ebc11994a4
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 2 16:06:48 2012 -0500
+
+    done but for verification of xml against schema after import
+
+commit 0996e42a7862aa73e9dcd59a87119d768b3f3f38
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Mon Jul 2 15:32:03 2012 -0500
+
+    added EID for matt
+
+commit 640ddbe39eeb616c633885c86bf3490e424bbe0a
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Mon Jul 2 15:30:32 2012 -0500
+
+    added rohans id
+
+commit ce49abefcfb2092227d684fff4b9ed3f35adc03f
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Mon Jul 2 14:57:56 2012 -0500
+
+    added test html
+
+commit b3f0b60772d0ae1acfccf9ed429d0e5dc3191a7a
+Author: Rohan Shah <rohan8@gmail.com>
+Date:   Mon Jul 2 14:57:00 2012 -0500
+
+    Updated TestWC1.py
+
+commit b12a200565070f8bde15b396c517c11455a7ab26
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jul 2 14:43:09 2012 -0500
+
+    adding test py
+
+commit 1a8d3acf53ab48784825bf75ef666ea5371f9819
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Mon Jul 2 14:00:56 2012 -0500
+
+    added readme with evaluations, need rohan, beth, matt EIDs
+
+commit 3dea3715a58e527920e2aa657afd245f56e80c94
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sun Jul 1 18:07:35 2012 -0500
+
+    sunday night working import/export, need to validate, need docs, etc
+
+commit a62395523abd7f9bdbe9c5980f8cf306505aa28e
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sun Jul 1 00:11:17 2012 -0500
+
+    did lots of stuff: created elementTree, gae models, etc
+
+commit 4cec3bc793159b8820abb182029c5e18ca111c7e
+Merge: 428be36 47e2c9e
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sat Jun 30 14:22:12 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit 428be36e3e7922352bb90d3af9d898d9c79c8fa9
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sat Jun 30 14:22:00 2012 -0500
+
+    in process of GAE
+
+commit 47e2c9e5eacbe2502320924b279682a06c9d5941
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Sat Jun 30 13:36:46 2012 -0500
+
+    fixed links for orgs and people
+
+commit 360810b27610a3f71c7f4a67e2aac2248a924a8b
+Author: Rohan Shah <rohan8@gmail.com>
+Date:   Sat Jun 30 13:25:22 2012 -0500
+
+    Got rid of open in new tab links on splash page
+
+commit 8b2e44118597617bccb739e3462461e05b3581d3
+Author: Elizabeth Hayden <ehayden@utexas.edu>
+Date:   Sat Jun 30 13:14:01 2012 -0500
+
+    Adding name to splash page
+
+commit c2a31d392d6b8adb62d9e910101a9c47dec6a564
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Sat Jun 30 13:02:54 2012 -0500
+
+    added related pages for orgs
+
+commit 234e033bb6df7d216e350e8ee0bd23e5492f7581
+Author: Rohan Shah <rohan8@gmail.com>
+Date:   Sat Jun 30 13:00:05 2012 -0500
+
+    Added HTML links for related pages for crises and orgs
+
+commit 48ae14ba1d7cecaaa9cbf6ffa6da5df8417beece
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Sat Jun 30 12:56:24 2012 -0500
+
+    added related links to people
+
+commit cb0208c1e5df1e84151fc10fdc44c84500f74a70
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Sat Jun 30 12:21:11 2012 -0500
+
+    removed redundant schema
+
+commit 553cfcb92a8ed21c7b3e1dc846e76b6871fc6159
+Author: Jonathan <jontitan@gmail.com>
+Date:   Sat Jun 30 12:19:32 2012 -0500
+
+    adding xml to et .py
+
+commit 693530d48541c3669e16ca10139a304e080644e0
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Sat Jun 30 12:17:14 2012 -0500
+
+    added test.xml for issue #15
+
+commit 7d428b22ce1cd99eaa0b06fb51699562df730520
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Wed Jun 27 21:32:29 2012 -0500
+
+    janitorial edits
+
+commit 24c2d0f235d7a00587d62ce3fedeba6ba7b6bec6
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Wed Jun 27 21:31:11 2012 -0500
+
+    adding rss873-WC1.xml and .xsd
+
+commit c7ae89025f28d638337c798989d79e50e19266c9
+Author: Rohan Shah <cs.utexas.edu>
+Date:   Wed Jun 27 21:15:13 2012 -0500
+
+    Uploaded the crisis xml and schema
+
+commit 18cf94ee90109fbddccb6fccac5fa4b8da8a3483
+Merge: c39baeb 0402b09
+Author: Jonathan <jontitan@gmail.com>
+Date:   Wed Jun 27 21:06:16 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit c39baeb9a50afdae1e9a11039185471ecbe3312b
+Author: Jonathan <jontitan@gmail.com>
+Date:   Wed Jun 27 21:05:56 2012 -0500
+
+    uploading gae back end files
+
+commit 0402b09e69dc5324d5b77e5de65bd5cea9214194
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Wed Jun 27 20:45:19 2012 -0500
+
+    added xml and schema for orgs
+
+commit e74ba7f43a9904956bb4555cb26d254f71d8bd93
+Author: Jonathan <jontitan@gmail.com>
+Date:   Wed Jun 27 20:44:23 2012 -0500
+
+    about to deploy html to gae
+
+commit 3f62b588013da038bc60c669e900ddf8f8a7b52a
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Wed Jun 27 20:40:57 2012 -0500
+
+    updated leonhart.html
+
+commit 1422226d5a1443606aa07efd843165017897409e
+Author: Matthew Granado <mattg@utexas.edu>
+Date:   Wed Jun 27 20:14:46 2012 -0500
+
+    Renaming text file.
+
+commit 70c749b00d1f69bae67e43335dde6ce384a42623
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Wed Jun 27 20:05:02 2012 -0500
+
+    filled in rest of fields for orgs
+
+commit 1f7e265458f8aefb741e98c6b2d05b11d1b3f01d
+Author: Matthew Granado <mattg@utexas.edu>
+Date:   Wed Jun 27 20:02:44 2012 -0500
+
+    Adding text file of data.
+
+commit 2397c415497ba3a668aac538994fb4b1555405af
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Wed Jun 27 19:36:27 2012 -0500
+
+    updated person_BarackObama.html
+
+commit f0b5c37f29f45754addff966fe0947424b4aa04e
+Author: Matthew Granado <matthew_granado@yahoo.com>
+Date:   Wed Jun 27 19:32:36 2012 -0500
+
+    Update master
+
+commit 7070b16b87fccbf2dc1046bcb0f133b4797966aa
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Wed Jun 27 19:13:40 2012 -0500
+
+    modified org DoD to conform to other orgs
+
+commit 7769616d59c9933c0fd732dcb4ee9c98bf81aae5
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Wed Jun 27 18:55:25 2012 -0500
+
+    minor changes to org contact info
+
+commit 7ef32c133fb2b6fbb470aa7b6b24c364303a38cf
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Wed Jun 27 18:48:01 2012 -0500
+
+    Removed duplicate files
+
+commit 973237a242496395856e97c9b8a93aac4221154b
+Author: Matthew Granado <mattg@utexas.edu>
+Date:   Tue Jun 26 21:22:43 2012 -0500
+
+    Added/fixed links, changed pages to follow a single format.
+
+commit c1e49ae780cb54a9425ee39d8d2fbf3238842145
+Merge: 4dd5842 3966112
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Mon Jun 25 21:59:37 2012 -0500
+
+    Merge branch 'master' of github.com:bdharris08/cs373-wc
+
+commit 4dd584242bf10e8e55ad7ae4ddb30addea4d8713
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Mon Jun 25 21:59:14 2012 -0500
+
+    updated person html pages
+
+commit 3966112176944eeb1af63c6ae0becb06c0c9c1cd
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jun 25 21:52:46 2012 -0500
+
+    pushing htmls
+
+commit 0b2cf40105bb1c82c4e52fb862f3cf72ff042f49
+Author: Rohan Shah <rohan8@gmail.com>
+Date:   Mon Jun 25 21:52:28 2012 -0500
+
+    Added Tibet.html
+
+commit 81478305d44b96dbeac2f005433454e183d628dc
+Author: bdharris08 <harris.benjamin@utexas.edu>
+Date:   Mon Jun 25 21:49:48 2012 -0500
+
+    Added basic htmls for people
+
+commit 71fa962db8c393d0674270d615dc3f5bb82be70a
+Author: Rohan Shah <rohan8@gmail.com>
+Date:   Mon Jun 25 21:40:14 2012 -0500
+
+    Syncing HTML Files
+
+commit 3a323d027ea0bf1ca6de05534e30316197f03357
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jun 25 21:39:24 2012 -0500
+
+    pushing htmls
+
+commit bfb7f685d3cc5e9458f0e41c5592e66b19d02113
+Author: Victor Pang <v.h.pang@gmail.com>
+Date:   Mon Jun 25 21:37:39 2012 -0500
+
+    Added html for organizations
+
+commit c2f3179e7e4ca246a557cfae1bd1f43c3c63c1d8
+Author: Jonathan <jontitan@gmail.com>
+Date:   Mon Jun 25 21:09:01 2012 -0500
+
+    pushing html template for phase one
