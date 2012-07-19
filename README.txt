@@ -8,7 +8,7 @@ E-mail:                 harris.benjamin@utexas.edu
 Estimated number of hours: 15
 Actual    number of hours: ~20
 
-Turnin CS Username:     rss873
+Turnin CS Username:    	jontitan
 GitHub ID:              bdharris08
 GitHub Repository Name: cs373-wc
 Google App Engine URL:  jontitan-cs373-wc.appspot.com
@@ -33,7 +33,7 @@ Group Member First Name:       Matthew
 Group Member Last Name:        Granado
 Group Member EID:              mjg2243
 Group Member E-mail:           mattg@utexas.edu
-Group Member Rating:           Very Good
+Group Member Rating:           Excellent
 Group Member Point Adjustment: <only if you're leader>
 
 Group Member First Name:       Victor
@@ -47,7 +47,7 @@ Group Member First Name:       Elizabeth
 Group Member Last Name:        Hayden
 Group Member EID:              eh7984
 Group Member E-mail:           23beth@gmail.com
-Group Member Rating:           Satisfactory - joined group late due to class stuff
+Group Member Rating:           Superficial
 Group Member Point Adjustment: <only if you're leader>
 
 Comments:
