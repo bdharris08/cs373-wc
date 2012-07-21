@@ -24,7 +24,7 @@ class MainPage(webapp2.RequestHandler):
             
         path = os.path.join(os.path.dirname(__file__), 'splash.html')
         self.response.out.write(template.render(path, {"crises": crises, "orgs" : orgs, "persons" : persons}))
-
+#
 class TempHandler(webapp2.RequestHandler):
     def get(self):
         path = os.path.join(os.path.dirname(__file__), 'temp.html')
