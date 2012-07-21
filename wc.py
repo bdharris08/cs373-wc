@@ -425,11 +425,32 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     db.delete(CrisisPerson.all())
     db.delete(OrganizationPerson.all())
     '''
-    wc = WorldCrises()
-    wc.put()
+
+    wc = WorldCrises.all().fetch(None)
+    if wc == [] :
+        wc = WorldCrises()
+        wc.put()
+    else :
+        wc = wc[0]
+    Crisislist = Crisis.all().fetch(None)
+    Orglist = Organization.all().fetch(None)
+    Peoplelist = Person.all().fetch(None)
     
     for c in crises:
         
+        for existingCrisis in Crisislist :
+            if c.get("id") == existingCrisis.id :
+                db.delete((existingCrisis.info.fetch(None).pop()).time.fetch(None).pop())
+                db.delete((existingCrisis.info.fetch(None).pop()).location.fetch(None).pop())
+                db.delete((existingCrisis.info.fetch(None).pop()).humanImpact.fetch(None).pop())
+                db.delete((existingCrisis.info.fetch(None).pop()).economicImpact.fetch(None).pop())
+                db.delete(existingCrisis.info)
+                refList = existingCrisis.ref.fetch(None)
+                for ref in refList :
+                    if ref.crisis == existingCrisis :
+                        db.delete(ref)
+                db.delete(existingCrisis)
+
         crisis = Crisis()
         crisis.worldCrises = wc
         crisis.id = c.get("id")
@@ -540,6 +561,19 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
             ref.put()
             
     for o in organizations:
+
+        for existingOrg in Orglist :
+            if o.get("id") == existingOrg.id :
+                db.delete(((existingOrg.info.fetch(None).pop()).contact.fetch(None).pop()).mail.fetch(None).pop())
+                db.delete((existingOrg.info.fetch(None).pop()).contact.fetch(None).pop())
+                db.delete((existingOrg.info.fetch(None).pop()).location.fetch(None).pop())
+                db.delete(existingOrg.info)
+                refList = existingOrg.ref.fetch(None)
+                for ref in refList :
+                    if ref.organization == existingOrg :
+                        db.delete(ref)
+                db.delete(existingOrg)
+
         org = Organization()
         org.worldCrises = wc
         org.id = o.get("id")
@@ -636,6 +670,17 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
             ref.put()
             
     for p in people :
+
+        for existingPerson in Peoplelist :
+            if p.get("id") == existingPerson.id :
+                db.delete((existingPerson.info.fetch(None).pop()).birthdate.fetch(None).pop())
+                db.delete(existingPerson.info)
+                refList = existingPerson.ref.fetch(None)
+                for ref in refList :
+                    if ref.person == existingPerson :
+                        db.delete(ref)
+                db.delete(existingPerson)
+
         person = Person()
         person.worldCrises = wc
         person.id = p.get("id")
