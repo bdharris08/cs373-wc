@@ -405,7 +405,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     assert(organizations != [])
     people = tree.findall("person")
     assert(people != [])
-    
+    '''
     #Wipe out the datastore data
     db.delete(WorldCrises.all())
     db.delete(Crisis.all())
@@ -424,7 +424,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     db.delete(CrisisOrganization.all())
     db.delete(CrisisPerson.all())
     db.delete(OrganizationPerson.all())
-   
+    '''
     wc = WorldCrises()
     wc.put()
     
