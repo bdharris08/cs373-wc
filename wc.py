@@ -14,7 +14,7 @@ from google.appengine.ext.webapp import blobstore_handlers
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
 
-#search branch
+#  search branch
 class MainPage(webapp2.RequestHandler):
     def get(self):
         wc = WorldCrises.all().fetch(1).pop()
