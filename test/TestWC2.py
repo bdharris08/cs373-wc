@@ -1,6 +1,7 @@
 from __future__ import with_statement
 import unittest
 import wc
+from StringIO import StringIO
 from google.appengine.ext import db
 from google.appengine.ext import webapp
 from google.appengine.api import files
@@ -18,73 +19,146 @@ class webTest(unittest.TestCase):
                             ('/crisis', wc.CrisisDisplayHandler),
                             ('/org', wc.OrgDisplayHandler),
                             ('/person', wc.PersonDisplayHandler)], debug=True)
+        
 
     def test_index(self):
         app = TestApp(self.application)
+        wc.WorldCrises().put()
+        wc.Crisis(id = "bath_salts", name = "Bath Salts").put()
+        wc.Organization(id = "drug_enforcement_admin", name = "Drug Enforcement Administration").put()
+        wc.Person(id = "michele_leonhart", name = "Michele M. Leonhart").put()
         response = app.get('/')
-        self.assertTrue('Splash Page' in response)    
+        self.assertTrue('UTCS Students Care' in response)    
     
     def test_tibet(self):
         app = TestApp(self.application)
+        crisis = wc.Crisis(id = "tibet", name = "Tibetan Occupation").put()
+        crisisInfo = wc.CrisisInfo(crisis = crisis).put()
+        wc.ExternalLink(crisis = crisis).put()
+        wc.Date(crisisInfo = crisisInfo).put()
+        wc.Location(crisisInfo = crisisInfo).put()
+        wc.HumanImpact(crisisInfo = crisisInfo).put()
+        wc.EconomicImpact(crisisInfo = crisisInfo).put()
         response = app.get('/crisis/tibet')
-        self.assertTrue('Crisis: Tibetan Occupation' in response) 
+        self.assertTrue('Tibetan Occupation' in response) 
     
     def test_gec(self):
         app = TestApp(self.application)
+        crisis = wc.Crisis(id = "global_economic_crisis", name = "Global Financial Crisis").put()
+        crisisInfo = wc.CrisisInfo(crisis = crisis).put()
+        wc.ExternalLink(crisis = crisis).put()
+        wc.Date(crisisInfo = crisisInfo).put()
+        wc.Location(crisisInfo = crisisInfo).put()
+        wc.HumanImpact(crisisInfo = crisisInfo).put()
+        wc.EconomicImpact(crisisInfo = crisisInfo).put()
         response = app.get('/crisis/global_economic_crisis')
-        self.assertTrue('Crisis: Global Financial Crisis' in response)     
+        self.assertTrue('Global Financial Crisis' in response)     
     def test_bathsalts(self):
         app = TestApp(self.application)
+        crisis = wc.Crisis(id = "bath_salts", name = "Bath Salts").put()
+        crisisInfo = wc.CrisisInfo(crisis = crisis).put()
+        wc.ExternalLink(crisis = crisis).put()
+        wc.Date(crisisInfo = crisisInfo).put()
+        wc.Location(crisisInfo = crisisInfo).put()
+        wc.HumanImpact(crisisInfo = crisisInfo).put()
+        wc.EconomicImpact(crisisInfo = crisisInfo).put()
         response = app.get('/crisis/bath_salts')
-        self.assertTrue('Crisis: Bath Salts' in response)     
+        self.assertTrue('Bath Salts' in response)     
     def test_nkorea(self):
         app = TestApp(self.application)
+        crisis = wc.Crisis(id = "north_korea", name = "North Korea and Nuclear Weapons").put()
+        crisisInfo = wc.CrisisInfo(crisis = crisis).put()
+        wc.ExternalLink(crisis = crisis).put()
+        wc.Date(crisisInfo = crisisInfo).put()
+        wc.Location(crisisInfo = crisisInfo).put()
+        wc.HumanImpact(crisisInfo = crisisInfo).put()
+        wc.EconomicImpact(crisisInfo = crisisInfo).put()
         response = app.get('/crisis/north_korea')
         self.assertTrue('North Korea and Nuclear Weapons' in response)     
     def test_UN(self):
         app = TestApp(self.application)
-        response = app.get('/organization/united_nations')
-        self.assertTrue('Organization: United Nations' in response) 
+        org = wc.Organization(id = "united_nations", name = "United Nations").put()
+        orgInfo = wc.OrgInfo(organization = org).put()
+        wc.ExternalLink(organization = org).put()
+        contact = wc.Contact(orgInfo = orgInfo).put()
+        wc.FullAddr(contact = contact).put()
+        wc.Location(orgInfo = orgInfo).put()
+        response = app.get('/org/united_nations')
+        self.assertTrue('United Nations' in response) 
     def test_fed(self):
         app = TestApp(self.application)
-        response = app.get('/organization/federal_reserve_system')
-        self.assertTrue('Organization: The Federal Reserve' in response)         
+        org = wc.Organization(id = "federal_reserve_system", name = "The Federal Reserve").put()
+        orgInfo = wc.OrgInfo(organization = org).put()
+        wc.ExternalLink(organization = org).put()
+        contact = wc.Contact(orgInfo = orgInfo).put()
+        wc.FullAddr(contact = contact).put()
+        wc.Location(orgInfo = orgInfo).put()
+        response = app.get('/org/federal_reserve_system')
+        self.assertTrue('The Federal Reserve' in response)         
     
     def test_dea(self):
         app = TestApp(self.application)
-        response = app.get('/organization/drug_enforcement_admin')
-        self.assertTrue('Organization: Drug Enforcement Administration' in response)         
+        org = wc.Organization(id = "drug_enforcement_admin", name = "Drug Enforcement Administration").put()
+        orgInfo = wc.OrgInfo(organization = org).put()
+        wc.ExternalLink(organization = org).put()
+        contact = wc.Contact(orgInfo = orgInfo).put()
+        wc.FullAddr(contact = contact).put()
+        wc.Location(orgInfo = orgInfo).put()
+        response = app.get('/org/drug_enforcement_admin')
+        self.assertTrue('Drug Enforcement Administration' in response)         
     
     def test_dod(self):
         app = TestApp(self.application)
-        response = app.get('/organization/department_of_defense')
+        org = wc.Organization(id = "department_of_defense", name = "United States Department of Defense").put()
+        orgInfo = wc.OrgInfo(organization = org).put()
+        wc.ExternalLink(organization = org).put()
+        contact = wc.Contact(orgInfo = orgInfo).put()
+        wc.FullAddr(contact = contact).put()
+        wc.Location(orgInfo = orgInfo).put()
+        response = app.get('/org/department_of_defense')
         self.assertTrue('United States Department of Defense' in response)
     
     def test_dalailama(self):
         app = TestApp(self.application)
+        person = wc.Person(id = "dalai_lama", name = "Dalai Lama (Tenzin Gyatso)").put()
+        personInfo = wc.PersonInfo(person = person).put()
+        wc.Date(personInfo = personInfo).put()
+        wc.ExternalLink(person = person).put()
         response = app.get('/person/dalai_lama')
-        self.assertTrue('Person: Dalai Lama (Tenzin Gyatso)' in response)  
+        self.assertTrue('Dalai Lama (Tenzin Gyatso)' in response)  
     
     def test_obama(self):
         app = TestApp(self.application)
+        person = wc.Person(id = "barack_obama", name = "President Barack Obama").put()
+        personInfo = wc.PersonInfo(person = person).put()
+        wc.Date(personInfo = personInfo).put()
+        wc.ExternalLink(person = person).put()
         response = app.get('/person/barack_obama')
-        self.assertTrue('Person: President Barack Obama' in response)         
+        self.assertTrue('President Barack Obama' in response)         
     
     def test_leonhart(self):
         app = TestApp(self.application)
+        person = wc.Person(id = "michele_leonhart", name = "Michele M. Leonhart").put()
+        personInfo = wc.PersonInfo(person = person).put()
+        wc.Date(personInfo = personInfo).put()
+        wc.ExternalLink(person = person).put()
         response = app.get('/person/michele_leonhart')
-        self.assertTrue('Person: Michele M. Leonhart' in response)  
+        self.assertTrue('Michele M. Leonhart' in response)  
     
     def test_kimjongun(self):
         app = TestApp(self.application)
+        person = wc.Person(id = "kim_jong_un", name = "Kim Jong-un").put()
+        personInfo = wc.PersonInfo(person = person).put()
+        wc.Date(personInfo = personInfo).put()
+        wc.ExternalLink(person = person).put()
         response = app.get('/person/kim_jong_un')
-        self.assertTrue('Person: Kim Jong-un' in response)
+        self.assertTrue('Kim Jong-un' in response)
     
 
-    def test_ImportHandler(self):
+    """def test_ImportHandler(self):
         app = TestApp(self.application)
         response = app.get('/import')
-        self.assertTrue('Upload File' in response)    
+        self.assertTrue('Upload File' in response) 
     
     def test_UploadHandler(self):
         app = TestApp(self.application)
@@ -93,43 +167,22 @@ class webTest(unittest.TestCase):
     def test_export(self):
         app = TestApp(self.application)
         response = app.get('/export')
-        self.assertTrue('<worldCrises>' in response)
-    '''
+        self.assertTrue('<worldCrises>' in response)''' """
+
    
        
 class ModelTest(unittest.TestCase):
-    def test_new_Images_entity(self):
-        entity = wc.Images(urls = ["link"], titles = ["title"])
-        self.assertTrue(entity.urls == ["link"])
-        self.assertTrue(entity.titles == ["title"])
-    
-    def test_new_Videos_entity(self):
-        entity = wc.Videos(urls = ["video"], titles = ["title", "title1"])
-        self.assertTrue(entity.urls == ["video"])
-        self.assertTrue(entity.titles[1] == "title1")
-    
-    def test_new_Socials_entity(self):
-        entity = wc.Socials(urls = ["twitter.com"], titles = ["useless"])
-        self.assertTrue(entity.urls == ["twitter.com"] and entity.titles[0] == "useless")
-    
-    def test_new_ExtLinks_entity(self):
-        entity = wc.ExtLinks(urls = ["0", "1", "2", "3", "4"], titles = ["obamacare"])
-        self.assertTrue(entity.urls[2] == "2" and entity.titles[0] == "obamacare")
-
     def test_new_Crisis_entity1(self):
-        entity = wc.Crisis(name = "crisis", location = "location")
+        entity = wc.Crisis(name = "crisis")
         self.assertTrue(entity.name == "crisis")
-        self.assertTrue(entity.location == "location")
         
     def test_new_Crisis_entity2(self):
-        entity = wc.Crisis(id = "tibet", kindd = "tibet")
+        entity = wc.Crisis(id = "tibet")
         self.assertTrue(entity.id == "tibet")
-        self.assertTrue(entity.kindd == "tibet")
            
     def test_new_Crisis_entity3(self):
-        entity = wc.Crisis(date = "12/21/2012", humanImpact = "nothing really")
-        self.assertTrue(entity.date == "12/21/2012")
-        self.assertTrue(entity.humanImpact == "nothing really")
+        entity = wc.Crisis(misc = "nothing really")
+        self.assertTrue(entity.misc == "nothing really")
     
     def test_new_Org_entity1(self):
         entity = wc.Organization(id = "DEA", name = "Drug Enforcement Administration")
@@ -137,26 +190,10 @@ class ModelTest(unittest.TestCase):
         self.assertTrue(entity.name == "Drug Enforcement Administration")
     
     def test_new_Org_entity2(self):
-        entity = wc.Organization(kindd = "federal agency", dateFounded = "9/9/99")
-        self.assertTrue(entity.kindd == "federal agency")
-        self.assertTrue(entity.dateFounded == "9/9/99")
-    
-    def test_new_Org_entity3(self):
-        entity = wc.Organization(location = "Virginia, USA")
-        self.assertTrue(entity.location == "Virginia, USA")
+        entity = wc.Organization(misc = "nothing really")
+        self.assertTrue(entity.misc == "nothing really")
 
     def test_new_Person_entity1(self):
     	entity = wc.Person(id = "Dalai", name = "Dalai Lama")
         self.assertTrue(entity.id == "Dalai")
         self.assertTrue(entity.name == "Dalai Lama")
-    
-    def test_new_person_entity2(self):
-        entity = wc.Person(birthday = "July 6, 1935", nationality = "Tibet")
-        self.assertTrue(entity.birthday == "July 6, 1935")
-        self.assertTrue(entity.nationality == "Tibet")
-        
-    def test_new_person_entity3(self):
-        entity = wc.Person(description = "14th and current head of Tibetan Buddhism")
-        self.assertTrue(entity.description == "14th and current head of Tibetan Buddhism")
-
-            
