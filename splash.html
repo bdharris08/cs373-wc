@@ -14,11 +14,31 @@
       body {
         padding-top: 10px;
         padding-bottom: 40px;
+          background-image: url('http://subtlepatterns.com/patterns/redox_01.png');
+          height:100% margin:0px
       }
       .sidebar-nav {
         padding: 9px 0;
       }
+        html { height: 100% }
+        #map_canvas { height: 100% }
     </style>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+        <script type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAzvqWKgC-tOlTlmcGnHELj-qGK69nYr2w&sensor=false">
+            </script>
+        <script type="text/javascript">
+            function initialize() {
+                var mapOptions = {
+                    center: new google.maps.LatLng(-34.397, 150.644),
+                    zoom: 8,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("map_canvas"),
+                                              mapOptions);
+            }
+            </script>
     <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -34,12 +54,12 @@
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
   </head>
 
-  <body style = "background-color:rgb(218, 232, 181)">
+ <!-- <body style = "background-image: url('random_grey_variations.png');"> -->
   
   <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
-          <div class="well sidebar-nav" style="position: fixed">
+          <div class="well sidebar-nav">
           <h1><center>World Crises</center></h1>
           <center><a href="http://www.jontitan-cs373-wc.appspot.com"><img src="http://i.imgur.com/OIjCU.gif" /></a></center>
                 <hr>
@@ -62,8 +82,13 @@
         <div class="span9">
         <center>
         <h1> UTCS Students Care </h1>
-        <br><br><br>
-        <img src=" http://i.imgur.com/2uvse.jpg">
+        
+        <body onload="initialize()">
+            <div style="width:100px;height:100px;">
+                <div id="map_canvas" style="width: 50%; height: 50%;"></div>
+            </div>
+        </body>
+
         </center>
         
         <br><br><br><br><hr>
@@ -93,5 +118,5 @@
     <script src="../assets/js/bootstrap-carousel.js"></script>
     <script src="../assets/js/bootstrap-typeahead.js"></script>
 
-  </body>
+  
 </html>
