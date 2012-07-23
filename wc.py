@@ -2,6 +2,8 @@ import webapp2
 import jinja2
 import os
 import urllib
+import time
+import re
 
 from genxmlif import GenXmlIfError
 from minixsv import pyxsval
@@ -13,6 +15,7 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import blobstore_handlers
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
+from google.appengine.api import files
 
 #  search branch
 class MainPage(webapp2.RequestHandler):
@@ -27,9 +30,110 @@ class MainPage(webapp2.RequestHandler):
 
 class TempHandler(webapp2.RequestHandler):
     def get(self):
-        path = os.path.join(os.path.dirname(__file__), 'temp.html')
-        self.response.out.write(template.render(path, {}))
+        blob_info = blobstore.BlobInfo.all().filter("filename =", "db.txt").fetch(None)
+        for b in blob_info:
+            b.delete()
+        upload_url = blobstore.create_upload_url('/temp_upload')
+        self.response.out.write('<html><body>')
+        self.response.out.write('<form action="%s" method="POST" enctype="multipart/form-data">' % upload_url)
+        self.response.out.write("""Upload File: <input type="file" name="file"><br> <input type="submit"
+            name="submit" value="Submit"> </form></body></html>""")
         
+class TempUploadHandler(blobstore_handlers.BlobstoreUploadHandler):
+    def post(self):
+        self.response.out.write('<html><body>')
+        self.response.out.write('''<form action="/search_result"> 
+                                    Search: <input type="text" name="keyword" 
+                                    /><br /> <input type="submit" value="Submit" 
+                                    /> </form>''')
+        self.response.out.write('</body></html>')
+        
+class SearchResultHandler(webapp2.RequestHandler):
+    def get(self):
+        keyword= self.request.get("keyword")
+        baseurl = "http://www.jontitan-cs373-wc.appspot.com/"
+        blob_info = blobstore.BlobInfo.all().filter("filename =", "db.txt").fetch(1).pop()
+        blob_reader = blob_info.open()
+        lines = blob_reader.readlines()
+        articles = []
+        temp = []
+        for l in lines:
+            if(baseurl in l):
+                article = [re.split(" ", l, maxsplit =1), temp]  
+                articles.append(article)
+                temp = []
+            else:
+                temp.append(l)
+        
+        
+        dictionary = {"keyword": keyword}
+        matchedExact = []
+        matchedAnd = []
+        matchedOr = []
+        keywordI = re.compile(keyword, re.IGNORECASE)
+        
+        for a in articles:
+            url = a[0][0]
+            name = a[0][1]
+            lines = a[1]
+            for l in lines:
+                parsedLine = re.split(":", l, maxsplit = 1)
+                if(keyword.lower() in parsedLine):
+                    parsedMatched = re.split(keywordI, l)
+                    matchedExact.append([name, url, parsedMatched])
+                
+                elif
+                    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        for i in range(len(lines)):
+            if(not(baseurl in lines[i])):
+                parsedLine = re.split(":", lines[i], maxsplit = 1)
+                if(len(parsedLine) == 2):
+                    line = parsedLine[1].lower()
+                    if(keyword.lower() in line):
+                        parsedMatched = re.split(keywordI, lines[i])
+                        temp = []
+                        temp.append(parsedMatched)
+                        for j in range(i+1, len(lines)):                 
+                            if(baseurl in lines[j]):
+                                temp.append(lines[j])
+                                temp.append(lines[j+1])
+                                matched.append(temp)
+                                break
+            else:
+                i += 2
+                if(i >= len(lines)): break
+        
+        dictionary["matched"] = matched
+        
+        path = os.path.join(os.path.dirname(__file__), 'temp_search_result.html')
+        self.response.out.write(template.render(path, dictionary))
+
+        """
+        print "In Temp page"
+        db_txt = files.blobstore.create(mime_type='application/octet_stream')
+        with files.open(db_txt, 'a') as f:
+            f.write("first write\n")
+            
+        with files.open(db_txt, 'a') as f:
+            f.write("second write\n")           
+        files.finalize(db_txt)
+        
+        file_key = files.blobstore.get_blob_key(db_txt)
+        file_reader = blobstore.BlobReader(file_key)
+        print file_reader.readline()
+        print file_reader.readline()
+        """
+            
 class CrisisDisplayHandler(webapp2.RequestHandler):
     def get(self):
         dictionary = {}
@@ -429,10 +533,11 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     wc.put()
     
     for c in crises:
-        
+        # create .txt file
         crisis = Crisis()
         crisis.worldCrises = wc
         crisis.id = c.get("id")
+        # .txt write id 
         crisis.name = c.find("name").text
         crisis.put()
         
@@ -1033,6 +1138,8 @@ class OrganizationPerson (db.Model):
 
 app = webapp2.WSGIApplication([('/', MainPage), ('/import', ImportHandler), ('/upload', UploadHandler),
                             ('/serve/([^/]+)?', ServeHandler), ('/export', ExportHandler), 
+                            ('/temp_upload', TempUploadHandler),
+                            ('/search_result', SearchResultHandler),
                             ('/crisis/([^/]+)?', CrisisHandler),
                             ('/org/([^/]+)?', OrgHandler), 
                             ('/person/([^/]+)?', PersonHandler),
