@@ -12,10 +12,11 @@
     <link href="stylesheets/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
-        padding-top: 10px;
-        padding-bottom: 40px;
-          background-image: url('http://subtlepatterns.com/patterns/redox_01.png');
-          height:100% margin:0px
+        padding-bottom: 10px;
+        padding-right:40px;
+        padding-left:40px;
+        background-image: url(http://subtlepatterns.com/patterns/whitey.png);
+          height:100%;
       }
       .sidebar-nav {
         padding: 9px ;
@@ -32,9 +33,10 @@
         <script type="text/javascript">
             function initialize() {
                 var mapOptions = {
-                    center: new google.maps.LatLng(-34.397, 150.644),
-                    zoom: 8,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                    center: new google.maps.LatLng(13.750181,30.338486),
+                    zoom: 5,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    disableDefaultUI: true
                 };
                 var map = new google.maps.Map(document.getElementById("map_canvas"),
                                               mapOptions);
@@ -46,7 +48,12 @@
                                  }).resize();
             }
             </script>
-    <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
+        <script>
+            $('.carousel').carousel({
+            interval: 2000
+            })
+        </script>
+        <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -59,53 +66,132 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-        <div class="navbar navbar-fixed-top">
+        <!--NAVBAR STUFF-->
+       <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container">
-                    <a class="brand" href="#">
-                        World Crises Database             </a>
+                    <a class="brand">
+                        World Crises Database
+                    </a>
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="#">Home</a>
+                        </li>
+                        <li><a href="crisis">Crises</a></li>
+                        <li><a href="org">Organizations</a></li>
+                        <li><a href="person">People</a></li>
+                        <li class="dropdown">  
+                            <a href="#"  
+                                class="dropdown-toggle"  
+                                data-toggle="dropdown">  
+                                Utilities  
+                                <b class="caret"></b>  
+                            </a>  
+                            <ul class="dropdown-menu">  
+                                <li><a href="import">Import</a></li>  
+                                <li><a href="export">Export</a></li>  
+                                <li><a href="test">Test</a></li>  
+                            </ul>  
+                        </li>  
+                    </ul>
                     
                 </div>
             </div>
-        </div>
+        </div>	
   </head>
 
  <!-- <body style = "background-image: url('random_grey_variations.png');"> -->
-    
-    <body style="padding: 40px" onload="initialize()">
-        
-        <div class="container";>
+ 
+ 
+ 
+ 
+<!--Beginning of Body-->
+<body style="margin-top: 80px" onload="initialize()">
+    <!--<div id="map_canvas" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1;"></div>-->
+			<div class="hero-unit">
+                   <!--<div id="myCarousel" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="http://upload.wikimedia.org/wikipedia/en/3/38/Th%C3%ADch_Qu%E1%BA%A3ng_%C4%90%E1%BB%A9c_self-immolation.jpg" alt="" width="800px" height="520px">
+                                    <div class="carousel-caption">
+                                        <h4>Tibetan Occupation</h4>
+                                        <p style="color:whitesmoke">China's controversial occupation of Tibet has resulted in many suicides and what some have claimed to be cultural genocide.</p>
+                                    </div>
+                                    </div>
+                            <div class="item">
+                                <img src="http://i.imgur.com/TwK8X.jpg" alt="" width="800px" height="520px">
+                                    <div class="carousel-caption">
+                                        <h4>Bath Salts Epidemic</h4>
+                                        <p style="color:whitesmoke">A drug epidemic sweeping the nation</p>
+                                    </div>
+                            </div>
 
-            <div class="hero-unit">
-                <center>
-                <h1> UTCS Students Care </h1>
-                </center>
-            </div>
-        <br><br><br><br><br>
-            <!--Carousel Section-->
-       <footer>
-        <p>&copy; Super Seniors</p>
-        <p> Rohan Shah | Benjamin David Harris | Victor Pang | Ting-Yi Chen | Matt Granado</p>
-      </footer>
-        </div><!--/span-->
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                    </div>
+  			</div><!--hero-unit-->
+			<h1>World Crises Database</h1>
+			</div>
+			<!--<div id="map_canvas" style="width: 100%; height: 40%;"></div> -->
+                <div class="well container"> 
+                    <div class="row">
+                        <div class="span3">
+                            <h3>Our Purpose:</h3>
+                            To build an informative website designed to educate the reader about global crises and to show what you can do to help.<br><br>
+                            Click the buttons on the Navigation bar on top to go through the different crises and their related organizations and people.
+                        </div><!--span4-->
+                        
+                        <div class="span8">
+                            <ul class="thumbnails">
+                                <li class="span4">
+                                    <div class="thumbnail">
+                                        <img src="http://cloudfront.bostinno.com/wp-content/uploads/2012/04/North-Korea-missile-300x200.jpg" alt="">
+                                            <h5>North Korea and Nuclear Weapons:</h5>
+                                            <br>
+                                            <p>On October 9, 2006 the North Korean government announced that it had successfully conducted a nuclear test for the first time. </p>
+                                            <a href="crisis/north_korea" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </li>
+                                <li class="span4">
+                                <div class="thumbnail">
+                                    <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Barack_Obama_family_portrait_2011.jpg/320px-Barack_Obama_family_portrait_2011.jpg" alt="">
+                                        <h5>Barack Obama</h5>
+                                        <br>
+                                        <p>Barack Obama is a key player in international affairs</p><br>
+                                        <a href="person/barack_obama" class="btn btn-primary">Learn More</a>
+                                </div>
+                                </li>
+                            </ul>            
+                        </div><!--span8-->      
+                    </div><!--row-->
+                </div><!--Container-->
+        <br>
+     <!--/span-->
     </div><!--/.fluid-container-->
      <!--   <div id="map_canvas" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 0;"></div>-->
+    <br>
+    
     </body>
+    <footer>
+        <p>&copy; Super Seniors</p>
+        <p> Rohan Shah | Benjamin David Harris | Victor Pang | Ting-Yi Chen | Matt Granado | Elizabeth Hayden</p>
+    </footer>
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="stylesheets/jquery.js"></script>
+    <script src="stylesheets/bootstrap-transition.js"></script>
     <script src="../assets/js/bootstrap-alert.js"></script>
     <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="stylesheets/bootstrap-dropdown.js"></script>
     <script src="../assets/js/bootstrap-scrollspy.js"></script>
     <script src="../assets/js/bootstrap-tab.js"></script>
     <script src="../assets/js/bootstrap-tooltip.js"></script>
     <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="stylesheets/bootstrap-button.js"></script>
     <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="stylesheets/bootstrap-carousel.js"></script>
     <script src="../assets/js/bootstrap-typeahead.js"></script>
 
   
