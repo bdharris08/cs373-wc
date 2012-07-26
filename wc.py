@@ -861,57 +861,57 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
         hi = i.find("human")
         ei = i.find("economic")
         
-        if(ci.find("history").text == None): history = " "
-        else: history = ci.find("history").text
-        if(ci.find("help").text == None): help = " "
-        else: help = ci.find("help").text
-        if(ci.find("resources").text == None): resources = " "
-        else: resources = ci.find("resources").text
-        if(ci.find("type").text == None): type = " "
-        else: type = ci.find("type").text
-        if(t.find("time").text == None): time = " "
-        else: time = t.find("time").text
-        if(t.find("day").text == None): day = " "
-        else: day = t.find("day").text
-        if(t.find("month").text == None): month = " "
-        else: month = t.find("month").text
-        if(t.find("year").text == None): year = " "
-        else: year = t.find("year").text
-        if(t.find("misc").text == None): miscT = " "
-        else: miscT = t.find("misc").text
-        if(l.find("city").text == None): city = " "
-        else: city = l.find("city").text
-        if(l.find("region").text == None): region = " "
-        else: region = l.find("region").text
-        if(l.find("country").text == None): country = " "
-        else: country = l.find("country").text
-        if(hi.find("deaths").text == None): deaths = " "
-        else: deaths = hi.find("deaths").text
-        if(hi.find("displaced").text == None): displaced = " "
-        else: displaced = hi.find("displaced").text
-        if(hi.find("injured").text == None): injured = " "
-        else: injured = hi.find("injured").text
-        if(hi.find("missing").text == None): missing = " "
-        else: missing = hi.find("missing").text
-        if(hi.find("misc").text == None): miscHi = " "
-        else: miscHi = hi.find("misc").text
-        if(ei.find("amount").text == None): amount = " "
-        else: amount = ei.find("amount").text
-        if(ei.find("currency").text == None): currency = " "
-        else: currency = ei.find("currency").text
-        if(ei.find("misc").text == None): miscEi = " "
-        else: miscEi = ei.find("misc").text
-        if(c.find("name").text == None): name = " "
-        else: name = c.find("name").text
+        history = ci.find("history").text
+        if(history == None): history = " "
+        myhelp = ci.find("help").text
+        if(myhelp == None): myhelp = " "
+        resources = ci.find("resources").text
+        if(resources == None): resources = " "
+        mytype = ci.find("type").text
+        if(mytype == None): mytype = " "
+        time = t.find("time").text
+        if(time == None): time = " "
+        day = t.find("day").text
+        if(day == None): day = " "
+        month = t.find("month").text
+        if(month == None): month = " "
+        year = t.find("year").text
+        if(year == None): year = " "
+        miscT = t.find("misc").text
+        if(miscT == None): miscT = " "
+        city = l.find("city").text
+        if(city == None): city = " "
+        region = l.find("region").text
+        if(region == None): region = " "
+        country = l.find("country").text
+        if(country == None): country = " "
+        deaths = hi.find("deaths").text
+        if(deaths == None): deaths = " "
+        displaced = hi.find("displaced").text
+        if(displaced == None): displaced = " "
+        injured = hi.find("injured").text
+        if(injured == None): injured = " "
+        missing = hi.find("missing").text
+        if(missing == None): missing = " "
+        miscHi = hi.find("misc").text 
+        if(miscHi == None): miscHi = " "
+        amount = ei.find("amount").text 
+        if(amount == None): amount = " "
+        currency = ei.find("currency").text 
+        if(currency == None): currency = " "
+        miscEi = ei.find("misc").text 
+        if(miscEi == None): miscEi = " "
+        name = c.find("name").text 
+        if(name == None): name = " "
+        id = c.get("id") 
         if(c.get("id") == None): id = " "
-        else: id = c.get("id")
         
         
         with files.open(dataCache, 'a') as f:
             f.write("History: " + history + "\n" +
-                    "Help: " + help + "\n" +
+                    "Help: " + myhelp + "\n" +
                     "Resources: " + resources + "\n" +
-                    "Type: " + type + "\n" +
+                    "Type: " + mytype + "\n" +
                     "Time: " + time + "\n" + 
                     "Day: " + day + "\n" +
                     "Month: " + month + "\n" +
@@ -930,195 +930,113 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
                     "Misc: " + miscEi + "\n" +
                     "http://www.jontitan-cs373-wc.appspot.com/crisis/" + id +
                     " " + name + "\n")
+
+            
+    for o in organizations:
+        oi = o.find("info")
+        c = oi.find("contact")
+        fa = c.find("mail")
+        l = oi.find("loc")
         
+        id = o.get("id")
+        name = o.find("name").text
+        if (name == None): name = " "
+        misc = o.find("misc").text
+        if (misc == None): misc = " "
+
+        mytype = oi.find("type").text
+        if(mytype == None): mytype = " "
+        history = oi.find("history").text
+        if(history == None): history = " "
+        phone = c.find("phone").text
+        if(phone == None): phone = " "
+        email = c.find("email").text
+        if(email == None): email = " "
+        address = fa.find("address").text
+        if(address == None): address = " "
+        city = fa.find("city").text
+        if(city == None): city = " "
+        state = fa.find("state").text
+        if(state == None): state = " "
+        country = fa.find("country").text
+        if(country == None): country = " "
+        myzip = fa.find("zip").text
+        if(myzip == None): myzip = " "
+        city = l.find("city").text
+        if(city == None): city = " "
+        region = l.find("region").text
+        if(region == None): region = " "
+        country = l.find("country").text
+        if(country == None): country = " "
+        
+        with files.open(dataCache, 'a') as f:
+            f.write("Type: " + mytype + "\n" +
+                    "History: " + history + "\n" +
+                    "Email: " + email + "\n" +
+                    "Address: " + address + "\n" +
+                    "City: " + city + "\n" +
+                    "State: " + state + "\n" +
+                    "Country: " + country + "\n" +
+                    "Zip: " + myzip + "\n" +
+                    "City: " + city + "\n" +
+                    "Region: " + region + "\n" +
+                    "Country: " + country + "\n" +
+                    "Misc: " + misc + "\n" +
+                    "http://www.jontitan-cs373-wc.appspot.com/org/" + id +
+                    " " + name + "\n")
+                    
+    
+    for p in people :
+        pi = p.find("info")
+        bd = pi.find("birthdate")
+        
+        id = p.get("id")
+        if (id == None): id = " "
+        name = p.find("name").text
+        if (name == None): name = " "
+        misc = p.find("misc").text
+        if (misc == None): misc = " "
+        mytype = pi.find("type").text
+        if (mytype == None): mytype = " "
+        nationality = pi.find("nationality").text
+        if (nationality == None): nationality = " "
+        biography = pi.find("biography").text
+        if (biography == None): biography = " "
+        time = bd.find("time").text
+        if (time == None): time = " "
+        day = bd.find("day").text
+        if (day == None): day = " "
+        month = bd.find("month").text
+        if (month == None) : month = " "
+        year = bd.find("year").text
+        if (year == None): year = " "
+        bdmisc = bd.find("misc").text
+        if (bdmisc == None): bdmisc = " "
+        
+        with files.open(dataCache, 'a') as f:
+            f.write("Type: " + mytype + "\n" +
+                    "Nationality: " + nationality + "\n" +
+                    "Biography: " + biography + "\n" +
+                    "Time: " + time + "\n" +
+                    "Day: " + day + "\n" +
+                    "Month: " + month + "\n" +
+                    "Year: " + year + "\n" +
+                    "Misc: " + bdmisc + "\n" +
+                    "Misc: " + misc + "\n" +
+                    "http://www.jontitan-cs373-wc.appspot.com/person/" + id +
+                    " " + name + "\n")
+
     files.finalize(dataCache)    
     file_key = files.blobstore.get_blob_key(dataCache)
     file_reader = blobstore.BlobReader(file_key)
     self.response.out.write('<html><body>')
-    for i in range(0, 84):
+    for i in range(0, 180):
         self.response.out.write(file_reader.readline() + "<br>")
-    #print file_reader.readline()    
+    #print file_reader.readline()
 
-    """
-            
-    for o in organizations:
-        org = Organization()
-        org.worldCrises = wc
-        org.id = o.get("id")
-        org.name = o.find("name").text
-        org.misc = o.find("misc").text
-        org.put()
         
-        oi = o.find("info")
-        orgInfo = OrgInfo()
-        orgInfo.organization = org
-        orgInfo.type = oi.find("type").text
-        orgInfo.history = oi.find("history").text
-        orgInfo.put()
         
-        c = oi.find("contact")
-        contact = Contact()
-        contact.orgInfo = orgInfo
-        contact.phone = c.find("phone").text
-        contact.email = c.find("email").text
-        contact.put()
-        
-        fa = c.find("mail")
-        fullAddr = FullAddr()
-        fullAddr.contact = contact
-        fullAddr.address = fa.find("address").text
-        fullAddr.city = fa.find("city").text
-        fullAddr.state = fa.find("state").text
-        fullAddr.country = fa.find("country").text
-        fullAddr.zip = fa.find("zip").text
-        fullAddr.put()
-        
-        l = oi.find("loc")
-        loc = Location()
-        loc.orgInfo = orgInfo
-        loc.city = l.find("city").text
-        loc.region = l.find("region").text
-        loc.country = l.find("country").text
-        loc.put()
-        
-        r = o.find("ref")
-        
-        pi = r.find("primaryImage")
-        piRef = ExternalLink()
-        piRef.organization = org
-        piRef.ref_type = "primaryImage"
-        piRef.site = pi.find("site").text
-        piRef.title = pi.find("title").text
-        piRef.url = pi.find("url").text
-        piRef.description = pi.find("description").text
-        piRef.put()
-        
-        image = r.findall("image")
-        for i in image:
-            ref = ExternalLink()
-            ref.organization = org
-            ref.ref_type = "image"
-            ref.site = i.find("site").text
-            ref.title = i.find("title").text
-            ref.url = i.find("url").text
-            ref.description = i.find("description").text
-            ref.put()      
-            
-        v = r.findall("video")
-        for i in v:
-            ref = ExternalLink()
-            ref.organization = org
-            ref.ref_type = "video"
-            ref.site = i.find("site").text
-            ref.title = i.find("title").text
-            ref.url = i.find("url").text
-            ref.description = i.find("description").text
-            ref.put()
-            
-        s = r.findall("social")
-        for i in s:
-            ref = ExternalLink()
-            ref.organization = org
-            ref.ref_type = "social"
-            ref.site = i.find("site").text
-            ref.title = i.find("title").text
-            ref.url = i.find("url").text
-            ref.description = i.find("description").text
-            ref.put()  
-    
-        e = r.findall("ext")
-        for i in e:
-            ref = ExternalLink()
-            ref.organization = org
-            ref.ref_type = "ext"
-            ref.site = i.find("site").text
-            ref.title = i.find("title").text
-            ref.url = i.find("url").text
-            ref.description = i.find("description").text
-            ref.put()
-            
-    for p in people :
-        person = Person()
-        person.worldCrises = wc
-        person.id = p.get("id")
-        person.name = p.find("name").text
-        person.misc = p.find("misc").text
-        person.put()
-        
-        pi = p.find("info")
-        pInfo = PersonInfo()
-        pInfo.person = person
-        pInfo.type = pi.find("type").text
-        pInfo.nationality = pi.find("nationality").text
-        pInfo.biography = pi.find("biography").text
-        pInfo.put()
-        
-        bd = pi.find("birthdate")
-        birthDate = Date()
-        birthDate.personInfo = pInfo
-        birthDate.time = bd.find("time").text
-        birthDate.day = int(bd.find("day").text)
-        birthDate.month = int(bd.find("month").text)
-        birthDate.year = int(bd.find("year").text)
-        birthDate.misc = bd.find("misc").text
-        birthDate.put()
-        
-        r = p.find("ref")
-        
-        pi = r.find("primaryImage")
-        piRef = ExternalLink()
-        piRef.person = person
-        piRef.ref_type = "primaryImage"
-        piRef.site = pi.find("site").text
-        piRef.title = pi.find("title").text
-        piRef.url = pi.find("url").text
-        piRef.description = pi.find("description").text
-        piRef.put()
-        
-        image = r.findall("image")
-        for i in image:
-            ref = ExternalLink()
-            ref.person = person
-            ref.ref_type = "image"
-            ref.site = i.find("site").text
-            ref.title = i.find("title").text
-            ref.url = i.find("url").text
-            ref.description = i.find("description").text
-            ref.put()      
-            
-        v = r.findall("video")
-        for i in v:
-            ref = ExternalLink()
-            ref.person = person
-            ref.ref_type = "video"
-            ref.site = i.find("site").text
-            ref.title = i.find("title").text
-            ref.url = i.find("url").text
-            ref.description = i.find("description").text
-            ref.put()
-            
-        s = r.findall("social")
-        for i in s:
-            ref = ExternalLink()
-            ref.person = person
-            ref.ref_type = "social"
-            ref.site = i.find("site").text
-            ref.title = i.find("title").text
-            ref.url = i.find("url").text
-            ref.description = i.find("description").text
-            ref.put()  
-    
-        e = r.findall("ext")
-        for i in e:
-            ref = ExternalLink()
-            ref.person = person
-            ref.ref_type = "ext"
-            ref.site = i.find("site").text
-            ref.title = i.find("title").text
-            ref.url = i.find("url").text
-            ref.description = i.find("description").text
-            ref.put()
-    
+    #linking crises and such
     for c in crises :
         crisis = Crisis.all().filter("id =", c.get("id")).fetch(1).pop()
         
@@ -1150,7 +1068,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
             relation.put()
      
     
-        
+    """    
     with files.open(db_txt, 'a') as f:
         f.write("second write\n")           
     files.finalize(db_txt)
@@ -1159,11 +1077,11 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     file_reader = blobstore.BlobReader(file_key)
     print file_reader.readline()
     print file_reader.readline()
+    """
     
     
-    
-    self.redirect('/')
-"""
+    #self.redirect('/')
+
 class ExportHandler(webapp.RequestHandler):
     def get(self):
         CrisisQuery = Crisis.all().fetch(None)
