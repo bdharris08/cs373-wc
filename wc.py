@@ -30,17 +30,6 @@ class MainPage(webapp2.RequestHandler):
 
 class TempHandler(webapp2.RequestHandler):
     def get(self):
-        blob_info = blobstore.BlobInfo.all().filter("filename =", "db.txt").fetch(None)
-        for b in blob_info:
-            b.delete()
-        upload_url = blobstore.create_upload_url('/temp_upload')
-        self.response.out.write('<html><body>')
-        self.response.out.write('<form action="%s" method="POST" enctype="multipart/form-data">' % upload_url)
-        self.response.out.write("""Upload File: <input type="file" name="file"><br> <input type="submit"
-            name="submit" value="Submit"> </form></body></html>""")
-        
-class TempUploadHandler(blobstore_handlers.BlobstoreUploadHandler):
-    def post(self):
         self.response.out.write('<html><body>')
         self.response.out.write('''<form action="/search_result"> 
                                     Search: <input type="text" name="keyword" 
@@ -48,11 +37,13 @@ class TempUploadHandler(blobstore_handlers.BlobstoreUploadHandler):
                                     /> </form>''')
         self.response.out.write('</body></html>')
         
+        
 class SearchResultHandler(webapp2.RequestHandler):
     def get(self):
         keyword= self.request.get("keyword")
         baseurl = "http://www.jontitan-cs373-wc.appspot.com/"
-        blob_info = blobstore.BlobInfo.all().filter("filename =", "db.txt").fetch(1).pop()
+        blob_info = dataCacheKey.all().fetch(None).pop().blob_id
+        #blob_info = blobstore.BlobInfo.get(data_key)
         blob_reader = blob_info.open()
         lines = blob_reader.readlines()
         articles = []
@@ -70,6 +61,7 @@ class SearchResultHandler(webapp2.RequestHandler):
         matchedExact = []
         matchedAnd = []
         matchedOr = []
+        matched = [matchedExact, matchedAnd, matchedOr]
         keywordI = re.compile(keyword, re.IGNORECASE)
         """
         for a in articles:
@@ -842,13 +834,14 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
             relation.put()
     
     #Build db.txt to cache data for efficient searching
-    """
+    
     key = dataCacheKey.all().fetch(None)
-    assert(len(key) == 1)
-    blob_info = key.blob_id.fetch(1).pop()
-    blob_info.delete()
-    key.delete()
-    """
+    assert(len(key) == 1 or len(key) == 0)
+    if(len(key) == 1):
+        blob_info = blobstore.BlobInfo.get(key.pop().blob_id)
+        blob_info.delete()
+        key.delete()
+    
     
     dataCache = files.blobstore.create(mime_type='application/octet_stream')
     
@@ -1028,45 +1021,18 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 
     files.finalize(dataCache)    
     file_key = files.blobstore.get_blob_key(dataCache)
-    file_reader = blobstore.BlobReader(file_key)
-    self.response.out.write('<html><body>')
-    for i in range(0, 180):
-        self.response.out.write(file_reader.readline() + "<br>")
-    #print file_reader.readline()
-
-        
-        
-    #linking crises and such
-    for c in crises :
-        crisis = Crisis.all().filter("id =", c.get("id")).fetch(1).pop()
-        
-        relatedOrg = c.findall("org")
-        for o in relatedOrg :
-            org = Organization.all().filter("id =", o.get("idref")).fetch(1).pop()
-            relation = CrisisOrganization()
-            relation.organization = crisis
-            relation.crisis = org
-            relation.put()
-            
-        relatedPerson = c.findall("person")
-        for p in relatedPerson :
-            person = Person.all().filter("id =", p.get("idref")).fetch(1).pop()
-            relation = CrisisPerson()
-            relation.crisis = person
-            relation.person = crisis
-            relation.put()
-            
-    for o in organizations :
-        org = Organization.all().filter("id =", o.get("id")).fetch(1).pop()
+    dataKey = dataCacheKey()
+    dataKey.blob_id = file_key
+    dataKey.put()
     
-        relatedPerson = o.findall("person")
-        for p in relatedPerson :
-            person = Person.all().filter("id =", p.get("idref")).fetch(1).pop()
-            relation = OrganizationPerson()
-            relation.organization = person
-            relation.person = org
-            relation.put()
-     
+    
+    
+    #file_reader = blobstore.BlobReader(file_key)
+    #self.response.out.write('<html><body>')
+    #for i in range(0, 180):
+    #    self.response.out.write(file_reader.readline() + "<br>")
+    #print file_reader.readline()
+    
     
     """    
     with files.open(db_txt, 'a') as f:
@@ -1080,7 +1046,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     """
     
     
-    #self.redirect('/')
+    self.redirect('/')
 
 class ExportHandler(webapp.RequestHandler):
     def get(self):
@@ -1368,7 +1334,6 @@ class dataCacheKey (db.Model):
     
 app = webapp2.WSGIApplication([('/', MainPage), ('/import', ImportHandler), ('/upload', UploadHandler),
                             ('/serve/([^/]+)?', ServeHandler), ('/export', ExportHandler), 
-                            ('/temp_upload', TempUploadHandler),
                             ('/search_result', SearchResultHandler),
                             ('/crisis/([^/]+)?', CrisisHandler),
                             ('/org/([^/]+)?', OrgHandler), 
