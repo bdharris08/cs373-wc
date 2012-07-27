@@ -48,6 +48,8 @@ class SearchResultHandler(webapp2.RequestHandler):
         lines = blob_reader.readlines()
         articles = []
         temp = []
+
+        
         for l in lines:
             if(baseurl in l):
                 article = [re.split(" ", l, maxsplit =1), temp]  
@@ -55,26 +57,29 @@ class SearchResultHandler(webapp2.RequestHandler):
                 temp = []
             else:
                 temp.append(l)
-        
+            
         
         dictionary = {"keyword": keyword}
         matchedExact = []
         matchedAnd = []
         matchedOr = []
-        matched = [matchedExact, matchedAnd, matchedOr]
+        #matched = [matchedExact, matchedAnd, matchedOr]
         keywordI = re.compile(keyword, re.IGNORECASE)
-        """
+        
+    
+        
         for a in articles:
             url = a[0][0]
             name = a[0][1]
             lines = a[1]
             for l in lines:
                 parsedLine = re.split(":", l, maxsplit = 1)
+                parsedLine = parsedLine[1].lower()
                 if(keyword.lower() in parsedLine):
                     parsedMatched = re.split(keywordI, l)
                     matchedExact.append([name, url, parsedMatched])
                 
-                elif
+                #elif
 
         """
         for i in range(len(lines)):
@@ -95,12 +100,13 @@ class SearchResultHandler(webapp2.RequestHandler):
             else:
                 i += 2
                 if(i >= len(lines)): break
+        """
         
-        dictionary["matched"] = matched
+        dictionary["matched"] = matchedExact
         
         path = os.path.join(os.path.dirname(__file__), 'temp_search_result.html')
         self.response.out.write(template.render(path, dictionary))
-
+        
         """
         print "In Temp page"
         db_txt = files.blobstore.create(mime_type='application/octet_stream')
