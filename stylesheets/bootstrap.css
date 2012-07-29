@@ -162,6 +162,7 @@ body {
   line-height: 18px;
   color: #333333;
   background-color: #ffffff;
+  background-image: url(http://subtlepatterns.com/patterns/whitey.png)
 }
 
 a {
@@ -3580,7 +3581,7 @@ input[type="submit"].btn.btn-mini {
   padding-right: 20px;
   padding-left: 20px;
   background-color: red;
-  padding:20px;
+  padding:10px;
   background-repeat: repeat-x;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -3751,7 +3752,10 @@ input[type="submit"].btn.btn-mini {
   padding-left: 0;
   -webkit-border-radius: 0;
      -moz-border-radius: 0;
-          border-radius: 0;
+          border-radius: 5px;
+          width:84%;
+          margin-left:8%;
+          
 }
 
 .navbar-fixed-top .container,

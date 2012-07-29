@@ -10,6 +10,7 @@
 
     <!-- Le styles -->
     <link href="../stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="../stylesheets/lightbox.css" rel="stylesheet" />
     <style type="text/css">
       body {
         padding-top: 10px;
@@ -32,44 +33,49 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+           <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand">
+                    <img src="http://i.imgur.com/uhFj0.png" width="35px" height="35px"></img>
+                        World Crises Database
+                    </a>
+                    
+                    <ul class="nav">
+                        <li>
+                            <a href="../">Home</a>
+                        </li>
+                        <li class="active"><a href="../crisis">Crises</a></li>
+                        <li><a href="../org">Organizations</a></li>
+                        <li><a href="../person">People</a></li>
+                        <li class="dropdown">  
+                            <a href="#"  
+                                class="dropdown-toggle"  
+                                data-toggle="dropdown">  
+                                Utilities  
+                                <b class="caret"></b>  
+                            </a>  
+                            <ul class="dropdown-menu">  
+                                <li><a href="../import">Import</a></li>  
+                                <li><a href="../export">Export</a></li>  
+                                <li><a href="../test">Test</a></li>  
+                            </ul>  
+                        </li>  
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>	
   </head>
 
-  <body style = "background-color:rgb(218, 232, 181)">
+  <body style = "padding:40px;margin-top:40px">
 
-
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav" style="position: fixed">
-          <h1><center>World Crises</center></h1>
-          <center><a href="http://www.jontitan-cs373-wc.appspot.com"><img src="http://i.imgur.com/OIjCU.gif" /></a></center>
-                <hr>
-              <center><h2>Crises</h2></center>
-              <a href="http://www.jontitan-cs373-wc.appspot.com/crisis"><center><img src="http://i.imgur.com/jGGmg.gif" width="201px" height="147px"></center></a>
-              <center><h2>Organizations</h2></center>
-              <a href="http://www.jontitan-cs373-wc.appspot.com/org"><center><img src="http://i.imgur.com/gfFLY.gif" width="201px" height="147px"></center></a>
-              <center><h2>People</h2></center>
-              <a href="http://www.jontitan-cs373-wc.appspot.com/person"><center><img src="http://i.imgur.com/ttSbO.gif" width="201px" height="147px"></center></a>
-              <hr>
-              <center><h2>Utility</h2></center>
-              <center>
-              <a class="btn" href="http://www.jontitan-cs373-wc.appspot.com/import">Import</a>
-              <a class="btn" href="http://www.jontitan-cs373-wc.appspot.com/export">Export</a>
-              <a class="btn" href="http://www.jontitan-cs373-wc.appspot.com/test">Unit Test</a>
-              </center>
-            
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
-          <div class="hero-unit">
+          <div class="hero-unit span10">
             <center><h1>{{crisis.name}}</h1></center>
           </div>
         
-          <div class="row-fluid">
-          
-          <div class="span6">
-            <div class="row-fluid">
-                <div class="span10">
+          <div class="row">
+                <div class="span6">
                     <h2>History:</h2>
                     <p>
                     {{crisisInfo.history}}
@@ -161,16 +167,12 @@
                             </p>
                         </p>
                 </div><!--/span-->
-            </div>
-          </div>
-                  
-          <div class="span6">
-            <div class="row-fluid">
-                <div class="span10">
+
+                <div class="span3">
                     <h2>Primary Image</h2>
                         <p>
                             {% for i in primaryImage %}
-                            <img src = {{i.url}}>
+	                       <a href={{i.url}} rel="lightbox"><img src="{{i.url}}"/></a>
                             {% endfor %}
                         </p>
                         
@@ -188,9 +190,7 @@
                             {% endfor %}
                         </p>
                 </div><!--/span-->
-            </div>
-          </div>
-          </div>
+        	</div><!--/Container-->        
           <hr>
           <footer>
             <p>&copy; Super Seniors</p>
@@ -203,23 +203,26 @@
 
       
     </div><!--/.fluid-container-->
+    
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap-transition.js"></script>
-    <script src="../assets/js/bootstrap-alert.js"></script>
-    <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
-    <script src="../assets/js/bootstrap-scrollspy.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
-    <script src="../assets/js/bootstrap-tooltip.js"></script>
-    <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
-    <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
-    <script src="../assets/js/bootstrap-typeahead.js"></script>
+    <script src="/stylesheets/jquery.js"></script>
+    <script src="stylesheets/bootstrap-transition.js"></script>
+    <script src="stylesheets/bootstrap-alert.js"></script>
+    <script src="stylesheets/bootstrap-modal.js"></script>
+    <script src="/stylesheets/bootstrap-dropdown.js"></script>
+    <script src="stylesheets/bootstrap-scrollspy.js"></script>
+    <script src="stylesheets/bootstrap-tab.js"></script>
+    <script src="stylesheets/bootstrap-tooltip.js"></script>
+    <script src="stylesheets/bootstrap-popover.js"></script>
+    <script src="stylesheets/bootstrap-button.js"></script>
+    <script src="stylesheets/bootstrap-collapse.js"></script>
+    <script src="stylesheets/bootstrap-carousel.js"></script>
+    <script src="stylesheets/bootstrap-typeahead.js"></script>
+	<script src="/stylesheets/lightbox.js"></script>
+	<script src="/stylesheets/jquery-1.7.2.min.js"></script>
 
   </body>
 </html>
