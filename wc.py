@@ -93,38 +93,52 @@ class SearchResultHandler(webapp2.RequestHandler):
                     if andn == len(splitKeyword):
                         keywordList = re.findall(keyword_re_or, l)
                         parsedMatched = re.split(keyword_re_or, l)
-                        self.response.out.write(keywordList)
-                        self.response.out.write(parsedMatched)
-                        matchedText = []
+                        #self.response.out.write(keywordList)
+                        #self.response.out.write(parsedMatched)
+                        matchedText = [" "] * (len(keywordList)+len(parsedMatched))
                         if(re.search(keyword_re_or, parsedMatched[0])): 
-                            keywordFirst = 0
-                            for i, j in keywordList, parsedMatched:
-                                matchedText.append(i)
-                                matchedText.append(j)
-
+                            temp = 0                   
+                            for i in parsedMatched:
+                                matchedText[temp] = i
+                                temp += 2
+                            temp = 1
+                            for j in keywordList:
+                                matchedText[temp] = j
+                                temp += 2
                         else: 
-                            keywordFirst = 1
-                            """for i, j in keywordList, parsedMatched:
-                                matchedText.append(j)
-                                matchedText.append(i)"""
-                        
-                        matchedAnd.append([name, url, matchedText, keywordFirst])
+                            temp = 0                   
+                            for i in parsedMatched:
+                                matchedText[temp] = i
+                                temp += 2
+                            temp = 1
+                            for j in keywordList:
+                                matchedText[temp] = j
+                                temp += 2
+                        matchedAnd.append([name, url, matchedText])
                     
                     if(keyword_re_or.search(parsedLine)):
                         keywordList = re.findall(keyword_re_or, l)
                         parsedMatched = re.split(keyword_re_or, l) 
-                        matchedText = []
+                        matchedText = [" "] * (len(keywordList)+len(parsedMatched))
                         if(re.search(keyword_re_or, parsedMatched[0])): 
-                            keywordFirst = 0
-                            """for i, j in keywordList, parsedMatched:
-                                matchedText.append(i)
-                                matchedText.append(j)"""
+                            temp = 0                   
+                            for i in parsedMatched:
+                                matchedText[temp] = i
+                                temp += 2
+                            temp = 1
+                            for j in keywordList:
+                                matchedText[temp] = j
+                                temp += 2
                         else: 
-                            keywordFirst = 1
-                            """for i, j in keywordList, parsedMatched:
-                                matchedText.append(j)
-                                matchedText.append(i)"""
-                        matchedOr.append([name, url, matchedText, keywordFirst])
+                            temp = 0                   
+                            for i in parsedMatched:
+                                matchedText[temp] = i
+                                temp += 2
+                            temp = 1
+                            for j in keywordList:
+                                matchedText[temp] = j
+                                temp += 2
+                        matchedOr.append([name, url, matchedText])
                         
                     
 

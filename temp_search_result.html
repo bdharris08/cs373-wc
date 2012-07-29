@@ -76,7 +76,17 @@
             <p><ul> 
             <li> <a href="{{m.1}}">{{m.0}}</a><br>
             Matched Text : 
-            {% for i in m.2 %}{% if forloop.counter0|divisibleby:m.3 %}{{i}}{% else %}<span style="background-color:yellow">{{i}}</span>{% endif %}{% endfor %}
+            {% for i in m.2 %}{% if forloop.counter0|divisibleby:"2" %}{{i}}{% else %}<span style="background-color:yellow">{{i}}</span>{% endif %}{% endfor %}
+            </li>
+            </ul></p>
+        {% endfor %}
+        
+        <h2> Pages with some search terms</h2>
+        {% for m in matchedOr %}
+            <p><ul> 
+            <li> <a href="{{m.1}}">{{m.0}}</a><br>
+            Matched Text : 
+            {% for i in m.2 %}{% if forloop.counter0|divisibleby:"2" %}{{i}}{% else %}<span style="background-color:yellow">{{i}}</span>{% endif %}{% endfor %}
             </li>
             </ul></p>
         {% endfor %}
