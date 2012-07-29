@@ -195,7 +195,7 @@
         <misc></misc>
 {% for c in person.8 %}        <crisis idref="{{c.id}}"/>
 {% endfor %}
-{% for o in person.9 %}        <organization idref="{{o.id}}"/>
+{% for o in person.9 %}        <org idref="{{o.id}}"/>
 {% endfor %}
     </person>
 {% endfor %}   
