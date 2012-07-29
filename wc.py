@@ -203,7 +203,8 @@ class ImportHandler(webapp.RequestHandler):
     self.response.out.write('<html><body>')
     self.response.out.write('<form action="%s" method="POST" enctype="multipart/form-data">' % upload_url)
     self.response.out.write("""Upload File: <input type="file" name="file"><br> <input type="submit"
-        name="submit" value="Submit"> </form></body></html>""")
+        name="Import" value="Import"> <input type="submit" name="Merge" value="Merge"> 
+        </form></body></html>""")
         
 class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 
@@ -213,6 +214,8 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     blob_reader = blob_info.open()
     other_blob_reader = blob_info.open()
     tree = ElementTree()
+    
+    is_import = self.request.POST.get('Import', None)
     
     try:
         assert blob_info.content_type == "text/xml"
@@ -225,9 +228,9 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 <xsd:element name="worldCrises">
     <xsd:complexType>
         <xsd:sequence>
-            <xsd:element name="crisis" type="crisisType"  maxOccurs="unbounded"/>
-            <xsd:element name="organization" type="organizationType"  maxOccurs="unbounded"/>
-            <xsd:element name="person" type="personType"  maxOccurs="unbounded"/>
+            <xsd:element name="crisis" type="crisisType" maxOccurs="unbounded"/>
+            <xsd:element name="organization" type="organizationType" maxOccurs="unbounded"/>
+            <xsd:element name="person" type="personType" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
 </xsd:element>
@@ -388,721 +391,726 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     try:
         # call validator with non-default values
         elementTreeWrapper = pyxsval.parseAndValidateXmlInputString (other_blob_reader.read(), xsdText)
+        
+        if is_import :
+            #Wipe out the datastore data
+            db.delete(WorldCrises.all())
+            db.delete(Crisis.all())
+            db.delete(Organization.all())
+            db.delete(Person.all())
+            db.delete(CrisisInfo.all())
+            db.delete(OrgInfo.all())
+            db.delete(PersonInfo.all())
+            db.delete(ExternalLink.all())
+            db.delete(Date.all())
+            db.delete(Location.all())
+            db.delete(Contact.all())
+            db.delete(FullAddr.all())
+            db.delete(HumanImpact.all())
+            db.delete(EconomicImpact.all())
+            db.delete(CrisisOrganization.all())
+            db.delete(CrisisPerson.all())
+            db.delete(OrganizationPerson.all())
+       
+        tree.parse(blob_reader)
 
+        crises = tree.findall("crisis")
+        assert(crises != [])
+        organizations = tree.findall("organization")
+        assert(organizations != [])
+        people = tree.findall("person")
+        assert(people != [])
+
+        wc = WorldCrises.all().fetch(None)
+        if wc == [] :
+            wc = WorldCrises()
+            wc.put()
+        else :
+            wc = wc[0]
+        Crisislist = Crisis.all().fetch(None)
+        Orglist = Organization.all().fetch(None)
+        Peoplelist = Person.all().fetch(None)
+        
+        for c in crises:
+            
+            for existingCrisis in Crisislist :
+                if c.get("id") == existingCrisis.id :
+                    db.delete((existingCrisis.info.fetch(None).pop()).time.fetch(None).pop())
+                    db.delete((existingCrisis.info.fetch(None).pop()).location.fetch(None).pop())
+                    db.delete((existingCrisis.info.fetch(None).pop()).humanImpact.fetch(None).pop())
+                    db.delete((existingCrisis.info.fetch(None).pop()).economicImpact.fetch(None).pop())
+                    db.delete(existingCrisis.info)
+                    refList = existingCrisis.ref.fetch(None)
+                    for ref in refList :
+                        if ref.crisis == existingCrisis :
+                            db.delete(ref)
+                    db.delete(existingCrisis)
+
+            crisis = Crisis()
+            crisis.worldCrises = wc
+            crisis.id = c.get("id")
+            crisis.name = c.find("name").text
+            if c.find("misc").text == None :
+                crisis.misc = " "
+            else :
+                crisis.misc = c.find("misc").text
+            crisis.put()
+            
+            ci = c.find("info")
+            crisisInfo = CrisisInfo()
+            crisisInfo.crisis = crisis
+            if ci.find("history").text == None :
+                crisisInfo.history = " "
+            else :
+                crisisInfo.history = ci.find("history").text
+            if ci.find("help").text == None :
+                crisisInfo.help = " "
+            else :
+                crisisInfo.help = ci.find("help").text
+            if ci.find("resources").text == None :
+                crisisInfo.resources = " "
+            else :
+                crisisInfo.resources = ci.find("resources").text
+            if ci.find("type").text == None :
+                crisisInfo.type = " "
+            else :
+                crisisInfo.type = ci.find("type").text
+            crisisInfo.put()
+            
+            t = ci.find("time")
+            time = Date()
+            time.crisisInfo = crisisInfo
+            if t.find("time").text == None :
+                time.time = " "
+            else :
+               time.time = t.find("time").text
+            if t.find("day").text == None :
+                time.day = 0
+            else :
+                time.day = int(t.find("day").text)
+            if t.find("month").text == None :
+                time.month = 0
+            else :
+                time.month = int(t.find("month").text)
+            if t.find("year").text == None :
+                time.year = 0
+            else :
+                time.year = int(t.find("year").text)
+            if t.find("misc").text == None :
+                time.misc = " "
+            else :
+                time.misc = t.find("misc").text
+            time.put()
+            
+            l = ci.find("loc")
+            location = Location()
+            location.crisisInfo = crisisInfo
+            if l.find("city").text == None :
+                location.city = " "
+            else :
+                location.city = l.find("city").text
+            if l.find("region").text == None :
+                location.region = " "
+            else :
+                location.region = l.find("region").text
+            if l.find("country").text == None :
+                location.country = " "
+            else :
+                location.country = l.find("country").text
+            location.put()
+            
+            i = ci.find("impact")
+            
+            hi = i.find("human")
+            humanImpact = HumanImpact()
+            humanImpact.crisisInfo = crisisInfo
+            if hi.find("deaths").text == None :
+                humanImpact.deaths = 0
+            else :
+                humanImpact.deaths = int(hi.find("deaths").text)
+            if hi.find("displaced").text == None :
+                humanImpact.displaced = 0
+            else :
+                humanImpact.displaced = int(hi.find("displaced").text)
+            if hi.find("injured").text == None :
+                humanImpact.injured = 0
+            else :
+                humanImpact.injured = int(hi.find("injured").text)
+            if hi.find("missing").text == None :
+                humanImpact.missing = 0
+            else :
+                humanImpact.missing = int(hi.find("missing").text)
+            if hi.find("misc").text == None :
+                humanImpact.misc = " "
+            else :
+                humanImpact.misc = hi.find("misc").text
+            humanImpact.put()
+            
+            ei = i.find("economic")
+            economicImpact = EconomicImpact()
+            economicImpact.crisisInfo = crisisInfo
+            if ei.find("amount").text == None :
+                economicImpact.amount = 0
+            else :
+                economicImpact.amount = int(ei.find("amount").text)
+            if ei.find("currency").text == None :
+                economicImpact.currency = " "
+            else :
+                economicImpact.currency = ei.find("currency").text
+            if ei.find("misc").text == None :
+                economicImpact.misc = " "
+            else :
+                economicImpact.misc = ei.find("misc").text
+            economicImpact.put()
+            
+            r = c.find("ref")
+            
+            pi = r.find("primaryImage")
+            piRef = ExternalLink()
+            piRef.crisis = crisis
+            piRef.ref_type = "primaryImage"
+            if pi.find("site").text == None :
+                piRef.site = " "
+            else :
+                piRef.site = pi.find("site").text
+            if pi.find("title").text == None :
+                piRef.title = " "
+            else :
+                piRef.title = pi.find("title").text
+            if pi.find("url").text == None :
+                piRef.url = " "
+            else :
+                piRef.url = pi.find("url").text
+            if pi.find("description").text == None :
+                piRef.description = " "
+            else :
+                piRef.description = pi.find("description").text
+            piRef.put()
+            
+            image = r.findall("image")
+            for i in image:
+                ref = ExternalLink()
+                ref.crisis = crisis
+                ref.ref_type = "image"
+                if i.find("site").text == None :
+                    ref.site = " "
+                else :
+                    ref.site = i.find("site").text
+                if i.find("title").text == None :
+                    ref.title = " "
+                else :
+                    ref.title = i.find("title").text
+                if i.find("url").text == None :
+                    ref.url = " "
+                else :
+                    ref.url = i.find("url").text
+                if i.find("description").text == None :
+                    ref.description = " "
+                else :
+                    ref.description = i.find("description").text
+                ref.put()      
+                
+            v = r.findall("video")
+            for i in v:
+                ref = ExternalLink()
+                ref.crisis = crisis
+                ref.ref_type = "video"
+                if i.find("site").text == None :
+                    ref.site = " "
+                else :
+                    ref.site = i.find("site").text
+                if i.find("title").text == None :
+                    ref.title = " "
+                else :
+                    ref.title = i.find("title").text
+                if i.find("url").text == None :
+                    ref.url = " "
+                else :
+                    ref.url = i.find("url").text
+                if i.find("description").text == None :
+                    ref.description = " "
+                else :
+                    ref.description = i.find("description").text
+                ref.put()  
+                
+            s = r.findall("social")
+            for i in s:
+                ref = ExternalLink()
+                ref.crisis = crisis
+                ref.ref_type = "social"
+                if i.find("site").text == None :
+                    ref.site = " "
+                else :
+                    ref.site = i.find("site").text
+                if i.find("title").text == None :
+                    ref.title = " "
+                else :
+                    ref.title = i.find("title").text
+                if i.find("url").text == None :
+                    ref.url = " "
+                else :
+                    ref.url = i.find("url").text
+                if i.find("description").text == None :
+                    ref.description = " "
+                else :
+                    ref.description = i.find("description").text
+                ref.put()   
+        
+            e = r.findall("ext")
+            for i in e:
+                ref = ExternalLink()
+                ref.crisis = crisis
+                ref.ref_type = "ext"
+                if i.find("site").text == None :
+                    ref.site = " "
+                else :
+                    ref.site = i.find("site").text
+                if i.find("title").text == None :
+                    ref.title = " "
+                else :
+                    ref.title = i.find("title").text
+                if i.find("url").text == None :
+                    ref.url = " "
+                else :
+                    ref.url = i.find("url").text
+                if i.find("description").text == None :
+                    ref.description = " "
+                else :
+                    ref.description = i.find("description").text
+                ref.put()
+                
+        for o in organizations:
+
+            for existingOrg in Orglist :
+                if o.get("id") == existingOrg.id :
+                    db.delete(((existingOrg.info.fetch(None).pop()).contact.fetch(None).pop()).mail.fetch(None).pop())
+                    db.delete((existingOrg.info.fetch(None).pop()).contact.fetch(None).pop())
+                    db.delete((existingOrg.info.fetch(None).pop()).location.fetch(None).pop())
+                    db.delete(existingOrg.info)
+                    refList = existingOrg.ref.fetch(None)
+                    for ref in refList :
+                        if ref.organization == existingOrg :
+                            db.delete(ref)
+                    db.delete(existingOrg)
+
+            org = Organization()
+            org.worldCrises = wc
+            org.id = o.get("id")
+            org.name = o.find("name").text
+            if o.find("misc").text == None :
+                org.misc = " "
+            else :
+                org.misc = o.find("misc").text
+            org.put()
+            
+            oi = o.find("info")
+            orgInfo = OrgInfo()
+            orgInfo.organization = org
+            if oi.find("type").text == None :
+                org.type = " "
+            else :
+                orgInfo.type = oi.find("type").text
+            if oi.find("history").text == None :
+                org.history = " "
+            else :
+                orgInfo.history = oi.find("history").text
+            orgInfo.put()
+            
+            c = oi.find("contact")
+            contact = Contact()
+            contact.orgInfo = orgInfo
+            if c.find("phone").text == None:
+                contact.phone = " "
+            else :
+                contact.phone = c.find("phone").text
+            if c.find("email").text == None :
+                contact.email = " "
+            else :
+                contact.email = c.find("email").text
+            contact.put()
+            
+            fa = c.find("mail")
+            fullAddr = FullAddr()
+            fullAddr.contact = contact
+            if fa.find("address").text == None :
+                fullAddr.address = " "
+            else :
+                fullAddr.address = fa.find("address").text
+            if fa.find("city").text == None :
+                fullAddr.city = " "
+            else :
+                fullAddr.city = fa.find("city").text
+            if fa.find("state").text == None :
+                fullAddr.state = " "
+            else :
+                fullAddr.state = fa.find("state").text
+            if fa.find("country").text == None :
+                fullAddr.country = " "
+            else :
+                fullAddr.country = fa.find("country").text
+            if fa.find("zip").text == None :
+                fullAddr.zip = " "
+            else :
+                fullAddr.zip = fa.find("zip").text
+            fullAddr.put()
+            
+            l = oi.find("loc")
+            loc = Location()
+            loc.orgInfo = orgInfo
+            if l.find("city").text == None :
+                loc.city = " "
+            else :
+                loc.city = l.find("city").text
+            if l.find("region").text == None :
+                loc.region = " "
+            else :
+                loc.region = l.find("region").text
+            if l.find("country").text == None :
+                loc.country = " "
+            else :
+                loc.country = l.find("country").text
+            loc.put()
+            
+            r = o.find("ref")
+            
+            pi = r.find("primaryImage")
+            piRef = ExternalLink()
+            piRef.organization = org
+            piRef.ref_type = "primaryImage"
+            if pi.find("site").text == None :
+                piRef.site = " "
+            else :
+                piRef.site = pi.find("site").text
+            if pi.find("title").text == None :
+                piRef.title = " "
+            else :
+                piRef.title = pi.find("title").text
+            if pi.find("url").text == None :
+                piRef.url = " "
+            else :
+                piRef.url = pi.find("url").text
+            if pi.find("description").text == None :
+                piRef.description = " "
+            else :
+                piRef.description = pi.find("description").text
+            piRef.put()
+            
+            image = r.findall("image")
+            for i in image:
+                ref = ExternalLink()
+                ref.organization = org
+                ref.ref_type = "image"
+                if i.find("site").text == None :
+                    ref.site = " "
+                else :
+                    ref.site = i.find("site").text
+                if i.find("title").text == None :
+                    ref.title = " "
+                else :
+                    ref.title = i.find("title").text
+                if i.find("url").text == None :
+                    ref.url = " "
+                else :
+                    ref.url = i.find("url").text
+                if i.find("description").text == None :
+                    ref.description = " "
+                else :
+                    ref.description = i.find("description").text
+                ref.put()      
+                
+            v = r.findall("video")
+            for i in v:
+                ref = ExternalLink()
+                ref.organization = org
+                ref.ref_type = "video"
+                if i.find("site").text == None :
+                    ref.site = " "
+                else :
+                    ref.site = i.find("site").text
+                if i.find("title").text == None :
+                    ref.title = " "
+                else :
+                    ref.title = i.find("title").text
+                if i.find("url").text == None :
+                    ref.url = " "
+                else :
+                    ref.url = i.find("url").text
+                if i.find("description").text == None :
+                    ref.description = " "
+                else :
+                    ref.description = i.find("description").text
+                ref.put()  
+                
+            s = r.findall("social")
+            for i in s:
+                ref = ExternalLink()
+                ref.organization = org
+                ref.ref_type = "social"
+                if i.find("site").text == None :
+                    ref.site = " "
+                else :
+                    ref.site = i.find("site").text
+                if i.find("title").text == None :
+                    ref.title = " "
+                else :
+                    ref.title = i.find("title").text
+                if i.find("url").text == None :
+                    ref.url = " "
+                else :
+                    ref.url = i.find("url").text
+                if i.find("description").text == None :
+                    ref.description = " "
+                else :
+                    ref.description = i.find("description").text
+                ref.put()   
+        
+            e = r.findall("ext")
+            for i in e:
+                ref = ExternalLink()
+                ref.organization = org
+                ref.ref_type = "ext"
+                if i.find("site").text == None :
+                    ref.site = " "
+                else :
+                    ref.site = i.find("site").text
+                if i.find("title").text == None :
+                    ref.title = " "
+                else :
+                    ref.title = i.find("title").text
+                if i.find("url").text == None :
+                    ref.url = " "
+                else :
+                    ref.url = i.find("url").text
+                if i.find("description").text == None :
+                    ref.description = " "
+                else :
+                    ref.description = i.find("description").text
+                ref.put()
+                
+        for p in people :
+
+            for existingPerson in Peoplelist :
+                if p.get("id") == existingPerson.id :
+                    db.delete((existingPerson.info.fetch(None).pop()).birthdate.fetch(None).pop())
+                    db.delete(existingPerson.info)
+                    refList = existingPerson.ref.fetch(None)
+                    for ref in refList :
+                        if ref.person == existingPerson :
+                            db.delete(ref)
+                    db.delete(existingPerson)
+
+            person = Person()
+            person.worldCrises = wc
+            person.id = p.get("id")
+            person.name = p.find("name").text
+            if p.find("misc").text == None :
+                person.misc = " "
+            else :
+                person.misc = p.find("misc").text
+            person.put()
+            
+            pi = p.find("info")
+            pInfo = PersonInfo()
+            pInfo.person = person
+            if pi.find("type").text == None :
+                pInfo.type = " "
+            else :
+                pInfo.type = pi.find("type").text
+            if pi.find("nationality").text == None :
+                pInfo.nationality = " "
+            else :
+                pInfo.nationality = pi.find("nationality").text
+            if pi.find("biography").text == None :
+                pInfo.biography = " "
+            else :
+                pInfo.biography = pi.find("biography").text
+            pInfo.put()
+            
+            bd = pi.find("birthdate")
+            birthDate = Date()
+            birthDate.personInfo = pInfo
+            if bd.find("time").text == None :
+                birthDate.time = " "
+            else :
+                birthDate.time = bd.find("time").text
+            if bd.find("day").text == None :
+                birthDate.time = " "
+            else :
+                birthDate.day = int(bd.find("day").text)
+            if bd.find("month").text == None :
+                birthDate.month = " "
+            else :
+                birthDate.month = int(bd.find("month").text)
+            if bd.find("year").text == None :
+                birthDate.year = " "
+            else :
+                birthDate.year = int(bd.find("year").text)
+            if bd.find("misc").text == None :
+                birthDate.misc = " "
+            else :
+                birthDate.misc = bd.find("misc").text
+            birthDate.put()
+            
+            r = p.find("ref")
+            
+            pi = r.find("primaryImage")
+            piRef = ExternalLink()
+            piRef.person = person
+            piRef.ref_type = "primaryImage"
+            if pi.find("site").text == None :
+                piRef.site = " "
+            else :
+                piRef.site = pi.find("site").text
+            if pi.find("title").text == None :
+                piRef.title = " "
+            else :
+                piRef.title = pi.find("title").text
+            if pi.find("url").text == None :
+                piRef.url = " "
+            else :
+                piRef.url = pi.find("url").text
+            if pi.find("description").text == None :
+                piRef.description = " "
+            else :
+                piRef.description = pi.find("description").text
+            piRef.put()
+            
+            image = r.findall("image")
+            for i in image:
+                ref = ExternalLink()
+                ref.person = person
+                ref.ref_type = "image"
+                if i.find("site").text == None :
+                    ref.site = " "
+                else :
+                    ref.site = i.find("site").text
+                if i.find("title").text == None :
+                    ref.title = " "
+                else :
+                    ref.title = i.find("title").text
+                if i.find("url").text == None :
+                    ref.url = " "
+                else :
+                    ref.url = i.find("url").text
+                if i.find("description").text == None :
+                    ref.description = " "
+                else :
+                    ref.description = i.find("description").text
+                ref.put()      
+                
+            v = r.findall("video")
+            for i in v:
+                ref = ExternalLink()
+                ref.person = person
+                ref.ref_type = "video"
+                if i.find("site").text == None :
+                    ref.site = " "
+                else :
+                    ref.site = i.find("site").text
+                if i.find("title").text == None :
+                    ref.title = " "
+                else :
+                    ref.title = i.find("title").text
+                if i.find("url").text == None :
+                    ref.url = " "
+                else :
+                    ref.url = i.find("url").text
+                if i.find("description").text == None :
+                    ref.description = " "
+                else :
+                    ref.description = i.find("description").text
+                ref.put()  
+                
+            s = r.findall("social")
+            for i in s:
+                ref = ExternalLink()
+                ref.person = person
+                ref.ref_type = "social"
+                if i.find("site").text == None :
+                    ref.site = " "
+                else :
+                    ref.site = i.find("site").text
+                if i.find("title").text == None :
+                    ref.title = " "
+                else :
+                    ref.title = i.find("title").text
+                if i.find("url").text == None :
+                    ref.url = " "
+                else :
+                    ref.url = i.find("url").text
+                if i.find("description").text == None :
+                    ref.description = " "
+                else :
+                    ref.description = i.find("description").text
+                ref.put()   
+        
+            e = r.findall("ext")
+            for i in e:
+                ref = ExternalLink()
+                ref.person = person
+                ref.ref_type = "ext"
+                if i.find("site").text == None :
+                    ref.site = " "
+                else :
+                    ref.site = i.find("site").text
+                if i.find("title").text == None :
+                    ref.title = " "
+                else :
+                    ref.title = i.find("title").text
+                if i.find("url").text == None :
+                    ref.url = " "
+                else :
+                    ref.url = i.find("url").text
+                if i.find("description").text == None :
+                    ref.description = " "
+                else :
+                    ref.description = i.find("description").text
+                ref.put()
+        
+        for c in crises :
+            crisis = Crisis.all().filter("id =", c.get("id")).fetch(1).pop()
+            
+            relatedOrg = c.findall("org")
+            for o in relatedOrg :
+                org = Organization.all().filter("id =", o.get("idref")).fetch(1).pop()
+                relation = CrisisOrganization()
+                relation.organization = crisis
+                relation.crisis = org
+                relation.put()
+                
+            relatedPerson = c.findall("person")
+            for p in relatedPerson :
+                person = Person.all().filter("id =", p.get("idref")).fetch(1).pop()
+                relation = CrisisPerson()
+                relation.crisis = person
+                relation.person = crisis
+                relation.put()
+            
+        for o in organizations :
+            org = Organization.all().filter("id =", o.get("id")).fetch(1).pop()
+
+            relatedPerson = o.findall("person")
+            for p in relatedPerson :
+                person = Person.all().filter("id =", p.get("idref")).fetch(1).pop()
+                relation = OrganizationPerson()
+                relation.organization = person
+                relation.person = org
+                relation.put()
+                
+        self.redirect('/')
+    
     except pyxsval.XsvalError, errstr:
         print errstr
         print "Validation aborted!"
+        self.redirect("/xmlerror")
     
     except GenXmlIfError, errstr:
         print errstr
         print "Parsing aborted!"
-    
-    tree.parse(blob_reader)
-
-    crises = tree.findall("crisis")
-    assert(crises != [])
-    organizations = tree.findall("organization")
-    assert(organizations != [])
-    people = tree.findall("person")
-    assert(people != [])
-
-    #Wipe out the datastore data
-    db.delete(WorldCrises.all())
-    db.delete(Crisis.all())
-    db.delete(Organization.all())
-    db.delete(Person.all())
-    db.delete(CrisisInfo.all())
-    db.delete(OrgInfo.all())
-    db.delete(PersonInfo.all())
-    db.delete(ExternalLink.all())
-    db.delete(Date.all())
-    db.delete(Location.all())
-    db.delete(Contact.all())
-    db.delete(FullAddr.all())
-    db.delete(HumanImpact.all())
-    db.delete(EconomicImpact.all())
-    db.delete(CrisisOrganization.all())
-    db.delete(CrisisPerson.all())
-    db.delete(OrganizationPerson.all())
-
-
-    wc = WorldCrises.all().fetch(None)
-    if wc == [] :
-        wc = WorldCrises()
-        wc.put()
-    else :
-        wc = wc[0]
-    Crisislist = Crisis.all().fetch(None)
-    Orglist = Organization.all().fetch(None)
-    Peoplelist = Person.all().fetch(None)
-    
-    for c in crises:
+        self.redirect("/xmlerror")
         
-        for existingCrisis in Crisislist :
-            if c.get("id") == existingCrisis.id :
-                db.delete((existingCrisis.info.fetch(None).pop()).time.fetch(None).pop())
-                db.delete((existingCrisis.info.fetch(None).pop()).location.fetch(None).pop())
-                db.delete((existingCrisis.info.fetch(None).pop()).humanImpact.fetch(None).pop())
-                db.delete((existingCrisis.info.fetch(None).pop()).economicImpact.fetch(None).pop())
-                db.delete(existingCrisis.info)
-                refList = existingCrisis.ref.fetch(None)
-                for ref in refList :
-                    if ref.crisis == existingCrisis :
-                        db.delete(ref)
-                db.delete(existingCrisis)
-
-        crisis = Crisis()
-        crisis.worldCrises = wc
-        crisis.id = c.get("id")
-        crisis.name = c.find("name").text
-        if c.find("misc").text == None :
-            crisis.misc = " "
-        else :
-            crisis.misc = c.find("misc").text
-        crisis.put()
-        
-        ci = c.find("info")
-        crisisInfo = CrisisInfo()
-        crisisInfo.crisis = crisis
-        if ci.find("history").text == None :
-            crisisInfo.history = " "
-        else :
-            crisisInfo.history = ci.find("history").text
-        if ci.find("help").text == None :
-            crisisInfo.help = " "
-        else :
-            crisisInfo.help = ci.find("help").text
-        if ci.find("resources").text == None :
-            crisisInfo.resources = " "
-        else :
-            crisisInfo.resources = ci.find("resources").text
-        if ci.find("type").text == None :
-            crisisInfo.type = " "
-        else :
-            crisisInfo.type = ci.find("type").text
-        crisisInfo.put()
-        
-        t = ci.find("time")
-        time = Date()
-        time.crisisInfo = crisisInfo
-        if t.find("time").text == None :
-            time.time = " "
-        else :
-           time.time = t.find("time").text
-        if t.find("day").text == None :
-            time.day = 0
-        else :
-            time.day = int(t.find("day").text)
-        if t.find("month").text == None :
-            time.month = 0
-        else :
-            time.month = int(t.find("month").text)
-        if t.find("year").text == None :
-            time.year = 0
-        else :
-            time.year = int(t.find("year").text)
-        if t.find("misc").text == None :
-            time.misc = " "
-        else :
-            time.misc = t.find("misc").text
-        time.put()
-        
-        l = ci.find("loc")
-        location = Location()
-        location.crisisInfo = crisisInfo
-        if l.find("city").text == None :
-            location.city = " "
-        else :
-            location.city = l.find("city").text
-        if l.find("region").text == None :
-            location.region = " "
-        else :
-            location.region = l.find("region").text
-        if l.find("country").text == None :
-            location.country = " "
-        else :
-            location.country = l.find("country").text
-        location.put()
-        
-        i = ci.find("impact")
-        
-        hi = i.find("human")
-        humanImpact = HumanImpact()
-        humanImpact.crisisInfo = crisisInfo
-        if hi.find("deaths").text == None :
-            humanImpact.deaths = 0
-        else :
-            humanImpact.deaths = int(hi.find("deaths").text)
-        if hi.find("displaced").text == None :
-            humanImpact.displaced = 0
-        else :
-            humanImpact.displaced = int(hi.find("displaced").text)
-        if hi.find("injured").text == None :
-            humanImpact.injured = 0
-        else :
-            humanImpact.injured = int(hi.find("injured").text)
-        if hi.find("missing").text == None :
-            humanImpact.missing = 0
-        else :
-            humanImpact.missing = int(hi.find("missing").text)
-        if hi.find("misc").text == None :
-            humanImpact.misc = " "
-        else :
-            humanImpact.misc = hi.find("misc").text
-        humanImpact.put()
-        
-        ei = i.find("economic")
-        economicImpact = EconomicImpact()
-        economicImpact.crisisInfo = crisisInfo
-        if ei.find("amount").text == None :
-            economicImpact.amount = 0
-        else :
-            economicImpact.amount = int(ei.find("amount").text)
-        if ei.find("currency").text == None :
-            economicImpact.currency = " "
-        else :
-            economicImpact.currency = ei.find("currency").text
-        if ei.find("misc").text == None :
-            economicImpact.misc = " "
-        else :
-            economicImpact.misc = ei.find("misc").text
-        economicImpact.put()
-        
-        r = c.find("ref")
-        
-        pi = r.find("primaryImage")
-        piRef = ExternalLink()
-        piRef.crisis = crisis
-        piRef.ref_type = "primaryImage"
-        if pi.find("site").text == None :
-            piRef.site = " "
-        else :
-            piRef.site = pi.find("site").text
-        if pi.find("title").text == None :
-            piRef.title = " "
-        else :
-            piRef.title = pi.find("title").text
-        if pi.find("url").text == None :
-            piRef.url = " "
-        else :
-            piRef.url = pi.find("url").text
-        if pi.find("description").text == None :
-            piRef.description = " "
-        else :
-            piRef.description = pi.find("description").text
-        piRef.put()
-        
-        image = r.findall("image")
-        for i in image:
-            ref = ExternalLink()
-            ref.crisis = crisis
-            ref.ref_type = "image"
-            if i.find("site").text == None :
-                ref.site = " "
-            else :
-                ref.site = i.find("site").text
-            if i.find("title").text == None :
-                ref.title = " "
-            else :
-                ref.title = i.find("title").text
-            if i.find("url").text == None :
-                ref.url = " "
-            else :
-                ref.url = i.find("url").text
-            if i.find("description").text == None :
-                ref.description = " "
-            else :
-                ref.description = i.find("description").text
-            ref.put()      
-            
-        v = r.findall("video")
-        for i in v:
-            ref = ExternalLink()
-            ref.crisis = crisis
-            ref.ref_type = "video"
-            if i.find("site").text == None :
-                ref.site = " "
-            else :
-                ref.site = i.find("site").text
-            if i.find("title").text == None :
-                ref.title = " "
-            else :
-                ref.title = i.find("title").text
-            if i.find("url").text == None :
-                ref.url = " "
-            else :
-                ref.url = i.find("url").text
-            if i.find("description").text == None :
-                ref.description = " "
-            else :
-                ref.description = i.find("description").text
-            ref.put()  
-            
-        s = r.findall("social")
-        for i in s:
-            ref = ExternalLink()
-            ref.crisis = crisis
-            ref.ref_type = "social"
-            if i.find("site").text == None :
-                ref.site = " "
-            else :
-                ref.site = i.find("site").text
-            if i.find("title").text == None :
-                ref.title = " "
-            else :
-                ref.title = i.find("title").text
-            if i.find("url").text == None :
-                ref.url = " "
-            else :
-                ref.url = i.find("url").text
-            if i.find("description").text == None :
-                ref.description = " "
-            else :
-                ref.description = i.find("description").text
-            ref.put()   
-    
-        e = r.findall("ext")
-        for i in e:
-            ref = ExternalLink()
-            ref.crisis = crisis
-            ref.ref_type = "ext"
-            if i.find("site").text == None :
-                ref.site = " "
-            else :
-                ref.site = i.find("site").text
-            if i.find("title").text == None :
-                ref.title = " "
-            else :
-                ref.title = i.find("title").text
-            if i.find("url").text == None :
-                ref.url = " "
-            else :
-                ref.url = i.find("url").text
-            if i.find("description").text == None :
-                ref.description = " "
-            else :
-                ref.description = i.find("description").text
-            ref.put()
-            
-    for o in organizations:
-
-        for existingOrg in Orglist :
-            if o.get("id") == existingOrg.id :
-                db.delete(((existingOrg.info.fetch(None).pop()).contact.fetch(None).pop()).mail.fetch(None).pop())
-                db.delete((existingOrg.info.fetch(None).pop()).contact.fetch(None).pop())
-                db.delete((existingOrg.info.fetch(None).pop()).location.fetch(None).pop())
-                db.delete(existingOrg.info)
-                refList = existingOrg.ref.fetch(None)
-                for ref in refList :
-                    if ref.organization == existingOrg :
-                        db.delete(ref)
-                db.delete(existingOrg)
-
-        org = Organization()
-        org.worldCrises = wc
-        org.id = o.get("id")
-        org.name = o.find("name").text
-        if o.find("misc").text == None :
-            org.misc = " "
-        else :
-            org.misc = o.find("misc").text
-        org.put()
-        
-        oi = o.find("info")
-        orgInfo = OrgInfo()
-        orgInfo.organization = org
-        if oi.find("type").text == None :
-            org.type = " "
-        else :
-            orgInfo.type = oi.find("type").text
-        if oi.find("history").text == None :
-            org.history = " "
-        else :
-            orgInfo.history = oi.find("history").text
-        orgInfo.put()
-        
-        c = oi.find("contact")
-        contact = Contact()
-        contact.orgInfo = orgInfo
-        if c.find("phone").text == None:
-            contact.phone = " "
-        else :
-            contact.phone = c.find("phone").text
-        if c.find("email").text == None :
-            contact.email = " "
-        else :
-            contact.email = c.find("email").text
-        contact.put()
-        
-        fa = c.find("mail")
-        fullAddr = FullAddr()
-        fullAddr.contact = contact
-        if fa.find("address").text == None :
-            fullAddr.address = " "
-        else :
-            fullAddr.address = fa.find("address").text
-        if fa.find("city").text == None :
-            fullAddr.city = " "
-        else :
-            fullAddr.city = fa.find("city").text
-        if fa.find("state").text == None :
-            fullAddr.state = " "
-        else :
-            fullAddr.state = fa.find("state").text
-        if fa.find("country").text == None :
-            fullAddr.country = " "
-        else :
-            fullAddr.country = fa.find("country").text
-        if fa.find("zip").text == None :
-            fullAddr.zip = " "
-        else :
-            fullAddr.zip = fa.find("zip").text
-        fullAddr.put()
-        
-        l = oi.find("loc")
-        loc = Location()
-        loc.orgInfo = orgInfo
-        if l.find("city").text == None :
-            loc.city = " "
-        else :
-            loc.city = l.find("city").text
-        if l.find("region").text == None :
-            loc.region = " "
-        else :
-            loc.region = l.find("region").text
-        if l.find("country").text == None :
-            loc.country = " "
-        else :
-            loc.country = l.find("country").text
-        loc.put()
-        
-        r = o.find("ref")
-        
-        pi = r.find("primaryImage")
-        piRef = ExternalLink()
-        piRef.organization = org
-        piRef.ref_type = "primaryImage"
-        if pi.find("site").text == None :
-            piRef.site = " "
-        else :
-            piRef.site = pi.find("site").text
-        if pi.find("title").text == None :
-            piRef.title = " "
-        else :
-            piRef.title = pi.find("title").text
-        if pi.find("url").text == None :
-            piRef.url = " "
-        else :
-            piRef.url = pi.find("url").text
-        if pi.find("description").text == None :
-            piRef.description = " "
-        else :
-            piRef.description = pi.find("description").text
-        piRef.put()
-        
-        image = r.findall("image")
-        for i in image:
-            ref = ExternalLink()
-            ref.organization = org
-            ref.ref_type = "image"
-            if i.find("site").text == None :
-                ref.site = " "
-            else :
-                ref.site = i.find("site").text
-            if i.find("title").text == None :
-                ref.title = " "
-            else :
-                ref.title = i.find("title").text
-            if i.find("url").text == None :
-                ref.url = " "
-            else :
-                ref.url = i.find("url").text
-            if i.find("description").text == None :
-                ref.description = " "
-            else :
-                ref.description = i.find("description").text
-            ref.put()      
-            
-        v = r.findall("video")
-        for i in v:
-            ref = ExternalLink()
-            ref.organization = org
-            ref.ref_type = "video"
-            if i.find("site").text == None :
-                ref.site = " "
-            else :
-                ref.site = i.find("site").text
-            if i.find("title").text == None :
-                ref.title = " "
-            else :
-                ref.title = i.find("title").text
-            if i.find("url").text == None :
-                ref.url = " "
-            else :
-                ref.url = i.find("url").text
-            if i.find("description").text == None :
-                ref.description = " "
-            else :
-                ref.description = i.find("description").text
-            ref.put()  
-            
-        s = r.findall("social")
-        for i in s:
-            ref = ExternalLink()
-            ref.organization = org
-            ref.ref_type = "social"
-            if i.find("site").text == None :
-                ref.site = " "
-            else :
-                ref.site = i.find("site").text
-            if i.find("title").text == None :
-                ref.title = " "
-            else :
-                ref.title = i.find("title").text
-            if i.find("url").text == None :
-                ref.url = " "
-            else :
-                ref.url = i.find("url").text
-            if i.find("description").text == None :
-                ref.description = " "
-            else :
-                ref.description = i.find("description").text
-            ref.put()   
-    
-        e = r.findall("ext")
-        for i in e:
-            ref = ExternalLink()
-            ref.organization = org
-            ref.ref_type = "ext"
-            if i.find("site").text == None :
-                ref.site = " "
-            else :
-                ref.site = i.find("site").text
-            if i.find("title").text == None :
-                ref.title = " "
-            else :
-                ref.title = i.find("title").text
-            if i.find("url").text == None :
-                ref.url = " "
-            else :
-                ref.url = i.find("url").text
-            if i.find("description").text == None :
-                ref.description = " "
-            else :
-                ref.description = i.find("description").text
-            ref.put()
-            
-    for p in people :
-
-        for existingPerson in Peoplelist :
-            if p.get("id") == existingPerson.id :
-                db.delete((existingPerson.info.fetch(None).pop()).birthdate.fetch(None).pop())
-                db.delete(existingPerson.info)
-                refList = existingPerson.ref.fetch(None)
-                for ref in refList :
-                    if ref.person == existingPerson :
-                        db.delete(ref)
-                db.delete(existingPerson)
-
-        person = Person()
-        person.worldCrises = wc
-        person.id = p.get("id")
-        person.name = p.find("name").text
-        if p.find("misc").text == None :
-            person.misc = " "
-        else :
-            person.misc = p.find("misc").text
-        person.put()
-        
-        pi = p.find("info")
-        pInfo = PersonInfo()
-        pInfo.person = person
-        if pi.find("type").text == None :
-            pInfo.type = " "
-        else :
-            pInfo.type = pi.find("type").text
-        if pi.find("nationality").text == None :
-            pInfo.nationality = " "
-        else :
-            pInfo.nationality = pi.find("nationality").text
-        if pi.find("biography").text == None :
-            pInfo.biography = " "
-        else :
-            pInfo.biography = pi.find("biography").text
-        pInfo.put()
-        
-        bd = pi.find("birthdate")
-        birthDate = Date()
-        birthDate.personInfo = pInfo
-        if bd.find("time").text == None :
-            birthDate.time = " "
-        else :
-            birthDate.time = bd.find("time").text
-        if bd.find("day").text == None :
-            birthDate.time = " "
-        else :
-            birthDate.day = int(bd.find("day").text)
-        if bd.find("month").text == None :
-            birthDate.month = " "
-        else :
-            birthDate.month = int(bd.find("month").text)
-        if bd.find("year").text == None :
-            birthDate.year = " "
-        else :
-            birthDate.year = int(bd.find("year").text)
-        if bd.find("misc").text == None :
-            birthDate.misc = " "
-        else :
-            birthDate.misc = bd.find("misc").text
-        birthDate.put()
-        
-        r = p.find("ref")
-        
-        pi = r.find("primaryImage")
-        piRef = ExternalLink()
-        piRef.person = person
-        piRef.ref_type = "primaryImage"
-        if pi.find("site").text == None :
-            piRef.site = " "
-        else :
-            piRef.site = pi.find("site").text
-        if pi.find("title").text == None :
-            piRef.title = " "
-        else :
-            piRef.title = pi.find("title").text
-        if pi.find("url").text == None :
-            piRef.url = " "
-        else :
-            piRef.url = pi.find("url").text
-        if pi.find("description").text == None :
-            piRef.description = " "
-        else :
-            piRef.description = pi.find("description").text
-        piRef.put()
-        
-        image = r.findall("image")
-        for i in image:
-            ref = ExternalLink()
-            ref.person = person
-            ref.ref_type = "image"
-            if i.find("site").text == None :
-                ref.site = " "
-            else :
-                ref.site = i.find("site").text
-            if i.find("title").text == None :
-                ref.title = " "
-            else :
-                ref.title = i.find("title").text
-            if i.find("url").text == None :
-                ref.url = " "
-            else :
-                ref.url = i.find("url").text
-            if i.find("description").text == None :
-                ref.description = " "
-            else :
-                ref.description = i.find("description").text
-            ref.put()      
-            
-        v = r.findall("video")
-        for i in v:
-            ref = ExternalLink()
-            ref.person = person
-            ref.ref_type = "video"
-            if i.find("site").text == None :
-                ref.site = " "
-            else :
-                ref.site = i.find("site").text
-            if i.find("title").text == None :
-                ref.title = " "
-            else :
-                ref.title = i.find("title").text
-            if i.find("url").text == None :
-                ref.url = " "
-            else :
-                ref.url = i.find("url").text
-            if i.find("description").text == None :
-                ref.description = " "
-            else :
-                ref.description = i.find("description").text
-            ref.put()  
-            
-        s = r.findall("social")
-        for i in s:
-            ref = ExternalLink()
-            ref.person = person
-            ref.ref_type = "social"
-            if i.find("site").text == None :
-                ref.site = " "
-            else :
-                ref.site = i.find("site").text
-            if i.find("title").text == None :
-                ref.title = " "
-            else :
-                ref.title = i.find("title").text
-            if i.find("url").text == None :
-                ref.url = " "
-            else :
-                ref.url = i.find("url").text
-            if i.find("description").text == None :
-                ref.description = " "
-            else :
-                ref.description = i.find("description").text
-            ref.put()   
-    
-        e = r.findall("ext")
-        for i in e:
-            ref = ExternalLink()
-            ref.person = person
-            ref.ref_type = "ext"
-            if i.find("site").text == None :
-                ref.site = " "
-            else :
-                ref.site = i.find("site").text
-            if i.find("title").text == None :
-                ref.title = " "
-            else :
-                ref.title = i.find("title").text
-            if i.find("url").text == None :
-                ref.url = " "
-            else :
-                ref.url = i.find("url").text
-            if i.find("description").text == None :
-                ref.description = " "
-            else :
-                ref.description = i.find("description").text
-            ref.put()
-    
-    for c in crises :
-        crisis = Crisis.all().filter("id =", c.get("id")).fetch(1).pop()
-        
-        relatedOrg = c.findall("org")
-        for o in relatedOrg :
-            org = Organization.all().filter("id =", o.get("idref")).fetch(1).pop()
-            relation = CrisisOrganization()
-            relation.organization = crisis
-            relation.crisis = org
-            relation.put()
-            
-        relatedPerson = c.findall("person")
-        for p in relatedPerson :
-            person = Person.all().filter("id =", p.get("idref")).fetch(1).pop()
-            relation = CrisisPerson()
-            relation.crisis = person
-            relation.person = crisis
-            relation.put()
-            
-    for o in organizations :
-        org = Organization.all().filter("id =", o.get("id")).fetch(1).pop()
-    
-        relatedPerson = o.findall("person")
-        for p in relatedPerson :
-            person = Person.all().filter("id =", p.get("idref")).fetch(1).pop()
-            relation = OrganizationPerson()
-            relation.organization = person
-            relation.person = org
-            relation.put()
-            
-    self.redirect('/')
+    except Exception, e :
+        self.redirect("/xmlerror")
 
 class ExportHandler(webapp.RequestHandler):
     def get(self):
