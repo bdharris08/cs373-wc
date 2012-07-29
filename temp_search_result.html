@@ -66,9 +66,7 @@
             <p><ul> 
             <li> <a href="{{m.1}}">{{m.0}}</a><br>
             Matched Text : 
-            {% for i in m.2 %}
-                {% if forloop.last %}
-                    {{i}}{% else %}{{i}}<span style="background-color:yellow">{{keyword}}</span>{% endif %}{% endfor %}
+            {% for i in m.2 %}{% if forloop.last %}{{i}}{% else %}{{i}}<span style="background-color:yellow">{{keyword}}</span>{% endif %}{% endfor %}
             </li>
             </ul></p>
         {% endfor %}
@@ -78,9 +76,7 @@
             <p><ul> 
             <li> <a href="{{m.1}}">{{m.0}}</a><br>
             Matched Text : 
-                {% for i in m.2 %}         
-                {% if forloop.counter0 % 2 != m.3 %}
-                    {{i}}{% else %}<span style="background-color:yellow">{{i}}</span>{% endif %}{% endfor %}
+            {% for i in m.2 %}{% if forloop.counter0|divisibleby:m.3 %}{{i}}{% else %}<span style="background-color:yellow">{{i}}</span>{% endif %}{% endfor %}
             </li>
             </ul></p>
         {% endfor %}
