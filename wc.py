@@ -377,7 +377,8 @@ class ImportHandler(webapp.RequestHandler):
     self.response.out.write("""
     <center>
          Upload File: <input type="file" name="file"><br> <input type="submit"
-        name="submit" value="Submit"> </form>
+        name="Import" value="Import"> <input type="submit"
+        name="Merge" value="Merge"> </form>
     </center>
         
     </body>""")
@@ -1277,7 +1278,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
                 relation.person = org
                 relation.put()
     
-     except pyxsval.XsvalError, errstr:
+    except pyxsval.XsvalError, errstr:
         print errstr
         print "Validation aborted!"
         self.redirect("/xmlerror")
@@ -1295,9 +1296,9 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     key = dataCacheKey.all().fetch(None)
     assert(len(key) == 1 or len(key) == 0)
     if(len(key) == 1):
-        blob_info = blobstore.BlobInfo.get(key.pop().blob_id)
-        blob_info.delete()
-        key.delete()
+        #blob_info = blobstore.BlobInfo.get(key.pop().blob_id)
+        key[0].blob_id.delete()
+        key.pop().delete()
     
     
     dataCache = files.blobstore.create(mime_type='application/octet_stream')
