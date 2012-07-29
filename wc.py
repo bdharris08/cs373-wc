@@ -63,10 +63,15 @@ class SearchResultHandler(webapp2.RequestHandler):
         matchedExact = []
         matchedAnd = []
         matchedOr = []
-        #matched = [matchedExact, matchedAnd, matchedOr]
         keywordI = re.compile(keyword, re.IGNORECASE)
-        
-    
+        splitKeyword = re.split(" ", keyword.lower())
+        keyword_re_and = []
+        for key in splitKeyword:
+            keyword_re_and.append(re.compile(key)) 
+        keyword_re_or = []
+        for key in splitKeyword:
+            keyword_re_or.append(str(key))
+        keyword_re_or = re.compile("|".join(keyword_re_or))
         
         for a in articles:
             url = a[0][0]
@@ -78,31 +83,50 @@ class SearchResultHandler(webapp2.RequestHandler):
                 if(keyword.lower() in parsedLine):
                     parsedMatched = re.split(keywordI, l)
                     matchedExact.append([name, url, parsedMatched])
-                
-                #elif
+                if len(splitKeyword) != 1 :
+                    andn = 0
+                    for key in keyword_re_and: 
+                        if key.search(parsedLine):
+                            andn += 1
+                    if andn == len(splitKeyword):
+                        keywordList = re.findall(keyword_re_or, l)
+                        parsedMatched = re.split(keyword_re_or, l)
+                        matchedText = []
+                        if(re.search(keyword_re_or, parsedMatched[0])): 
+                            keywordFirst = 0
+                            for i, j in keywordList, parsedMatched:
+                                matchedText.append(i)
+                                matchedText.append(j)
+                        else: 
+                            keywordFirst = 1
+                            for i, j in keywordList, parsedMatched:
+                                matchedText.append(j)
+                                matchedText.append(i)
+                        
+                        matchedAnd.append([name, url, matchedText, keywordFirst])
+                    
+                    if(keyword_re_or.search(parsedLine)):
+                        keywordList = re.findall(keyword_re_or, l)
+                        parsedMatched = re.split(keyword_re_or, l)
+                        matchedText = []
+                        if(re.search(keyword_re_or, parsedMatched[0])): 
+                            keywordFirst = 0
+                            for i, j in keywordList, parsedMatched:
+                                matchedText.append(i)
+                                matchedText.append(j)
+                        else: 
+                            keywordFirst = 1
+                            for i, j in keywordList, parsedMatched:
+                                matchedText.append(j)
+                                matchedText.append(i)
+                        matchedOr.append([name, url, matchedText, keywordFirst])
+                        
+                    
 
-        """
-        for i in range(len(lines)):
-            if(not(baseurl in lines[i])):
-                parsedLine = re.split(":", lines[i], maxsplit = 1)
-                if(len(parsedLine) == 2):
-                    line = parsedLine[1].lower()
-                    if(keyword.lower() in line):
-                        parsedMatched = re.split(keywordI, lines[i])
-                        temp = []
-                        temp.append(parsedMatched)
-                        for j in range(i+1, len(lines)):                 
-                            if(baseurl in lines[j]):
-                                temp.append(lines[j])
-                                temp.append(lines[j+1])
-                                matched.append(temp)
-                                break
-            else:
-                i += 2
-                if(i >= len(lines)): break
-        """
+        dictionary["matchedExact"] = matchedExact
+        dictionary["matchedAnd"] = matchedAnd
+        dictionary["matchedOr"] = matchedOr
         
-        dictionary["matched"] = matchedExact
         
         path = os.path.join(os.path.dirname(__file__), 'temp_search_result.html')
         self.response.out.write(template.render(path, dictionary))
