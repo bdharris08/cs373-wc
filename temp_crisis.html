@@ -19,7 +19,13 @@
       .sidebar-nav {
         padding: 9px 0;
       }
+        html { height: 100% }
+        #map_canvas { height: 100%;
+            width:100%;}
+               .outerLink 
+        }
     </style>
+
     <link href="../stylesheets/bootstrap-responsive.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -70,139 +76,144 @@
 
   <body style = "padding:40px;margin-top:40px">
 
-          <div class="hero-unit span10">
-            <center><h1>{{crisis.name}}</h1></center>
-          </div>
-        
-          <div class="row">
-                <div class="span6">
-                    <h2>History:</h2>
-                    <p>
-                    {{crisisInfo.history}}
-                    </p>
-                    
-                    <h2>Help:</h2>
-                    <p>
-                    {{crisisInfo.help}}
-                    </p>
-                    
-                    
-                    <h2>Resources:</h2>
-                    <p>
-                    {{crisisInfo.resources}}
-                    </p>
-                    
-                    <h2>Type:</h2>
-                    <p>
-                    {{crisisInfo.type}}
-                    </p>
-                    
-                    <h2>Time</h2>
-                    <p>
-                        <ul>
+    <div class="row">
+    	<div class="span3">
+    		<p>
+			{% for i in primaryImage %}
+			<img src={{i.url}}>
+			{% endfor %}
+			</p>
+			<div class="well">
+				<h3>Crisis</h3><br>
+				<p>
+				{{crisis.name}}
+				</p>
+				
+				<h3>
+				Related Organizations:</h3><br>
+				<p>
+				{% for o in orgRefs %}
+				<a href="/org/{{o.id}}"> {{o.name}} </a><br>
+				{% endfor %}
+				</p>
+				<h3>Related People:</h3><br><p>
+				{% for p in personRefs %}
+					<a href='/person/{{p.id}}'> {{p.name}} </a><br> 
+				{% endfor %}
+				</p>
+				<h3>Social Networks</h3>
+				<p>
+				{% for i in social %}
+                            <a href={{i.url}}> {{i.title}} </a><br>
+				{% endfor %}
+				</p>
+				<h3>External Links</h3>
+				<p>
+				 {% for i in ext %}
+                            <a href={{i.url}}> {{i.title}} </a><br>
+                            {% endfor %}
+                </p>
+			</div><!--well-->
+		</div><!--Span3-->
+		<div class="span8">
+			<div class="container">
+				<div class="span4">
+					{% for i in video %}
+					<iframe width="420" height="315" src={{i.url}} frameborder="0" allowfullscreen></iframe><br>
+					{% endfor %}
+				</div>
+				<div class="span4">			
+					{% for i in image %}
+					<img src = {{i.url}}>
+					{% endfor %}
+				</div>
+				
+            </div>
+			<table class="table table-bordered table-striped">
+							<tbody>
+							  <tr>
+								<th>Crisis:</th>
+								<td>{{crisis.name}}</td>
+								</tr>
+								<tr>
+								<th>History</th>
+								<td>{{crisisInfo.history}}</td>	
+								</tr>
+								<tr>
+								<th>Help</th>
+								<td> {{crisisInfo.help}}</td>
+								</tr>
+								<tr>
+								<th>Resources</th>
+								<td>{{crisisInfo.resources}}</td>
+								</tr>
+								<tr>
+								<th>Type</th>
+								<td>{{crisisInfo.type}}</td>
+								</tr>
+								<tr>
+								<th>Time</th>
+								<td><ul>
                             <li>Time: {{time.time}} </li>
                             <li>Day: {{time.day}} </li>
                             <li>Month: {{time.month}} </li>
                             <li>Year: {{time.year}} </li>
                             <li>Misc: {{time.misc}} </li>
-                        </ul>
-                    </p>
-                    
-                    <h2>Location</h2>
-                    <p>
-                        <ul>
-                            <li>City: {{loc.city}} </li>
-                            <li>Region: {{loc.region}} </li>
-                            <li>Country: {{loc.country}} </li>
-                        </ul>
-                    </p>
-                    
-                    <h2>Human Impact</h2>
-                    <p>
-                        <ul>
-                            <li>Deaths: {{humanImpact.deaths}} </li>
-                            <li>Displaced: {{humanImpact.displaced}} </li>
-                            <li>Injured: {{humanImpact.injured}} </li>
-                            <li>Missing: {{humanImpact.missing}} </li>
-                            <li>Misc: {{humanImpact.misc}} </li>
-                        </ul>
-                    </p>
-                    
-                    <h2>Economic Impact</h2>
-                    <p>
-                        <ul>
-                            <li>Amount: {{economicImpact.deaths}} </li>
-                            <li>Currency: {{economicImpact.displaced}} </li>
-                            <li>Misc: {{economicImpact.misc}} </li>
-                        </ul>
-                    </p>
-                    
-                    <h2>Social</h2>
-                        <p>
-                            {% for i in social %}
-                            <a href={{i.url}}> {{i.title}} </a><br>
-                            {% endfor %}
-                        </p>
-                        
-                        <h2>External Links</h2>
-                        <p>
-                            {% for i in ext %}
-                            <a href={{i.url}}> {{i.title}} </a><br>
-                            {% endfor %}
-                        </p>
-                        
-                        <h2>Internal Links</h2>
-                        <p>
-                            <h3>Related Organizations</h3>
-                            <p>
-                            {% for o in orgRefs %}
-                            <a href="/org/{{o.id}}"> {{o.name}} </a><br>
-                            {% endfor %}
-                            </p>
-                            <h3>Related People</h3>
-                            <p>
-                            {% for p in personRefs %}
-                                <a href='/person/{{p.id}}'> {{p.name}} </a><br>    
-                            {% endfor %}
-                            </p>
-                        </p>
-                </div><!--/span-->
+                        </ul></td>
+								</tr>
+								<tr>
+								<th>Location</th>
+								
+								<td>
+								<ul>
+                            	<li>City: {{loc.city}} </li>
+                            	<li>Region: {{loc.region}} </li>
+                            	<li>Country: {{loc.country}} </li>
+                       			 </ul>
+                       			 </td>
+                       			 </tr>
+								<tr>
+								<th>Human Impact</th>
+								<td>
+								 <ul>
+										<li>Deaths: {{humanImpact.deaths}} </li>
+										<li>Displaced: {{humanImpact.displaced}} </li>
+										<li>Injured: {{humanImpact.injured}} </li>
+										<li>Missing: {{humanImpact.missing}} </li>
+										<li>Misc: {{humanImpact.misc}} </li>
+									</ul>
+                        		</td>
+								</tr>
+								<tr>
+								<th>Economic Impact</th>
+								<td>
+								<ul>
+									<li>Amount: {{economicImpact.deaths}} </li>
+									<li>Currency: {{economicImpact.displaced}} </li>
+									<li>Misc: {{economicImpact.misc}} </li>
+								</ul>
+								</td>
+								</tr>
+								<th></th>
+							  </tr>
+							  
+							</thead>
 
-                <div class="span3">
-                    <h2>Primary Image</h2>
-                        <p>
-                            {% for i in primaryImage %}
-	                       <a href={{i.url}} rel="lightbox"><img src="{{i.url}}"/></a>
-                            {% endfor %}
-                        </p>
-                        
-                        <h2>Images</h2>
-                        <p>
-                            {% for i in image %}
-                            <img src = {{i.url}}><br>
-                            {% endfor %}
-                        </p>
-                        
-                        <h2>Videos</h2>
-                        <p>
-                            {% for i in video %}
-                            <iframe width="420" height="315" src={{i.url}} frameborder="0" allowfullscreen></iframe><br>
-                            {% endfor %}
-                        </p>
-                </div><!--/span-->
-        	</div><!--/Container-->        
-          <hr>
+							</tbody>
+						 
+			</table>
+
+		</div><!--span-->
+	</div><!--Row-->
+</body>       
           <footer>
+          <hr>
             <p>&copy; Super Seniors</p>
             <p> Rohan Shah | Benjamin David Harris | Victor Pang | Ting-Yi Chen | Matt Granado</p>
           </footer>
-          </div><!--/row-->
-        
-        </div><!--/span-->
-      </div><!--/row-->
 
-      
-    </div><!--/.fluid-container-->
+
+
     
 
     <!-- Le javascript
@@ -223,6 +234,4 @@
     <script src="stylesheets/bootstrap-typeahead.js"></script>
 	<script src="/stylesheets/lightbox.js"></script>
 	<script src="/stylesheets/jquery-1.7.2.min.js"></script>
-
-  </body>
 </html>
