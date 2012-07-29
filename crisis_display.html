@@ -14,6 +14,8 @@
       body {
         padding-top: 10px;
         padding-bottom: 40px;
+        background-image: url(http://subtlepatterns.com/patterns/whitey.png);
+
       }
       .sidebar-nav {
         padding: 9px 0;
@@ -32,78 +34,84 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand">
+					<img src="http://i.imgur.com/uhFj0.png" width="35px" height="35px"></img>
+                        World Crises Database
+                    </a>
+                    <ul class="nav">
+                        
+                        <li><a href="/">Home</a></li>
+                        <li class="active"><a href="crisis">Crises</a></li>
+                        <li><a href="org">Organizations</a></li>
+                        <li><a href="person">People</a></li>
+                        <li class="dropdown">  
+                            <a href="#"  
+                                class="dropdown-toggle"  
+                                data-toggle="dropdown">  
+                                Utilities  
+                                <b class="caret"></b>  
+                            </a>  
+                            <ul class="dropdown-menu">  
+                                <li><a href="import">Import</a></li>  
+                                <li><a href="export">Export</a></li>  
+                                <li><a href="test">Test</a></li>  
+                            </ul>  
+                        </li>  
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
   </head>
+  <body style = "padding:40px; margin-top:40px">
 
-  <body style = "background-color:rgb(218, 232, 181)">
 
-
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav" style="position: fixed">
-          <h1><center>World Crises</center></h1>
-          <center><a href="http://www.jontitan-cs373-wc.appspot.com"><img src="http://i.imgur.com/OIjCU.gif" /></a></center>
-                <hr>
-              <center><h2>Crises</h2></center>
-              <a href="http://www.jontitan-cs373-wc.appspot.com/crisis"><center><img src="http://i.imgur.com/jGGmg.gif" width="201px" height="147px"></center></a>
-              <center><h2>Organizations</h2></center>
-              <a href="http://www.jontitan-cs373-wc.appspot.com/org"><center><img src="http://i.imgur.com/gfFLY.gif" width="201px" height="147px"></center></a>
-              <center><h2>People</h2></center>
-              <a href="http://www.jontitan-cs373-wc.appspot.com/person"><center><img src="http://i.imgur.com/ttSbO.gif" width="201px" height="147px"></center></a>
-              <hr>
-              <center><h2>Utility</h2></center>
-              <center>
-              <a class="btn" href="http://www.jontitan-cs373-wc.appspot.com/import">Import</a>
-              <a class="btn" href="http://www.jontitan-cs373-wc.appspot.com/export">Export</a>
-              <a class="btn" href="http://www.jontitan-cs373-wc.appspot.com/test">Unit Test</a>
-              </center>
-            
-          </div><!--/.well -->
-        </div><!--/span-->
-        
-        <div class="span9">
-          <div class="hero-unit">
+          <div class="hero-unit span10">
             <center><h1>Crises</h1></center>
           </div>
-        
-          <div class="row-fluid">
-            {% for c in crises %}
-            <div class="row-fluid">
-                <div class="span4">
-                    <h2>{{c.name}}</h2>
-                    <p><a class="btn" href="http://www.jontitan-cs373-wc.appspot.com/crisis/{{c.id}}">View details &raquo;</a></p>
-                </div><!--/span-->
-                <div class="span4">
-                {% for url in images %}
-                    {% if forloop.counter0 == forloop.parentloop.counter0 %}
-                        <img src = {{url}} width="300px" height="300px">
-                    {% endif %}
-                {% endfor %}
-                </div>
-            </div>
-            <div class="row-fluid">
-                <div class="span1">
-                </div>
-            </div>
-            {% endfor %}
-            <hr>
-              <footer>
-                <p>&copy; Super Seniors</p>
-                <p> Rohan Shah | Benjamin David Harris | Victor Pang | Ting-Yi Chen | Matt Granado</p>
-              </footer>
-          </div><!--/row-->
-        </div><!--/span-->
-      </div><!--/row-->
-    </div><!--/.fluid-container-->
+    <div class="container">     
+	<div class="span12">
+      <h2>Explore the Crises.</h2>
+      <p>Click to view.</p>
+      <ul class="thumbnails">
+      {% for c in crises %}
+      	{% for url in images %}
+      		{% if forloop.counter0 == forloop.parentloop.counter0 %}
+      		
+        	<li class="span3">
+          	<a href="/crisis/{{c.id}}" class="thumbnail">
+            	<img src={{url}} alt="">
+          	</a>
+          	<h5>{{c.name}}</h5>
+          	</li>
+          	{% endif %}
+          {% endfor %}
+		{% endfor %}
+      </ul>
+    </div>
+    </div>
+	<br>       
+         
+</body>  
+ <footer>
+<hr>
+            <p>&copy; Super Seniors</p>
+            <p> Rohan Shah | Benjamin David Harris | Victor Pang | Ting-Yi Chen | Matt Granado</p>
+</footer>  
+
+
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
+    <script src="stylesheets/jquery.js"></script>
     <script src="../assets/js/bootstrap-transition.js"></script>
     <script src="../assets/js/bootstrap-alert.js"></script>
     <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="stylesheets/bootstrap-dropdown.js"></script>
     <script src="../assets/js/bootstrap-scrollspy.js"></script>
     <script src="../assets/js/bootstrap-tab.js"></script>
     <script src="../assets/js/bootstrap-tooltip.js"></script>

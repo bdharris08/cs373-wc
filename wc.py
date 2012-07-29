@@ -20,14 +20,15 @@ from google.appengine.api import files
 #  search branch
 class MainPage(webapp2.RequestHandler):
     def get(self):
+    	
         wc = WorldCrises.all().fetch(1).pop()
         crises = wc.crises.fetch(None)
         orgs = wc.organizations.fetch(None)
         persons = wc.persons.fetch(None)
-            
+        upload_url = blobstore.create_upload_url('/upload')    
         path = os.path.join(os.path.dirname(__file__), 'splash.html')
-        self.response.out.write(template.render(path, {"crises": crises, "orgs" : orgs, "persons" : persons}))
-
+        self.response.out.write(template.render(path, {"crises": crises, "orgs" : orgs, "persons" : persons, "upload": upload_url}))
+#
 class TempHandler(webapp2.RequestHandler):
     def get(self):
         self.response.out.write('<html><body>')
@@ -336,10 +337,53 @@ class PersonHandler(webapp2.RequestHandler):
 class ImportHandler(webapp.RequestHandler):
   def get(self):
     upload_url = blobstore.create_upload_url('/upload')
-    self.response.out.write('<html><body>')
+    self.response.out.write("""<html>  <head>     <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand">
+                    <img src="http://i.imgur.com/uhFj0.png" width="35px" height="35px"></img>
+                        World Crises Database
+                    </a>
+                    
+                    <ul class="nav">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li><a href="crisis">Crises</a></li>
+                        <li><a href="org">Organizations</a></li>
+                        <li><a href="person">People</a></li>
+                        <li class="dropdown">  
+                            <a href="#"  
+                                class="dropdown-toggle"  
+                                data-toggle="dropdown">  
+                                Utilities  
+                                <b class="caret"></b>  
+                            </a>  
+                            <ul class="dropdown-menu">   
+                                <li><a href="export">Export</a></li>  
+                                <li><a href="test">Test</a></li>  
+                                <li><a href="import">Import</a></li>
+                            </ul>  
+                        </li>  
+                    </ul>
+                    <form class="navbar-search pull-right" action="/search_result">
+           			 	<input type="text" class="search-query span2" placeholder="Search">
+          			</form>
+                </div>
+            </div>
+        </div>	
+  </head><body style="padding:40px; margin-top:40px"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="stylesheets/bootstrap.css" rel="stylesheet"><meta name="viewport" content="initial-scale=1.0, user-scalable=no" />""")
     self.response.out.write('<form action="%s" method="POST" enctype="multipart/form-data">' % upload_url)
-    self.response.out.write("""Upload File: <input type="file" name="file"><br> <input type="submit"
-        name="submit" value="Submit"> </form></body></html>""")
+    self.response.out.write("""
+    <center>
+         Upload File: <input type="file" name="file"><br> <input type="submit"
+        name="submit" value="Submit"> </form>
+    </center>
+    </body>""")
+        
+    self.response.out.write("""<script src="/stylesheets/jquery.js"></script>
+	<script src="/stylesheets/bootstrap-fileupload.js"></script>
+	 </html>""")
         
 class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 
