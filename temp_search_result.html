@@ -61,11 +61,26 @@
         </div><!--/span-->
         <div class="span9">
         <h1> Results </h1>
-        {% for m in matched %}
+        <h2> Pages with Exact Matches </h2>
+        {% for m in matchedExact %}
             <p><ul> 
-            <li> <a href="{{m.1}}">{{m.2}}</a><br>
+            <li> <a href="{{m.1}}">{{m.0}}</a><br>
             Matched Text : 
-            {% for i in m.0 %}{% if forloop.last %}{{i}}{% else %}{{i}}<span style="background-color:yellow">{{keyword}}</span>{% endif %}{% endfor %}
+            {% for i in m.2 %}
+                {% if forloop.last %}
+                    {{i}}{% else %}{{i}}<span style="background-color:yellow">{{keyword}}</span>{% endif %}{% endfor %}
+            </li>
+            </ul></p>
+        {% endfor %}
+        
+        <h2> Pages with all search terms</h2>
+        {% for m in matchedAnd %}
+            <p><ul> 
+            <li> <a href="{{m.1}}">{{m.0}}</a><br>
+            Matched Text : 
+                {% for i in m.2 %}         
+                {% if forloop.counter0 % 2 != m.3 %}
+                    {{i}}{% else %}<span style="background-color:yellow">{{i}}</span>{% endif %}{% endfor %}
             </li>
             </ul></p>
         {% endfor %}
