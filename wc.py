@@ -1236,13 +1236,9 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
                 relation.put()
     
     except pyxsval.XsvalError, errstr:
-        print errstr
-        print "Validation aborted!"
         self.redirect("/xmlerror")
     
     except GenXmlIfError, errstr:
-        print errstr
-        print "Parsing aborted!"
         self.redirect("/xmlerror")
         
     except Exception, e :
@@ -1618,6 +1614,11 @@ class ServeHandler(blobstore_handlers.BlobstoreDownloadHandler):
         resource = str(urllib.unquote(resource))
         blob_info = blobstore.BlobInfo.get(resource)
         self.send_blob(blob_info)
+        
+class ValidationErrorHandler(webapp.RequestHandler):
+    def get(self):
+        path = os.path.join(os.path.dirname(__file__), 'temp_error.html')
+        self.response.out.write(template.render(path, {}))
     
     
 class WorldCrises (db.Model):
@@ -1758,4 +1759,5 @@ app = webapp2.WSGIApplication([('/', MainPage), ('/import', ImportHandler), ('/u
                             ('/temp', TempHandler),
                             ('/crisis', CrisisDisplayHandler),
                             ('/org', OrgDisplayHandler),
-                            ('/person', PersonDisplayHandler)], debug=True)
+                            ('/person', PersonDisplayHandler),
+                            ('/xmlerror', ValidationErrorHandler)], debug=True)
