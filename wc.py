@@ -66,12 +66,16 @@ class SearchResultHandler(webapp2.RequestHandler):
         matchedOr = []
         keywordI = re.compile(keyword, re.IGNORECASE)
         splitKeyword = re.split(" ", keyword.lower())
+        splitKeyword = [f for f in splitKeyword if f != None]
+
         keyword_re_and = []
         for key in splitKeyword:
             keyword_re_and.append(re.compile(key)) 
         keyword_re_or = []
         for key in splitKeyword:
-            keyword_re_or.append(str(key))
+            if key != " " and key != None:
+                keyword_re_or.append(str(key))
+        keyword_re_or = [f for f in keyword_re_or if f != '' and f != None]
         
         keyword_re_or = re.compile("|".join(keyword_re_or), re.IGNORECASE)
 
@@ -337,134 +341,8 @@ class PersonHandler(webapp2.RequestHandler):
 class ImportHandler(webapp.RequestHandler):
   def get(self):
     upload_url = blobstore.create_upload_url('/upload')
-    self.response.out.write("""<html>  <head>
-    <meta charset="utf-8">
-    <title>World Crises</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Le styles -->
-    <link href="stylesheets/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-bottom: 10px;
-        padding-right:40px;
-        padding-left:40px;
-        background-image: url(http://subtlepatterns.com/patterns/whitey.png);
-        height:100%;
-      }
-      .sidebar-nav {
-        padding: 9px ;
-      }
-        html { height: 100% }
-        #map_canvas { height: 100%;
-            width:100%;}
-               .outerLink 
-        {
-                background-color:black; 
-                display:block; 
-                opacity:1;
-                filter:alpha(opacity=100);
-                width:200px;
-        }
-
-        img.darkableImage 
-        {
-                opacity:1;
-                filter:alpha(opacity=100);
-        }
-    </style>
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-
-        <script type="text/javascript"
-            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAzvqWKgC-tOlTlmcGnHELj-qGK69nYr2w&sensor=false">
-            </script>
-        <script type="text/javascript">
-            function initialize() {
-                var mapOptions = {
-                    center: new google.maps.LatLng(13.750181,30.338486),
-                    zoom: 5,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    disableDefaultUI: true
-                };
-                var map = new google.maps.Map(document.getElementById("map_canvas"),
-                                              mapOptions);
-                $(window).resize(function () {
-                                 var h = $(window).height(),
-                                 offsetTop = 60; // Calculate the top offset
-                                 
-                                 $('#map-canvas').css('height', (h - offsetTop));
-                                 }).resize();
-            }
-            </script>
-        <script>
-            $('.carousel').carousel({
-            interval: 2000
-            })
-        </script>
-        <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-        <!--NAVBAR STUFF-->
-       <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand">
-                    <img src="http://i.imgur.com/uhFj0.png" width="35px" height="35px"></img>
-                        World Crises Database
-                    </a>
-                    
-                    <ul class="nav">
-                        <li class="active">
-                            <a href="#">Home</a>
-                        </li>
-                        <li><a href="crisis">Crises</a></li>
-                        <li><a href="org">Organizations</a></li>
-                        <li><a href="person">People</a></li>
-                        <li class="dropdown">  
-                            <a href="#"  
-                                class="dropdown-toggle"  
-                                data-toggle="dropdown">  
-                                Utilities  
-                                <b class="caret"></b>  
-                            </a>  
-                            <ul class="dropdown-menu">   
-                                <li><a href="export">Export</a></li>  
-                                <li><a href="test">Test</a></li>  
-                                <li><a href="import">Import</a></li>
-                            </ul>  
-                        </li>  
-                    </ul>
-                    <form class="navbar-search pull-right" action="/search_result">
-           			 	<input type="text" class="search-query span2" placeholder="Search" name="keyword">
-           			 	<input type="submit" value="Submit"/>
-          			</form>
-                </div>
-            </div>
-        </div>	
-  </head><body style="margin-top: 80px" onload="initialize()"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="stylesheets/bootstrap.css" rel="stylesheet"><meta name="viewport" content="initial-scale=1.0, user-scalable=no" />""")
-    self.response.out.write('<form action="%s" method="POST" enctype="multipart/form-data">' % upload_url)
-    self.response.out.write("""
-    <center>
-         Upload File: <input type="file" name="file"><br> <input type="submit"
-        name="Import" value="Import"> <input type="submit"
-        name="Merge" value="Merge"> </form>
-    </center>
-    </body>""")   
-    self.response.out.write("""<script src="/stylesheets/jquery.js"></script>
-	<script src="/stylesheets/bootstrap-fileupload.js"></script>
-	 </html>""")
+    path = os.path.join(os.path.dirname(__file__), 'temp_import.html')
+    self.response.out.write(template.render(path, {"upload_url" : upload_url}))
         
 class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 
