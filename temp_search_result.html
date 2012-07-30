@@ -1,67 +1,48 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>World Crises</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Le styles -->
-    <link href="stylesheets/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 10px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-    </style>
-    <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  <head>     <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand">
+                    <img src="http://i.imgur.com/uhFj0.png" width="35px" height="35px"></img>
+                        World Crises Database
+                    </a>
+                    
+                    <ul class="nav">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li><a href="crisis">Crises</a></li>
+                        <li><a href="org">Organizations</a></li>
+                        <li><a href="person">People</a></li>
+                        <li class="dropdown">  
+                            <a href="#"  
+                                class="dropdown-toggle"  
+                                data-toggle="dropdown">  
+                                Utilities  
+                                <b class="caret"></b>  
+                            </a>  
+                            <ul class="dropdown-menu">   
+                                <li><a href="export">Export</a></li>  
+                                <li><a href="test">Test</a></li>  
+                                <li><a href="import">Import</a></li>
+                            </ul>  
+                        </li>  
+                    </ul>
+                    <form class="navbar-search pull-right" action="/search_result">
+           			 	<input type="text" class="search-query span2" placeholder="Search" name="keyword">
+           			 	<input type="submit" value="Submit"/>
+          			</form>
+                </div>
+            </div>
+        </div>	
   </head>
-
-  <body style = "background-color:rgb(218, 232, 181)">
-  
-  <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav" style="position: fixed">
-          <h1><center>World Crises</center></h1>
-          <center><a href="http://www.jontitan-cs373-wc.appspot.com"><img src="http://i.imgur.com/OIjCU.gif" /></a></center>
-                <hr>
-              <center><h2>Crises</h2></center>
-              <a href="http://www.jontitan-cs373-wc.appspot.com/crisis"><center><img src="http://i.imgur.com/jGGmg.gif" width="201px" height="147px"></center></a>
-              <center><h2>Organizations</h2></center>
-              <a href="http://www.jontitan-cs373-wc.appspot.com/org"><center><img src="http://i.imgur.com/gfFLY.gif" width="201px" height="147px"></center></a>
-              <center><h2>People</h2></center>
-              <a href="http://www.jontitan-cs373-wc.appspot.com/person"><center><img src="http://i.imgur.com/ttSbO.gif" width="201px" height="147px"></center></a>
-              <hr>
-              <center><h2>Utility</h2></center>
-              <center>
-              <a class="btn" href="http://www.jontitan-cs373-wc.appspot.com/import">Import</a>
-              <a class="btn" href="http://www.jontitan-cs373-wc.appspot.com/export">Export</a>
-              <a class="btn" href="http://www.jontitan-cs373-wc.appspot.com/test">Unit Test</a>
-              </center>
-            
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
+  <body style="padding:40px; margin-top:40px"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="stylesheets/bootstrap.css" rel="stylesheet"><meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <div class="span9">
         <h1> Results </h1>
-        <h2> Pages with Exact Matches </h2>
+        <br>
+        <h2> Exact Match </h2>
         {% for m in matchedExact %}
             <p><ul> 
             <li> <a href="{{m.1}}">{{m.0}}</a><br>
@@ -71,7 +52,7 @@
             </ul></p>
         {% endfor %}
         
-        <h2> Pages with all search terms</h2>
+        <h2> Full Match </h2>
         {% for m in matchedAnd %}
             <p><ul> 
             <li> <a href="{{m.1}}">{{m.0}}</a><br>
@@ -81,7 +62,7 @@
             </ul></p>
         {% endfor %}
         
-        <h2> Pages with some search terms</h2>
+        <h2> Partial Match </h2>
         {% for m in matchedOr %}
             <p><ul> 
             <li> <a href="{{m.1}}">{{m.0}}</a><br>
@@ -91,32 +72,5 @@
             </ul></p>
         {% endfor %}
         
-        <br><br><br><br><hr>
-
-       <footer>
-        <p>&copy; Super Seniors</p>
-        <p> Rohan Shah | Benjamin David Harris | Victor Pang | Ting-Yi Chen | Matt Granado</p>
-      </footer>
-        </div><!--/span-->
-      </div><!--/row-->
-    </div><!--/.fluid-container-->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap-transition.js"></script>
-    <script src="../assets/js/bootstrap-alert.js"></script>
-    <script src="../assets/js/bootstrap-modal.js"></script>
-    <script src="../assets/js/bootstrap-dropdown.js"></script>
-    <script src="../assets/js/bootstrap-scrollspy.js"></script>
-    <script src="../assets/js/bootstrap-tab.js"></script>
-    <script src="../assets/js/bootstrap-tooltip.js"></script>
-    <script src="../assets/js/bootstrap-popover.js"></script>
-    <script src="../assets/js/bootstrap-button.js"></script>
-    <script src="../assets/js/bootstrap-collapse.js"></script>
-    <script src="../assets/js/bootstrap-carousel.js"></script>
-    <script src="../assets/js/bootstrap-typeahead.js"></script>
-
   </body>
 </html>
