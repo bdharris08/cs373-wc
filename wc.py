@@ -16,19 +16,22 @@ from google.appengine.ext.webapp import blobstore_handlers
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.api import files
+from google.appengine.api import taskqueue
 
 #  search branch
 class MainPage(webapp2.RequestHandler):
     def get(self):
-    	
-        wc = WorldCrises.all().fetch(1).pop()
-        crises = wc.crises.fetch(None)
-        orgs = wc.organizations.fetch(None)
-        persons = wc.persons.fetch(None)
-        upload_url = blobstore.create_upload_url('/upload')    
-        path = os.path.join(os.path.dirname(__file__), 'splash.html')
-        self.response.out.write(template.render(path, {"crises": crises, "orgs" : orgs, "persons" : persons, "upload": upload_url}))
-#
+        try:
+            wc = WorldCrises.all().fetch(1).pop()
+            crises = wc.crises.fetch(None)
+            orgs = wc.organizations.fetch(None)
+            persons = wc.persons.fetch(None)
+            upload_url = blobstore.create_upload_url('/upload')    
+            path = os.path.join(os.path.dirname(__file__), 'splash.html')
+            self.response.out.write(template.render(path, {"crises": crises, "orgs" : orgs, "persons" : persons, "upload": upload_url}))
+        except Exception, e:
+            self.redirect('/import')
+
 class TempHandler(webapp2.RequestHandler):
     def get(self):
         self.response.out.write('<html><body>')
@@ -340,37 +343,37 @@ class PersonHandler(webapp2.RequestHandler):
         
 class ImportHandler(webapp.RequestHandler):
   def get(self):
-    upload_url = blobstore.create_upload_url('/upload')
+    upload_url = blobstore.create_upload_url('/pre_upload')
     path = os.path.join(os.path.dirname(__file__), 'temp_import.html')
-    self.response.out.write(template.render(path, {"upload_url" : "/pre_upload"}))
+    self.response.out.write(template.render(path, {"upload_url" : upload_url}))
         
-class Pre_Upload_handler(webapp.RequestHandler):
+class Pre_Upload_Handler(blobstore_handlers.BlobstoreUploadHandler):
   def post(self):
     upload_files = self.get_uploads('file')  # 'file' is file upload field in the form
     blob_info = upload_files[0]
     data = dataKey()
     data.blob_id = blob_info.key()
-    data.importBool = self.request.POST.get('Import', None)
+    is_import = self.request.POST.get('Import', None)
+    if(is_import == "Import"): is_import = True
+    else: is_import = False
+    data.importBool = is_import
     data.put()
-    taskqueue.add(url = '/upload')
-    self.redirect("/")
+    #taskqueue.add(url = '/upload', params = {'data' : data})
+    self.redirect("/upload")
     
-class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
-  def post(self):
-    #upload_files = self.get_uploads('file')  # 'file' is file upload field in the form
-    data = dataKey.all().fetch(None)
-    assert(len(key) == 1)
-    blob_info = data[0].blob_id
+class UploadHandler(webapp.RequestHandler):
+  def get(self):
+    data = dataKey.all().fetch(None).pop()
+    #data = self.request.get('data')
+    #assert(len(data) >= 1)
+    blob_info = data.blob_id
     blob_reader = blob_info.open()
     other_blob_reader = blob_info.open()
     tree = ElementTree()
-    is_import = data[0].importBool
+    is_import = data.importBool
+    #assert(is_import == True)
     data.delete()
     
-    try:
-        assert blob_info.content_type == "text/xml"
-    except Exception as e:
-        self.redirect("/xmlerror")
         
     xsdText = """<?xml version="1.0"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -539,6 +542,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
 """    
         
     try:
+        assert blob_info.content_type == "text/xml"
         # call validator with non-default values
         elementTreeWrapper = pyxsval.parseAndValidateXmlInputString (other_blob_reader.read(), xsdText)
         
@@ -1246,7 +1250,220 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
                 relation.organization = person
                 relation.person = org
                 relation.put()
+
     
+        #Build db.txt to cache data for efficient searching
+        
+        key = dataCacheKey.all().fetch(None)
+        assert(len(key) == 1 or len(key) == 0)
+        if(len(key) == 1):
+            #blob_info = blobstore.BlobInfo.get(key.pop().blob_id)
+            key[0].blob_id.delete()
+            key.pop().delete()
+        
+        
+        dataCache = files.blobstore.create(mime_type='application/octet_stream')
+        
+        
+        for c in crises:    
+            ci = c.find("info")
+            t = ci.find("time")
+            l = ci.find("loc")
+            i = ci.find("impact")
+            hi = i.find("human")
+            ei = i.find("economic")
+            
+            history = ci.find("history").text
+            if(history == None): history = " "
+            myhelp = ci.find("help").text
+            if(myhelp == None): myhelp = " "
+            resources = ci.find("resources").text
+            if(resources == None): resources = " "
+            mytype = ci.find("type").text
+            if(mytype == None): mytype = " "
+            time = t.find("time").text
+            if(time == None): time = " "
+            day = t.find("day").text
+            if(day == None): day = " "
+            month = t.find("month").text
+            if(month == None): month = " "
+            year = t.find("year").text
+            if(year == None): year = " "
+            miscT = t.find("misc").text
+            if(miscT == None): miscT = " "
+            city = l.find("city").text
+            if(city == None): city = " "
+            region = l.find("region").text
+            if(region == None): region = " "
+            country = l.find("country").text
+            if(country == None): country = " "
+            deaths = hi.find("deaths").text
+            if(deaths == None): deaths = " "
+            displaced = hi.find("displaced").text
+            if(displaced == None): displaced = " "
+            injured = hi.find("injured").text
+            if(injured == None): injured = " "
+            missing = hi.find("missing").text
+            if(missing == None): missing = " "
+            miscHi = hi.find("misc").text 
+            if(miscHi == None): miscHi = " "
+            amount = ei.find("amount").text 
+            if(amount == None): amount = " "
+            currency = ei.find("currency").text 
+            if(currency == None): currency = " "
+            miscEi = ei.find("misc").text 
+            if(miscEi == None): miscEi = " "
+            name = c.find("name").text 
+            if(name == None): name = " "
+            id = c.get("id") 
+            if(c.get("id") == None): id = " "
+            
+            
+            with files.open(dataCache, 'a') as f:
+                f.write("History: " + history + "\n" +
+                        "Help: " + myhelp + "\n" +
+                        "Resources: " + resources + "\n" +
+                        "Type: " + mytype + "\n" +
+                        "Time: " + time + "\n" + 
+                        "Day: " + day + "\n" +
+                        "Month: " + month + "\n" +
+                        "Year: " + year + "\n" +
+                        "Misc: " + miscT + "\n" +
+                        "City: " + city + "\n" +
+                        "Region: " + region + "\n" +
+                        "Country: " + country + "\n" +
+                        "Deaths: " + deaths + "\n" +
+                        "Displaced: " + displaced + "\n" +
+                        "Injured: " + injured + "\n" +
+                        "Missing: " + missing + "\n" +
+                        "Misc: " + miscHi + "\n" +
+                        "Amount: " + amount + "\n" +
+                        "Currency: " + currency + "\n" +
+                        "Misc: " + miscEi + "\n" +
+                        "http://www.jontitan-cs373-wc.appspot.com/crisis/" + id +
+                        " " + name + "\n")
+    
+                
+        for o in organizations:
+            oi = o.find("info")
+            c = oi.find("contact")
+            fa = c.find("mail")
+            l = oi.find("loc")
+            
+            id = o.get("id")
+            name = o.find("name").text
+            if (name == None): name = " "
+            misc = o.find("misc").text
+            if (misc == None): misc = " "
+    
+            mytype = oi.find("type").text
+            if(mytype == None): mytype = " "
+            history = oi.find("history").text
+            if(history == None): history = " "
+            phone = c.find("phone").text
+            if(phone == None): phone = " "
+            email = c.find("email").text
+            if(email == None): email = " "
+            address = fa.find("address").text
+            if(address == None): address = " "
+            city = fa.find("city").text
+            if(city == None): city = " "
+            state = fa.find("state").text
+            if(state == None): state = " "
+            country = fa.find("country").text
+            if(country == None): country = " "
+            myzip = fa.find("zip").text
+            if(myzip == None): myzip = " "
+            city = l.find("city").text
+            if(city == None): city = " "
+            region = l.find("region").text
+            if(region == None): region = " "
+            country = l.find("country").text
+            if(country == None): country = " "
+            
+            with files.open(dataCache, 'a') as f:
+                f.write("Type: " + mytype + "\n" +
+                        "History: " + history + "\n" +
+                        "Email: " + email + "\n" +
+                        "Address: " + address + "\n" +
+                        "City: " + city + "\n" +
+                        "State: " + state + "\n" +
+                        "Country: " + country + "\n" +
+                        "Zip: " + myzip + "\n" +
+                        "City: " + city + "\n" +
+                        "Region: " + region + "\n" +
+                        "Country: " + country + "\n" +
+                        "Misc: " + misc + "\n" +
+                        "http://www.jontitan-cs373-wc.appspot.com/org/" + id +
+                        " " + name + "\n")
+                        
+        
+        for p in people :
+            pi = p.find("info")
+            bd = pi.find("birthdate")
+            
+            id = p.get("id")
+            if (id == None): id = " "
+            name = p.find("name").text
+            if (name == None): name = " "
+            misc = p.find("misc").text
+            if (misc == None): misc = " "
+            mytype = pi.find("type").text
+            if (mytype == None): mytype = " "
+            nationality = pi.find("nationality").text
+            if (nationality == None): nationality = " "
+            biography = pi.find("biography").text
+            if (biography == None): biography = " "
+            time = bd.find("time").text
+            if (time == None): time = " "
+            day = bd.find("day").text
+            if (day == None): day = " "
+            month = bd.find("month").text
+            if (month == None) : month = " "
+            year = bd.find("year").text
+            if (year == None): year = " "
+            bdmisc = bd.find("misc").text
+            if (bdmisc == None): bdmisc = " "
+            
+            with files.open(dataCache, 'a') as f:
+                f.write("Type: " + mytype + "\n" +
+                        "Nationality: " + nationality + "\n" +
+                        "Biography: " + biography + "\n" +
+                        "Time: " + time + "\n" +
+                        "Day: " + day + "\n" +
+                        "Month: " + month + "\n" +
+                        "Year: " + year + "\n" +
+                        "Misc: " + bdmisc + "\n" +
+                        "Misc: " + misc + "\n" +
+                        "http://www.jontitan-cs373-wc.appspot.com/person/" + id +
+                        " " + name + "\n")
+    
+        files.finalize(dataCache)    
+        file_key = files.blobstore.get_blob_key(dataCache)
+        dataCKey = dataCacheKey()
+        dataCKey.blob_id = file_key
+        dataCKey.put()
+        
+        
+        
+        #file_reader = blobstore.BlobReader(file_key)
+        #self.response.out.write('<html><body>')
+        #for i in range(0, 180):
+        #    self.response.out.write(file_reader.readline() + "<br>")
+        #print file_reader.readline()
+        
+        
+        """    
+        with files.open(db_txt, 'a') as f:
+            f.write("second write\n")           
+        files.finalize(db_txt)
+        
+        file_key = files.blobstore.get_blob_key(db_txt)
+        file_reader = blobstore.BlobReader(file_key)
+        print file_reader.readline()
+        print file_reader.readline()
+        """
+        self.redirect('/')
     except pyxsval.XsvalError, errstr:
         self.redirect("/xmlerror")
     
@@ -1256,220 +1473,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     except Exception, e :
         self.redirect("/xmlerror")
     
-    #Build db.txt to cache data for efficient searching
     
-    key = dataCacheKey.all().fetch(None)
-    assert(len(key) == 1 or len(key) == 0)
-    if(len(key) == 1):
-        #blob_info = blobstore.BlobInfo.get(key.pop().blob_id)
-        key[0].blob_id.delete()
-        key.pop().delete()
-    
-    
-    dataCache = files.blobstore.create(mime_type='application/octet_stream')
-    
-    
-    for c in crises:    
-        ci = c.find("info")
-        t = ci.find("time")
-        l = ci.find("loc")
-        i = ci.find("impact")
-        hi = i.find("human")
-        ei = i.find("economic")
-        
-        history = ci.find("history").text
-        if(history == None): history = " "
-        myhelp = ci.find("help").text
-        if(myhelp == None): myhelp = " "
-        resources = ci.find("resources").text
-        if(resources == None): resources = " "
-        mytype = ci.find("type").text
-        if(mytype == None): mytype = " "
-        time = t.find("time").text
-        if(time == None): time = " "
-        day = t.find("day").text
-        if(day == None): day = " "
-        month = t.find("month").text
-        if(month == None): month = " "
-        year = t.find("year").text
-        if(year == None): year = " "
-        miscT = t.find("misc").text
-        if(miscT == None): miscT = " "
-        city = l.find("city").text
-        if(city == None): city = " "
-        region = l.find("region").text
-        if(region == None): region = " "
-        country = l.find("country").text
-        if(country == None): country = " "
-        deaths = hi.find("deaths").text
-        if(deaths == None): deaths = " "
-        displaced = hi.find("displaced").text
-        if(displaced == None): displaced = " "
-        injured = hi.find("injured").text
-        if(injured == None): injured = " "
-        missing = hi.find("missing").text
-        if(missing == None): missing = " "
-        miscHi = hi.find("misc").text 
-        if(miscHi == None): miscHi = " "
-        amount = ei.find("amount").text 
-        if(amount == None): amount = " "
-        currency = ei.find("currency").text 
-        if(currency == None): currency = " "
-        miscEi = ei.find("misc").text 
-        if(miscEi == None): miscEi = " "
-        name = c.find("name").text 
-        if(name == None): name = " "
-        id = c.get("id") 
-        if(c.get("id") == None): id = " "
-        
-        
-        with files.open(dataCache, 'a') as f:
-            f.write("History: " + history + "\n" +
-                    "Help: " + myhelp + "\n" +
-                    "Resources: " + resources + "\n" +
-                    "Type: " + mytype + "\n" +
-                    "Time: " + time + "\n" + 
-                    "Day: " + day + "\n" +
-                    "Month: " + month + "\n" +
-                    "Year: " + year + "\n" +
-                    "Misc: " + miscT + "\n" +
-                    "City: " + city + "\n" +
-                    "Region: " + region + "\n" +
-                    "Country: " + country + "\n" +
-                    "Deaths: " + deaths + "\n" +
-                    "Displaced: " + displaced + "\n" +
-                    "Injured: " + injured + "\n" +
-                    "Missing: " + missing + "\n" +
-                    "Misc: " + miscHi + "\n" +
-                    "Amount: " + amount + "\n" +
-                    "Currency: " + currency + "\n" +
-                    "Misc: " + miscEi + "\n" +
-                    "http://www.jontitan-cs373-wc.appspot.com/crisis/" + id +
-                    " " + name + "\n")
-
-            
-    for o in organizations:
-        oi = o.find("info")
-        c = oi.find("contact")
-        fa = c.find("mail")
-        l = oi.find("loc")
-        
-        id = o.get("id")
-        name = o.find("name").text
-        if (name == None): name = " "
-        misc = o.find("misc").text
-        if (misc == None): misc = " "
-
-        mytype = oi.find("type").text
-        if(mytype == None): mytype = " "
-        history = oi.find("history").text
-        if(history == None): history = " "
-        phone = c.find("phone").text
-        if(phone == None): phone = " "
-        email = c.find("email").text
-        if(email == None): email = " "
-        address = fa.find("address").text
-        if(address == None): address = " "
-        city = fa.find("city").text
-        if(city == None): city = " "
-        state = fa.find("state").text
-        if(state == None): state = " "
-        country = fa.find("country").text
-        if(country == None): country = " "
-        myzip = fa.find("zip").text
-        if(myzip == None): myzip = " "
-        city = l.find("city").text
-        if(city == None): city = " "
-        region = l.find("region").text
-        if(region == None): region = " "
-        country = l.find("country").text
-        if(country == None): country = " "
-        
-        with files.open(dataCache, 'a') as f:
-            f.write("Type: " + mytype + "\n" +
-                    "History: " + history + "\n" +
-                    "Email: " + email + "\n" +
-                    "Address: " + address + "\n" +
-                    "City: " + city + "\n" +
-                    "State: " + state + "\n" +
-                    "Country: " + country + "\n" +
-                    "Zip: " + myzip + "\n" +
-                    "City: " + city + "\n" +
-                    "Region: " + region + "\n" +
-                    "Country: " + country + "\n" +
-                    "Misc: " + misc + "\n" +
-                    "http://www.jontitan-cs373-wc.appspot.com/org/" + id +
-                    " " + name + "\n")
-                    
-    
-    for p in people :
-        pi = p.find("info")
-        bd = pi.find("birthdate")
-        
-        id = p.get("id")
-        if (id == None): id = " "
-        name = p.find("name").text
-        if (name == None): name = " "
-        misc = p.find("misc").text
-        if (misc == None): misc = " "
-        mytype = pi.find("type").text
-        if (mytype == None): mytype = " "
-        nationality = pi.find("nationality").text
-        if (nationality == None): nationality = " "
-        biography = pi.find("biography").text
-        if (biography == None): biography = " "
-        time = bd.find("time").text
-        if (time == None): time = " "
-        day = bd.find("day").text
-        if (day == None): day = " "
-        month = bd.find("month").text
-        if (month == None) : month = " "
-        year = bd.find("year").text
-        if (year == None): year = " "
-        bdmisc = bd.find("misc").text
-        if (bdmisc == None): bdmisc = " "
-        
-        with files.open(dataCache, 'a') as f:
-            f.write("Type: " + mytype + "\n" +
-                    "Nationality: " + nationality + "\n" +
-                    "Biography: " + biography + "\n" +
-                    "Time: " + time + "\n" +
-                    "Day: " + day + "\n" +
-                    "Month: " + month + "\n" +
-                    "Year: " + year + "\n" +
-                    "Misc: " + bdmisc + "\n" +
-                    "Misc: " + misc + "\n" +
-                    "http://www.jontitan-cs373-wc.appspot.com/person/" + id +
-                    " " + name + "\n")
-
-    files.finalize(dataCache)    
-    file_key = files.blobstore.get_blob_key(dataCache)
-    dataKey = dataCacheKey()
-    dataKey.blob_id = file_key
-    dataKey.put()
-    
-    
-    
-    #file_reader = blobstore.BlobReader(file_key)
-    #self.response.out.write('<html><body>')
-    #for i in range(0, 180):
-    #    self.response.out.write(file_reader.readline() + "<br>")
-    #print file_reader.readline()
-    
-    
-    """    
-    with files.open(db_txt, 'a') as f:
-        f.write("second write\n")           
-    files.finalize(db_txt)
-    
-    file_key = files.blobstore.get_blob_key(db_txt)
-    file_reader = blobstore.BlobReader(file_key)
-    print file_reader.readline()
-    print file_reader.readline()
-    """
-    
-    
-    #self.redirect('/')
     
    
 
@@ -1764,7 +1768,7 @@ class dataCacheKey (db.Model):
     
 class dataKey (db.Model):
     blob_id = blobstore.BlobReferenceProperty()
-    importBool = blobstore.BooleanProperty()
+    importBool = db.BooleanProperty()
     
     
 app = webapp2.WSGIApplication([('/', MainPage), ('/import', ImportHandler), ('/upload', UploadHandler),
