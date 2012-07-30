@@ -66,12 +66,16 @@ class SearchResultHandler(webapp2.RequestHandler):
         matchedOr = []
         keywordI = re.compile(keyword, re.IGNORECASE)
         splitKeyword = re.split(" ", keyword.lower())
+        splitKeyword = [f for f in splitKeyword if f != None]
+
         keyword_re_and = []
         for key in splitKeyword:
             keyword_re_and.append(re.compile(key)) 
         keyword_re_or = []
         for key in splitKeyword:
-            keyword_re_or.append(str(key))
+            if key != " " and key != None:
+                keyword_re_or.append(str(key))
+        keyword_re_or = [f for f in keyword_re_or if f != '' and f != None]
         
         keyword_re_or = re.compile("|".join(keyword_re_or), re.IGNORECASE)
 
@@ -337,65 +341,31 @@ class PersonHandler(webapp2.RequestHandler):
 class ImportHandler(webapp.RequestHandler):
   def get(self):
     upload_url = blobstore.create_upload_url('/upload')
-    self.response.out.write("""<html>  <head>     <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand">
-                    <img src="http://i.imgur.com/uhFj0.png" width="35px" height="35px"></img>
-                        World Crises Database
-                    </a>
-                    
-                    <ul class="nav">
-                        <li>
-                            <a href="/">Home</a>
-                        </li>
-                        <li><a href="crisis">Crises</a></li>
-                        <li><a href="org">Organizations</a></li>
-                        <li><a href="person">People</a></li>
-                        <li class="dropdown">  
-                            <a href="#"  
-                                class="dropdown-toggle"  
-                                data-toggle="dropdown">  
-                                Utilities  
-                                <b class="caret"></b>  
-                            </a>  
-                            <ul class="dropdown-menu">   
-                                <li><a href="export">Export</a></li>  
-                                <li><a href="test">Test</a></li>  
-                                <li><a href="import">Import</a></li>
-                            </ul>  
-                        </li>  
-                    </ul>
-                    <form class="navbar-search pull-right" action="/search_result">
-           			 	<input type="text" class="search-query span2" placeholder="Search">
-          			</form>
-                </div>
-            </div>
-        </div>	
-  </head><body style="padding:40px; margin-top:40px"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="stylesheets/bootstrap.css" rel="stylesheet"><meta name="viewport" content="initial-scale=1.0, user-scalable=no" />""")
-    self.response.out.write('<form action="%s" method="POST" enctype="multipart/form-data">' % upload_url)
-    self.response.out.write("""
-    <center>
-         Upload File: <input type="file" name="file"><br> <input type="submit"
-        name="Import" value="Import"> <input type="submit"
-        name="Merge" value="Merge"> </form>
-    </center>
-    </body>""")   
-    self.response.out.write("""<script src="/stylesheets/jquery.js"></script>
-	<script src="/stylesheets/bootstrap-fileupload.js"></script>
-	 </html>""")
-	 
+    path = os.path.join(os.path.dirname(__file__), 'temp_import.html')
+    self.response.out.write(template.render(path, {"upload_url" : "/pre_upload"}))
         
-        
-class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
+class Pre_Upload_handler(webapp.RequestHandler):
   def post(self):
     upload_files = self.get_uploads('file')  # 'file' is file upload field in the form
     blob_info = upload_files[0]
+    data = dataKey()
+    data.blob_id = blob_info.key()
+    data.importBool = self.request.POST.get('Import', None)
+    data.put()
+    taskqueue.add(url = '/upload')
+    self.redirect("/")
+    
+class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
+  def post(self):
+    #upload_files = self.get_uploads('file')  # 'file' is file upload field in the form
+    data = dataKey.all().fetch(None)
+    assert(len(key) == 1)
+    blob_info = data[0].blob_id
     blob_reader = blob_info.open()
     other_blob_reader = blob_info.open()
     tree = ElementTree()
-    
-    is_import = self.request.POST.get('Import', None)
+    is_import = data[0].importBool
+    data.delete()
     
     try:
         assert blob_info.content_type == "text/xml"
@@ -1278,13 +1248,9 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
                 relation.put()
     
     except pyxsval.XsvalError, errstr:
-        print errstr
-        print "Validation aborted!"
         self.redirect("/xmlerror")
     
     except GenXmlIfError, errstr:
-        print errstr
-        print "Parsing aborted!"
         self.redirect("/xmlerror")
         
     except Exception, e :
@@ -1503,7 +1469,7 @@ class UploadHandler(blobstore_handlers.BlobstoreUploadHandler):
     """
     
     
-    self.redirect('/')
+    #self.redirect('/')
     
    
 
@@ -1660,6 +1626,11 @@ class ServeHandler(blobstore_handlers.BlobstoreDownloadHandler):
         resource = str(urllib.unquote(resource))
         blob_info = blobstore.BlobInfo.get(resource)
         self.send_blob(blob_info)
+        
+class ValidationErrorHandler(webapp.RequestHandler):
+    def get(self):
+        path = os.path.join(os.path.dirname(__file__), 'temp_error.html')
+        self.response.out.write(template.render(path, {}))
     
     
 class WorldCrises (db.Model):
@@ -1791,7 +1762,13 @@ class OrganizationPerson (db.Model):
 class dataCacheKey (db.Model):
     blob_id = blobstore.BlobReferenceProperty()
     
+class dataKey (db.Model):
+    blob_id = blobstore.BlobReferenceProperty()
+    importBool = blobstore.BooleanProperty()
+    
+    
 app = webapp2.WSGIApplication([('/', MainPage), ('/import', ImportHandler), ('/upload', UploadHandler),
+                            ('/pre_upload', Pre_Upload_Handler),
                             ('/serve/([^/]+)?', ServeHandler), ('/export', ExportHandler), 
                             ('/search_result', SearchResultHandler),
                             ('/crisis/([^/]+)?', CrisisHandler),
@@ -1800,4 +1777,5 @@ app = webapp2.WSGIApplication([('/', MainPage), ('/import', ImportHandler), ('/u
                             ('/temp', TempHandler),
                             ('/crisis', CrisisDisplayHandler),
                             ('/org', OrgDisplayHandler),
-                            ('/person', PersonDisplayHandler)], debug=True)
+                            ('/person', PersonDisplayHandler),
+                            ('/xmlerror', ValidationErrorHandler)], debug=True)

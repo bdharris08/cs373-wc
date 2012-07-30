@@ -127,53 +127,15 @@
 <!--Beginning of Body-->
 <body style="margin-top: 80px" onload="initialize()">
     <!--<div id="map_canvas" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1;"></div>-->
-    <div class="span9">
-        <br><br>
-        
-        {% if not matchedExact and not matchedAnd and not matchedOr %}
-            <h1> No Results </h1><br><br><br>
-        {% else %}
-            <h1> Results </h1>
-        {% endif %}
-        <br>
-        {% for m in matchedExact %}
-            {% if forloop.first %}
-                <h2> Exact Match </h2>
-            {% endif %}
-            <p><ul> 
-            <li> <a href="{{m.1}}">{{m.0}}</a><br>
-            Matched Text : 
-            {% for i in m.2 %}{% if forloop.last %}{{i}}{% else %}{{i}}<span style="background-color:yellow">{{keyword}}</span>{% endif %}{% endfor %}
-            </li>
-            </ul></p>
-        {% empty %}
-        {% endfor %}
-        
-        {% for m in matchedAnd %}
-            {% if forloop.first %}
-                <h2> Full Match </h2>
-            {% endif %}
-            <p><ul> 
-            <li> <a href="{{m.1}}">{{m.0}}</a><br>
-            Matched Text : 
-            {% for i in m.2 %}{% if forloop.counter0|divisibleby:"2" %}{{i}}{% else %}<span style="background-color:yellow">{{i}}</span>{% endif %}{% endfor %}
-            </li>
-            </ul></p>
-        {% empty %}
-        {% endfor %}
+			
+            
+    <center>
+        <form action="{{upload_url}}" method="POST" enctype="multipart/form-data">
+         Upload File: <input type="file" name="file"><br>
+         <input type="submit" name="Import" value="Import"> 
+         <input type="submit" name="Merge" value="Merge"> </form>
+    </center>
     
-        {% for m in matchedOr %}
-            {% if forloop.first %}
-                <h2> Partial Match </h2>
-            {% endif %}
-            <p><ul> 
-            <li> <a href="{{m.1}}">{{m.0}}</a><br>
-            Matched Text : 
-            {% for i in m.2 %}{% if forloop.counter0|divisibleby:"2" %}{{i}}{% else %}<span style="background-color:yellow">{{i}}</span>{% endif %}{% endfor %}
-            </li>
-            </ul></p>
-        {% empty %}
-        {% endfor %}
     </body>
     <footer>
         <p>&copy; Super Seniors</p>
