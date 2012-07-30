@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<worldCrises>
+<!-- .................Bath salts..........................-->
+    <crisis id="bath_salts">
+        <name>Bath Salts</name>
+		<info>
+			<history>Bath Salts are legal designer drugs sold as "bath salts" where users snort the bath salts for a high similar to amphetamines. The chemicals in bath salts have been around for almost a century but in the last decade bath salts have emerged in mainstream America as a legal way to get "high." The drug first came to the attention of authorities in 2010 after reports from U.S. poison centers.</history>
+			<help>Raise awareness through word of mouth</help>
+			<resources>More drug rehabilitation centers</resources>
+			<type>Drug Epidemic</type>
+			<time>
+				<time></time>
+				<day>21</day>
+				<month>12</month>
+				<year>2010</year>
+				<misc>Bath salt compounds have been around for at least a century, but did not become a national crisis until 2010 when the first warning was issued.</misc>
+			</time>
+			<loc>
+				<city></city>
+				<region></region>
+				<country>United States</country>
+			</loc>
+			<impact>
+				<human>
+					<deaths>0</deaths> <!-- Unsure -->
+					<displaced>0</displaced>
+					<injured>500</injured> <!-- Ballpark figure -->
+					<missing>0</missing>
+					<misc>According to a CDC report of bath salt abusers in Michigan, users not only experience psychological side effects -- there were physical ones too. In fact, 91 percent of users had neurological damage, while 77 percent experienced cardiovascular damage and 49 percent had psychological difficulties associated with the drug. Those difficulties could be severe: 37 percent of the people who suffered mental health problems reported attempting suicide or having suicidal thoughts, related to bath salts.</misc>
+				</human>
+				<economic>
+					<amount>0</amount>
+					<currency>Dollars</currency>
+					<misc>Economic impact is unkown.</misc>
+				</economic>
+			</impact>
+		</info>
+		<ref>
+			<primaryImage>
+				<site>Radar Online</site>
+				<title>Bath Salts</title>
+				<url>http://www.radaronline.com/sites/radaronline.com/files/imagecache/350width/bath-salts-drugs.png</url>
+				<description>A picture of bath salts</description>
+			</primaryImage>
+			<image>
+				<site>wptv</site>
+				<title>Bath Salts</title>
+				<url>http://media2.wptv.com//photo/2012/05/31/Designer_drugs8cdd7e33-58d0-477a-b9be-42b7ed4228ab0000_20120531232903_320_240.JPG</url>
+				<description>Picture of various brands of bath salts</description>
+			</image>
+			<video>
+				<site>Youtube</site>
+				<title>Bath Salts blamed for Zombie attack in Florida</title>
+				<url>http://www.youtube.com/embed/C0Q4dRzECUs</url>
+				<description>News segment on Bath Salts</description>
+			</video>
+			<social>
+            	<site>Facebook</site>
+                <title>Bath Salts</title>
+                <url>https://www.facebook.com/pages/Ban-Bath-Salts/199330996776489</url>
+                <description>Facebook page advocating the criminalization of bath salts</description>
+            </social>
+            <ext>
+            	<site>DEA</site>
+                <title>DEA Website</title>
+                <url>http://www.justice.gov/dea/pubs/pressrel/pr102111.html</url>
+                <description>Contains information about the Bath Salts epidemic</description>
+            </ext>
+			<ext>
+            	<site>Wikipedia</site>
+                <title>Methylenedioxypyrovalerone</title>
+                <url>http://en.wikipedia.org/wiki/Methylenedioxypyrovalerone</url>
+                <description>Wikipedia page about bath salts</description>
+            </ext>
+		</ref>
+		<misc>"Bath Salts" are also called Blizzard, Blue Silk, Charge+, Ivory Snow, Ivory Wave, Ocean Burst, Pure Ivory, Purple Wave, Snow Leopard, Stardust, Vanilla Sky, White Dove, White Knight and White Lightning.</misc>
+		<org idref="drug_enforcement_admin"/>
+		<person idref="michele_leonhart"/>
+    </crisis>
+	
+	
+	
+	<!-- ..............Global Economic Crisis.............. -->
+	<crisis id="global_economic_crisis">
+        <name>Global Financial Crisis</name>
+		<info>
+			<history>The financial crisis began in 2007 when the U.S. housing bubble burst as a result of predatory lending and lax business regulations. In addition, many other countries at the time were having financial difficulties, causing markets to crash worldwide.</history>
+			<help>Better business regulation</help>
+			<resources>The economy has mostly stabilized, however more stimulus in certain areas will be required to get the economy fully back to normal</resources>
+			<type>Global Depression</type>
+			<time>
+				<time></time>
+				<day>1</day>
+				<month>2</month>
+				<year>2007</year>
+				<misc>The global financial crisis began in February of 2007 when the U.S. housing bubble burst, but conditions had been leading up to the crisis for several years prior to the drop in the stock market.</misc>
+			</time>
+			<loc>
+				<city>New York</city>
+				<region>Global</region>
+				<country>Global</country>
+			</loc>
+			<impact>
+				<human>
+					<deaths>0</deaths>
+					<displaced>0</displaced>
+					<injured>0</injured>
+					<missing>0</missing>
+					<misc>While there were no physical injuries as a result of the financial criis, it did lead to large-scale unemployment and the downfall of many large financial institutions.</misc>
+				</human>
+				<economic>
+					<amount>3000000000000</amount>
+					<currency>U.S.</currency>
+					<misc>Global Recession, Widening of the wealth gap in the United States.</misc>
+				</economic>
+			</impact>
+		</info>
+		<ref>
+			<primaryImage>
+				<site>Wikimedia</site>
+				<title>Lehman Brothers Headquarters</title>
+				<url>http://upload.wikimedia.org/wikipedia/commons/5/53/Lehman_Brothers_Times_Square_by_David_Shankbone.jpg</url>
+				<description>Lehman Brothers Headquarters</description>
+			</primaryImage>
+			<image>
+				<site>Wikimedia</site>
+				<title>TED Spread</title>
+				<url>http://upload.wikimedia.org/wikipedia/commons/9/92/TED_Spread.png</url>
+				<description></description>
+			</image>
+			<video>
+				<site>Youtube</site>
+				<title>Global Financial Crisis</title>
+				<url>http://www.youtube.com/embed/Q-zp5Mb7FV0</url>
+				<description>Video describing the economic crisis</description>
+			</video>
+			<social>
+            	<site>Twitter</site>
+                <title>Global Financial Crisis</title>
+                <url>https://twitter.com/#!/search/global%20financial%20crisis</url>
+                <description>Up to date twitter news on the global financial crisis</description>
+            </social>
+            <ext>
+            	<site>IMF</site>
+                <title>IMF Website</title>
+                <url>http://www.imf.org/external/np/exr/key/finstab.htm</url>
+                <description>IMF website detailing the Economic Crisis</description>
+            </ext>
+			<ext>
+            	<site>Wikipedia</site>
+                <title>2007-2012 Global Financial Crisis</title>
+                <url>http://en.wikipedia.org/wiki/2007–2012_global_financial_crisis</url>
+                <description>Wikipedia page about the Global Financial Crisis</description>
+            </ext>
+		</ref>
+		<misc>Shortly after the economic recovery began, many Fortune 500 corporations reported record profits and many billionaires saw their net worths hit new highs. The 2011 edition of the annual U.S. dollar billionaires ranking compiled by Forbes Magazine broke new records, both in terms of the number of billionaires (1210) and their total wealth (US $4.5 trillion.) The Sunday Times Rich List for 2012 showed that the UK's wealthiest were richer than they had ever been, with a combined fortune of £414 billion.</misc>
+		<org idref="federal_reserve_system"/>
+		<person idref="barack_obama"/>
+    </crisis>
+	
+	<!-- ....................North Korea...........-->
+	
+		<crisis id="north_korea">
+        <name>North Korea and Nuclear Weapons</name>
+		<info>
+			<history>On October 9, 2006 the North Korean government announced that it had successfully conducted a nuclear test for the first time. Since then the government has declared that they have nuclear weapons of mass destruction. In addition, the CIA assesses that North Korea also has a substantial array of chemical weapons. Because of the instability of the North Korean government and huge potential for danger with nuclear and chemical weapons, this presents a worldwide threat.</history>
+			<help>Join the Free North Korea Coalition and raise awareness</help>
+			<resources>Increased international pressure on North Korea to cut their nuclear weapons program</resources>
+			<type>Nuclear threat</type>
+			<time>
+				<time></time>
+				<day>9</day>
+				<month>10</month>
+				<year>2006</year>
+				<misc>On October 9, 2006 the North Korean government announced that it had successfully conducted a nuclear test for the first time.</misc>
+			</time>
+			<loc>
+				<city>Pyongyang</city>
+				<region>Southeast Asia</region>
+				<country>North Korea</country>
+			</loc>
+			<impact>
+				<human>
+					<deaths>0</deaths>
+					<displaced>0</displaced>
+					<injured>0</injured>
+					<missing>0</missing>
+					<misc></misc>
+				</human>
+				<economic>
+					<amount>0</amount>
+					<currency>Dollars</currency>
+					<misc>Economic impact is unknown.</misc>
+				</economic>
+			</impact>
+		</info>
+		<ref>
+			<primaryImage>
+				<site>Boston.com</site>
+				<title>Nuclear Launch Site</title>
+				<url>http://cache.boston.com/bonzai-fba/Third_Party_Photo/2005/03/19/1111248871_9419.jpg</url>
+				<description>Photograph of the nuclear missile and Sattelite imagery of the launch site</description>
+			</primaryImage>
+			<image>
+				<site>Wikimedia</site>
+				<title>North Korea Nuclear War</title>
+				<url>http://upload.wikimedia.org/wikipedia/commons/f/f1/North_Korea_nuclear.svg</url>
+				<description></description>
+			</image>
+			<video>
+				<site>Youtube</site>
+				<title>North Korea Missile Launch Fails</title>
+				<url>http://youtu.be/P59KMyZ-3QM</url>
+				<description>Video describing the North Korean nuclear launch</description>
+			</video>
+			<social>
+            	<site>Twitter</site>
+                <title>Free North Korea</title>
+                <url>http://twitter.com/#!/freenorthkorea</url>
+                <description>Twitter for the Free North Korea movement</description>
+            </social>
+            <ext>
+            	<site>North Korea Freedom</site>
+                <title>North Korea Freedom</title>
+                <url>http://www.nkfreedom.org/</url>
+                <description>North Korea Freedom Coalition website</description>
+            </ext>
+			<ext>
+            	<site>Wikipedia</site>
+                <title>North Korea and Weapons of Mass Destruction</title>
+                <url>http://en.wikipedia.org/wiki/North_Korea_and_weapons_of_mass_destruction</url>
+                <description>Wikipedia article about North Korea and Weapons of Mass Destruction</description>
+            </ext>
+		</ref>
+		<misc>Despite its official name, in 2011 North Korea had the lowest Democracy Index of any nation on earth. </misc>
+		<org idref="department_of_defense"/>
+		<person idref="kim_jong_un"/>
+    </crisis>
+	
+	<!-- ..........................Tibet.......................-->
+
+	<crisis id="tibet">
+        <name>Tibetan Occupation</name>
+		<info>
+			<history>China's controversial occupation of Tibet has resulted in many suicides and what some have claimed to be cultural genocide.</history>
+			<help>Join an awareness organization, donate to the various organizations aiming to free tibet, join a boycott of goods made in China</help>
+			<resources>Donations to Tibetan awareness organizations</resources>
+			<type>Cultural Genocide</type>
+			<time>
+				<time></time>
+				<day>7</day>
+				<month>10</month>
+				<year>1950</year>
+				<misc>On October 7, 1950 the People's Liberation Army invaded Tibet.</misc>
+			</time>
+			<loc>
+				<city></city>
+				<region>Southeast Asia</region>
+				<country>China</country>
+			</loc>
+			<impact>
+				<human>
+					<deaths>1200000</deaths>
+					<displaced>0</displaced>
+					<injured>0</injured>
+					<missing>0</missing>
+					<misc>Mass suicides and Cultural Genocide</misc>
+				</human>
+				<economic>
+					<amount>0</amount>
+					<currency>Yuan</currency>
+					<misc>China's control has created an economic boom, with Tibet's GDP being 65 times what it was before China's control</misc>
+				</economic>
+			</impact>
+		</info>
+		<ref>
+			<primaryImage>
+				<site>Ligress</site>
+				<title>Tibet</title>
+				<url>http://ligress.files.wordpress.com/2009/04/tibet_map.gif</url>
+				<description>Map showing location of Tibet in proximity to China</description>
+			</primaryImage>
+			<image>
+				<site>World's famous photos</site>
+				<title>Budhist Monk On Fire</title>
+				<url>http://worldsfamousphotos.com/wp-content/uploads/2007/04/budist_monk_on_fire.jpg</url>
+				<description>Monk setting his body on fire in protest of the occupation</description>
+			</image>
+			<video>
+				<site>Youtube</site>
+				<title>Chinese Occupation of Tibet</title>
+				<url>http://www.youtube.com/embed/bWnfJqqW2Yk</url>
+				<description>Video depicting the Chinese Occupatin of Tibet</description>
+			</video>
+			<social>
+            	<site>Facebook</site>
+                <title>Free Tibet Campaign</title>
+                <url>https://www.facebook.com/pages/Free-Tibet-Campaign/107981189223849</url>
+                <description></description>
+            </social>
+			<social>
+            	<site>Twitter</site>
+                <title>Free Tibet</title>
+                <url>https://twitter.com/#!/freetibetorg</url>
+                <description>Twitter page of the Free-Tibet Organization</description>
+            </social>
+            <ext>
+            	<site>Free Tibet</site>
+                <title>Free Tibet Organization</title>
+                <url>http://www.freetibet.org/</url>
+                <description>Website for the Free Tibet Organizations</description>
+            </ext>
+			<ext>
+            	<site>Students for a free Tibet</site>
+                <title>Students for a Free Tibet</title>
+                <url>https://www.studentsforafreetibet.org/</url>
+                <description>Website for Students for a Free Tibet</description>
+            </ext>
+		</ref>
+		<misc>The Tibet Autonomous Region is the second-largest province-level division of China by area, spanning over 1,200,000 square kilometres (460,000 sq mi), after Xinjiang, and due to its generally harsh terrain, is the least densely populated provincial-level division of the PRC.</misc>
+		<org idref="united_nations"/>
+		<person idref="dalai_lama"/>
+    </crisis>
+	
+	<!--..................DEA............... -->
+	
+	<organization id="drug_enforcement_admin">
+        <name>Drug Enforcement Administration (DEA)</name>
+        <info>
+            <type>Federal Law Enforcement Agency</type>
+            <history>The DEA was established on July 1, 1973 by Reorganization Plan No. 2 of 1973 which was signed by President Richard Nixon on July 28, 1973. The plan proposed the creation of a single federal agency to enforce federal drug laws and consolidate and coordinated the government's drug control activities. Congress accepted the proposal and the Bureau of Narcotics and Dangerous Drugs and the Office of Drug Abuse Law Enforcement merged o create the DEA. The current DEA Administrator is Michele Leonhart and the current DEA Chief of Operations is Thomas M. Harrigan.</history>
+            <contact>
+                <phone>(202)307-1000</phone>
+                <email>Unlisted</email>
+                <mail>
+                    <address>8701 Morrissette Drive</address>
+                    <city>Springfield</city>
+                    <state>Virginia</state>
+                    <country>United States</country>
+                    <zip>22152</zip>
+                </mail>
+            </contact>
+            <loc>
+                <city>Arlington</city>
+                <region>Virginia</region>
+                <country>USA</country>
+            </loc>
+        </info>
+        <ref>
+			<primaryImage>
+	            <site>Wikipedia</site>
+                <title>DEA Seal</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/5/54/US-DrugEnforcementAdministration-Seal.svg/600px-US-DrugEnforcementAdministration-Seal.svg.png</url>
+                <description>A picture of the DEA official seal</description>
+            </primaryImage>
+            <image>
+	            <site></site>
+                <title>DEA Badge</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/8/83/DEA_badge_C.PNG</url>
+                <description>Badge of the DEA</description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>DEA Team</title>
+                <url>http://www.youtube.com/embed/dSUGY8qV6Jc</url>
+                <description>DEA FAST team</description>
+            </video>
+            <social>
+	            <site>Twitter</site>
+                <title>DEA Twitter</title>
+                <url>http://twitter.com/#!/DEAEdFoundation</url>
+                <description>DEA Education Foundation twitter</description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>DEA</title>
+                <url>http://www.justice.gov/dea/</url>
+                <description>DEA official website</description>
+            </ext>
+        </ref>
+        <misc>The Administrator and Deputy Administrator are the only presidentially-appointed personnel in the DEA; all other DEA officials are career government employees.</misc>
+        <crisis idref="bath_salts"/>
+        <person idref="michele_leonhart"/>
+    </organization>
+	
+	<!--..................Department of Defense............... -->
+	
+	<organization id="department_of_defense">
+        <name>United States Department of Defense (USDoD)</name>
+        <info>
+            <type>The Executive Department of the Government of the United States of America charged with coordinating and supervising all agencies and functions of the government concerned directly with national security and the United States armed forces.</type>
+            <history>The US Congress created the War Department in 1789 and the Navy Department in 1798. In 1945 President Truman proposed the creation of a unified department of state defense, citing both wasteful military spending and inter-departmental conflicts. In 1947, President Truman signed the National Security Act of 1947, which set up a unified military command known as the National Military Establishment. The National Military Establishment was renamed the Department of Defense on August 10, 1949, in an amendment to the original 1947 law.</history>
+            <contact>
+                <phone>703-571-3343</phone>
+                <email>Unlisted</email>
+                <mail>
+                    <address>1400 Defense Pentagon</address>
+                    <city>Washington</city>
+                    <state>DC</state>
+                    <country>USA</country>
+                    <zip>20301</zip>
+                </mail>
+            </contact>
+            <loc>
+                <city>Arlington</city>
+                <region>Virginia</region>
+                <country>USA</country>
+            </loc>
+        </info>
+        <ref>
+			<primaryImage>
+	            <site>Wikimedia</site>
+                <title>The Pentagon</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/The_Pentagon_US_Department_of_Defense_building.jpg/800px-The_Pentagon_US_Department_of_Defense_building.jpg</url>
+                <description>Department of Defense offices at the Pentagon</description>
+            </primaryImage>
+            <image>
+	            <site>Wikipedia</site>
+                <title>Department of Defense Seal</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/United_States_Department_of_Defense_Seal.svg/500px-United_States_Department_of_Defense_Seal.svg.png</url>
+                <description>DoD Seal</description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>Future Soldiers, Pentagon Youtube Channel</title>
+                <url>http://www.youtube.com/embed/bJ76-dVSrBc</url>
+                <description>The Pentagon Channel: Future Soldier</description>
+            </video>
+            <social>
+	            <site>Twitter</site>
+                <title>DoD Twitter</title>
+                <url>http://twitter.com/#!/DeptofDefense</url>
+                <description>Department of Defense Twitter</description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>DoD Website</title>
+                <url>http://www.defense.gov/</url>
+                <description>Official website</description>
+            </ext>
+        </ref>
+        <misc>The Department of Defense was the largest single consumer of energy in the United States in 2006.</misc>
+        <crisis idref="north_korea"/>
+        <person idref="kim_jong_un"/>
+    </organization>
+	
+	<!--..................Federal Reserve............... -->
+	
+	<organization id="federal_reserve_system">
+        <name>The Federal Reserve System</name>
+        <info>
+            <type>The central banking system of the United States</type>
+            <history>The Federal Reserve System was created on December 23, 1913 through the Federal Reserve Act. This was in response to a series of panics, particularly the Panic of 1907 when the NYSE fell almost 50% from its peak the previous year. Since then, the roles and responsibilities of the Federal Reserve System have expanded and the structure has evolved. Ben Bernanke is the current Chairman of the Federal Reserve System.</history>
+            <contact>
+                <phone>Unlisted</phone>
+                <email>Unlisted</email>
+                <mail>
+                    <address></address>
+                    <city>Washington D.C.</city>
+                    <state>Washington D.C.</state>
+                    <country>United States of America</country>
+                    <zip>20001</zip>
+                </mail>
+            </contact>
+            <loc>
+                <city>Washington</city>
+                <region>D.C.</region>
+                <country>USA</country>
+            </loc>
+        </info>
+        <ref>
+			<primaryImage>
+	            <site>Wikimedia</site>
+                <title>Marriner S. Eccles Federal Reserve Board Building</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Marriner_S._Eccles_Federal_Reserve_Board_Building.jpg/800px-Marriner_S._Eccles_Federal_Reserve_Board_Building.jpg</url>
+                <description>Federal Reserve Building</description>
+            </primaryImage>
+            <image>
+	            <site>Wikipedia</site>
+                <title>Federal Reserve Seal</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/US-FederalReserveSystem-Seal.svg/500px-US-FederalReserveSystem-Seal.svg.png</url>
+                <description>Federal Reserve Seal</description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>Federal Reserve Documentary</title>
+                <url>http://www.youtube.com/embed/pQGhfQnRzYk</url>
+                <description>Money, Banking, and the Federal Reserve Documentary</description>
+            </video>
+            <social>
+	            <site>Twitter</site>
+                <title>Federal Reserve Twitter</title>
+                <url>http://twitter.com/#!/federalreserve</url>
+                <description>Federal Reserve Twitter</description>
+            </social>
+            <ext>
+            	<site>Federal Reserve</site>
+                <title>Website for the Federal Reserve</title>
+                <url>http://www.federalreserve.gov/</url>
+                <description>Official website</description>
+            </ext>
+        </ref>
+        <misc>According to the Board of Governors, the Federal Reserve is independent within government in that "its monetary policy decisions do not have to be approved by the President or anyone else in the executive or legislative branches of government." Its authority is derived from statutes enacted by the U.S. Congress and the System is subject to congressional oversight. </misc>
+        <crisis idref="global_economic_crisis"/>
+        <person idref="barack_obama"/>
+    </organization>	
+	
+	<!--..................United Nations............... -->
+	
+	<organization id="united_nations">
+        <name>The United Nations (UN)</name>
+        <info>
+            <type>An international assembly of 193 member states</type>
+            <history>The United Nations was established in 1945 to replace the League of Nations, which failed to prevent World War II. The main goal of the organization is to maintain international peace and promote cooperation in solving international problems. The UN Conference on International Organization began on April 25, 1945 with 50 governments in attendance. The UN Charter was ratified on October 24, 1945 by France, the Republic of China, the Soviet Union, the United States, and the United Kingdom (the five permanent members of the Security Council at the time) as well as a majority of the other 46 signatories. The UN was originally based at the Sperry Gyroscope Corporation's facility in Lake Success, New York, from 1946-1952, before being moved to the UN Headquarters building in Manhattan. The United Nations currently has 193 member states.</history>
+            <contact>
+                <phone>Unlisted</phone>
+                <email>Unlisted</email>
+                <mail>
+                    <address>760 United Nations Plaza</address>
+                    <city>New York</city>
+                    <state>New York</state>
+                    <country>United States</country>
+                    <zip>10017</zip>
+                </mail>
+            </contact>
+            <loc>
+                <city>New York City</city>
+                <region>New York</region>
+                <country>USA</country>
+            </loc>
+        </info>
+        <ref>
+			<primaryImage>
+	            <site></site>
+                <title>The UN headquarters in New York City</title>
+                <url>http://www.un.org/cyberschoolbus/untour/imgunh.jpg</url>
+                <description>The UN headquarters in New York City</description>
+            </primaryImage>
+            <image>
+	            <site>Wikipedia</site>
+                <title>Logo for the UN</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Emblem_of_the_United_Nations.svg/500px-Emblem_of_the_United_Nations.svg.png</url>
+                <description></description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>The United Nations: It's Your World</title>
+                <url>http://www.youtube.com/embed/bHmXZXsABm0</url>
+                <description></description>
+            </video>
+            <social>
+	            <site>Twitter</site>
+                <title>United Nations Twitter</title>
+                <url>http://twitter.com/#!/UN</url>
+                <description>United Nations twitter</description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>Official Website for the United Nations</title>
+                <url>www.un.org</url>
+                <description>Official website</description>
+            </ext>
+        </ref>
+        <misc>The UN was founded in 1945 after World War II to replace the League of Nations, to stop wars between countries, and to provide a platform for dialogue. It contains multiple subsidiary organizations to carry out its missions.</misc>
+        <crisis idref="tibet"/>
+        <person idref="dalai_lama"/>
+    </organization>		
+	
+ 
+	<!-- .................Dalai Lama...............-->
+    <person id="dalai_lama">
+        <name>Tenzin Gyatso</name>
+        <info>
+            <type>14th Dalai Lama</type>
+            <birthdate>
+                <time></time>
+                <day>6</day>
+                <month>7</month>
+                <year>1935</year>
+                <misc>Tenzin was originally named Lhamo Dondrub</misc>
+            </birthdate>
+            <nationality>Tibetan</nationality>
+            <biography>The 14th Dalai Lama, Jetsun Jamphel Ngawang Lobsang Yeshe Tenzin Gyatso (Tenzin Gyatso for short), was born Lhamo Dondrub in Takster, China. He is the spiritual leader of the Gelugpa lineage of Tibetan Buddhists, and after fleeing to India in the 1959 Tibetan Uprising against China, he established the Tibetan government in exile. Since then, he has traveled the world teaching Tibetan Buddhism and advocating for the welfare of Tibetans.</biography>
+        </info>
+        <ref>
+			<primaryImage>
+            	<site>Wallenberg</site>
+                <title>Tenzin Gyatso</title>
+                <url>http://wallenberg.umich.edu/images/recipient/3Lama.gif</url>
+                <description>Tenzin Gyatso, the 14th Dalai Lama, smiles and claps his hands.</description>
+            </primaryImage>
+            <image>
+            	<site>Wikipedia</site>
+                <title>First Dalai Lama</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/f/fb/1st_Dalai_Lama.jpg</url>
+                <description>Gendun Drup, 1st Dalai Lama</description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>The Dalai Lama: Happiness, Inner Peace, and Money</title>
+                <url>http://www.youtube.com/embed/_QvVaZfFDKw</url>
+                <description></description>
+            </video>
+            <social>
+            	<site>Facebook</site>
+                <title>Dalai Lama's Facebook page</title>
+                <url>https://www.facebook.com/DalaiLama</url>
+                <description>14th Dalai Lama facebook page</description>
+            </social>
+            <ext>
+            	<site>Dalai Lama</site>
+                <title>Official Website of the 14th Dalai Lama</title>
+                <url>http://www.dalailama.com/</url>
+                <description>Contains information about the teaching and works of the 14th Dalai Lama</description>
+            </ext>
+        </ref>
+        <misc>Tenzin Gyatso won the Nobel Peace Prize in 1989, and is also well known for his lifelong advocacy for Tibetans inside and outside Tibet.</misc>
+        <crisis idref="tibet"/>
+        <org idref="united_nations"/>
+    </person>            
+           
+
+	<!-- .................Barack Obama...............-->
+    <person id="barack_obama">
+        <name>Barack Obama</name>
+        <info>
+            <type>44th President of the United States</type>
+            <birthdate>
+                <time></time>
+                <day>4</day>
+                <month>8</month>
+                <year>1961</year>
+                <misc>Born in Honolulu, Hawaii.</misc>
+            </birthdate>
+            <nationality>United States</nationality>
+            <biography>Barack Hussein Obama II is the 44th and current President of the United States and the first African American to hold the office. He served as a U.S. Senator representing the state of Illinois from January 2005 to November 2008, when he won the 2008 presidential election. Obama was born in Hawaii, graduated from Columbia University and Harvard Law School, worked as a civil rights attorney in Chicago, and taught constitutional law at the University of Chicago Law School. Before being elected as president in 2008, he served three terms in the Illinois Senate and one term as a US Senator from Illinois. He received the 2009 Nobel Peace Prize, and while president, has had to deal with the reform of Healthcare in the U.S, the World Economic Crisis, the Occupy Wallstreet Movement, and many other challenging issues.</biography>
+        </info>
+        <ref>
+			<primaryImage>
+            	<site>Wikimedia</site>
+                <title>Barack Obama</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg</url>
+                <description>Official Portrait of Barack Obama</description>
+            </primaryImage>
+            <image>
+            	<site>Wikipedia</site>
+                <title>The First Family</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Barack_Obama_family_portrait_2011.jpg/300px-Barack_Obama_family_portrait_2011.jpg</url>
+                <description>Barack Obama's family</description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>President Obama Speaks on the Economy</title>
+                <url>http://www.youtube.com/embed/VbnplgnVG4s</url>
+                <description></description>
+            </video>
+            <social>
+            	<site>Facebook</site>
+                <title>President Obama's Facebook page</title>
+                <url>http://www.facebook.com/barackobama</url>
+                <description>Official facebook page for President Obama</description>
+            </social>
+			<social>
+            	<site>Twitter</site>
+                <title>Twitter page of President Obama</title>
+                <url>http://twitter.com/#!/BarackObama/</url>
+                <description>Official twitter page for President Obama</description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>President Barack Obama Website</title>
+                <url>http://www.barackobama.com/</url>
+                <description>Contains information about President Obama and his campaign</description>
+            </ext>
+        </ref>
+        <misc>Obama is a graduate of Columbia University and Harvard Law School, where he was the president of the Harvard Law Review.</misc>
+        <crisis idref="global_economic_crisis"/>
+        <org idref="federal_reserve_system"/>
+    </person>			
+
+
+	<!-- .................Michele Leonhart...............-->
+    <person id="michele_leonhart">
+        <name>Michele M. Leonhart</name>
+        <info>
+            <type>Administrator of the Drug Enforcement Administration</type>
+            <birthdate>
+                <time></time>
+                <day>0</day>
+                <month>0</month>
+                <year>0</year>
+                <misc>Birthday unlisted</misc>
+            </birthdate>
+            <nationality>United States</nationality>
+            <biography>Michele Marie Leonhart is an American career law enforcement officer and currently the Administrator of the Drug Enforcement Agency. She graduated with a degree in Criminal Justice from Bemidji State University of Minnesota in 1978 and went on to work as a police officer in Baltimore Maryland before moving into the DEA in 1980. She spent the next several years moving up the ranks in the DEA before becoming the Special Agent in charge of the Los Angeles Field Division which put her in charge of all enforcement and administrative operations in Los Angeles, Nevada, Hawaii, Guam, and Saipan. This made her the first female ever promoted to the position of "Special Agent in Charge." She was nominated in 2008 by former President George W. Bush to replace the recently retired Administrator, and she was nominated again by President Barack Obama to the position of Administrator.</biography>
+        </info>
+        <ref>
+			<primaryImage>
+            	<site>Wikimedia</site>
+                <title>Michele Leonhart</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/8/8e/Michele_Leonhart_official_photo.jpg</url>
+                <description>Official Portrait of Michele Leonhart</description>
+            </primaryImage>
+            <image>
+            	<site>Roembus</site>
+                <title>Michele Leonhart</title>
+                <url>http://www.roembus.org/english/visite/2005/feb_National_Prayer_Breakfast/Pavel_Abraham/images/intalnire%20Mrs.%20Michele%20Leonhart.jpg</url>
+                <description></description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>Representative Cohen vs. Michele Leonhart</title>
+                <url>http://www.youtube.com/embed/H3ebBYbLnu4</url>
+                <description>Representative Cohen vs. Michele Leonhart</description>
+            </video>
+            <social>
+            	<site>Facebook</site>
+                <title>DEA Facebook page</title>
+                <url>https://www.facebook.com/DrugEnforcementAdministration</url>
+                <description>Unofficial DEA Facebook</description>
+            </social>
+
+            <ext>
+            	<site>Justice.gov</site>
+                <title>Michele Leonhart bio page by DEA</title>
+                <url>http://www.justice.gov/dea/agency/leonhart.html</url>
+                <description>Contains biographical info about Michele Leonhart</description>
+            </ext>
+        </ref>
+        <misc>Michele Leonhart became DEA's first female Special Agent in Charge in 1997.</misc>
+        <crisis idref="bath_salts"/>
+        <org idref="drug_enforcement_admin"/>
+    </person>
+
+
+	<!-- .................Kim Jong Un...............-->
+    <person id="kim_jong_un">
+        <name>Kim Jong-un</name>
+        <info>
+            <type>Supreme Commander of North Korea</type>
+            <birthdate>
+                <time></time>
+                <day>8</day>
+                <month>1</month>
+                <year>1983</year>
+                <misc>Born in Pyongyang, North Korea</misc>
+            </birthdate>
+            <nationality>North Korea</nationality>
+            <biography>Kim Jong-un is the Supreme Leader of North Korea, First Secretary of the Workers' Party of Korea, First Chairman of the National Defence Commission, Supreme Commander of the Korean People's Army, and Chairman of the Central Military Commission in North Korea. Kim Jong-un, his father and predecessor, died on the 28th of December, 2011 to screams of mourning of his citizens. Allegedly, North Koreans were forced to cry to show a proper amount of respect. Regardless of the validity of these claims, it can be said that the political regime in Pyongyang is hostile, complicated, and completely focused on the Supreme Leader. As a result, it is not yet clear how the shift in leadership to Kim Jong-un will affect North Korea's previously belligerent nature, and the possibility of the country's continued development of nuclear weapons has left the world in an ongoing crisis.</biography>
+        </info>
+        <ref>
+			<primaryImage>
+            	<site>Onion</site>
+                <title>Kim Jong-un</title>
+                <url>http://o.onionstatic.com/images/articles/article/18374/Kim-Jong-R_jpg_250x1000_q85.jpg</url>
+                <description>Kim Jong-un, Supreme Commander of North Korea</description>
+            </primaryImage>
+            <image>
+            	<site>Blobspot</site>
+                <title>Kim Johg Un</title>
+                <url>http://1.bp.blogspot.com/-nfF7p8sthG4/T28kYkruUkI/AAAAAAAAAMI/Wp3oDx8ZgZA/s1600/KimJong-un.jpg</url>
+                <description></description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>Kim Jong-Un's first speech</title>
+                <url>http://www.youtube.com/embed/lG31fvXEIU8</url>
+                <description>Kim Jong-un gives first speech</description>
+            </video>
+            <social>
+            	<site>Twitter</site>
+                <title>Kim Jong Un Twitter</title>
+                <url>http://twitter.com/#!/KimJongNumberUn</url>
+                <description>Fake Twitter account for Kim Jong Un</description>
+            </social>
+
+            <ext>
+            	<site>Wikipedia</site>
+                <title>Wikipedia page for Kim Jong-un</title>
+                <url>http://en.wikipedia.org/wiki/Kim_Jong-un</url>
+                <description>Contains information about Kim Jong-un</description>
+            </ext>
+        </ref>
+        <misc>Kim Jong-un is the third and youngest son of Kim Jong-il and his consort Ko Young-hee.</misc>
+        <crisis idref="north_korea"/>
+        <org idref="department_of_defense"/>
+    </person>
+</worldCrises>

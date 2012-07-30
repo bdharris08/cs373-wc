@@ -127,7 +127,8 @@
 <!--Beginning of Body-->
 <body style="margin-top: 80px" onload="initialize()">
     <!--<div id="map_canvas" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1;"></div>-->
-    <div class="span9">
+    <div class = "container">
+    <div class="span11">
         <br><br>
         
         {% if not matchedExact and not matchedAnd and not matchedOr %}
@@ -174,10 +175,14 @@
             </ul></p>
         {% empty %}
         {% endfor %}
+        </div>
+        </div>
     </body>
     <footer>
-        <p>&copy; Super Seniors</p>
-        <p> Rohan Shah | Benjamin David Harris | Victor Pang | Ting-Yi Chen | Matt Granado | Elizabeth Hayden</p>
+<hr>
+        <center>
+            <p>&copy; Super Seniors : Rohan Shah | Benjamin David Harris | Victor Pang | Ting-Yi Chen | Matt Granado | Elizabeth Hayden</p>
+        </center>
     </footer>
     <!-- Le javascript
     ================================================== -->

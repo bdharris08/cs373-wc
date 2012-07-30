@@ -197,3 +197,4 @@ class ModelTest(unittest.TestCase):
     	entity = wc.Person(id = "Dalai", name = "Dalai Lama")
         self.assertTrue(entity.id == "Dalai")
         self.assertTrue(entity.name == "Dalai Lama")
+
