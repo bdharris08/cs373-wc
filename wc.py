@@ -380,9 +380,7 @@ class ImportHandler(webapp.RequestHandler):
         name="Import" value="Import"> <input type="submit"
         name="Merge" value="Merge"> </form>
     </center>
-        
-    </body>""")
-        
+    </body>""")   
     self.response.out.write("""<script src="/stylesheets/jquery.js"></script>
 	<script src="/stylesheets/bootstrap-fileupload.js"></script>
 	 </html>""")
