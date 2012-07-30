@@ -1,0 +1,3 @@
+queue:
+- name: optimal-queue
+  rate: 20/s
