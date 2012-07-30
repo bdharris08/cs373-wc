@@ -40,37 +40,70 @@
   </head>
   <body style="padding:40px; margin-top:40px"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="stylesheets/bootstrap.css" rel="stylesheet"><meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <div class="span9">
+        <br><br>
         <h1> Results </h1>
         <br>
-        <h2> Exact Match </h2>
         {% for m in matchedExact %}
+            {% if forloop.first %}
+                <h2> Exact Match </h2>
+            {% endif %}
             <p><ul> 
             <li> <a href="{{m.1}}">{{m.0}}</a><br>
             Matched Text : 
             {% for i in m.2 %}{% if forloop.last %}{{i}}{% else %}{{i}}<span style="background-color:yellow">{{keyword}}</span>{% endif %}{% endfor %}
             </li>
             </ul></p>
+        {% empty %}
+            {% if not matchedExact %}
+              <h2> No Results </h2>
+            {% endif %}
         {% endfor %}
         
-        <h2> Full Match </h2>
         {% for m in matchedAnd %}
+            {% if forloop.first %}
+                <h2> Full Match </h2>
+            {% endif %}
             <p><ul> 
             <li> <a href="{{m.1}}">{{m.0}}</a><br>
             Matched Text : 
             {% for i in m.2 %}{% if forloop.counter0|divisibleby:"2" %}{{i}}{% else %}<span style="background-color:yellow">{{i}}</span>{% endif %}{% endfor %}
             </li>
             </ul></p>
+        {% empty %}
         {% endfor %}
-        
-        <h2> Partial Match </h2>
+    
         {% for m in matchedOr %}
+            {% if forloop.first %}
+                <h2> Partial Match </h2>
+            {% endif %}
             <p><ul> 
             <li> <a href="{{m.1}}">{{m.0}}</a><br>
             Matched Text : 
             {% for i in m.2 %}{% if forloop.counter0|divisibleby:"2" %}{{i}}{% else %}<span style="background-color:yellow">{{i}}</span>{% endif %}{% endfor %}
             </li>
             </ul></p>
+        {% empty %}
         {% endfor %}
         
   </body>
+    <footer>
+        <p>&copy; Super Seniors</p>
+        <p> Rohan Shah | Benjamin David Harris | Victor Pang | Ting-Yi Chen | Matt Granado | Elizabeth Hayden</p>
+    </footer>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="stylesheets/jquery.js"></script>
+    <script src="stylesheets/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="stylesheets/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="stylesheets/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="stylesheets/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
 </html>
