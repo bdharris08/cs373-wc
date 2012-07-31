@@ -1652,7 +1652,7 @@ class Crisis (db.Model):
     name = db.StringProperty()
     #info
     #ref
-    misc = db.StringProperty()
+    misc = db.TextProperty()
     
 class Organization(db.Model):
     worldCrises  = db.ReferenceProperty(WorldCrises, collection_name = 'organizations')
@@ -1660,7 +1660,7 @@ class Organization(db.Model):
     name = db.StringProperty()
     #info
     #ref  
-    misc = db.StringProperty()
+    misc = db.TextProperty()
     
 class Person(db.Model):
     worldCrises  = db.ReferenceProperty(WorldCrises, collection_name = 'persons')
@@ -1668,7 +1668,7 @@ class Person(db.Model):
     name = db.StringProperty()
     #info
     #ref
-    misc = db.StringProperty()
+    misc = db.TextProperty()
     
 class CrisisInfo (db.Model):
     crisis = db.ReferenceProperty(Crisis, collection_name = 'info')
@@ -1714,7 +1714,7 @@ class Date(db.Model):
     day = db.IntegerProperty()
     month = db.IntegerProperty()
     year = db.IntegerProperty()
-    misc = db.StringProperty()
+    misc = db.TextProperty()
     
 class Location (db.Model):
     crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'location')
@@ -1743,13 +1743,13 @@ class HumanImpact (db.Model):
     displaced = db.IntegerProperty()
     injured = db.IntegerProperty()
     missing = db.IntegerProperty()
-    misc = db.StringProperty()
+    misc = db.TextProperty()
     
 class EconomicImpact (db.Model):
     crisisInfo = db.ReferenceProperty(CrisisInfo, collection_name = 'economicImpact')
     amount = db.IntegerProperty()
     currency = db.StringProperty()
-    misc = db.StringProperty()
+    misc = db.TextProperty()
     
 class CrisisOrganization (db.Model):
     crisis = db.ReferenceProperty(Organization, collection_name = 'orgCrisis')
