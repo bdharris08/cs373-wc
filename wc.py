@@ -90,6 +90,7 @@ class SearchResultHandler(webapp2.RequestHandler):
             for l in lines:
                 parsedLine = re.split(":", l, maxsplit = 1)
                 parsedLine = parsedLine[1].lower()
+                parsedLine = "".join((c if ord(c) < 128 else ' ' for c in parsedLine))
                 if(keyword.lower() in parsedLine):
                     parsedMatched = re.split(keywordI, l)
                     matchedExact.append([name, url, parsedMatched])
@@ -886,7 +887,7 @@ class UploadHandler(webapp.RequestHandler):
             oi = o.find("info")
             orgInfo = OrgInfo()
             orgInfo.organization = org
-            if oi.find("info") == None or oi.find("type").text == None :
+            if oi.find("type") == None or oi.find("type").text == None :
                 org.type = " "
             else :
                 orgInfo.type = oi.find("type").text
@@ -1210,7 +1211,7 @@ class UploadHandler(webapp.RequestHandler):
                     ref.put()  
             
             if not r.find("social") == None:    
-            s = r.findall("social")
+                s = r.findall("social")
                 for i in s:
                     ref = ExternalLink()
                     ref.person = person
@@ -1286,8 +1287,22 @@ class UploadHandler(webapp.RequestHandler):
                 relation.organization = person
                 relation.person = org
                 relation.put()
-
+                
+    except pyxsval.XsvalError, errstr:
+        self.redirect("/xmlerror")
     
+    except GenXmlIfError, errstr:
+        self.redirect("/xmlerror")
+        
+    except Exception, e :
+        self.redirect("/xmlerror")
+    
+    self.redirect("/buildDataCache")
+    
+    
+    
+class BuildDataCacheHandler(webapp.RequestHandler):
+    def get(self):
         #Build db.txt to cache data for efficient searching
         
         key = dataCacheKey.all().fetch(None)
@@ -1300,63 +1315,43 @@ class UploadHandler(webapp.RequestHandler):
         
         dataCache = files.blobstore.create(mime_type='application/octet_stream')
         
+        Crisislist = Crisis.all().fetch(None)
+        Orglist = Organization.all().fetch(None)
+        Peoplelist = Person.all().fetch(None)
         
-        for c in crises:    
-            ci = c.find("info")
-            t = ci.find("time")
-            l = ci.find("loc")
-            i = ci.find("impact")
-            hi = i.find("human")
-            ei = i.find("economic")
-            
-            history = ci.find("history").text
-            if(history == None): history = " "
-            myhelp = ci.find("help").text
-            if(myhelp == None): myhelp = " "
-            resources = ci.find("resources").text
-            if(resources == None): resources = " "
-            mytype = ci.find("type").text
-            if(mytype == None): mytype = " "
-            time = t.find("time").text
-            if(time == None): time = " "
-            day = t.find("day").text
-            if(day == None): day = " "
-            month = t.find("month").text
-            if(month == None): month = " "
-            year = t.find("year").text
-            if(year == None): year = " "
-            miscT = t.find("misc").text
-            if(miscT == None): miscT = " "
-            city = l.find("city").text
-            if(city == None): city = " "
-            region = l.find("region").text
-            if(region == None): region = " "
-            country = l.find("country").text
-            if(country == None): country = " "
-            deaths = hi.find("deaths").text
-            if(deaths == None): deaths = " "
-            displaced = hi.find("displaced").text
-            if(displaced == None): displaced = " "
-            injured = hi.find("injured").text
-            if(injured == None): injured = " "
-            missing = hi.find("missing").text
-            if(missing == None): missing = " "
-            miscHi = hi.find("misc").text 
-            if(miscHi == None): miscHi = " "
-            amount = ei.find("amount").text 
-            if(amount == None): amount = " "
-            currency = ei.find("currency").text 
-            if(currency == None): currency = " "
-            miscEi = ei.find("misc").text 
-            if(miscEi == None): miscEi = " "
-            name = c.find("name").text 
-            if(name == None): name = " "
-            id = c.get("id") 
-            if(c.get("id") == None): id = " "
-            
+        for c in Crisislist :
+            id = str(c.id.encode("utf8"))
+            name = str(c.name.encode("utf8"))
+            miscC = str(c.misc.encode("utf8"))
+            ci = c.info.fetch(None).pop()
+            history = str(ci.history.encode("utf8"))
+            myhelp = str(ci.help.encode("utf8"))
+            resources = str(ci.resources.encode("utf8"))
+            mytype = str(ci.type.encode("utf8"))
+            t = ci.time.fetch(None).pop()
+            time = str(t.time.encode("utf8"))
+            day = str(t.day)
+            month = str(t.month)
+            year = str(t.year)
+            miscT = str(t.misc.encode("utf8"))
+            l = ci.location.fetch(None).pop()
+            city = str(l.city.encode("utf8"))
+            region = str(l.region.encode("utf8"))
+            country = str(l.country.encode("utf8"))
+            hi = ci.humanImpact.fetch(None).pop()
+            deaths = str(hi.deaths)
+            displaced = str(hi.displaced)
+            injured = str(hi.injured)
+            missing = str(hi.missing)
+            miscHi = str(hi.misc.encode("utf8"))
+            ei = ci.economicImpact.fetch(None).pop()
+            amount = str(ei.amount)
+            currency = str(ei.currency.encode("utf8"))
+            miscEi = str(ei.misc.encode("utf8"))
             
             with files.open(dataCache, 'a') as f:
-                f.write("History: " + history + "\n" +
+                f.write("Misc: " + miscC + "\n" +
+                        "History: " + history + "\n" +
                         "Help: " + myhelp + "\n" +
                         "Resources: " + resources + "\n" +
                         "Type: " + mytype + "\n" +
@@ -1380,53 +1375,37 @@ class UploadHandler(webapp.RequestHandler):
                         " " + name + "\n")
     
                 
-        for o in organizations:
-            oi = o.find("info")
-            c = oi.find("contact")
-            fa = c.find("mail")
-            l = oi.find("loc")
-            
-            id = o.get("id")
-            name = o.find("name").text
-            if (name == None): name = " "
-            misc = o.find("misc").text
-            if (misc == None): misc = " "
-    
-            mytype = oi.find("type").text
-            if(mytype == None): mytype = " "
-            history = oi.find("history").text
-            if(history == None): history = " "
-            phone = c.find("phone").text
-            if(phone == None): phone = " "
-            email = c.find("email").text
-            if(email == None): email = " "
-            address = fa.find("address").text
-            if(address == None): address = " "
-            city = fa.find("city").text
-            if(city == None): city = " "
-            state = fa.find("state").text
-            if(state == None): state = " "
-            country = fa.find("country").text
-            if(country == None): country = " "
-            myzip = fa.find("zip").text
-            if(myzip == None): myzip = " "
-            city = l.find("city").text
-            if(city == None): city = " "
-            region = l.find("region").text
-            if(region == None): region = " "
-            country = l.find("country").text
-            if(country == None): country = " "
+        for o in Orglist:
+            id = str(o.id.encode("utf8"))
+            name = str(o.name.encode("utf8"))
+            misc = str(o.misc.encode("utf8"))
+            oi = o.info.fetch(None).pop()
+            mytype = str(oi.type.encode("utf8"))
+            history = str(oi.history.encode("utf8"))
+            c = oi.contact.fetch(None).pop()
+            phone = str(c.phone.encode("utf8"))
+            email = str(c.email.encode("utf8"))
+            fa = c.mail.fetch(None).pop()
+            address = str(fa.address.encode("utf8"))
+            cityFA = str(fa.city.encode("utf8"))
+            state = str(fa.state.encode("utf8"))
+            country = str(fa.country.encode("utf8"))
+            myzip = str(fa.zip.encode("utf8"))
+            l = oi.location.fetch(None).pop()
+            cityL = str(l.city.encode("utf8"))
+            region = str(l.region.encode("utf8"))
+            country = str(l.country.encode("utf8"))
             
             with files.open(dataCache, 'a') as f:
                 f.write("Type: " + mytype + "\n" +
                         "History: " + history + "\n" +
                         "Email: " + email + "\n" +
                         "Address: " + address + "\n" +
-                        "City: " + city + "\n" +
+                        "City: " + cityFA + "\n" +
                         "State: " + state + "\n" +
                         "Country: " + country + "\n" +
                         "Zip: " + myzip + "\n" +
-                        "City: " + city + "\n" +
+                        "City: " + cityL + "\n" +
                         "Region: " + region + "\n" +
                         "Country: " + country + "\n" +
                         "Misc: " + misc + "\n" +
@@ -1434,32 +1413,20 @@ class UploadHandler(webapp.RequestHandler):
                         " " + name + "\n")
                         
         
-        for p in people :
-            pi = p.find("info")
-            bd = pi.find("birthdate")
-            
-            id = p.get("id")
-            if (id == None): id = " "
-            name = p.find("name").text
-            if (name == None): name = " "
-            misc = p.find("misc").text
-            if (misc == None): misc = " "
-            mytype = pi.find("type").text
-            if (mytype == None): mytype = " "
-            nationality = pi.find("nationality").text
-            if (nationality == None): nationality = " "
-            biography = pi.find("biography").text
-            if (biography == None): biography = " "
-            time = bd.find("time").text
-            if (time == None): time = " "
-            day = bd.find("day").text
-            if (day == None): day = " "
-            month = bd.find("month").text
-            if (month == None) : month = " "
-            year = bd.find("year").text
-            if (year == None): year = " "
-            bdmisc = bd.find("misc").text
-            if (bdmisc == None): bdmisc = " "
+        for p in Peoplelist :
+            id = str(p.id.encode("utf8"))
+            name = str(p.name.encode("utf8"))
+            misc = str(p.misc.encode("utf8"))
+            pi = p.info.fetch(None).pop()
+            mytype = str(pi.type.encode("utf8"))
+            nationality = str(pi.nationality.encode("utf8"))
+            biography = str(pi.biography.encode("utf8"))
+            bd = pi.birthdate.fetch(None).pop()
+            time = str(bd.time.encode("utf8"))
+            day = str(bd.day)
+            month = str(bd.month)
+            year = str(bd.year)
+            bdmisc = str(bd.misc.encode("utf8"))
             
             with files.open(dataCache, 'a') as f:
                 f.write("Type: " + mytype + "\n" +
@@ -1499,19 +1466,7 @@ class UploadHandler(webapp.RequestHandler):
         print file_reader.readline()
         print file_reader.readline()
         """
-        self.redirect('/')
-    except pyxsval.XsvalError, errstr:
-        self.redirect("/xmlerror")
-    
-    except GenXmlIfError, errstr:
-        self.redirect("/xmlerror")
-        
-    except Exception, e :
-        self.redirect("/xmlerror")
-    
-    
-    
-   
+        self.redirect('/')   
 
 class ExportHandler(webapp.RequestHandler):
     def get(self):
@@ -1568,7 +1523,6 @@ class ExportHandler(webapp.RequestHandler):
                 if cp.person.name == c.name :
                     cplist.append(cp.crisis)
             clist.append(cplist)
-
             crisisList.append(clist)
             
         for o in OrgQuery :
@@ -1807,9 +1761,13 @@ class dataKey (db.Model):
     importBool = db.BooleanProperty()
     
     
-app = webapp2.WSGIApplication([('/', MainPage), ('/import', ImportHandler), ('/upload', UploadHandler),
+app = webapp2.WSGIApplication([('/', MainPage), 
+                            ('/import', ImportHandler), 
+                            ('/upload', UploadHandler),
                             ('/pre_upload', Pre_Upload_Handler),
-                            ('/serve/([^/]+)?', ServeHandler), ('/export', ExportHandler), 
+                            ('/serve/([^/]+)?', ServeHandler), 
+                            ('/buildDataCache',BuildDataCacheHandler),
+                            ('/export', ExportHandler), 
                             ('/search_result', SearchResultHandler),
                             ('/crisis/([^/]+)?', CrisisHandler),
                             ('/org/([^/]+)?', OrgHandler), 
