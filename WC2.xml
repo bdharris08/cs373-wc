@@ -110,7 +110,7 @@
 				</human>
 				<economic>
 					<amount>3000000000000</amount>
-					<currency>U.S.</currency>
+					<currency>Dollars</currency>
 					<misc>Global Recession, Widening of the wealth gap in the United States.</misc>
 				</economic>
 			</impact>
@@ -153,7 +153,7 @@
                 <description>Wikipedia page about the Global Financial Crisis</description>
             </ext>
 		</ref>
-		<misc>Shortly after the economic recovery began, many Fortune 500 corporations reported record profits and many billionaires saw their net worths hit new highs. The 2011 edition of the annual U.S. dollar billionaires ranking compiled by Forbes Magazine broke new records, both in terms of the number of billionaires (1210) and their total wealth (US $4.5 trillion.) The Sunday Times Rich List for 2012 showed that the UK's wealthiest were richer than they had ever been, with a combined fortune of £414 billion.</misc>
+		<misc>Shortly after the economic recovery began, many Fortune 500 corporations reported record profits and many billionaires saw their net worths hit new highs. The 2011 edition of the annual U.S. dollar billionaires ranking compiled by Forbes Magazine broke new records, both in terms of the number of billionaires (1210) and their total wealth (US $4.5 trillion.) </misc>
 		<org idref="federal_reserve_system"/>
 		<person idref="barack_obama"/>
     </crisis>
