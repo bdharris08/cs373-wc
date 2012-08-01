@@ -1,0 +1,1165 @@
+<!-- xml_template -->
+
+
+<!-- All videos have links to the site they are on. There are a few comments left in file -->
+<!-- Need to add external links -->
+<!-- Should people have contact info? At the moment they don't -->
+
+<worldCrises>
+
+<!--..................................... Libyan Civil War .....................................-->
+
+  <crisis id="Libyan_Civil_War">
+    <name>Libyan Civil War</name>
+    <info>
+      <history>The Libyan civil war also referred to as the Libyan Revolution, was an armed conflict in the North African state of Libya, fought between forces loyal to Colonel Muammar Gaddafi and those seeking to oust his government. The war was preceded by protests in Benghazi beginning on Tuesday, 15 February 2011, which led to clashes with security forces that fired on the crowd. The protests escalated into a rebellion that spread across the country, with the forces opposing Gaddafi establishing an interim governing body, the National Transitional Council.</history>
+      <help></help>
+      <resources>Medicine, fuel, and food.</resources>
+      <type>Civil War</type>
+      <time>
+        <time></time>
+        <day>15</day>
+        <month>2</month>
+        <year>2011</year>
+        <misc></misc>
+      </time>
+      <loc>
+        <city></city>
+        <region></region>
+        <country>Libya</country>
+      </loc>
+      <impact>
+        <human>
+          <deaths>30000</deaths>
+          <displaced>0</displaced>
+          <injured>50000</injured>
+          <missing>4000</missing>
+          <misc></misc>
+        </human>
+        <economic>
+          <amount>0</amount>
+          <currency></currency>
+          <misc></misc>
+        </economic>
+      </impact>
+    </info>
+    <ref>
+      <primaryImage>
+        <site></site>
+        <title></title>
+        <url>http://www.socialistparty.net/images/stories/libyan%20revolt.jpg</url>
+        <description></description>
+      </primaryImage>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://fifp.files.wordpress.com/2011/04/2011_middle_east_revolutions_-_libyans_protesting_on_tank.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://www.flixya.com/files-photo/r/i/m/rimawi-1965850.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://nimg.sulekha.com/others/original700/libya-2011-2-26-12-20-0.jpg</url>
+        <description></description>
+      </image>
+      <video>
+        <site></site>
+        <title>Revolution Ripples: Libya &amp; Co. chaos mapped out</title>
+        <url>http://www.youtube.com/embed/8OzwkCGJlAI</url>
+        <description>The Libyan crisis is showing no signs of dying down and is now being felt far beyond its borders. Thousands of immigrants have already fleed to neighbouring countries, while the unrest has seen the price of oil skyrocket. RT's Irina Galushko maps out the situation.</description>
+      </video>
+      <social>
+        <site>Facebook</site>
+        <title>Liibyan.Revolution - Facebook Page</title>
+        <url>http://www.facebook.com/Liibyan.Revolution</url>
+        <description></description>
+      </social>
+      <social>
+        <site>Facebook</site>
+        <title>Libyan4Life - Facebook Page</title>
+        <url>http://www.facebook.com/Libyan4Life</url>
+        <description></description>
+      </social>
+      <ext>
+        <site>National Transitional Council</site>
+        <title>National Transitional Council</title>
+        <url>http://www.ntc.gov.ly</url>
+        <description></description>
+      </ext>
+    </ref>
+    <misc></misc>
+    <org idref="International_Criminal_Court"/>
+    <person idref="Mustafa_Abdul_Jalil"/>
+  </crisis>
+
+<!--..................................... Syrian Uprising .....................................-->
+
+  <crisis id="Syrian_Uprising">
+    <name>Syrian Uprising</name>
+    <info>
+      <history>The Syrian uprising, is an ongoing, violent internal conflict in Syria. It began on 26 January 2011 with public demonstrations as part of the wider Arab Spring and developed into a nationwide uprising. Protesters demanded the end to nearly five decades of Ba'ath Party rule, which was then and currently headed by President Bashar al-Assad.</history>
+      <help></help>
+      <resources>Medicine, fuel, and food</resources>
+      <type>violent internal conflict in Syria</type>
+      <time>
+        <time></time>
+        <day>15</day>
+        <month>3</month>
+        <year>2011</year>
+        <misc></misc>
+      </time>
+      <loc>
+        <city></city>
+        <region></region>
+        <country>Syria</country>
+      </loc>
+      <impact>
+        <human>
+          <deaths>17000</deaths>
+          <displaced>240000</displaced>
+          <injured>35000</injured>
+          <missing>4000</missing>
+          <misc></misc>
+        </human>
+        <economic>
+          <amount>0</amount>
+          <currency></currency>
+          <misc></misc>
+        </economic>
+      </impact>
+    </info>
+    <ref>
+      <primaryImage>
+        <site></site>
+        <title></title>
+        <url>http://www.csmonitor.com/var/ezflow_site/storage/images/media/images/1102-syria-assad-regime-end-01/10899686-2-eng-US/1102-syria-assad-regime-end-01_full_600.jpg</url>
+        <description></description>
+      </primaryImage>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://img.ibtimes.com/www/data/images/full/2012/03/01/242199-syria-conflict.jpg</url>
+        <description></description>
+      </image>
+            <image>
+        <site></site>
+        <title></title>
+        <url>http://www.asianews.it/files/img/SYRIA_demonstration_and_child.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://www.csmonitor.com/var/ezflow_site/storage/images/media/images/1102-syria-assad-regime-end/10899578-1-eng-US/1102-syria-assad-regime-end_full_600.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://www.claremontportside.com/wp-content/uploads/2011/11/assad.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://i.ytimg.com/vi/Ab1OF-ecTEM/0.jpg</url>
+        <description></description>
+      </image>
+      <video>
+        <site></site>
+        <title></title>
+        <url>http://www.youtube.com/embed/SSpeHVFPd8g</url>
+        <description></description>
+      </video>
+      <social>
+        <site>Facebook</site>
+        <title></title>
+        <url>http://www.facebook.com/syrianuprising</url>
+        <description></description>
+      </social>
+      <ext>
+        <site></site>
+        <title>'Bloodiest week' of Syrian revolt sees 916 killed: NGO</title>
+        <url>http://www.focus-fen.net/index.php?id=n281597</url>
+        <description></description>
+      </ext>
+    </ref>
+    <misc></misc>
+    <org idref="Amnesty_International"/>
+    <person idref="Bashar_al-Assad"/>
+  </crisis>
+
+<!--..................................... Iranian Green Movement .....................................-->
+
+  <crisis id="Iranian_Green_Movement">
+    <name>Iranian Green Movement</name>
+    <info>
+      <history>Protests following the 2009 Iranian presidential election against the disputed victory of Iranian President Mahmoud Ahmadinejad and in support of opposition candidates Mir-Hossein Mousavi and Mehdi Karroubi occurred in major cities in Iran and around the world starting 13 June 2009. The protests were given several titles by their proponents including Green Revolution, Green Wave or Sea of Green, reflecting presidential candidate Mousavi's campaign color, and also Persian Awakening. The creation of the Iranian Green Movement was developed during these protests. The events have also been nicknamed the "Twitter Revolution" because of the protesters' reliance on Twitter and other social-networking Internet sites to communicate with each other. Islamic politician Ata'ollah Mohajerani blasted the election as "the end of the Islamic Republic". In response to the protests, other groups rallied in Tehran to support Ahmadinejad. Widespread editorial analyses assert that the 2009 election marks the official end of the Islamic Republic and the beginning of the Islamic emirate or an imamate regime. All three opposition candidates claimed that the votes were manipulated and the election was rigged, and candidates Mohsen Rezaee and Mousavi have lodged official complaints. Mousavi announced that he "won't surrender to this manipulation" before lodging an official appeal against the result to the Guardian Council on 14 June. Ayatollah Ali Khamenei declared the unprecedented voter turnout and coinciding religious holidays as a "divine assessment" and urged the nation to unite, but later ostensibly ordered an investigation into the claims of voting fraud and irregularities as per the request of the Green movement leaders. Mousavi is not optimistic about his appeal, saying that many of the group's members "during the election were not impartial". Ahmadinejad called the election "completely free" and the outcome "a great victory" for Iran, dismissing the protests as little more than "passions after a soccer match". Police and the Basij (a paramilitary group) suppressed both peaceful demonstrating and rioting by using batons, pepper spray, sticks and, in some cases, firearms. The Iranian government has confirmed the deaths of 36 people during the protests, while unconfirmed reports by supporters of Mousavi allege that there have been 72 deaths (twice as many) in the three months following the disputed election. Iranian authorities have closed universities in Tehran, blocked web sites, blocked cell phone transmissions and text messaging, and banned rallies.</history>
+      <help>World support</help>
+      <resources>Medicine, fuel, and food</resources>
+      <type>Uprising</type>
+      <time>
+        <time></time>
+        <day>15</day>
+        <month>6</month>
+        <year>2009</year>
+        <misc></misc>
+      </time>
+      <loc>
+        <city></city>
+        <region></region>
+        <country>Iran</country>
+      </loc>
+      <impact>
+        <human>
+          <deaths>0</deaths>
+          <displaced>0</displaced>
+          <injured>0</injured>
+          <missing>0</missing>
+          <misc></misc>
+        </human>
+        <economic>
+          <amount>0</amount>
+          <currency></currency>
+          <misc></misc>
+        </economic>
+      </impact>
+    </info>
+    <ref>
+      <primaryImage>
+        <site></site>
+        <title>6th Day - Mousavi inside the Crowd</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/thumb/6/66/6th_Day_-_Mousavi_inside_the_Crowd.jpg/800px-6th_Day_-_Mousavi_inside_the_Crowd.jpg</url>
+        <description>Silent demonstration for saying condolence to family of this week martyrs</description>
+      </primaryImage>
+      <image>
+        <site></site>
+        <title></title>
+        <url>https://whyweprotest.net/asset-proxy/d86c878ead9d1de39d41892918a96de3c29fca37/687474703a2f2f6e6577732e70617976616e642e6e6574646e612d63646e2e636f6d2f6e6577732f30392f6a756e2f4d6f75736176692d737570706f727465722d417a6164692d7371756172652d54656872616e2e6a7067/http://news.payvand.netdna-cdn.com/news/09/jun/Mousavi-supporter-Azadi-square-Tehran.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://www.ikhwanweb.com/uploads/flash/XRRSGZ7YX1CEBF5.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://farm4.static.flickr.com/3405/3616432434_85a0704cc6.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://www.pbs.org/wgbh/pages/frontline/tehranbureau/images/Iran-Green-Movement-Nuclear.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://www.foreignpolicy.com/files/images/IranGreenMovement240.jpg</url>
+        <description></description>
+      </image>
+      <video>
+        <site></site>
+        <title>Musical Iran Revolution </title>
+        <url>http://www.youtube.com/embed/quPXg_GoTOk</url>
+        <description>A great piece of music , awesome , done in Italian, i suppose, in support of Iranian uprising against the results of the last presidential elections that broke into massive riots and killings all over Iran.</description>
+      </video>
+      <video>
+        <site></site>
+        <title></title>
+        <url>http://www.youtube.com/embed/fqHhLy6KOMo</url>
+        <description></description>
+      </video>
+      <social>
+        <site>Facebook</site>
+        <title></title>
+        <url>http://www.facebook.com/Persian.Green.Movement</url>
+        <description></description>
+      </social>
+      <ext>
+        <site></site>
+        <title>The Green Voice of Freedom</title>
+        <url>http://en.irangreenvoice.com</url>
+        <description></description>
+      </ext>
+    </ref>
+    <misc></misc>
+    <org idref="International_Campaign_for_Human_Rights_in_Iran"/>
+    <person idref="Mir_Hossein_Mousavi"/>
+  </crisis>
+
+<!--..................................... Xinjiang Riots .....................................-->
+
+  <crisis id="Xinjiang_Riots">
+    <name>Xinjiang Riots</name>
+    <info>
+      <history>The July 2009 Xinjiang riots were a series of violent riots over several days that broke out on 5 July 2009 in Urumqi, the capital city of the Xinjiang Uyghur Autonomous Region (XUAR), in northwestern People's Republic of China (PRC). The first day's rioting, which involved at least 1,000 Uyghurs, began as a protest but escalated into violent attacks that mainly targeted Han ("ethnic Chinese") people. People's Armed Police were deployed, and two days later hundreds of Han people clashed with both police and Uyghurs. PRC officials said that a total of 197 people died, with 1,721 others injured and many vehicles and buildings destroyed; on the other hand, Uyghur exile groups say the death toll is higher. Many men disappeared during wide-scale police sweeps in the days following the riots; Human Rights Watch (HRW) documented 43 cases and said figures for real disappearances were likely to be much higher.</history>
+      <help>World support</help>
+      <resources>Medicine, fuel, food</resources>
+      <type>Anti-government/ethnic protest</type>
+      <time>
+        <time></time>
+        <day>5</day>
+        <month>7</month>
+        <year>2009</year>
+        <misc></misc>
+      </time>
+      <loc>
+        <city>Urumqi</city>
+        <region>Xinjiang Uyghur Autonomous Region</region>
+        <country>People's Republic of China</country>
+      </loc>
+      <impact>
+        <human>
+          <deaths>197</deaths>
+          <displaced>0</displaced>
+          <injured>1721</injured>
+          <missing>0</missing>
+          <misc></misc>
+        </human>
+        <economic>
+          <amount>0</amount>
+          <currency></currency>
+          <misc></misc>
+        </economic>
+      </impact>
+    </info>
+    <ref>
+      <primaryImage>
+        <site></site>
+        <title>Urumqi Riots</title>
+        <url>http://www.farwestchina.com/wp-content/uploads/2011/07/Urumqi-Riots.jpg</url>
+        <description></description>
+      </primaryImage>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://english.people.com.cn/mediafile/200907/07/P200907072014041872629287.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://english.people.com.cn/mediafile/200907/07/P200907072014352294282832.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://english.people.com.cn/mediafile/200907/07/P200907072018061766028774.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://english.people.com.cn/mediafile/200907/07/P200907072017392257014210.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://english.people.com.cn/mediafile/200907/07/P200907072017145684313201.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://english.people.com.cn/mediafile/200907/07/P200907072016482444221649.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://english.people.com.cn/mediafile/200907/07/P200907072016212332964133.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://english.people.com.cn/mediafile/200907/07/P200907072015483259527910.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://english.people.com.cn/mediafile/200907/07/P200907072015165972213332.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://english.people.com.cn/mediafile/200907/07/P200907072014551663971071.jpg</url>
+        <description></description>
+      </image>
+      <video>
+        <site></site>
+        <title>Xinjiang Riots Anniversary: Continued Suppression of Uighurs </title>
+        <url>http://www.youtube.com/embed/e3jkr7fsdsc</url>
+        <description></description>
+      </video>
+      <video>
+        <site></site>
+        <title>Ethnic Han and Uighurs grow further apart - 19 Jul 09</title>
+        <url>http://www.youtube.com/embed/KwCHfBfF1m4</url>
+        <description></description>
+      </video>
+      <video>
+        <site></site>
+        <title>Riots Highlight Latent Conflict Of Uighurs in China</title>
+        <url>http://www.youtube.com/embed/8AzlgXQaJ3I</url>
+        <description></description>
+      </video>
+      <video>
+        <site></site>
+        <title>Inside Story - United China? - 08 July 09</title>
+        <url>http://www.youtube.com/watch?v=KwCHfBfF1m4</url>
+        <description>Hu Jintao, the Chinese president, is skipping the G8 summit in Italy and returning to Beijing as ethnic tensions between the Uighurs and Han Chinese, which have already claimed at least 156 lives, flare again. Inside Story asks: Should China re-consider its policies in minority regions or risk a civil war?</description>
+      </video>
+      <social>
+        <site>Twitter</site>
+        <title></title>
+        <url>https://twitter.com/#!/UYGHURS</url>
+        <description></description>
+      </social>
+      <ext>
+        <site></site>
+        <title>7.5 Xinjiang Urumqi Riots facts</title>
+        <url>http://english.cntv.cn/english/special/0705riots/UrumqiRiots/index.shtml</url>
+        <description>Brought to you by CNTV!</description>
+      </ext>
+      <ext>
+        <site></site>
+        <title>Urumqi Riots, Western &amp; Chinese Narratives, &amp; Truths In The Middle</title>
+        <url>http://cnreviews.com/life/news-issues/urumqi-riots-western-chinese-narratives-truths_20090708.html</url>
+        <description></description>
+      </ext>
+      <ext>
+        <site></site>
+        <title>Urumqi riots signal dark days ahead</title>
+        <url>http://forum.globaltimes.cn/forum/showthread.php?t=912</url>
+        <description>Global Times Forum</description>
+      </ext>
+      <ext>
+        <site></site>
+        <title>China riots: Twitter and YouTube frustrate 'censorship attempts'</title>
+        <url>http://www.telegraph.co.uk/news/worldnews/asia/china/5756766/China-riots-Twitter-and-YouTube-frustrate-censorship-attempts.html</url>
+        <description>Information about the riots in China have filtered out on Twitter and YouTube, frustrating government efforts to control the news.</description>
+      </ext>
+    </ref>
+    <misc></misc>
+    <org idref="World_Uyghur_Congress"/>
+    <person idref="Rebiya_Kadeer"/>
+  </crisis>
+
+<!--..................................... World Uyghur Congress .....................................-->
+
+  <organization id="World_Uyghur_Congress">
+    <name>World Uyghur Congress</name>
+    <info>
+      <type>International organization of exiled Uyghurs</type>
+      <history>The World Uyghur Congress (WUC) is an international organisation that represents the collective interest of the Uyghur people both in East Turkestan and abroad. The WUC was established on 16 April 2004 in Munich, Germany, after the East Turkestan National Congress and the World Uyghur Youth Congress merged into one united organisation. The main objective of WUC is to promote the right of the Uyghur people to use peaceful, nonviolent, and democratic means to determine the political future of East Turkestan. The WUC is a democratic organisation. All of WUC leadership was democratically elected by the participants from all over the world in the General Assembly. They all serve a three-year term. WUC has close contacts and working relations with most Uyghur organisations in the world that peacefully promote human rights, religious freedom, and democracy for the Uyghur people in East Turkestan.</history>
+      <contact>
+        <phone>0049 (0) 89 5432 1999</phone>
+        <email>contact@uyghurcongress.org</email>
+        <mail>
+          <address>P.O.Box 310312</address>
+          <city>Munich</city>
+          <state></state>
+          <country>Germany</country>
+          <zip>80103</zip>
+        </mail>
+      </contact>
+      <loc>
+        <city>Munich</city>
+        <region></region>
+        <country>Germany</country>
+      </loc>
+    </info>
+    <ref>
+      <primaryImage>
+        <site></site>
+        <title>Uyghur Xinjiang Flag</title>
+        <url>http://tibettruth.files.wordpress.com/2009/07/uyghur_xinjiang_flag.gif</url>
+        <description></description>
+      </primaryImage>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://nimgs3.s3.amazonaws.com/others/original700/2008-6-25-18-58-51-2d65581f891040c796f7e44fb1dd882f-2d65581f891040c796f7e44fb1dd882f-2.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://www.unpo.org/imgi/p/95.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://docs.uyghuramerican.org/rebiya-oslo.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://english.kyodonews.jp/photos/assets/201205/0515010-thumbx300.jpg</url>
+        <description></description>
+      </image>
+      <video>
+        <site></site>
+        <title>Symposium against China's Hegemony for World Uyghur Congress</title>
+        <url>http://www.youtube.com/embed/877rMmw-7lA</url>
+        <description>Japanese subtitles</description>
+      </video>
+      <video>
+        <site></site>
+        <title>World Uyghur Congress Third General Assambly, May 21, 2009 </title>
+        <url>http://www.youtube.com/embed/5LNuLzqk00c</url>
+        <description></description>
+      </video>
+      <social>
+        <site>Twitter</site>
+        <title></title>
+        <url>https://twitter.com/#!/UyghurCongress</url>
+        <description></description>
+      </social>
+      <ext>
+        <site></site>
+        <title>World Uyghur Congress</title>
+        <url>http://www.uyghurcongress.org</url>
+        <description>Official Website</description>
+      </ext>
+      <ext>
+        <site></site>
+        <title>Statement by The World Uyghur Congress</title>
+        <url>http://tibettruth.com/2009/07/07/statement-by-the-world-uyghur-congress</url>
+        <description>World Uyghur Congress' Statement on July 5th Urumqi Incident</description>
+      </ext>
+    </ref>
+    <misc></misc>
+    <crisis idref="Xinjiang_Riots"/>
+    <person idref="Rebiya_Kadeer"/>
+  </organization>
+
+<!--..................................... International Criminal Court .....................................-->
+
+  <organization id="International_Criminal_Court">
+    <name>International Criminal Court</name>
+    <info>
+      <type>International Tribunal</type>
+      <history>The International Criminal Court (ICC), governed by the Rome Statute, is the first permanent, treaty based, international criminal court established to help end impunity for the perpetrators of the most serious crimes of concern to the international community.
+The ICC is an independent international organisation, and is not part of the United Nations system. Its seat is at The Hague in the Netherlands. Although the Court's expenses are funded primarily by States Parties, it also receives voluntary contributions from governments, international organisations, individuals, corporations and other entities.
+The international community has long aspired to the creation of a permanent international court, and, in the 20th century, it reached consensus on definitions of genocide, crimes against humanity and war crimes. The Nuremberg and Tokyo trials addressed war crimes, crimes against peace, and crimes against humanity committed during the Second World War. In the 1990s after the end of the Cold War, tribunals like the International Criminal Tribunal for the former Yugoslavia and for Rwanda were the result of consensus that impunity is unacceptable. However, because they were established to try crimes committed only within a specific time-frame and during a specific conflict, there was general agreement that an independent, permanent criminal court was needed. On 17 July 1998, the international community reached an historic milestone when 120 States adopted the Rome Statute, the legal basis for establishing the permanent International Criminal Court.
+The Rome Statute entered into force on 1 July 2002 after ratification by 60 countries.</history>
+      <contact>
+        <phone>+ 31 (0)70 515 8515</phone>
+        <email>visits@icc-cpi.int</email>
+        <mail>
+          <address>2500 CM</address>
+          <city>Hague</city>
+          <state></state>
+          <country>Netherlands</country>
+          <zip>Po Box 19519</zip>
+        </mail>
+      </contact>
+      <loc>
+        <city>Hague</city>
+        <region></region>
+        <country>Netherlands</country>
+      </loc>
+    </info>
+    <ref>
+      <primaryImage>
+        <site></site>
+        <title>The International Criminal Court, The Hague</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Netherlands,_The_Hague,_International_Criminal_Court.JPG/292px-Netherlands,_The_Hague,_International_Criminal_Court.JPG</url>
+        <description></description>
+      </primaryImage>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/International_Criminal_Court_logo.svg/673px-International_Criminal_Court_logo.svg.png</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://www.international.gc.ca/iwglobal/utilities/FileProcessor.aspx?file=/court-cour/assets/images/menupic012-en.gif</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://i.telegraph.co.uk/multimedia/archive/02166/The-International-_2166929b.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://1.bp.blogspot.com/--Lp0qtnFeGU/TunwFXOFY8I/AAAAAAAAC4A/n83IqTKCXBU/s1600/icca_logo.gif</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://beemoq.net/wp-content/uploads/2010/11/International-Criminal-Court.jpg</url>
+        <description></description>
+      </image>
+      <video>
+        <site></site>
+        <title>International Criminal Court (ICC-CPI) - Institutional Video </title>
+        <url>http://www.youtube.com/embed/zfo7lMnR4O8</url>
+        <description>The International Criminal Court is the world's first permanent international criminal court, which is established and governed by the Rome Statute. It is located in The Hague, the Netherlands.</description>
+      </video>
+      <social>
+        <site>Facebook</site>
+        <title></title>
+        <url>http://www.facebook.com/pages/International-Criminal-Court/106219979409522</url>
+        <description></description>
+      </social>
+      <social>
+        <site>Twitter</site>
+        <title></title>
+        <url>http://twitter.com/#!/IntlCrimCourt</url>
+        <description></description>
+      </social>
+      <ext>
+        <site></site>
+        <title>International Criminal Court</title>
+        <url>http://www.icc-cpi.int</url>
+        <description>Official Website</description>
+      </ext>
+    </ref>
+    <misc></misc>
+    <crisis idref="Libyan_Civil_War"/>
+    <person idref="Mustafa_Abdul_Jalil"/>
+  </organization>
+
+<!--..................................... Amnesty International .....................................-->
+
+  <organization id="Amnesty_International">
+    <name>Amnesty International</name>
+    <info>
+      <type>NGO</type>
+      <history>Amnesty International (commonly known as Amnesty and AI) is a non-governmental organization focused on human rights with over 3 million members and supporters around the world. The objective of the organization is "to conduct research and generate action to prevent and end grave abuses of human rights, and to demand justice for those whose rights have been violated."
+Amnesty International was founded in London in 1961, following the publication of the article "The Forgotten Prisoners" in The Observer 28 May 1961, by the lawyer Peter Benenson. Amnesty draws attention to human rights abuses and campaigns for compliance with international laws and standards. It works to mobilize public opinion to put pressure on governments that let abuse take place. The organization was awarded the 1977 Nobel Peace Prize for its "campaign against torture", and the United Nations Prize in the Field of Human Rights in 1978.</history>
+      <contact>
+        <phone>+44-20-74135500</phone>
+        <email>http://www.amnesty.org/en/contact</email>
+        <mail>
+          <address>1 Easton Street</address>
+          <city>London</city>
+          <state></state>
+          <country>UK</country>
+          <zip>WC1X 0DW</zip>
+        </mail>
+      </contact>
+      <loc>
+        <city>London</city>
+        <region>England</region>
+        <country>United Kingdom</country>
+      </loc>
+    </info>
+    <ref>
+      <primaryImage>
+        <site></site>
+        <title>Amnesty Logo</title>
+        <url>http://www.codoc.org/wp-content/uploads/2012/04/amnesty.jpeg</url>
+        <description></description>
+      </primaryImage>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://adsoftheworld.com/files/images/AIarchery.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://www.frederiksamuel.com/blog/images/amnesty.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://files.coloribus.com/files/adsarchive/part_1085/10855605/file/amnesty-international-hanging-kids-small-77432.jpg</url>
+        <description></description>
+      </image>
+      <video>
+        <site></site>
+        <title></title>
+        <url>http://www.youtube.com/embed/2sbAEbESTNQ</url>
+        <description></description>
+      </video>
+      <video>
+        <site></site>
+        <title></title>
+        <url>http://www.youtube.com/embed/G5-81AmFkCc</url>
+        <description></description>
+      </video>
+      <video>
+        <site></site>
+        <title></title>
+        <url>http://www.youtube.com/embed/aQDy-Ai4bw4</url>
+        <description></description>
+      </video>
+      <social>
+        <site>Twitter</site>
+        <title></title>
+        <url>http://twitter.com/#!/amnesty</url>
+        <description></description>
+      </social>
+      <ext>
+        <site></site>
+        <title>Amnesty International</title>
+        <url>http://www.amnesty.org/</url>
+        <description>Official Website</description>
+      </ext>
+      <ext>
+        <site></site>
+        <title>Iran must allow peaceful opposition rallies on 14 February</title>
+        <url>http://www.amnesty.org/en/news/iran-must-avoid-excessive-force-against-green-movement-protests-2012-02-13</url>
+        <description></description>
+      </ext>
+    </ref>
+    <misc></misc>
+    <crisis idref="Iranian_Green_Movement"/>
+    <crisis idref="Syrian_Uprising"/>
+    <crisis idref="Xinjiang_Riots"/>
+    <crisis idref="Libyan_Civil_War"/>
+    <person idref="Rebiya_Kadeer"/>
+    <person idref="Mustafa_Abdul_Jalil"/>
+    <person idref="Bashar_al-Assad"/>
+    <person idref="Mir_Hossein_Mousavi"/>
+  </organization>
+
+<!--..................................... International Campaign for Human Rights in Iran .....................................-->
+
+  <organization id="International_Campaign_for_Human_Rights_in_Iran">
+    <name>International Campaign for Human Rights in Iran</name>
+    <info>
+      <type>NGO</type>
+      <history>In late 2007, human rights activists working in the framework of the Dutch nongovernmental organization Foundation for Human Security in the Middle East resolved to found an international initiative focused on the urgent challenges faced by the Iranian people, and in particular civil society and the human rights community.The human rights community in Iran is in an exposed and dangerous position, subject to severe persecution and without effective support from the international community. International tensions provide a pretext for increasing repression within Iran, and remove human rights from the international agenda. The vibrant social movements in Iran movements, inter alia, of women, students, and workers work courageously in an un-free environment, subject to tremendous official pressures. They urgently need and welcome international concerns and solidarity, which must be strengthened through more effective support from international civil society and intergovernmental institutions.</history>
+      <contact>
+        <phone></phone>
+        <email>info@iranhumanrights.org</email>
+        <mail>
+          <address></address>
+          <city></city>
+          <state></state>
+          <country></country>
+          <zip></zip>    
+        </mail>
+      </contact>
+      <loc>
+        <city></city>
+        <region></region>
+        <country>Netherlands</country>
+      </loc>
+    </info>
+    <ref>
+      <primaryImage>
+        <site></site>
+        <title></title>
+        <url>http://www.iranhumanrights.org/wp-content/uploads/Ronaghi21-300x2171.jpg</url>
+        <description></description>
+      </primaryImage>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://1.bp.blogspot.com/-ARJYjDnv11k/Tbnq9DmyJlI/AAAAAAAABJM/uYxr6Q3nAVk/s1600/international-campaign-for-human-rights-in-iran.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://www.iranhumanrights.org/wp-content/uploads/Wael-Ghonim.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://iranchannel.org/wp-content/uploads/2011/03/2125051431_a59a14f167-384x250.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://www.unpo.org/images/stories/WomenProtestsIran.jpg</url>
+        <description></description>
+      </image>
+      <video>
+        <site></site>
+        <title></title>
+        <url>http://www.youtube.com/embed/B-Kmb1Hm0n0</url>
+        <description></description>
+      </video>
+      <video>
+        <site></site>
+        <title></title>
+        <url>http://www.youtube.com/embed/EDeJvfxCUI8</url>
+        <description></description>
+      </video>
+      <social>
+        <site>Facebook</site>
+        <title></title>
+        <url>http://www.facebook.com/pages/International-Campaign-for-Human-Rights-in-Iran/49929580840</url>
+        <description></description>
+      </social>
+      <ext>
+        <site></site>
+        <title>Internamtional Campaign for Human Rights in Iran</title>
+        <url>http://www.iranhumanrights.org</url>
+        <description>Official Website</description>
+      </ext>
+    </ref>
+    <misc></misc>
+    <crisis idref="Iranian_Green_Movement"/>
+    <person idref="Mir_Hossein_Mousavi"/>
+  </organization>
+
+
+<!--..................................... Mir Hossein Mousavi .....................................-->
+
+  <person id="Mir_Hossein_Mousavi">
+    <name>Mir Hossein Mousavi</name>
+    <info>
+      <type>Presidential Candidate of 2009 Iran's Elections</type>
+      <birthdate>
+        <time></time>
+        <day>2</day>
+        <month>3</month>
+        <year>1942</year>
+        <misc></misc>
+      </birthdate>
+      <nationality>Iran</nationality>
+      <biography>In 2009 Iranian Presidential election, Mousavi came out of semi-retirement and ran as one of two Reformist candidates against the Administration of incumbent President Mahmoud Ahmadinejad. However he failed to win the election, and following alleged vote rigging and manipulation, his campaign sparked a long protest that eventually turned into a national movement against the Government and Supreme Leader Ali Khamenei. Despite the violent crackdown, he remains the leader of the Green Movement but his movements have remained severely restricted. He chose green as his campaign color, a color which has since become pervasive in Iran. He is currently under house arrest along with his wife and Mehdi Karroubi.</biography>
+    </info>
+    <ref>
+      <primaryImage>
+        <site></site>
+        <title></title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/5/59/Mir_Hossein_Mousavi_in_Zanjan_by_Mardetanha.jpg</url>
+        <description></description>
+      </primaryImage>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://newsimg.bbc.co.uk/media/images/45805000/jpg/_45805312_007298103-1.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://themoderatevoice.com/wordpress-engine/files/caglecartoons10/f577eee7_2d8d_4473_b1d6_9850cad03ff1.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://25.media.tumblr.com/BgJ1spRpWolei9ft7fXdkUZOo1_500.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://upload.wikimedia.org/wikipedia/en/d/d5/Mir_hossein_Mousavi_Logo.jpg</url>
+        <description></description>
+      </image>
+      <video>
+        <site></site>
+        <title></title>
+        <url>http://www.youtube.com/embed/a0yxKpX0iac</url>
+        <description></description>
+      </video>
+      <video>
+        <site></site>
+        <title></title>
+        <url>http://www.youtube.com/embed/qlYK2bRv9bg</url>
+        <description></description>
+      </video>
+      <social>
+        <site>Facebook</site>
+        <title></title>
+        <url>http://www.facebook.com/mousavi</url>
+        <description></description>
+      </social>
+      <ext>
+        <site></site>
+        <title>Profile: Mir Hossein Mousavi </title>
+        <url>http://news.bbc.co.uk/2/hi/middle_east/8103851.stm</url>
+        <description></description>
+      </ext>
+    </ref>
+    <misc></misc>
+    <crisis idref="Iranian_Green_Movement"/>
+    <org idref="International_Campaign_for_Human_Rights_in_Iran"/>
+  </person>
+
+<!--..................................... Rebiya Kadeer .....................................-->
+
+  <person id="Rebiya_Kadeer">
+    <name>Rebiya Kadeer</name>
+    <info>
+      <type>human rights activist, president of WUC</type>
+      <birthdate>
+        <time></time>
+        <day>15</day>
+        <month>11</month>
+        <year>1946</year>
+        <misc></misc>
+      </birthdate>
+      <nationality>Uyghur</nationality>
+      <biography>Rebiya Kadeer is a Uyghur human rights activist with origins in Xinjiang, China. Kadeer is the symbolic leader of Uighur self-determination movement in her capacity as President of the World Uyghur Congress, a group that advocates for greater autonomy for Uyghurs in China and fights against what they consider to be oppressive policies of the Chinese government. She lives in the United States. It is worth noting that Kadeer was not always at odds with the government, and was once welcomed as an appointed delegate to the eighth session of the Chinese People's Political Consultative Conference, the National People's Congress and was a representative to the UN Fourth World Conference for Women in Beijing in 1995. Kadeer has also served as vice chairwoman of the Xinjiang Autonomous Region Federation of Industry and Commerce, and vice chairwoman of the Xinjiang Association of Women Entrepreneurs. She has been the president of the World Uyghur Congress since November 2006. Kadeer has been active in defending the rights of the largely Muslim Uyghur minority, who have been subject to oppression at the hands of the Chinese government.</biography>
+    </info>
+    <ref>
+      <primaryImage>
+        <site></site>
+        <title>Rebiya Kadeer</title>
+        <url>http://images.theage.com.au/2009/07/26/649638/Rebiya%20Kadeer-420x0.jpg</url>
+        <description></description>
+      </primaryImage>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://news.kuwaittimes.net/wp-content/uploads/2012/05/International1.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://www.rafto.no/publish_files/ReiyaKadeerPortrettBrun614.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://docs.uyghuramerican.org/content_images/rabiye/bush-rebiya-400.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title></title>
+        <url>http://b.vimeocdn.com/ts/177/934/177934410_640.jpg</url>
+        <description></description>
+      </image>
+      <video>
+        <site></site>
+        <title>Rebiya Kadeer</title>
+        <url>http://www.youtube.com/embed/AXfxKFd67UI</url>
+        <description></description>
+      </video>
+      <video>
+        <site></site>
+        <title>Rebiya Kadeer</title>
+        <url>http://www.youtube.com/embed/Mohvi4Ov6wY</url>
+        <description></description>
+      </video>
+      <social>
+        <site>Twitter</site>
+        <title></title>
+        <url>https://twitter.com/#!/rebiyakadeer</url>
+        <description></description>
+      </social>
+      <social>
+        <site>Twitter</site>
+        <title></title>
+        <url>https://twitter.com/#!/10ConditionLove</url>
+        <description></description>
+      </social>
+      <ext>
+        <site></site>
+        <title>Rebiya Kadeer, human rights champion for the Uyghur people. </title>
+          <url>http://thesnowlionblog.blogspot.com/2009/04/rebiya-kadeer-human-rights-champion-for.html</url>
+          <description></description>
+        </ext>
+      <ext>
+        <site></site>
+        <title>Spiritual mother of Uighurs or terrorist?</title>
+        <url>http://www.csmonitor.com/World/Asia-Pacific/2009/0709/p06s15-woap.html</url>
+        <description></description>
+      </ext>
+      <ext>
+        <site></site>
+        <title>Profile: Rebiya Kadeer </title>
+        <url>http://news.bbc.co.uk/2/hi/asia-pacific/4357607.stm</url>
+        <description></description>
+      </ext>
+    </ref>
+    <misc></misc>
+    <crisis idref="Xinjiang_Riots"/>
+    <org idref="World_Uyghur_Congress"/>
+  </person>
+
+<!--..................................... Bashar al-Assad .....................................-->
+
+  <person id="Bashar_al-Assad">
+    <name>Bashar al-Assad</name>
+    <info>
+      <type>President</type>
+      <birthdate>
+        <time></time>
+        <day>11</day>
+        <month>9</month>
+        <year>1965</year>
+        <misc></misc>
+      </birthdate>
+      <nationality>Syria</nationality>
+      <biography>Bashar Hafez al-Assad (born 11 September 1965) is the current President of Syria and Regional Secretary of the Syrian-led branch of the Arab Socialist Ba'ath Party. His father Hafez al-Assad ruled Syria for 29 years until his death in 2000. Al-Assad graduated from the medical school of the University of Damascus in 1988, and started to work as a doctor in the army. Four years later, he attended postgraduate studies at the Western Eye Hospital, in London, specializing in ophthalmology. In 1994, Al-Assad entered the military academy and in 1998, Al-Assad took charge of the Syrian occupation of Lebanon. In December 2000, Assad married Asma Assad, Akhras. Al-Assad was elected as President of Syria in 2000 and 2007, unopposed each time. During the Syrian uprising, activists and protesters have called for President al-Assad's resignation.</biography>
+    </info>
+    <ref>
+      <primaryImage>
+        <site></site>
+        <title>Bashar al-Assad</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/7/7d/Bashar_al-Assad_%28cropped%29.jpg</url>
+        <description>Brasilia - The president of the Syrian Arab Republic, Bashar Al-Assad during a visit to Congress</description>
+      </primaryImage>
+      <image>
+        <site></site>
+        <title>Bashar al-Assad</title>
+        <url>http://comicsagogo.files.wordpress.com/2012/03/bashar-and-beker-al-assad.jpg</url>
+        <description>The president</description>
+      </image>
+      <image>
+        <site></site>
+        <title>Bashar al-Assad</title>
+        <url>http://www.rt.com/files/news/assad-strong-us-intelligence-273/bashar-al-assad-353.n.jpg</url>
+        <description>The president</description>
+      </image>
+      <image>
+        <site></site>
+        <title>Bashar al-Assad</title>
+        <url>http://i.telegraph.co.uk/multimedia/archive/01925/Bashar-al-Assad-su_1925765b.jpg</url>
+        <description>The president</description>
+      </image>
+      <image>
+        <site></site>
+        <title>Bashar al-Assad</title>
+        <url>http://www.mcculloughsite.net/stingray/photos/assad_bashar.jpg</url>
+        <description>The president</description>
+      </image>
+      <video>
+        <site></site>
+        <title></title>
+        <url>http://www.youtube.com/embed/SzUViTShIAo</url>
+        <description></description>
+      </video>
+      <video>
+        <site></site>
+        <title></title>
+        <url>http://www.youtube.com/embed/bsyQ442Xvnw</url>
+        <description></description>
+      </video>
+      <social>
+        <site></site>
+        <title>Filler article</title>
+        <url>http://sana.sy/eng/article/5.htm</url>
+        <description></description>
+      </social>
+      <ext>
+        <site>sana.sy</site>
+        <title>sana.sy article on the president</title>
+        <url>http://sana.sy/eng/article/5.htm</url>
+        <description></description>
+      </ext>
+    </ref>
+    <misc></misc>
+    <crisis idref="Syrian_Uprising"/>
+    <org idref="Amnesty_International"/>
+  </person>
+
+<!--..................................... Mustafa Abdul Jalil .....................................-->
+
+  <person id="Mustafa_Abdul_Jalil">
+    <name>Mustafa Abdul Jalil</name>
+    <info>
+      <type>Chairman of the National Transitional Council of Libya</type>
+      <birthdate>
+        <time></time>
+        <day>25</day>
+        <month>5</month>
+        <year>1952</year>
+        <misc></misc>
+      </birthdate>
+      <nationality>Libyan</nationality>
+      <biography>From 2007 to 2011, Abdul Jalil was Minister of Justice (officially, the Secretary of the General People's Committee of Justice) under Colonel Muammar Gaddafi. He has been noted in some news media for his stance against various human rights violations in Libya, although others express a different view and accuse him, for example, of intransigence during the appeal by the Bulgarian nurses (that sentence was later converted to life imprisonment and the nurses were eventually released). During the civil war, Abdul Jalil was identified as the Chairman of the National Transitional Council based in Benghazi, although this position was contested by others in the uprising due to his past direct participation in Gaddafi's government as Minister of Justice for four years until 2011.</biography>
+    </info>
+    <ref>
+      <primaryImage>
+        <site></site>
+        <title>Mustafa Abdul Jalil</title>
+        <url>http://media1.express.be/pictures/300@280/personalities/mustafa-abdel-jalil.jpg</url>
+        <description></description>
+      </primaryImage>
+      <image>
+        <site></site>
+        <title>Mustafa Abdul Jalil</title>
+        <url>http://a.abcnews.go.com/images/International/42daef1774e44bd78ea83fd9878c269d.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title>Mustafa Abdul Jalil</title>
+        <url>http://1.bp.blogspot.com/-tHBHlck16yA/TqK7Lqeh2TI/AAAAAAAACd0/7OSD4-lQukw/s1600/head+bump.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title>Mustafa Abdul Jalil</title>
+        <url>http://en.rian.ru/images/16374/78/163747819.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title>Mustafa Abdul Jalil</title>
+        <url>http://www.theblaze.com/wp-content/uploads/2011/10/LibyaSharia.jpg</url>
+        <description></description>
+      </image>
+      <image>
+        <site></site>
+        <title>Mustafa Abdul Jalil</title>
+        <url>http://old.enciclopedia.com.pt/images/img-article-lamen-libya-jalil_224629570254.jpg</url>
+        <description></description>
+      </image>
+      <video>
+        <site></site>
+        <title></title>
+        <url>http://www.youtube.com/embed/eNLc_OuPVxQ</url>
+        <description></description>
+      </video>
+      <social>
+        <site>Facebook</site>
+        <title>Facebook</title>
+        <url>http://www.facebook.com/pages/%D9%85%D8%B5%D8%B7%D9%81%D9%89-%D8%B9%D8%A8%D8%AF-%D8%A7%D9%84%D8%AC%D9%84%D9%8A%D9%84/134535143287038?rf=135221043216666</url>
+        <description></description>
+      </social>
+      <social>
+        <site>Twitter</site>
+        <title>Twitter</title>
+        <url>http://twitter.com/#!/mustafaajalil</url>
+        <description></description>
+      </social>
+      <ext>
+        <site></site>
+        <title>Libya crisis: Profile of NTC Chair Mustafa Abdul Jalil</title>
+        <url>http://www.bbc.co.uk/news/world-africa-14613679</url>
+        <description></description>
+      </ext>
+    </ref>
+    <misc></misc>
+    <crisis idref="Libyan_Civil_War"/>
+    <org idref="International_Criminal_Court"/>
+  </person>
+  
+</worldCrises>

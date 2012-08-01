@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<worldCrises xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="wc.xsd">
+    <crisis id="haiti">
+        <name>Earthquake in Haiti</name>
+        <info>
+            <history>The 2010 Haiti earthquake was a catastrophic magnitude 7.0 Mw earthquake, with an epicenter near the town of Léogâne, approximately 25 km (16 miles) west of Port-au-Prince, Haiti's capital. The earthquake occurred at 16:53 local time (21:53 UTC) on Tuesday, 12 January 2010.
+					By 24 January, at least 52 aftershocks measuring 4.5 or greater had been recorded. An estimated three million people were affected by the quake; the Haitian government reported that an estimated 316,000 people had died, 300,000 had been injured and 1,000,000 made homeless. The government of Haiti also estimated that 250,000 residences and 30,000 commercial buildings had collapsed or were severely damaged.
+					The earthquake caused major damage in Port-au-Prince, Jacmel and other settlements in the region. Many notable landmark buildings were significantly damaged or destroyed, including the Presidential Palace, the National Assembly building, the Port-au-Prince Cathedral, and the main jail. Among those killed were Archbishop of Port-au-Prince Joseph Serge Miot, and opposition leader Micha Gaillard. The headquarters of the United Nations Stabilization Mission in Haiti (MINUSTAH), located in the capital, collapsed, killing many, including the Mission's Chief, Hédi Annabi
+			</history>
+            <help>Donations</help>
+            <resources>Food, Volunteers, Donations</resources>
+            <type>Natural Disaster</type>
+            <time>
+                <time>6:53 Local Time (21:53 UTC)</time>
+                <day>12</day>
+                <month>01</month>
+                <year>2010</year>
+                <misc></misc>
+            </time>
+            <loc>
+                <city>Leogane</city>
+                <region></region>
+                <country>Haiti</country>
+            </loc>
+            <impact>
+                <human>
+                    <deaths>316000</deaths>
+                    <displaced>1000000</displaced>
+                    <injured>300000</injured>
+                    <missing>0</missing>
+                    <misc></misc>
+                </human>
+                <economic>
+                    <amount>2300000000</amount>
+                    <currency>USD</currency>
+                    <misc></misc>
+                </economic>
+            </impact>
+        </info>
+        <ref>
+			<primaryImage>
+            	<site></site>
+                <title>Aftermath of Haiti Earthquake</title>           
+				<url>http://img.timeinc.net/time/photoessays/2010/haiti_time_z/haiti_time_z_01.jpg</url>
+                <description>The destruction caused by the Haiti Earthquake</description>
+            </primaryImage>
+            <image>
+            	<site></site>
+                <title>Aftermath of Haiti Earthquake</title>           
+				<url>http://img.timeinc.net/time/photoessays/2010/haiti_time_z/haiti_time_z_01.jpg</url>
+                <description>The destruction caused by the Haiti Earthquake</description>
+            </image>
+            <video>
+                <site>YouTube</site>
+                <title>World: Surviving the Haiti Earthquake - nytimes.com/video</title>
+                <url>http://www.youtube.com/watch?v=3l9B1dvfT-o</url>
+                <description>A look back at the month following the earthquake in Haiti and how a diverse group of individuals dealt with the crisis.</description>
+            </video>
+            <social>
+            	<site></site>
+                <title>Facebook</title>
+                <url>https://www.facebook.com/profile.php?id=100000664137709</url>
+                <description></description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>Wikipedia - Haiti Earthquake</title>
+                <url>http://en.wikipedia.org/wiki/2010_Haiti_earthquake</url>
+                <description>More information about the Haiti Earthquake</description>
+            </ext>
+            <ext>
+            	<site></site>
+                <title>Haiti Earthquake Facts and Figures  | Disasters Emergency Committee</title>
+                <url>http://www.dec.org.uk/haiti-earthquake-facts-and-figures</url>
+                <description>Facts and figures about the Haiti Earthquake</description>
+            </ext>
+        </ref>
+        <misc></misc>
+        <org idref="wfp"/>
+        <person idref="jsheeran"/>
+    </crisis>
+    <crisis id="iraq">
+        <name>Iraqi Refugee Crisis</name>
+        <info>
+            <history>Throughout the past 100 years, there have been a growing number of refugees fleeing Iraq and settling throughout the world, peaking recently with the latest Iraq War. Most Iraqi Jews, some 120,000, fled the country in mass exodus of 1950-1952. Tens of thousands of Kurds turned displaced and fled the war zones following First and Second Kurdish Iraqi Wars in 1960s and 1970s. The Iran–Iraq War from 1980 to 1988, the 1990 Iraqi Invasion of Kuwait, the first Gulf War and subsequent conflicts all generated hundreds of thousands if not millions of refugees. Iran also provided asylum for 1,400,000 Iraqi refugees who had been uprooted as a result of the Persian Gulf War (1990–91) and the subsequent rebellions.</history>
+            <help>Charities, Volunteer, Donations</help>
+            <resources>Estimated $60 million to assist displaced Iraqis</resources>
+            <type>Refugee Crisis, Societal Crisis</type>
+            <time>
+                <time></time>
+                <day>0</day>
+                <month>0</month>
+                <year>1950</year>
+                <misc></misc>
+            </time>
+            <loc>
+                <city></city>
+                <region></region>
+                <country>Iraq</country>
+            </loc>
+            <impact>
+                <human>
+                    <deaths>0</deaths>
+                    <displaced>4700000</displaced>
+                    <injured>0</injured>
+                    <missing>0</missing>
+                    <misc></misc>
+                </human>
+                <economic>
+                    <amount>0</amount>
+                    <currency></currency>
+                    <misc>Deteriorating economy, high inflation, high unemployment</misc>
+                </economic>
+            </impact>
+        </info>
+        <ref>
+			<primaryImage>
+            	<site></site>
+                <title>Iraqi Refugees in Syria</title>
+                <url>http://www.asianews.it/files/img/IRAQ_iraq_refugees_IN_SYRIA.jpg</url>
+                <description>An Iraqi family displaced from their home</description>
+            </primaryImage>
+            <image>
+            	<site></site>
+                <title>Iraqi Refugees in Syria</title>
+                <url>http://www.asianews.it/files/img/IRAQ_iraq_refugees_IN_SYRIA.jpg</url>
+                <description>An Iraqi family displaced from their home</description>
+            </image>
+            <video>
+                <site>YouTube</site>
+                <title>Angelina Jolie speaks for refugees in Iraq</title>
+                <url>http://www.youtube.com/watch?v=YaGR9W9zMrk</url>
+                <description>BAGHDAD UNHCR Goodwill Ambassador Angelina Jolie returned to Iraq on Thursday to offer support to the hundreds of thousands of Iraqis who remain displaced within their own country.</description>
+            </video>
+            <social>
+            	<site></site>
+                <title>Facebook</title>
+                <url>http://www.facebook.com/IraqiRefugeeAssistanceProject</url>
+                <description></description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>Iraqi Refugee Assistance Project</title>
+                <url>http://refugeerights.org/</url>
+                <description>IRAP works directly with the agencies that process resettlement requests to make the procedure more transparent and efficient. </description>
+            </ext>
+        </ref>
+        <misc></misc>
+        <org idref="redcrescent"/>
+        <person idref="mbarzani"/>
+    </crisis>
+    <crisis id="chernobyl">
+        <name>Chernobyl Disaster</name>
+        <info>
+            <history>The Chernobyl disaster was a catastrophic nuclear accident that occurred on 26 April 1986 at the Chernobyl Nuclear Power Plant in Ukraine (then officially Ukrainian SSR), which was under the direct jurisdiction of the central authorities of the Soviet Union. An explosion and fire released large quantities of radioactive contamination into the atmosphere, which spread over much of Western USSR and Europe. It is widely considered to have been the worst nuclear power plant accident in history, and is one of only two classified as a level 7 event on the International Nuclear Event Scale (the other being the Fukushima Daiichi nuclear disaster in 2011).</history>
+            <help>Donate to or volunteer with: Chernobyl Children's Project International, Friends of Chernobyl's Children</help>
+            <resources>Donations</resources>
+            <type>Nuclear Disaster</type>
+            <time>
+                <time>01:23 (Moscow Time UTC+3)</time>
+                <day>26</day>
+                <month>04</month>
+                <year>1986</year>
+                <misc></misc>
+            </time>
+            <loc>
+                <city>Chernobyl</city>
+                <region></region>
+                <country>Ukraine</country>
+            </loc>
+            <impact>
+                <human>
+                    <deaths>43</deaths>
+                    <displaced>0</displaced>
+                    <injured>0</injured>
+                    <missing>0</missing>
+                    <misc>Thyroid cancer among children (more than 4000 cases reported). Psychological problems among the affected population -- survivors feel "fatally flawed" and use illicit drugs and have unprotected sex. 28 emergency workers died from acute radiation syndrome. 15 patients died from thyroid cancer in the years following the disaster. Up to the year 2005 more than 6000 cases of thyroid cancer were reported in children and adolescents exposed at the time of the accident, a number that is expected to increase.</misc>
+                </human>
+                <economic>
+                    <amount>235000000000</amount>
+                    <currency>USD</currency>
+                    <misc>In Belarus the total cost over 30 years is estimated at US$235 billion (in 2005 dollars). In the 2003-2005 report, The Chernobyl Forum stated that between 5% an d7% of government spending in Ukraine is sitll related to Chernobl, while in Belarus over $13 billion is thought to have been spent between 1991 and 2003, with 22% of national budget having been Chernobyl-related in 1991, falling to 6% in 2002.</misc>
+                </economic>
+            </impact>
+        </info>
+        <ref>
+			<primaryImage>
+            	<site></site>
+                <title>Chernobyl Reactor</title>
+                <url>http://upload.wikimedia.org/wikipedia/en/1/1b/Chernobyl_Disaster.jpg</url>
+                <description>The nuclear reactor after the disaster</description>
+            </primaryImage>
+            <image>
+            	<site></site>
+                <title>Chernobyl Nuclear Power Plant</title>
+                <url>http://toxipedia.org/download/attachments/1428/chernobyl.jpg</url>
+                <description>The nuclear plant</description>
+            </image>
+            <image>
+            	<site></site>
+                <title>Cher</title>
+                <url>http://toxipedia.org/download/attachments/1428/chernobyl.jpg</url>
+                <description>The nuclear plant</description>
+            </image>
+            <video>
+                <site>YouTube</site>
+                <title>The Children Beyond Chernobyl</title>
+                <url>http://www.youtube.com/watch?v=vO0NjcLUXTQ</url>
+                <description>RTE Documentary on the work of the Adi Roche founded charity CCPI, Childrens Chernobyl Project International, which is trying to improve the lives of Children affected by the fallout from the Chernobyl Nuclear disaster.</description>
+            </video>
+            <social>
+            	<site></site>
+                <title>Twitter</title>
+                <url>http://twitter.com/#!/Chernobyl</url>
+                <description></description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>Adi Roche's Chernobyl Children International</title>
+                <url>http://www.chernobyl-international.com/index.aspx</url>
+                <description>Chernobyl Children International (CCI) was established by Adi Roche in 1991 to give support and hope to children living in the aftermath of the Chernobyl meltdown.</description>
+            </ext>
+
+        </ref>
+        <misc></misc>
+        <org idref="ccpi"/>
+        <person idref="aroche"/>
+    </crisis>
+    <crisis id="wafrica">
+        <name>West Africa Food Crisis</name>
+        <info>
+            <history>Underdevelopment, low rainfall, forced migration, climate change, poverty, rising food prices and declining food stock are all key factors that are contributing toward Western Africa's food crisis. Fifteen million people across Western Africa are directly affected by the food crisis and it is predicted to worsen by the end of 2012. This is causing an increase in the illness rate in Western Africa as many people are becoming severely malnourished.</history>
+            <help>Donate to or volunteer with: Oxfam America</help>
+            <resources>Donations</resources>
+            <type>Food Shortage/Drought</type>
+            <time>
+                <time></time>
+                <day>0</day>
+                <month>0</month>
+                <year>2012</year>
+                <misc></misc>
+            </time>
+            <loc>
+                <city></city>
+                <region>West Africa</region>
+                <country></country>
+            </loc>
+            <impact>
+                <human>
+                    <deaths>0</deaths>
+                    <displaced>0</displaced>
+                    <injured>0</injured>
+                    <missing>0</missing>
+                    <misc>Regional food and water shortage affecting over 18 million people.</misc>
+                </human>
+                <economic>
+                    <amount>0</amount>
+                    <currency></currency>
+                    <misc></misc>
+                </economic>
+            </impact>
+        </info>
+        <ref>
+			<primaryImage>
+            	<site></site>
+                <title>Women in a garden - Burkina Faso</title>
+                <url>http://www.oxfamamerica.org/oxfam-images/women-in-garden-burkina-faso-11-june-2012/image_large</url>
+                <description></description>
+            </primaryImage>
+            <image>
+            	<site></site>
+                <title>Women in a garden - Burkina Faso</title>
+                <url>http://www.oxfamamerica.org/oxfam-images/women-in-garden-burkina-faso-11-june-2012/image_large</url>
+                <description></description>
+            </image>
+            <video>
+                <site>YouTube</site>
+                <title>Survival strategies in the Sahel</title>
+                <url>http://www.youtube.com/watch?v=fbCUUv-h7oI</url>
+                <description>In the Sahel region of West Africa, where more than 18 million people are facing a food crisis, people in Burkina Faso are digging for flecks of gold to sell. What they earn is enough to buy only a small amount of food.</description>
+            </video>
+            <social>
+            	<site></site>
+                <title>Facebook</title>
+                <url>https://www.facebook.com/savethechildrenuk</url>
+                <description></description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>West Africa Food Crisis</title>
+                <url>http://www.oxfamamerica.org/emergencies/west-africa-food-crisis/</url>
+                <description></description>
+            </ext>
+        </ref>
+        <misc></misc>
+        <org idref="oxfam"/>
+        <person idref="roffenheiser"/>
+    </crisis>
+    <organization id="redcrescent">
+        <name>Red Crescent</name>
+        <info>
+            <type>Non-governmental, Humanitarian</type>
+            <history>In 1919, representatives from the national Red Cross societies of Britain, France, Italy, Japan, and the US came together in Paris to found the "League of Red Cross Societies". The original idea was Henry Davison's, then president of the American Red Cross. This move, led by the American Red Cross, expanded the international activities of the Red Cross movement beyond the strict mission of the ICRC to include relief assistance in response to emergency situations which were not caused by war (such as man-made or natural disasters). The ARC already had great disaster relief mission experience extending back to its foundation.</history>
+            <contact>
+                <phone>(1) 800 RED CROSS</phone>
+                <email>secretariat@ifrc.org</email>
+                <mail>
+                    <address>National Headquarters 2025 E Street N.W.</address>
+                    <city>Washington D.C</city>
+                    <state></state>
+                    <country>USA</country>
+                    <zip>20006</zip>
+                </mail>
+            </contact>
+            <loc>
+                <city>Washington D.C</city>
+                <region></region>
+                <country>USA</country>
+            </loc>
+        </info>
+        <ref>
+			<primaryImage>
+	            <site></site>
+                <title>Red Crescent Flag</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/b/b6/Croixrouge_logos.jpg</url>
+                <description></description>
+            </primaryImage>
+            <image>
+	            <site></site>
+                <title>Red Crescent Flag</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/b/b6/Croixrouge_logos.jpg</url>
+                <description></description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>Red Crescent volunteers</title>
+                <url>http://www.youtube.com/embed/PEB2z8qACMU</url>
+                <description></description>
+            </video>
+            <social>
+	            <site></site>
+                <title>Facebook</title>
+                <url>http://www.facebook.com/RedCrossRedCrescent</url>
+                <description></description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>Red Crescent Official Website</title>
+                <url>http://www.redcrescent.org/</url>
+                <description></description>
+            </ext>
+        </ref>
+        <misc></misc>
+        <crisis idref="iraq"/>
+        <person idref="mbarzani"/>
+    </organization>
+    <organization id="oxfam">
+        <name>OxFam</name>
+        <info>
+            <type>International Aid Organization</type>
+            <history>Founded Oxford, 1942 with mission of providing food aid to occupied Greece</history>
+            <contact>
+                <phone>1-800-77-OXFAM</phone>
+                <email>info@oxfamamerica.org</email>
+                <mail>
+                    <address>226 Causeway Street 5th Floor</address>
+                    <city>Boston</city>
+                    <state>MA</state>
+                    <country>USA</country>
+                    <zip>02114-2206</zip>
+                </mail>
+            </contact>
+            <loc>
+                <city>Boston</city>
+                <region></region>
+                <country>MA</country>
+            </loc>
+        </info>
+        <ref>
+			<primaryImage>
+            	<site></site>
+                <title>OxFam logo</title>
+                <url>http://www.oxfam.org/sites/www.oxfam.org/themes/oxizen/logo.png</url>
+                <description></description>
+            </primaryImage>
+            <image>
+            	<site></site>
+                <title>OxFam logo</title>
+                <url>http://www.oxfam.org/sites/www.oxfam.org/themes/oxizen/logo.png</url>
+                <description></description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>Ali Mustafa speaks out on behalf of OxFam on the Sahel 2012 food crisis</title>
+                <url>http://www.youtube.com/embed/8nGQSV_D_Bk</url>
+                <description></description>
+            </video>
+            <social>
+            	<site></site>
+                <title>Twitter</title>
+                <url>http://twitter.com/#!/oxfam</url>
+                <description></description>
+            </social>
+			<social>
+				<site></site>
+                <title>Facebook</title>
+                <url>http://www.facebook.com/pages/Oxfam/106024056095120</url>
+                <description></description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>OxFam Official English Website</title>
+                <url>http://www.oxfam.org/en</url>
+                <description></description>
+            </ext>
+            <ext>
+            	<site></site>
+                <title>Wikipedia</title>
+                <url>http://en.wikipedia.org/wiki/Oxfam</url>
+                <description></description>
+            </ext>
+            <ext>
+            	<site></site>
+                <title>OxFam America</title>
+                <url>http://www.oxfamamerica.org/</url>
+                <description></description>
+            </ext>
+            </ref>
+        <misc></misc>
+        <crisis idref="wafrica"/>
+        <person idref="roffenheiser"/>
+    </organization>
+    <organization id="wfp">
+        <name>World Food Programme</name>
+        <info>
+            <type>Humanitarian</type>
+            <history>The WFP was first established in 1961 after the 1960 Food and Agricultural Organization (FAO) Conference, when George McGovern, director of the US Food for Peace Programmes, proposed establishing a multilateral food aid programme. WFP was formally established in 1963 by the FAO and the United Nations General Assembly on a three-year experimental basis. In 1965, the programme was extended to a continuing basis.</history>
+            <contact>
+                <phone>+39-06-65131</phone>
+                <email>hotline@wfp.org</email>
+                <mail>
+                    <address>Via C.G.Viola 68 Parco dei Medici</address>
+                    <city>Rome</city>
+                    <state></state>
+                    <country>Italy</country>
+                    <zip>00148</zip>
+                </mail>
+            </contact>
+            <loc>
+                <city>Rome</city>
+                <region></region>
+                <country>Italy</country>
+            </loc>
+        </info>
+        <ref>
+			<primaryImage>
+            	<site></site>
+                <title>WFP logo</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/9/9e/Official_WFP_logo.gif</url>
+                <description></description>
+            </primaryImage>
+            <image>
+            	<site></site>
+                <title>WFP logo</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/9/9e/Official_WFP_logo.gif</url>
+                <description></description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>Haiti Earthquake: WFP Food Distribution</title>
+                <url>http://www.youtube.com/embed/u-orDpbq3N4</url>
+                <description></description>
+            </video>
+            <social>
+            	<site></site>
+                <title>Twitter</title>
+                <url>http://twitter.com/wfp?utm_source=WFPorgGlobalFooter&amp;utm_medium=WFPorgGlobalFooter&amp;utm_campaign=WFPorgGlobalFooter</url>
+                <description></description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>WFP Official Website</title>
+                <url>http://www.wfp.org/</url>
+                <description></description>
+            </ext>
+            <ext>
+            	<site></site>
+                <title>Wikipedia</title>
+                <url>http://en.wikipedia.org/wiki/World_Food_Programme</url>
+                <description></description>
+            </ext>
+        </ref>
+        <misc></misc>
+        <crisis idref="haiti"/>
+        <person idref="jsheeran"/>
+    </organization>
+    <organization id="ccpi">
+        <name>Chernobyl Children’s Project International</name>
+        <info>
+            <type>Humanitarian</type>
+            <history>Founded in Ireland in 1991 by Adi Roche in response to an appeal from Ukrainian and Belarusian doctors for aid.</history>
+            <contact>
+                <phone>+353 21 431 2999</phone>
+                <email></email>
+                <mail>
+                    <address>490 Main Street</address>
+                    <city>Northport</city>
+                    <state>NY</state>
+                    <country>USA</country>
+                    <zip></zip>
+                </mail>
+            </contact>
+            <loc>
+                <city>Cork</city>
+                <region>Ireland</region>
+                <country>United Kingdom</country>
+            </loc>
+        </info>
+        <ref>
+			<primaryImage>
+            	<site></site>
+                <title>CCPI logo</title>
+                <url>http://www.chernobyl-international.com/App_Themes/CCI/images/header/img_logo.gif</url>
+                <description></description>
+            </primaryImage>
+            <image>
+            	<site></site>
+                <title>CCPI logo</title>
+                <url>http://www.chernobyl-international.com/App_Themes/CCI/images/header/img_logo.gif</url>
+                <description></description>
+            </image>
+            <video>
+                <site>YouTube</site>
+                <title>Chernobyl: CCPI Volunteers Bring Hope</title>
+                <url>http://www.youtube.com/watch?v=HhDgHddDE3g</url>
+                <description>This video depicts Chernobyl Children's Project International in Chernobyl affected regions of Belarus this past winter.</description>
+            </video>
+            <social>
+            	<site></site>
+                <title>Facebook</title>
+                <url>http://www.facebook.com/ChernobylChildrenInternational</url>
+                <description></description>
+            </social>
+            <social>
+            	<site></site>
+                <title>Twitter</title>
+                <url>http://twitter.com/#!/Chernobyl/</url>
+                <description></description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>CCPI Official Website</title>
+                <url>http://www.chernobyl-international.com/index.aspx</url>
+                <description></description>
+            </ext>
+        </ref>
+        <misc></misc>
+        <crisis idref="chernobyl"/>
+        <person idref="aroche"/>
+    </organization>
+    <person id="mbarzani">
+        <name>Mustafa Barzani</name>
+        <info>
+            <type>Nationalist leader</type>
+            <birthdate>
+                <time></time>
+                <day>14</day>
+                <month>4</month>
+                <year>1903</year>
+                <misc>Died 4/1/1979</misc>
+            </birthdate>
+            <nationality>Kurdish</nationality>
+            <biography>In 1946 he was chosen as the leader of the Kurdistan Democratic Party (KDP) to lead the Kurdish revolution against Iraqi regimes. Barzani was the primary political and military leader of the Kurdish revolution until his death in March 1979. He led campaigns of armed struggle against both the Iraqi and Iranian governments.</biography>
+        </info>
+        <ref>
+			<primaryImage>
+            	<site></site>
+                <title>Mustafa Barzani</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Mustafa_barzani.jpg/280px-Mustafa_barzani.jpg</url>
+                <description>Barzani riding his horse</description>
+            </primaryImage>
+            <image>
+            	<site></site>
+                <title>Mustafa Barzani</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Mustafa_barzani.jpg/280px-Mustafa_barzani.jpg</url>
+                <description>Barzani riding his horse</description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>Mustafa Barzani</title>
+                <url>http://www.youtube.com/embed/t1jLwD-xnPY</url>
+                <description></description>
+            </video>
+            <social>
+            	<site></site>
+                <title>Facebook</title>
+                <url>http://www.facebook.com/pages/Mustafa-Barzani/10046042137</url>
+                <description></description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>MeForum</title>
+                <url>http://www.meforum.org/220/the-last-years-of-mustafa-barzani</url>
+                <description></description>
+            </ext>
+        </ref>
+        <misc></misc>
+        <crisis idref="iraq"/>
+        <org idref="redcrescent"/>
+    </person>
+    <person id="jsheeran">
+        <name>Josette Sheeran</name>
+        <info>
+            <type>Vice Chairman of the World Economic Forum</type>
+            <birthdate>
+                <time></time>
+                <day>0</day>
+                <month>0</month>
+                <year>1954</year>
+                <misc></misc>
+            </birthdate>
+            <nationality>United States</nationality>
+            <biography>Josette Sheeran is Vice Chairman of the World Economic Forum. Sheeran assumed this position on the conclusion of her term at the World Food Programme in April 2012. She was the eleventh Executive Director of the United Nations World Food Programme (WFP), appointed by United Nations Secretary-General Kofi Annan and Food and Agriculture Organization Director-General Jacques Diouf in November 2006. Prior to this post, she served as the United States Under Secretary for Economic, Business, and Agricultural Affairs in the State Department.</biography>
+        </info>
+        <ref>
+        	<primaryImage>
+            	<site></site>
+                <title>Josette Sheeran</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/c/ca/Josette_Sheeran_Shiner_Dept_State.jpg</url>
+                <description></description>
+            </primaryImage>
+            <image>
+            	<site></site>
+                <title>Josette Sheeran</title>
+                <url>http://upload.wikimedia.org/wikipedia/commons/c/ca/Josette_Sheeran_Shiner_Dept_State.jpg</url>
+                <description></description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>Josette Sheeran: Ending Hunger Now</title>
+                <url>http://www.youtube.com/embed/CdxVbUja_pY</url>
+                <description></description>
+            </video>
+            <social>
+            	<site></site>
+                <title>Facebook</title>
+                <url>http://www.facebook.com/josette.sheeran</url>
+                <description></description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>Wikipedia</title>
+                <url>http://en.wikipedia.org/wiki/Josette_Sheeran</url>
+                <description></description>
+            </ext>
+        </ref>
+        <misc></misc>
+        <crisis idref="haiti"/>
+        <org idref="wfp"/>
+    </person>
+    <person id="aroche">
+        <name>Adi Roche</name>
+        <info>
+            <type>Humanitarian</type>
+            <birthdate>
+                <time></time>
+                <day>11</day>
+                <month>07</month>
+                <year>1957</year>
+                <misc></misc>
+            </birthdate>
+            <nationality>Irish</nationality>
+            <biography>A campaigner for peace, humanitarian aid, and education. She is the chief executive of Irish-based charity Chernobyl Children's Project International, and in November 2010 received the Health Award at the World of Children Awards ceremony.</biography>
+        </info>
+        <ref>
+        	<primaryImage>
+            	<site></site>
+                <title>Adi Roche</title>
+                <url>http://www.businessandfinance.ie/files/2010/images/20100304113435_Adi-Roche.jpg</url>
+                <description></description>
+            </primaryImage>
+            <image>
+            	<site></site>
+                <title>Adi Roche</title>
+                <url>http://www.businessandfinance.ie/files/2010/images/20100304113435_Adi-Roche.jpg</url>
+                <description></description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>People who care: Chernobyl Children's Project International</title>
+                <url>http://www.youtube.com/embed/BFkCCKWCRyk</url>
+                <description></description>
+            </video>
+            <social>
+            	<site></site>
+                <title>Facebook</title>
+                <url>http://www.facebook.com/pages/Adi-Roche/103118666395441</url>
+                <description></description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>Wikipedia</title>
+                <url>http://en.wikipedia.org/wiki/Adi_Roche</url>
+                <description></description>
+            </ext>
+        </ref>
+        <misc></misc>
+        <crisis idref="chernobyl"/>
+        <org idref="ccpi"/>
+    </person>
+    <person id="roffenheiser">
+        <name>Raymond C. Offenheiser Jr.</name>
+        <info>
+            <type>Humanitarian</type>
+            <birthdate>
+                <time></time>
+                <day>0</day>
+                <month>0</month>
+                <year>0</year>
+                <misc></misc>
+            </birthdate>
+            <nationality>American</nationality>
+            <biography>Offenheiser is the president of Oxfam America, a nonprofit international development and relief agency and the US affiliate of Oxfam International. Since Offenheiser joined the Boston-based organization in 1995, it has grown more than fourfold and has positioned itself as an expert on international development and global trade.</biography>
+        </info>
+        <ref>
+        	<primaryImage>
+            	<site></site>
+                <title>Raymond Offenheiser</title>
+                <url>http://kellogg.nd.edu/about/images/offenheiser.jpg</url>
+                <description></description>
+            </primaryImage>
+            <image>
+            	<site></site>
+                <title>Raymond Offenheiser</title>
+                <url>http://kellogg.nd.edu/about/images/offenheiser.jpg</url>
+                <description></description>
+            </image>
+            <video>
+                <site>Youtube</site>
+                <title>Offenheiser talking (in English)</title>
+                <url>http://www.youtube.com/embed/U_qufZf9iKo</url>
+                <description></description>
+            </video>
+            <social>
+            	<site></site>
+                <title>Facebook</title>
+                <url>http://www.facebook.com/pages/Raymond-Offenheiser/207522135941999</url>
+                <description></description>
+            </social>
+            <ext>
+            	<site></site>
+                <title>OxFam profile</title>
+                <url>http://www.oxfamamerica.org/whoweare/oxfam-experts/raymond-offenheiser</url>
+                <description></description>
+            </ext>
+        </ref>
+        <misc></misc>
+        <crisis idref="wafrica"/>
+        <org idref="oxfam"/>
+    </person>
+</worldCrises>

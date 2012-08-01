@@ -1,0 +1,1245 @@
+<worldCrises xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="WC2.xsd">
+
+<!-- ......CRISIS...... -->
+
+<!--..................................... Rwanda Genocide .....................................-->
+
+  <crisis id = "RwandaGen">
+
+    <name>Rwanda Genocide</name>
+
+    <info>
+
+      <history>There had always been heavy ethnic tension between the majority Hutu people and the Tutsis in Rwanda since the country's establishment. The Hutu both resented and feared the Tutsi minority for the decades of oppression they had to withstand. They finally overthew the Tutsi monarchy in a rebellion in 1959-1962 and established their own Hutu lead government. In the years following, social, economic, and political pressures grew and the Hutu political elite blamed the entire Tutsi minority for these problems. Soon after, a Tutsi-dominated rebel group, the Rwandan Patriotic Front, made a push to overthrow the Hutu led government; this led to a civil war and heavier resentment of the Tutsi people. The civil war ended in 1994 where President Juvenal Habyarimana signed a cease-fire with the Tutsi rebel group.  
+
+In April 1994, shortly after President Habyarimana's plane was shot down violence errupted overnight in cities and towns around the country. The Hutu extremist political party had organized two primary militia groups to carry out the genocide of the Tutsis in advance in order to maintain their political power/influence. These two groups carried out mass murders on Tutsi men, women, and children, as well as Hutu people who were against the murders. Though the two militia groups were responsible for initiating many of the attacks on the Tutsi people, the actual murders were carried out by Hutu civilians; they were given the order by militia groups to either kill their Tutsi friends/neighbors or be killed themselves. Many Hutu civilians had no trouble killing them since there was much resent towards them over the past years. This genocide continued for three months until the Rwandan Patriotic Front (RPF), a rebel group composed of mostly Tutsi refugees, defeated the Hutu perpetrator regime and its supporters.</history>
+      <help>Awareness</help>
+      <resources></resources>
+      <type>Murder</type>
+
+      <time>
+        <time></time>
+        <day>06</day>
+        <month>04</month>
+        <year>1994</year>
+        <misc></misc>
+      </time>
+
+      <loc>
+        <city></city>
+        <region></region>
+        <country>Rwanda</country>
+      </loc>
+
+      <impact>
+
+        <human>
+          <deaths>1000000</deaths>
+          <displaced>0</displaced>
+          <injured>80000</injured>
+          <missing>10000</missing>
+          <misc></misc>
+        </human>
+
+        <economic>
+          <amount>1000000</amount>
+          <currency></currency>
+          <misc></misc>
+        </economic>
+
+      </impact>
+
+    </info>
+
+    <ref>
+
+      <primaryImage>
+        <site></site>
+        <title>Rwanda Genocide Image</title>
+        <url>http://saharareporters.com/sites/default/files/page_images/articles/2012/Genocide%20Rwanda.jpg?1334587404</url>
+        <description>Mass grave for the lost during the genocide.</description>
+      </primaryImage>
+
+      <image>
+        <site>Wikipedia</site>
+        <title>Ntrama Church Altar</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/2/24/Ntrama_Church_Altar.jpg</url>
+        <description>Church where hundreds of people were barricaded inside and killed.</description>
+      </image>
+
+      <video>
+        <site>YouTube</site>
+        <title>Ghosts of Rwanda</title>
+        <url>http://www.youtube.com/embed/xON22c7pZ6c</url>
+        <description>Documentary of the Rwanda genocide.</description>
+      </video>
+
+      <social>
+        <site></site>
+        <title></title>
+        <url></url>
+        <description></description>
+      </social>
+
+      <ext>
+        <site></site>
+        <title></title>
+        <url></url>
+        <description></description>
+      </ext>
+
+    </ref>
+
+    <misc>The Rwandan Genocide was the 1994 mass murder of an estimated 800,000 people in the small East African nation of Rwanda.</misc>
+
+    <org idref = "OutreachProg"/>
+    <person idref = "PaulRuse"/>
+
+  </crisis>
+
+<!--..................................... 2010 Chilean Earthquake .....................................-->
+
+  <crisis id = "ChileanEarth">
+
+    <name>2010 Chilean Earthquake</name>
+
+    <info>
+
+      <history>Chile's Pacific coast lies on the "Ring of Fire", the line frequent earthquakes and volcanic eruptions that circles the Pacific rim.  There has been 123 documented notable earthquakes with its epicenter within Chile since 1570.  The largest magintude earthquake occurred May 22, 1960 with a magnitude of 9.5, which is to date the most powerful earthquake ever recorded on earth.  The most recent earthquake occurred March 25, 2012 with a magnitude of 7.1.  This history of frequent earthquakes has made Chile one of the most well-prepared nations against earthquakes.  Chile has strict building codes, robust emergency response, and an educated population. Homes and buildings in Chile are built to ride out earthquakes, their steel skeletons designed to sway with seismic waves.  Also Chile has the most world-renowned seismologists and earthquake engineers per capita. These professionals are heeded by the government to advise in government contingency planning.  Finally, the people in Chile have most likely experienced an earthquake before and know how to react when one occurs (by sheltering under tables and door frames).
+
+An earthquake of 8.8 magnitude occured off the coast of central Chile, lasting for about three minutes.  The earthquake ranks as the sixth largest earthquake recorded and was felt throughout most of Chile and many other South American countries.  It also triggered a tsunami which devastated the south-central Chilean coast and damaged areas in California and Japan. The earthquake generated a blackout that affected 93% of the country, lasting several days.  Chile was declared to be in a "state of catastrophe" by President Michelle Bachelet, who deployed military troops to take control of the most affected areas.  525 people lost their lives and 9% of the population lost their homes.  The total loss to Chilean economy is estimated to be at US$15-30 billion.</history>
+      <help>Donations, Medical Supplies, Volunteers</help>
+      <resources></resources>
+      <type>Natural Disaster</type>
+
+      <time>
+        <time></time>
+        <day>27</day>
+        <month>02</month>
+        <year>2010</year>
+        <misc></misc>
+      </time>
+
+      <loc>
+        <city></city>
+        <region></region>
+        <country>Chile</country>
+      </loc>
+
+      <impact>
+
+        <human>
+          <deaths>525</deaths>
+          <displaced>0</displaced>
+          <injured>0</injured>
+          <missing>25</missing>
+          <misc></misc>
+        </human>
+
+        <economic>
+          <amount>22500000000</amount>
+          <currency></currency>
+          <misc></misc>
+        </economic>
+
+      </impact>
+
+    </info>
+
+    <ref>
+
+      <primaryImage>
+        <site>listofworld.com</site>
+        <title>Chilean Road After Earthquake</title>
+        <url>http://www.listsofworld.com/wp-content/uploads/2011/12/Largest-earthquake-2010-Chile-Earthquake.jpg</url>
+        <description></description>
+      </primaryImage>
+
+      <image>
+        <site></site>
+        <title>Affected Area</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/8/8e/2010_Chile_earthquake_epicenter.png</url>
+        <description>Image of where the earthquake took place and the surrounding areas that were near it.</description>
+      </image>
+
+      <image>
+        <site></site>
+        <title>Specific Areas Affected</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/6/68/2010_Maule_earthquake_intensity_USGS.jpg</url>
+        <description>Specifies the regions in the country of Chile and the intensity that each one got hit with.</description>
+      </image>
+
+      <image>
+        <site></site>
+        <title>Torre O'Higgins After Quake</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/9/9b/Torre_O%C2%B4Higgins_conce.jpg</url>
+        <description>O'Higgins Tower after the quake</description>
+      </image>
+
+      <video>
+        <site>YouTube</site>
+        <title>The 2010 Great Chile Earthquake and its Aftershocks</title>
+        <url>http://www.youtube.com/embed/kr44Q_b_CX4</url>
+        <description>Animation that shows the seismic history of the Earthquake that hit Chile and its aftershocks that continued from January 1 to March 11.</description>
+      </video>
+
+      <social>
+        <site>Facebook</site>
+        <title>Chile Earthquake</title>
+        <url>https://www.facebook.com/chileearthquakeupdate?filter=3</url>
+        <description>Coverage of the events of the Chilean Earthquake as they unfolded.</description>
+      </social>
+
+      <ext>
+        <site></site>
+        <title>US Department of State</title>
+        <url>http://www.state.gov/p/wha/ci/ci/earthquake/index.htm</url>
+        <description></description>
+      </ext>
+
+      <ext>
+        <site></site>
+        <title>Multidisciplinary Center for Earthquake Engineering Research</title>
+        <url>http://mceer.buffalo.edu/infoservice/disasters/Chile-Earthquake-2010.asp</url>
+        <description></description>
+      </ext>
+
+    </ref>
+
+    <misc>The 2010 Chile earthquake occurred off the coast of central Chile on February 27th 2010 with a magnitude of 8.8 on the moment magnitude scale and lasted for about three minutes</misc>
+
+    <org idref = "SalvationArmy"/>
+    <person idref = "MichelleBach"/>
+
+  </crisis>
+
+<!--.....................................  .....................................-->
+
+  <crisis id = "AvianFlu">
+
+    <name>Avian Flu</name>
+
+    <info>
+
+      <history>1997 was the first year that cases of human-infecting H5N1 arose. 18 Humans were infected and 6 died in Hong Kong. H5N1 re-emerged in January 2003 in mainland China, killing 2 out of the 3 people infected. In 2004, 32 of 46 people infected died in Thailand and Vietnam. In 2005, 43 of 82 people infected died in 5 Asian countries. In 2006, 79 of 115 people infected died in 9 countries including the Middle East and African areas. In 2007, 59 of 88 people infected died in 9 countries. In 2008, 33 of 44 people died in 6 countries. In 2009, 32 of 73 people infected died in 5 countries. In 2010, 24 of 48 people infected died in 5 countries. In 2011,  34 of 62 infected died in 5 countries. So far in 2012, 17 of 28 infected people died in 6 countries. Officials believe that there are many more unreported cases of H5N1 infections.
+
+Avian influenza refers to "influenza caused by viruses adapted to birds." A subtype of avian infleunza named H5N1 is able to adapt to humans causing an influenza pandemic. This strain of influenza is spreading globally after first appearing in Asia. On October 10, 2011 the WHO announced a total of 566 confirmed human cases which resulted in the deaths of 332 people since 2003. Tens of millions of birds have died of H5N1 influenza and hundreds of millions of birds have been slaughtered and disposed of, to limit the spread of H5N1. Studies have indicated that these strains of influenza continue to evolve and mutate, expanding its host reservoir. Human-to-human transmission has not been found, however a mutation that allows this will surely bring a deadly pandemic.</history>
+      <help>Donations</help>
+      <resources></resources>
+      <type>Pandemic</type>
+
+      <time>
+        <time></time>
+        <day>5</day>
+        <month>21</month>
+        <year>1997</year>
+        <misc></misc>
+      </time>
+
+      <loc>
+        <city></city>
+        <region></region>
+        <country>Worldwide</country>
+      </loc>
+
+      <impact>
+
+        <human>
+          <deaths>357</deaths>
+          <displaced>0</displaced>
+          <injured>606</injured>
+          <missing>0</missing>
+          <misc></misc>
+        </human>
+
+        <economic>
+          <amount>10000000000</amount>
+          <currency></currency>
+          <misc></misc>
+        </economic>
+
+      </impact>
+
+    </info>
+
+    <ref>
+
+      <primaryImage>
+        <site>biosurvival.com</site>
+        <title>Bird Disposal</title>
+        <url>http://bioterrorsurvival.com/wp-content/uploads/2011/11/birdflu.jpg</url>
+        <description>Two individuals dispose of a bird who is believed to be a carrier of the virus.</description>
+      </primaryImage>
+
+      <image>
+        <site>Wikipedia</site>
+        <title>Avian Flu Virus Magnified</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/0/0d/Colorized_transmission_electron_micrograph_of_Avian_influenza_A_H5N1_viruses.jpg</url>
+        <description>Electron micrograph view of the Avian influenza H5N1 viruses.</description>
+      </image>
+
+      <image>
+        <site>Wikipedia</site>
+        <title>Global View of Flu Spread</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/a/a1/Global_spread_of_H5N1_map.svg</url>
+        <description>A view of the countries around the world that have been affected by the Avian Flu virus and the intensity of the virus in the country.</description>
+      </image>
+
+      <video>
+        <site>Google</site>
+        <title>Charlie Rose - Analyzing the Avian Flu Threat</title>
+        <url>http://video.google.com/videoplay?docid=2343414988689203314</url>
+        <description>An hour-long view on the spread and danger of Avian Flu with various individuals.</description>
+      </video>
+
+      <video>
+        <site>YouTube</site>
+        <title>Avian Flu: The H5N1 virus</title>
+        <url>http://www.youtube.com/embed/uHPBdjCFDkE</url>
+        <description>A veterinarian explains what exactly the H5N1 Avian Flu virus is about.</description>
+      </video>
+
+      <social>
+        <site>Facebook</site>
+        <title>Avian Influenza Information</title>
+        <url>https://www.facebook.com/pages/Avian-influenza/108336965857130</url>
+        <description>Facebook page that holds information from wikipedia about Avian Influenza for the public.</description>
+      </social>
+
+      <social>
+        <site>Twitter</site>
+        <title>Avian Flu Updates</title>
+        <url>http://twitter.com/avianflu</url>
+        <description>Twitter page that informs followers on precautions over their food and preventative measures that can be taken to avoid the Avian Flu.</description>
+      </social>
+
+      <ext>
+        <site></site>
+        <title>CDC Official</title>
+        <url>http://www.cdc.gov/flu/avian/</url>
+        <description></description>
+      </ext>
+
+      <ext>
+        <site></site>
+        <title>WHO Human Animal Interface Page</title>
+        <url>http://www.who.int/influenza/human_animal_interface/en/</url>
+        <description></description>
+      </ext>
+
+    </ref>
+
+    <misc>Avian Flu is an illness caused by any of many different strains of influenza viruses that have adapted to a specific host.</misc>
+
+    <org idref = "CDC"/>
+    <person idref = "MikeJo"/>
+
+  </crisis>
+
+<!--..................................... Global Climate Change .....................................-->
+
+  <crisis id = "GlobalC">
+
+    <name>Global Climate Change</name>
+
+    <info>
+
+      <history>It is estimated that, for the past 600,000 years or so, our planet has gone through many cycles of moderate climate change; each cycle has been roughly the same repeat of the previous one before it and the conditions (concentrations of carbon dioxide, sea levels, etc.) that caused these changes have also been around the same. In the recent decades though, the conditions that once evoked these moderate changes in the climate have all changed drastically. These once moderate concentrations have increased exponentially more than ever before and are now causing the climates in several parts of the planet to change completely from what they once were. Starting with the industrial revolution and on the concentration of green house gases in the atmosphere have skyrocketed.
+
+Over the past several decades, the global climate has been changing at a much faster rate than it normally did in the past and it is affecting areas around the world in several different ways. There is physical evidence in many parts of the world to support this argument, glaciers that once ran for miles just a few decades ago are barely visible today, sea levels have risen at much more dramatic rates than is normally expected, and patterns of precipitation have changed throughout the world as well. These events and many more are largely due to how careless humans have been when it comes to evironmental and climate concerns. The amount of green house gases that surrounds the planet and keeps a respected temperature for each part of the globe have increased at an exponential rate. These are largely a result of human activities in the past decades.</history>
+      <help>Awareness</help>
+      <resources></resources>
+      <type>Environmental</type>
+
+      <time>
+        <time></time>
+        <day>7</day>
+        <month>12</month>
+        <year>2009</year>
+        <misc></misc>
+      </time>
+
+      <loc>
+        <city></city>
+        <region></region>
+        <country>Worldwide</country>
+      </loc>
+
+      <impact>
+
+        <human>
+          <deaths>1000000000</deaths>
+          <displaced>0</displaced>
+          <injured>100000</injured>
+          <missing>10000</missing>
+          <misc></misc>
+        </human>
+
+        <economic>
+          <amount>4000000000000</amount>
+          <currency></currency>
+          <misc></misc>
+        </economic>
+
+      </impact>
+
+    </info>
+
+    <ref>
+
+      <primaryImage>
+        <site>NatGeo</site>
+        <title>Global Warming</title>
+        <url>http://images.nationalgeographic.com/wpf/media-live/photos/000/063/cache/what-global-warming_6372_600x450.jpg</url>
+        <description></description>
+      </primaryImage>
+
+      <image>
+        <site></site>
+        <title>Atmospheric Carbon Dioxide Levels</title>
+        <url>http://climate.nasa.gov/images/evidence_CO2.jpg</url>
+        <description>A chart showing the pattern that atmospheric carbon dioxide levels have had for the past centuries and where they are now.</description>
+      </image>
+
+      <image>
+        <site></site>
+        <title>The Republic of Maldives</title>
+        <url>http://climate.nasa.gov/images/maldives_250.jpg</url>
+        <description>The Maldives islands are a set of islands that are in danger to overflooding due to the rising sea levels.</description>
+      </image>
+
+      <image>
+        <site></site>
+        <title>Factory Exhausts</title>
+        <url>http://www.instablogsimages.com/images/2009/11/11/global-warming_9r5wc_3868.jpg</url>
+        <description>Image of a factory and its smokestacks releasing semi-volatile gases into the atmosphere.</description>
+      </image>
+
+      <image>
+        <site></site>
+        <title>Glacier Changes</title>
+        <url>http://sphotos.xx.fbcdn.net/hphotos-snc7/398219_10150897297368076_1959013751_n.jpg</url>
+        <description>What a glacier used to look like in the 1920's and what it looks like today.</description>
+      </image>
+
+      <video>
+        <site>YouTube</site>
+        <title>Climate Change -- The Scientific Debate</title>
+        <url>http://www.youtube.com/embed/52KLGqDSAjo</url>
+        <description>A look on how scientific research backs up the hypothesis on critical Global Climate Change.</description>
+      </video>
+
+      <video>
+        <site>YouTube</site>
+        <title>Global Warming: A Way Forward: Facing Climate Change</title>
+        <url>http://www.youtube.com/embed/SSU3DGKo39U</url>
+        <description>Documentary on the state of the global climate change that is taking place and suggestions by scientists on how to reverse the negative effect people have had on the climate.</description>
+      </video>
+
+      <social>
+        <site>Facebook</site>
+        <title>NASA Climate Change</title>
+        <url>http://www.facebook.com/pages/NASA-Climate-Change/353034908075</url>
+        <description>Facebook page of Nasa that focuses on informing the public on Climate Change.</description>
+      </social>
+
+      <ext>
+        <site></site>
+        <title>Climate Crisis</title>
+        <url>http://www.climatecrisis.net/the_evidence.php</url>
+        <description></description>
+      </ext>
+
+      <ext>
+        <site></site>
+        <title>NASA Climate page</title>
+        <url>http://climate.nasa.gov/</url>
+        <description></description>
+      </ext>
+
+    </ref>
+
+    <misc>Global Climate Change is the rise in the average temperature of Earth's atmosphere and oceans since the late 19th century, and its projected continuation.</misc>
+
+    <org idref = "TheAlliance"/>
+    <person idref = "AlGore"/>
+
+  </crisis>
+
+<!-- ......ORGANIZATION...... -->
+
+<!--..................................... The Outreach Programme on the Rwanda Genocide and the United Nations  .....................................-->
+
+  <organization id = "OutreachProg">
+
+    <name>The Outreach Programme on the Rwanda Genocide and the United Nations</name>
+
+    <info>
+
+      <type>Educational, Support, Preventive, Commemorative</type>
+      <history>The Outreach Programme on the Rwanda Genocide and the United Nations is an information and educational outreach programme run by the United Nations Department of Public Information.
+
+The programme was established by the General Assembly on 23 December 2005 (A/RES/60/225) to "mobilize civil society for Rwanda genocide victim remembrance and education in order to help prevent future acts of genocide". The programme's mandate was extended on 17 December 2007 (A/RES/62/96).</history>
+
+      <contact>
+        <phone></phone>
+        <email></email>
+
+        <mail>
+          <address>380 Madison Avenue</address>
+          <city>New York</city>
+          <state>New York</state>
+          <country>USA</country>
+          <zip></zip>
+        </mail>
+
+      </contact>
+
+      <loc>
+        <city>New York</city>
+        <region>New York</region>
+        <country>USA</country>
+      </loc>
+
+    </info>
+
+    <ref>
+
+
+
+      <primaryImage>
+        <site></site>
+        <title>Visions of Rwanda</title>
+        <url>http://www.un.org/en/preventgenocide/rwanda/images/postcard/RWANDA_ENGLISH_FRONT.jpg</url>
+        <description>Rwanda Postcard</description>
+      </primaryImage>
+
+      <image>
+        <site></site>
+        <title>Images of the lost</title>
+        <url>http://4.bp.blogspot.com/_QRhxFfrqR8U/TQIbSFOVhZI/AAAAAAAAAFg/ugjTQWoIEZ4/s1600/Rwanda_genocide__archives.jpg</url>
+        <description>Images of people who were lost during the genocide</description>
+      </image>
+
+      <image>
+        <site></site>
+        <title>The Scars of Genocide Run Deep: Support the Survivors</title>
+        <url>http://www.un.org/en/preventgenocide/rwanda/gallery/alphonsine/images/2_jpg.jpg</url>
+        <description>Poster of Genocide Prevention</description>
+      </image>
+
+      <image>
+        <site></site>
+        <title>Visions of Rwanda: Playground</title>
+        <url>http://www.un.org/en/preventgenocide/rwanda/gallery/gisimba/images/k_jpg.jpg</url>
+        <description>Poster of Genocide Prevention</description>
+      </image>
+
+      <video>
+        <site>YouTube</site>
+        <title>Rwanda: Lessons From a Hero</title>
+        <url>http://www.youtube.com/embed/q2WFMtJUVz0</url>
+        <description>The story of one man who helped Tutsis survive the genocide.</description>
+      </video>
+
+      <video>
+        <site>YouTube</site>
+        <title>Rwanda: Rising From the Ashes</title>
+        <url>http://www.youtube.com/embed/CypU-S7rN5g</url>
+        <description>Years after the genocide, Rwanda is slowly but surely recovering</description>
+      </video>
+
+      <social>
+        <site></site>
+        <title></title>
+        <url></url>
+        <description></description>
+      </social>
+
+      <ext>
+        <site></site>
+        <title>Office of the Special Adviser on the Prevention of Genocide</title>
+        <url>http://www.un.org/en/preventgenocide/adviser/</url>
+        <description></description>
+      </ext>
+
+      <ext>
+        <site></site>
+        <title>Preventing Genocide: from rhetoric to action.</title>
+        <url>http://www.un.org/ecosocdev/geninfo/afrec/vol20no1/201-preventing-genocide.html</url>
+        <description></description>
+      </ext>
+    
+      <ext>
+        <site></site>
+        <title>Millennium Development Goals in Rwanda (UNDP)</title>
+        <url>http://www.undp.org.rw/MDGs.html</url>
+        <description></description>
+      </ext>
+
+      <ext>
+        <site></site>
+        <title>UNDP Rwanda</title>
+        <url>http://www.unrwanda.org</url>
+        <description></description>
+      </ext>
+
+    </ref>
+
+    <misc>The Outreach Programme on the Rwanda Genocide and the United Nations is an information and educational outreach programme run by the United Nations Department of Public Information.</misc>
+
+    <crisis idref = "RwandaGen"/>
+    <person idref = "PaulRuse"/>	
+
+  </organization>
+
+<!--..................................... Salvation Army  .....................................-->
+
+  <organization id = "SalvationArmy">
+
+    <name>The Salvation Army</name>
+
+    <info>
+
+      <type>Church, Support</type>
+      <history>he Salvation Army was founded in London's East End in 1865 with a quasi-military structure by one-time Methodist minister William Booth and his wife Catherine.
+
+	Mission statement: The Salvation Army, an international movement, is an evangelical part of the universal Christian Church. Its message is based on the Bible. Its ministry is motivated by the love of God. Its mission is to preach the gospel of Jesus Christ and to meet human needs in His name without discrimination.</history>
+
+      <contact>
+        <phone></phone>
+        <email></email>
+
+        <mail>
+          <address>615 Slaters Lane</address>
+          <city>Alexandria</city>
+          <state></state>
+          <country>USA</country>
+          <zip></zip>
+        </mail>
+
+      </contact>
+
+      <loc>
+        <city>London</city>
+        <region></region>
+        <country>United Kingdom</country>
+      </loc>
+
+    </info>
+
+    <ref>
+
+      <primaryImage>
+        <site></site>
+        <title>Salvation Army Crest</title>
+        <url>http://upload.wikimedia.org/wikipedia/en/f/fd/Crest_of_The_Salvation_Army.png</url>
+        <description>The oldest official emblem of the salvation army</description>
+      </primaryImage>
+
+      <image>
+        <site>Wikipedia</site>
+        <title>The Salvation Army</title>
+        <url>http://upload.wikimedia.org/wikipedia/en/c/c4/The_Salvation_Army.svg</url>
+        <description>The Salvation Army's logo</description>
+      </image>
+
+      <image>
+        <site></site>
+        <title>William Booth</title>
+        <url>http://4.bp.blogspot.com/-dnHf9smqIpg/TtgJbuG_Q6I/AAAAAAAAFnQ/qGAxRjomrcY/s320/salvationarmy-williambooth.jpg</url>
+        <description>William Booth, the founder of the Salvation Army.</description>
+      </image>
+
+      <image>
+        <site></site>
+        <title>Salvation Army Charity Event</title>
+        <url>http://livingingraceland.files.wordpress.com/2012/02/salvation_army.jpg</url>
+        <description>A band playing in honor of the Salvation Army to raise funds.</description>
+      </image>
+
+      <video>
+        <site>YouTube</site>
+        <title>Salvation Army 2008 Annual Report</title>
+        <url>http://www.youtube.com/embed/VjxQCMNqflw</url>
+        <description>A collection of the Salvation Army's major accomplishments and events in 2008.</description>
+      </video>
+
+      <video>
+        <site>YouTube</site>
+        <title>Salvation Army Cadets</title>
+        <url>http://www.youtube.com/embed/-AAC46dGSEY</url>
+        <description>Salvation Army cadets dancing in New York streets for donations.</description>
+      </video>
+
+      <video>
+        <site>YouTube</site>
+        <title>An Interview with General Linda Bond</title>
+        <url>http://www.youtube.com/embed/11P-fllalak</url>
+        <description>General Linda Bond of the Salvation Army is interviewed and asked about her first six months as the international leader of the organization.</description>
+      </video>
+
+      <social>
+        <site>Facebook</site>
+        <title>The Salvation Army USA Branch</title>
+        <url>https://www.facebook.com/SalvationArmyUSA</url>
+        <description>The facebook page of the Salvation Army's USA branch where many can get general information about the organization's plans and current events.</description>
+      </social>
+
+      <ext>
+        <site></site>
+        <title>Salvation Army</title>
+        <url>http://www.salvationarmy.org/</url>
+        <description></description>
+      </ext>
+
+      <ext>
+        <site></site>
+        <title>Salvation Army USA</title>
+        <url>http://www.salvationarmyusa.org/</url>
+        <description></description>
+      </ext>
+
+    </ref>
+
+    <misc>The Salvation Army is a Protestant Christian church known for its thrift stores and charity work.</misc>
+
+    <crisis idref = "ChileanEarth"/>
+    <person idref = "MichelleBach"/>	
+
+  </organization>
+
+<!--..................................... Centers for Disease Control .....................................-->
+
+  <organization id = "CDC">
+
+    <name>Centers for Disease Control</name>
+
+    <info>
+
+      <type>Health Institute, Preventive</type>
+      <history>CDC stands for Centers for Disease Control and Prevention. It was founded in 1942 during WWII as the Office of National Defense Malaria Control Activities.  It works to protect public health and safety by providing information and developing disease prevention and control.  The CDC has launched campaigns targeting the trasmission of the flu, including the avian flu (H5N1).</history>
+
+      <contact>
+        <phone>800-232-4636</phone>
+        <email>cdcinfo@cdc.gov</email>
+
+        <mail>
+          <address>1600 Clifton Rd</address>
+          <city>Atlanta</city>
+          <state>Georgia</state>
+          <country>United States</country>
+          <zip></zip>
+        </mail>
+
+      </contact>
+
+      <loc>
+        <city>Druid Hills</city>
+        <region>Georgia</region>
+        <country>United States</country>
+      </loc>
+
+    </info>
+
+    <ref>
+
+      <primaryImage>
+        <site></site>
+        <title>CDC Logo</title>
+        <url>http://www.cdc.gov/homepage/images/img-cdcLogoHeader.png</url>
+        <description>Image of the CDC's logo</description>
+      </primaryImage>
+
+      <image>
+        <site>Wikipedia</site>
+        <title>CDC Headquarters</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/thumb/9/92/CDC_HDR_I.jpg/220px-CDC_HDR_I.jpg</url>
+        <description>CDC headquarters in Druid Hills.</description>
+      </image>
+
+      <image>
+        <site>UN.org</site>
+        <title>The Scars of Genocide Run Deep: Support the Survivors</title>
+        <url>http://www.un.org/en/preventgenocide/rwanda/gallery/alphonsine/images/2_jpg.jpg</url>
+        <description>Poster of Genocide Prevention</description>
+      </image>
+
+      <image>
+        <site></site>
+        <title>Research on the Avian Flu Virus.</title>
+        <url>http://orise.orau.gov/cdc/images/cdc-researcher-hood.jpg</url>
+        <description>CDC researcher gathering samples of the Avian Flu virus.</description>
+      </image>
+
+      <video>
+        <site>YouTube</site>
+        <title>H1N1 (Swine Flu)</title>
+        <url>http://www.youtube.com/embed/85sD83aRUIQ</url>
+        <description>Dr. Joe Bresee describes the characteristics of the swine flu infection.</description>
+      </video>
+
+      <video>
+        <site>YouTube</site>
+        <title>Clean Hands Help Prevent the Flu</title>
+        <url>http://youtube.com/embed/XHISh559oho</url>
+        <description>Podcast explaining how simply cleaning your hands the proper way can help prevent the spread of several diseases.</description>
+      </video>
+
+      <social>
+        <site>Facebook</site>
+        <title>CDC Facebook</title>
+        <url>https://www.facebook.com/CDC</url>
+        <description>Facebook page of the CDC where they post information on a daily basis to prevent sickness and diseases at bay.</description>
+      </social>
+
+      <social>
+        <site>Twitter</site>
+        <title>CDC Twitter</title>
+        <url>http://twitter.com/CDCFlu</url>
+        <description>Twitter page of the CDC where they post Flu-related updates to followers.</description>
+      </social>
+
+      <social>
+        <site>Twitter</site>
+        <title>Official Government CDC Twitter</title>
+        <url>http://twitter.com/CDCgov/</url>
+        <description>Official Twitter page of the CDC where they post daily credible health and safety updates.</description>
+      </social>
+
+      <ext>
+        <site></site>
+        <title>CDC</title>
+        <url>http://www.cdc.gov/</url>
+        <description></description>
+      </ext>
+
+      <ext>
+        <site></site>
+        <title>Flu Information</title>
+        <url>http://www.flu.gov/</url>
+        <description></description>
+      </ext>
+
+    </ref>
+
+    <misc>The Centers for Disease Control and Prevention (CDC) is a United States federal agency under the Department of Health and Human Services.</misc>
+
+    <crisis idref = "AvianFlu"/>
+    <person idref = "MikeJo"/>	
+
+  </organization>
+
+<!--..................................... The Alliance for Climate Protection .....................................-->
+
+  <organization id = "TheAlliance">
+
+    <name>The Alliance for Climate Change</name>
+
+    <info>
+
+      <type>Educational, Environmental</type>
+      <history>Founded in 2006 by former Vice-President and Nobel laureate Al Gore, the organization is a non-profit, non-partisan organization that focuses on informing the world on the critical state of the global climate and how to help improve it. It hosts many campaigns such as Repower America, the Climate Project, and Repower at Home in order to help people make a better impact on the environment.</history>
+
+      <contact>
+        <phone>202-567-6800</phone>
+        <email></email>
+
+        <mail>
+          <address>901 E Street NW. Suite 610</address>
+          <city>Washington</city>
+          <state></state>
+          <country>United States of America</country>
+          <zip></zip>
+        </mail>
+
+      </contact>
+
+      <loc>
+        <city>Washington</city>
+        <region></region>
+        <country>United States of America</country>
+      </loc>
+
+    </info>
+
+    <ref>
+
+      <primaryImage>
+        <site>Wikipedia</site>
+        <title>Alliance for Climate Protection Logo</title>
+        <url>http://upload.wikimedia.org/wikipedia/en/b/b2/Alliance_for_Climate_Protection_logo.png</url>
+        <description>Image of the Alliance for Climate Protection's official logo</description>
+      </primaryImage>
+
+      <image>
+        <site>Photobucket</site>
+        <title>Founder of the Alliance for Climate Protection</title>
+        <url>http://img.photobucket.com/albums/v642/shakespeares_sister/reusables/algoreait.png</url>
+        <description>Al Gore giving a speach over Climate Change and discussing the role that the Alliance for Climate Change will take in helping the climate crisis.</description>
+      </image>
+
+       <image>
+        <site></site>
+        <title>Alliance for Climate Protection for a Better Future</title>
+        <url>http://acpbftf.blogs.bftf.org/files/2008/07/logo-karinafjolla.jpg</url>
+        <description>Promotional image of the Alliance's intent on helping people improve the climate that they hold in their hands.</description>
+      </image>
+
+       <image>
+        <site></site>
+        <title>Cooperation From All Nations</title>
+        <url>http://files.coloribus.com/files/adsarchive/part_1196/11966455/file/alliance-for-climate-protection-globe-small-80477.jpg</url>
+        <description>The Alliance promoting that with cooperation from all nations the critical state of the global climate can be changed for the better.</description>
+      </image>
+
+      <video>
+        <site>YouTube</site>
+        <title>Climate 101</title>
+        <url>http://www.youtube.com/embed/3v-w8Cyfoq8</url>
+        <description>A short narration of the state of the global climate and how it's changing.</description>
+      </video>
+
+      <social>
+        <site></site>
+        <title></title>
+        <url></url>
+        <description></description>
+      </social>
+
+      <ext>
+        <site></site>
+        <title>Climate Reality Project</title>
+        <url>http://climaterealityproject.org/</url>
+        <description></description>
+      </ext>
+
+    </ref>
+
+    <misc>The Alliance is a nonprofit, nonpartisan organization committed to educating the global community about the urgency of implementing comprehensive solutions to the climate crisis.</misc>
+
+    <crisis idref = "GlobalC"/>
+    <person idref = "AlGore"/>	
+
+  </organization>
+
+<!-- ......PERSON...... -->
+
+<!--..................................... Paul Rusesabagina .....................................-->
+
+	<person id = "PaulRuse">
+
+    <name>Paul Rusesabagina</name>
+
+    <info>
+      <type>Activist</type>
+
+      <birthdate>
+        <time></time>
+        <day>15</day>
+        <month>06</month>
+        <year>1954</year>
+        <misc></misc>
+      </birthdate>
+
+      <nationality>Rwandan</nationality>
+      <biography>As a Hutu, Rusesabagina was unable to leave the city of Kigali after the onset of Rwandan Genocide on April 6, 1994. Rusesabagina assumed the role of hotel manager at Hôtel des Mille Collines in order to shelter other refugees from the attacking Interahamwe militia. While it was known that the hotel was acting in this capacity, Rusesabagina was able to use his business contacts to stave off attacks and smuggle in food for over 1200 refugees. None of the refugees under Rusesabagina's care were harmed.</biography>
+    </info>
+
+    <ref>
+
+      <primaryImage>
+        <site>ClutchMagOnline</site>
+        <title>Paul Rusesabagina</title>
+        <url>http://clutchmagonline.com/wp-content/uploads/2009/04/12.jpg</url>
+        <description>Paul Rusesabagina interview photo.</description>
+      </primaryImage>
+
+      <image>
+        <site></site>
+        <title>Paul with former President Bush</title>
+        <url>http://padovanews.it/images/stories/varie/2012/Paul%20Rusesabagina_Bush.jpg</url>
+        <description>Paul receiving recognition for his help in saving the lives of many Tutsi during the genocide.</description>
+      </image>
+
+      <video>
+        <site>YouTube</site>
+        <title>Paul Rusesabagina at MTSU</title>
+        <url>http://youtube.com/embed/38oTD3uRVkE</url>
+        <description>Paul giving a speach about his experience with the militia and the siege of his hotel by them during the genocide.</description>
+      </video>
+
+      <social>
+        <site></site>
+        <title></title>
+        <url></url>
+        <description></description>
+      </social>
+
+      <ext>
+        <site></site>
+        <title>Hotel Rwanda Rusesabagina Foundation</title>
+        <url>http://hrrfoundation.org/</url>
+        <description></description>
+      </ext>
+
+    </ref>
+
+    <misc>Paul Rusesabagina is a Rwandan humanitarian known for hiding and protecting 1,268 refugees during the Rwandan Genocide.</misc>
+
+    <crisis idref = "RwandaGen"/>
+    <org idref = "OutreachProg"/>
+
+  </person>
+
+<!--..................................... Michelle Bachelet .....................................-->
+
+  <person id = "MichelleBach">
+
+    <name>Michelle Bachelet</name>
+
+    <info>
+      <type>Politician</type>
+
+      <birthdate>
+        <time></time>
+        <day>29</day>
+        <month>09</month>
+        <year>1951</year>
+        <misc></misc>
+      </birthdate>
+
+      <nationality>Chilean</nationality>
+      <biography>Michelle Bachelet is a Social Democrat politician who was Preisdent of Chile from 11 March 2006 to 11 March 2010. She was the first female president of her country. In September 2010 Bachelet was appointed as the head of UN Women by UN Secretary-General Ban Ki-moon. Bachelet, a pediatrician and epidemiologist with studies in military strategy, served as Health Minister and Defense Minister.  During the 2010 earthquake Bachelet declared a "state of catastrophe" and sent military troops to the most affected areas in an effort to quell scenes of looting and arson.  She also imposed night curfews in the most affected cities.  She was criticized for not deploying the troops fast enough.</biography>
+    </info>
+
+    <ref>
+
+      <primaryImage>
+        <site>Wikipedia</site>
+        <title>Michelle Bachelet</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Michele_Bachelet_(2009).jpg/220px-Michele_Bachelet_(2009).jpg</url>
+        <description>Michelle greeting followers at a gathering.</description>
+      </primaryImage>
+
+      <image>
+        <site></site>
+        <title>Michelle Bachelet with President Obama</title>
+        <url>http://www1.pictures.zimbio.com/gi/Obama+Meets+President+Chile+Michelle+Bachelet+wqqyp-anShzl.jpg</url>
+        <description>Obama Meets With President Of Chile Michelle Bachelet</description>
+      </image>
+
+      <video>
+        <site>YouTube</site>
+        <title>Tea with Michelle Bachelet on UN Women </title>
+        <url>http://www.youtube.com/embed/X2toGWWuUkk</url>
+        <description>Former President of Chile Michelle Bachelet talks about serving as the director of UN Women.</description>
+      </video>
+
+      <social>
+        <site>Facebook</site>
+        <title>Michelle Bachelet Fan Page</title>
+        <url>https://www.facebook.com/pages/Michelle-Bachelet/8459707345</url>
+        <description>A facebook fan page of Michelle Bachelet</description>
+      </social>
+
+      <ext>
+        <site></site>
+        <title>Britannica</title>
+        <url>http://www.britannica.com/EBchecked/topic/1009973/Michelle-Bachelet</url>
+        <description></description>
+      </ext>
+
+      <ext>
+        <site></site>
+        <title>UN Women</title>
+        <url>http://www.unwomen.org/about-us/directorate/executive-director/</url>
+        <description></description>
+      </ext>
+
+    </ref>
+
+    <misc>Verónica Michelle Bachelet Jeria is a Social Democrat politician who was President of Chile from 11 March 2006 to 11 March 2010.</misc>
+
+    <crisis idref = "ChileanEarth"/>
+    <org idref = "SalvationArmy"/>
+
+  </person>
+
+<!--..................................... Mike Johanns .....................................-->
+
+  <person id = "MikeJo">
+
+    <name>Mike Johanns</name>
+
+    <info>
+      <type>Politician</type>
+
+      <birthdate>
+        <time></time>
+        <day>18</day>
+        <month>06</month>
+        <year>1950</year>
+        <misc></misc>
+      </birthdate>
+
+      <nationality>American</nationality>
+      <biography>Michael Johanns is an American Republican politician. He was the 38th Governor of Nebraska and elected to the United States Senate in 2008. He was the United States Secretary of Agriculture from 2005 to 2007.  During his time as the Secretary of Agriculture, Johanns worked against the avian flu pandemic. He worked to inform the public and colloborated with other organizations to help prevent and stop the spread of the avian flu.</biography>
+    </info>
+
+    <ref>
+
+      <primaryImage>
+        <site>Wikipedia</site>
+        <title>Mike Johanns</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Mike_Johanns_official_Senate_photo.jpg/220px-Mike_Johanns_official_Senate_photo.jpg</url>
+        <description>Mike Johanns offical US Senate photo.</description>
+      </primaryImage>
+
+      <image>
+        <site></site>
+        <title>Mike Johanns with former president Bush</title>
+        <url>http://cdn3.wn.com/pd/0c/a1/c00cc1932b104b2beaafb0e4bbc4_grande.jpg</url>
+        <description>President George W. Bush shakes the hand of Mike Johanns</description>
+      </image>
+
+      <video>
+        <site>C-Span</site>
+        <title>Avian Influenza Preparations</title>
+        <url>http://www.c-spanvideo.org/program/191706-1</url>
+        <description>Mike Johanns and two other office holders discuss to reporters the danger that the Avian Flu pandemic holds to the US.</description>
+      </video>
+
+      <video>
+        <site>YouTube</site>
+        <title>Sen. Johanns' Statement on Health Law Ruling</title>
+        <url>http://www.youtube.com/embed/LW6gb4bMzvA</url>
+        <description>Sen. Johanns' Statement on Health Law Ruling</description>
+      </video>
+
+      <social>
+        <site>Twitter</site>
+        <title>Mike Johanns twitter</title>
+        <url>http://twitter.com/Mike_Johanns</url>
+        <description>Twitter page of Senator Mike Johanns where his opitions on matters of state and national level are stated.</description>
+      </social>
+
+      <social>
+        <site>Facebook</site>
+        <title>Mike Johanns Facebook</title>
+        <url>https://www.facebook.com/MikeJohanns</url>
+        <description>Facebook page of Mike Johanns where he informs the public over his policies and events.</description>
+      </social>
+
+      <ext>
+        <site></site>
+        <title>Mike Johanns Senator Page</title>
+        <url>http://www.johanns.senate.gov/public/index.cfm</url>
+        <description></description>
+      </ext>
+
+    </ref>
+
+    <misc>Michael Owen "Mike" Johanns is an Republican American politician who has been the junior United States Senator from Nebraska since 2009.</misc>
+
+    <crisis idref = "AvianFlu"/>
+    <org idref = "CDC"/>
+
+  </person>
+
+<!--..................................... Al Gore .....................................-->
+
+  <person id = "AlGore">
+
+    <name>Albert "Al" Gore</name>
+
+    <info>
+      <type>Environmental Activist</type>
+
+      <birthdate>
+        <time></time>
+        <day>31</day>
+        <month>03</month>
+        <year>1948</year>
+        <misc></misc>
+      </birthdate>
+
+      <nationality>American</nationality>
+      <biography>He served as the 45th vice-president to president Clinton and has been an activist for climate change awareness and protection since 1976 when he hosted a congressional hearing on climate change, toxic waste, and global warming. He has received several awards over his work in gaining environmental awareness for the state of the planet and the direction it's going in as well as his book publishings and his film “An Inconvenient Truth”. He has started several organizations to help gain awareness for global climate change and how to combat the negative effects that humans are having on its worsening state. One in particular, the Alliance for Climate Protection, has been widely received with open arms and has gained significant success in the recent years.</biography>
+    </info>
+
+    <ref>
+
+      <primaryImage>
+        <site>Wikipedia</site>
+        <title>Al Gore portrait</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Al_Gore%2C_Vice_President_of_the_United_States%2C_official_portrait_1994.jpg/480px-Al_Gore%2C_Vice_President_of_the_United_States%2C_official_portrait_1994.jpg</url>
+        <description>Official Vice-President portrait of Al Gore</description>
+      </primaryImage>
+
+      <image>
+        <site>Wikipedia</site>
+        <title>Al Gore with Glenn Seaborg</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/6/65/Al_Gore_Glenn.jpg</url>
+        <description>Al Gore meeting with Glenn T. Seaborg in the white house during a visit of the 1993 Science Talent Search finalists.</description>
+      </image>
+
+      <image>
+        <site>Wikipedia</site>
+        <title>President and Vice-President with Nobel Prize Winners</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/4/4b/George_W._Bush_meets_with_the_American_2007_Nobel_Award_recipients-20071126.jpg</url>
+        <description>Former President Bush and former Vice-President Al Gore stand for a portrait with the 2007 Nobel Prize Recipients</description>
+      </image>
+
+      <image>
+        <site>Wikipedia</site>
+        <title>Presentation on Climate Change and Global Warming</title>
+        <url>http://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Al_gore_presentation.jpg/399px-Al_gore_presentation.jpg</url>
+        <description>Al Gore's speech on Climate Change and Global Warming at the University of Miami in 2007.</description>
+      </image>
+
+      <video>
+        <site>YouTube</site>
+        <title>Al Gore on Averting Climate Crisis</title>
+        <url>http://www.youtube.com/embed/rDiGYuQicpA</url>
+        <description>Al Gore gives a speach over how individuals can address climate change immediately, and help stabalize the current state of the climate.</description>
+      </video>
+
+      <video>
+        <site>YouTube</site>
+        <title>Al Gore's New Thinking on the Climate Crisis</title>
+        <url>http://www.youtube.com/embed/rUO8bdrXghs</url>
+        <description>Former Vice-President Gore gives a presentation on the pace of climate change and how it appears that the pace may be worse than what scientists recently predicted.</description>
+      </video>
+
+      <social>
+        <site>Twitter</site>
+        <title>Al Gore Twitter</title>
+        <url>http://twitter.com/#!/algore</url>
+        <description>Twitter page of Al Gore where he informs followers on how global climate change is affecting cities and communities world-wide.</description>
+      </social>
+
+      <social>
+        <site>Facebook</site>
+        <title>Al Gore Facebook</title>
+        <url>https://www.facebook.com/algore</url>
+        <description>Facebook page of Al Gore where he informs people on the events that are taking place due to the global climate change that is taking place.</description>
+      </social>
+
+      <ext>
+        <site></site>
+        <title>Al Gore Public Website</title>
+        <url>http://www.algore.com/about.html</url>
+        <description></description>
+      </ext>
+
+    </ref>
+
+    <misc>Albert Arnold "Al" Gore, Jr. served as the 45th Vice President of the United States (1993–2001), under President Bill Clinton.</misc>
+
+    <crisis idref = "GlobalC"/>
+    <org idref = "TheAlliance"/>
+
+  </person>
+
+</worldCrises>

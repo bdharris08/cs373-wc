@@ -1,0 +1,802 @@
+<worldCrises>
+        <crisis id="abduction">
+        	<name>Abduction Of Children By The Lord's Resistance Army</name>
+        	<info>
+	        	<history></history>
+	        	<help>Donations</help>
+	        	<resources>Money, Health Care, Military</resources>
+	        	<type>Child abuse</type>
+	        	<time>
+		        	<time></time>
+		        	<day>1</day>
+		        	<month>4</month>
+		        	<year>1987</year>
+		        	<misc>Approximate/Ongoing</misc>
+	        	</time>
+	        	<loc>
+		        	<city></city>
+		        	<region>South Sudan</region>
+		        	<country>Uganda</country>
+	        	</loc>
+	        	<impact>
+		        	<human>
+			        	<deaths>1105</deaths>
+			        	<displaced>2000000</displaced>
+			        	<injured>50000</injured>
+			        	<missing>2519</missing>
+			        	<misc>Figures are approximate</misc>
+		        	</human>
+		        	<economic>
+			        	<amount>100000000</amount>
+			        	<currency>US Dollars</currency>
+			        	<misc>Unknown (Figures are estimates)</misc>
+		        	</economic>
+	        	</impact>
+        	</info>
+
+        	<ref>
+	        	<primaryImage>
+		        	<site></site>
+		        	<title></title>
+		        	<url></url>
+		        	<description></description>
+	        	</primaryImage>
+	        	<image>
+		        	<site>The Huffington Post</site>
+		        	<title>Limbaugh Lord's Resistance</title>
+		        	<url>http://images.huffingtonpost.com/2011-10-18-danzcolor4921.jpg</url>
+	        	</image>
+	        	<video>
+		        	<site>YouTube</site>
+		        	<title>The Lord's Resistance Army Hunts Children in Sudan</title>
+		        	<url>http://youtu.be/-ip08pjKngI</url>
+		        	<description>One of the world's most brutal rebel groups, Joseph Kony's Lord's Resistance Army (LRA), is on the move from the Congo, terrorizing civilians</description>
+	        	</video>
+	        	<social>
+		        	<site>Twitter</site>
+		        	<title>Lords Resistance Army</title>
+		        	<url>https://twitter.com/#!/Pulitzercenter/lords-resistance-army</url>
+		        	<description>A public list by Pulitzer Center</description>
+	        	</social>
+	        	<ext>
+		        	<site>LRA CRISIS TRACKER</site>
+		        	<title>Lords Resistance Army Crisis Tracker</title>
+		        	<url>http://www.lracrisistracker.com</url>
+		        	<description>The LRA Crisis Tracker is a real-time mapping platform and data collection system created to bring an unprecedented level of transparency to the atrocities of the Lord’s Resistance Army.</description>
+	        	</ext>
+        	</ref>
+
+        	<misc></misc>
+
+         	<org idref="invisible" />
+
+        	<person idref="Joseph_Kony" />
+        </crisis>
+
+        <crisis id="drug">
+        	<name>Mexican Drug War</name>
+        	<info>
+	        	<history></history>
+	        	<help>Votes</help>
+	        	<resources>Military</resources>
+	        	<type>Social War</type>
+	        	<time>
+		        	<time></time>
+		        	<day>11</day>
+		        	<month>12</month>
+		        	<year>2006</year>
+		        	<misc>when Operation Michoacan commenced</misc>
+	        	</time>
+	        	<loc>
+		        	<city></city>
+		        	<region>North America</region>
+		        	<country>Mexico</country>
+	        	</loc>
+	        	<impact>
+		        	<human>
+			        	<deaths>54927</deaths>
+			        	<displaced>1600000</displaced>
+			        	<injured>500000</injured>
+			        	<missing>10000</missing>
+			        	<misc>Figures are approximate</misc>
+		        	</human>
+		        	<economic>
+			        	<amount>50000000000</amount>
+			        	<currency>US Dollars</currency>
+			        	<misc>Figures are estimates</misc>
+		        	</economic>
+	        	</impact>
+        	</info>
+
+        	<ref>
+	        	<primaryImage>
+		        	<site>Virtual Mirage</site>
+		        	<title>Mexican Drug War</title>
+		        	<url>http://2.bp.blogspot.com/-hQwzKa-KCn0/TlwJ9axDEJI/AAAAAAAAFEc/55JH3oJz8sk/s1600/mexico_drug_war3_30954s.jpg</url>
+		        	<description></description>
+	        	</primaryImage>
+	        	<image>
+		        	<site>About.com</site>
+		        	<title>Mexican Pinata</title>
+		        	<url>http://tinyurl.com/82f6mw9</url>
+	        	</image>
+	        	<video>
+		        	<site>YouTube</site>
+		        	<title>Mexico's Drug War</title>
+		        	<url>http://youtu.be/F01eO2GTbQg</url>
+		        	<description>Drug-cartel fueled violence has turned into a war in Mexico, with thousands of deaths and the government battling well-armed gangs whose military-quality weapons come mostly from U.S. dealers. CNN's Anderson Cooper reports.</description>
+	        	</video>
+	        	<social>
+		        	<site>Twitter</site>
+		        	<title>Sylvia Longmire (@DrugWarAnalyst)</title>
+		        	<url>https://twitter.com/#!/DrugWarAnalyst</url>
+		        	<description>Former USAF officer/Special Agent/senior border security analyst, specializing in Mexico's Drug War. Consultant, analyst, writer. Author of Cartel.</description>
+	        	</social>
+	        	<ext>
+		        	<site>CNN</site>
+		        	<title>Is Mexico's drug war strategy working?</title>
+		        	<url>http://www.cnn.com/2012/02/16/world/americas/mexico-drug-war-strategy/index.htm</url>
+		        	<description></description>
+	        	</ext>
+        	</ref>
+
+        	<misc></misc>
+
+         	<org idref="pan" />
+
+        	<person idref="Felipe_Calderon" />
+        </crisis>
+
+        <crisis id="health">
+        	<name>United States Health Care Reform</name>
+        	<info>
+	        	<history>Daniel's Test History texT!</history>
+	        	<help>Sign Petition(s)</help>
+	        	<resources>Money, Support</resources>
+	        	<type>Social Reform</type>
+	        	<time>
+		        	<time></time>
+		        	<day>23</day>
+		        	<month>3</month>
+		        	<year>2010</year>
+		        	<misc>Approximate/Ongoing</misc>
+	        	</time>
+	        	<loc>
+		        	<city>Washington DC</city>
+		        	<region></region>
+		        	<country>United States</country>
+	        	</loc>
+	        	<impact>
+		        	<human>
+			        	<deaths>0</deaths>
+			        	<displaced>0</displaced>
+			        	<injured>0</injured>
+			        	<missing>0</missing>
+			        	<misc>Statistics not recorded</misc>
+		        	</human>
+		        	<economic>
+			        	<amount>10000000000</amount>
+			        	<currency>US Dollars</currency>
+			        	<misc>Unknown (Figures are estimates)</misc>
+		        	</economic>
+	        	</impact>
+        	</info>
+
+        	<ref>
+	        	<primaryImage>
+		        	<site>Wikipedia</site>
+		        	<title>PNHP poster</title>
+		        	<url>http://upload.wikimedia.org/wikipedia/en/1/17/PNHP_poster.jpg</url>
+		        	<description>Single payer health care poster about the United States National Health Care Act</description>
+	        	</primaryImage>
+	        	<image>
+		        	<site>Wikipedia</site>
+		        	<title>Budget Impact of Affordable Care Act - March 2012</title>
+		        	<url>http://upload.wikimedia.org/wikipedia/en/0/08/CBO_-_Budget_Impact_of_Affordable_Care_Act_-_March_2012.png</url>
+		        	<description>Summarizes the CBO analysis of ACA as of March 2012</description>
+	        	</image>
+	        	<video>
+		        	<site>YouTube</site>
+		        	<title>Health Care Reform in the US</title>
+		        	<url>http://youtu.be/ckiFGJ7JcZM</url>
+		        	<description>This event was recorded on 31 May 2011 in Sheikh Zayed Theatre, New Academic Building
+Spiralling health care costs are currently threatening the future of the US economy. Peter Orszag offers insight on possible approaches to reduce health care costs over time without impairing the quality of medical care or outcomes. LSE alumnus Peter Orszag (MSc, PhD Economics, 1992, 1997) is vice chairman of Global Banking at CitiGroup. He recently served as director of the Office of Management and Budget under president Barack Obama.</description>
+	        	</video>
+	        	<social>
+		        	<site>Twitter</site>
+		        	<title>HealthCare.gov</title>
+		        	<url>https://twitter.com/#!/HealthCareGov</url>
+		        	<description>HealthCare.gov helps you take health care into your own hands.</description>
+	        	</social>
+	        	<ext>
+		        	<site>Fox News</site>
+		        	<title>The history of the US health care reform effort</title>
+		        	<url>http://www.foxnews.com/us/2012/06/27/us-health-care-reform-efforts-through-history</url>
+		        	<description></description>
+	        	</ext>
+        	</ref>
+
+        	<misc>TEST misc text!</misc>
+
+         	<org idref="republican" />
+
+        	<person idref="John_Roberts" />
+        </crisis>
+
+        <crisis id="censorship">
+        	<name>Internet Censorship</name>
+        	<info>
+	        	<history></history>
+	        	<help>Sign Petition(s)/Contact Congress</help>
+	        	<resources>Political/Social Support</resources>
+	        	<type>Social Suppression</type>
+	        	<time>
+		        	<time></time>
+		        	<day>14</day>
+		        	<month>6</month>
+		        	<year>1995</year>
+		        	<misc>Approximate/Ongoing</misc>
+	        	</time>
+	        	<loc>
+		        	<city></city>
+		        	<region></region>
+		        	<country>United States</country>
+	        	</loc>
+	        	<impact>
+		        	<human>
+			        	<deaths>0</deaths>
+			        	<displaced>0</displaced>
+			        	<injured>0</injured>
+			        	<missing>0</missing>
+			        	<misc>Statistics not recorded</misc>
+		        	</human>
+		        	<economic>
+			        	<amount>10000000000</amount>
+			        	<currency>US Dollars</currency>
+			        	<misc>Unknown (Figures are estimates)</misc>
+		        	</economic>
+	        	</impact>
+        	</info>
+
+        	<ref>
+	        	<primaryImage>
+		        	<site>Wikipedia</site>
+		        	<title>Censorship in America</title>
+		        	<url>http://upload.wikimedia.org/wikipedia/commons/7/7d/Redacted777.png</url>
+		        	<description>A redacted document</description>
+	        	</primaryImage>
+	        	<image>
+		        	<site>SaveTheInternet.com</site>
+		        	<title>American Censorship Day</title>
+		        	<url>http://www.savetheinternet.com/sites/default/files/sti-legacy/imce/blocked_vertical2.jpg</url>
+	        	</image>
+	        	<video>
+		        	<site>YouTube</site>
+		        	<title>Internet Censorship In America - (Will This Bill Pass?) (PROTECT IP/SOPA)</title>
+		        	<url>http://youtu.be/n7g7qcrXa10</url>
+		        	<description>"Okay, so I have been hearing about this everywhere about the Internet Censorship Bill that has been going around the congress lately, and I think that this is not such a good idea to do, because if this bill is passed, the Internet will never be the same anymore. We can have websites blocked by the U.S Government, (Sites like YouTube, Facebook, Twitter, Flickr, etc.) and ordinary people on the internet can get 5 years in jail or a fine for posting copyrighted material on the internet (such as singing cover songs, etc.) So what everyone has been doing (Including Mozilla, Wordle etc.) is that they are censoring their own logos to prevent and trying to stop this bill from passing, and if you do not want this bill to pass please support this video and share it to your friends and let everyone know about this bill... Thank you for taking your time to read this description..."</description>
+	        	</video>
+	        	<social>
+		        	<site>Twitter</site>
+		        	<title>Don't Censor the Net</title>
+		        	<url>https://twitter.com/#!/dontcensornet</url>
+		        	<description>Stop Internet Censorship! Defeat PROTECT IP and E-PARASITE. Sign the petition to #killSOPA http://killsopa.com</description>
+	        	</social>
+			<social>
+		        	<site>Facebook</site>
+		        	<title>TestSocial</title>
+		        	<url>www.twitter.com/invisible</url>
+		        	<description>TEST</description>
+	        	</social>
+	        	<ext>
+		        	<site>How Stuff Works</site>
+		        	<title>How Internet Censorship Works</title>
+		        	<url>http://computer.howstuffworks.com/internet-censorship.htm</url>
+		        	<description></description>
+	        	</ext>
+        	</ref>
+
+        	<misc>Test TexT 2!1!!</misc>
+
+         	<org idref="riaa" />
+
+        	<person idref="Lamar_Smith" />
+        </crisis>
+
+        <organization id="invisible">
+        	<name>Invisible Children</name>
+        	<info>
+        		<type>Non-Profit</type>
+	        	<history>Invisible Children, Inc. is a non-profit organization founded in 2004 to bring awareness to the activities of the Lord's Resistance Army (LRA) in Central Africa, and its leader, Joseph Kony. Specifically, the group seeks to put an end to the practices of the LRA which include abductions and abuse of children, and forcing them to serve as soldiers. To this end, Invisible Children urges the United States government to take military action in the central region of Africa. Invisible Children also operates as a charitable organization, soliciting donations and selling merchandise to raise money for their cause. The organization promotes its cause by dispensing films on the internet and presenting in high schools and colleges around the United States.</history>
+	        	<contact>
+		        	<phone>(555) 200-4000</phone>
+		        	<email>info@invisiblechildren.com</email>
+		        	<mail>
+			        	<address>1620 5th Avenue, Suite 400</address>
+			        	<city>San Diego</city>
+			        	<state>CA</state>
+			        	<country>USA</country>
+			        	<zip>92101</zip>
+		        	</mail>
+	        	</contact>
+	        	<loc>
+		        	<city>San Diego</city>
+		        	<region></region>
+		        	<country>United States</country>
+	        	</loc>
+        	</info>
+
+        	<ref>
+	        	<primaryImage>
+		        	<site>Invisible Children at SUNY New Paltz</site>
+		        	<title>Invisible Children Logo</title>
+		        	<url>http://invisiblechildrennewpaltz.files.wordpress.com/2011/09/z-invisible-children-face-to-face1.jpg</url>
+		        	<description></description>
+	        	</primaryImage>
+	        	<image>
+		        	<site>vibewiret</site>
+		        	<title>Kony 2012</title>
+		        	<url>http://vibewire.org/wp-content/uploads/2012/03/kony2012.jpg</url>
+	        	</image>
+	        	<video>
+		        	<site>YouTube</site>
+		        	<title>Kony 2012 Documentary</title>
+		        	<url>http://youtu.be/Y4MnpzG5Sqc</url>
+	        	</video>
+	        	<social>
+		        	<site>Facebook</site>
+		        	<title>Invisible Children Facebook Page</title>
+		        	<url>www.facebook.com/invisiblechildren</url>
+	        	</social>
+
+	        	<social>
+		        	<site>Twitter</site>
+		        	<title>Invisible Children Twitter Page</title>
+		        	<url>www.twitter.com/invisible</url>
+		        	<description>Official Invisible Children Twitter</description>
+	        	</social>
+
+	        	<ext>
+		        	<site>Invisible Children</site>
+		        	<title>Official Website</title>
+		        	<url>www.invisiblechildren.com</url>
+	        	</ext>
+        	</ref>
+
+        	<misc></misc>
+
+        	<crisis idref="abduction" />
+        	<person idref="Joseph_Kony" />
+    	</organization>
+
+
+                <organization id="pan">
+        	<name>National Action Party</name>
+        	<info>
+        		<type>Political Party</type>
+	        	<history>Founded in 1939 by Manuel Gomez Moran, the National Action Party (Partido de Accion Nacional-PAN) was the first genuine opposition party to develop in Mexico. The PAN emerged as a conservative reaction against the nationalizations and land confiscations undertaken by the Cardenas government during the 1930s. The PAN resembled a standard Christian Democratic party, and its early support derived primarily from the Roman Catholic Church, the business sector, and other groups alienated by the left-wing populist reforms of the Cardenas government. Although the PAN is much more conservative than the PRI on social issues, since the mid-1980s the PAN's economic program has been almost indistinguishable from that of the PRI governments it has attempted to supplant</history>
+	        	<contact>
+		        	<phone>(555) 200-4000</phone>
+		        	<email></email>
+		        	<mail>
+			        	<address></address>
+			        	<city></city>
+			        	<state></state>
+			        	<country>Mexico</country>
+			        	<zip></zip>
+		        	</mail>
+	        	</contact>
+	        	<loc>
+		        	<city></city>
+		        	<region></region>
+		        	<country>Mexico</country>
+	        	</loc>
+        	</info>
+
+        	<ref>
+	        	<primaryImage>
+		        	<site>Wikipedia</site>
+		        	<title>PAN Logo</title>
+		        	<url>http://upload.wikimedia.org/wikipedia/commons/1/14/PAN_%28Mexico%29.svg</url>
+		        	<description></description>
+	        	</primaryImage>
+	        	<image>
+		        	<site>The Telegraph</site>
+		        	<title>National Action Party candidate Josefina Vazquez Mota</title>
+		        	<url>http://i.telegraph.co.uk/multimedia/archive/02269/Josefina-Vazquez-M_2269114b.jpg</url>
+	        	</image>
+	        	<video>
+		        	<site>YouTube</site>
+		        	<title>Mexican National Action Party (PAN) Speech In Lynwood</title>
+		        	<url>http://www.youtube.com/watch?v=QbarZ6UIKvM</url>
+		        	<description>Former Mexican President Vicente Fox attended a political function for his party (PAN - National Action Party)in Lynwood, California on Sunday September 30, 2007</description>
+	        	</video>
+	        	<social>
+		        	<site>Facebook</site>
+		        	<title>PAN Facebook Page</title>
+		        	<url>https://www.facebook.com</url>
+	        	</social>
+
+	        	<social>
+		        	<site>Twitter</site>
+		        	<title>PAN Twitter Page</title>
+		        	<url>www.twitter.com/accionnacionale</url>
+		        	<description>Official PAN Twitter</description>
+	        	</social>
+
+	        	<ext>
+		        	<site>PAN</site>
+		        	<title>Official Website</title>
+		        	<url>www.pan.org.mx/</url>
+	        	</ext>
+        	</ref>
+
+        	<misc></misc>
+
+        	<crisis idref="drug" />
+        	<person idref="Felipe_Calderon" />
+    	</organization>
+
+        <organization id="republican">
+        	<name>Republican Party</name>
+        	<info>
+        		<type>Political Party</type>
+	        	<history>The Republican Party is one of the two major contemporary political parties in the United States, along with the Democratic Party. Founded by anti-slavery expansion activists in 1854, it is often called the GOP (Grand Old Party), although the rival Democratic Party is older. Eighteen US presidents have been Republicans.
+				The party's platform generally reflects American conservatism in the U.S. political spectrum. American conservatism of the Republican Party is not wholly based upon rejection of the political ideology of liberalism, as many principles of American conservatism are based upon classical liberalism. Rather the Republican Party's conservatism is largely based upon its support of classical liberal principles against the modern liberalism of the Democratic Party that is considered American liberalism in contemporary American political discourse.</history>
+	        	<contact>
+		        	<phone>(202) 863 8500</phone>
+		        	<email>info@gop.com</email>
+		        	<mail>
+			        	<address>310 First Street, SE</address>
+			        	<city>Washington, DC</city>
+			        	<state></state>
+			        	<country>United States</country>
+			        	<zip>20003</zip>
+		        	</mail>
+	        	</contact>
+	        	<loc>
+		        	<city>Washington, DC</city>
+		        	<region></region>
+		        	<country>United States</country>
+	        	</loc>
+        	</info>
+
+        	<ref>
+	        	<primaryImage>
+		        	<site>Wikipedia</site>
+		        	<title>GOP Logo</title>
+		        	<url>http://upload.wikimedia.org/wikipedia/en/9/9b/Republicanlogo.svg</url>
+		        	<description></description>
+	        	</primaryImage>
+	        	<image>
+		        	<site>Wikipedia</site>
+		        	<title>Abraham Lincoln head on shoulders photo portrait</title>
+		        	<url>http://upload.wikimedia.org/wikipedia/commons/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg</url>
+<!-- 		        	<description></description> -->
+	        	</image>
+	        	<video>
+		        	<site>YouTube</site>
+		        	<title>Republican for a Reason</title>
+		        	<url>http://youtu.be/0Y5_q-rWMkg</url>
+		        	<description>"The Republican National Committee's newest web video, reminding us all why we are Republican - and proud Americans."</description>
+	        	</video>
+	        	<social>
+		        	<site>Facebook</site>
+		        	<title>GOP Facebook Page</title>
+		        	<url>www.facebook.com/gop</url>
+<!-- 		        	<description>A public list by Pulitzer Center</description> -->
+	        	</social>
+
+	        	<social>
+		        	<site>Twitter</site>
+		        	<title>GOP Twitter Page</title>
+		        	<url>www.twitter.com/gop</url>
+		        	<description>Updates from the Republican National Committee.</description>
+	        	</social>
+
+	        	<ext>
+		        	<site>GOP</site>
+		        	<title>Official Website</title>
+		        	<url>www.gop.com</url>
+	        	</ext>
+        	</ref>
+
+        	<misc></misc>
+
+        	<crisis idref="health" />
+        	<person idref="John_Roberts" />
+    	</organization>
+
+<organization id="riaa">
+        	<name>RIAA</name>
+        	<info>
+        		<type>Trade Organization</type>
+	        	<history>The Recording Industry Association of America (RIAA) is a trade organization that represents the recording industry distributors in the United States. Its members consist of record labels and distributors, which the RIAA say "create, manufacture and/or distribute approximately 85% of all legally sold recorded music in the United States." RIAA has its headquarters in Washington, D.C.
+				The RIAA was formed in 1952 primarily to administer the RIAA equalization curve, a technical standard of frequency response applied to vinyl records during recording. The RIAA 	participates in the collective rights management of sound recording. The association is also responsible for certifying Gold and Platinum albums and singles in the USA.</history>
+	        	<contact>
+		        	<phone>(202) 775-0101</phone>
+		        	<email></email>
+		        	<mail>
+			        	<address>1025 F ST N.W., 10th Floor</address>
+			        	<city>Washington, DC</city>
+			        	<state></state>
+			        	<country>United States</country>
+			        	<zip>20004</zip>
+		        	</mail>
+	        	</contact>
+	        	<loc>
+		        	<city>Washington, DC</city>
+		        	<region></region>
+		        	<country>United States</country>
+	        	</loc>
+        	</info>
+
+        	<ref>
+	        	<primaryImage>
+		        	<site>Cracked</site>
+		        	<title>RIAA Logo</title>
+		        	<url>http://cdn-www.cracked.com/articleimages/ob/riaa.jpg</url>
+		        	<description></description>
+	        	</primaryImage>
+	        	<image>
+		        	<site>Cracked</site>
+		        	<title>RIAA Red Scare</title>
+		        	<url>http://cdn-www.cracked.com/articleimages/ob/illegal-music-downloading-logo1.gifg</url>
+<!-- 		        	<description></description> -->
+	        	</image>
+	        	<video>
+		        	<site>YouTube</site>
+		        	<title>R.I.A.A.: The Truth</title>
+		        	<url>http://youtu.be/nmHBtgpEeTM</url>
+		        	<description>"A mockumentary of how the RIAA is dealing with college students who illegally download, especially at Ohio University. Watch, comment, share with friends. Together we can show the RIAA who's boss: the consumer."</description>
+	        	</video>
+	        	<social>
+		        	<site>Facebook</site>
+		        	<title>RIAA Facebook Page</title>
+		        	<url>www.facebook.com/riaa</url>
+	        	</social>
+
+	        	<social>
+		        	<site>Twitter</site>
+		        	<title>RIAA Twitter Page</title>
+		        	<url>www.twitter.com/riaa</url>
+		        	<description>The RIAA supports the creative + financial vitality of the American music business. Follow us for industry news, market research, G/P info + much more</description>
+	        	</social>
+
+	        	<ext>
+		        	<site>RIAA</site>
+		        	<title>Official Website</title>
+		        	<url>www.RIAA.com</url>
+	        	</ext>
+        	</ref>
+
+        	<misc></misc>
+
+        	<crisis idref="censorship" />
+        	<person idref="Lamar_Smith" />
+    	</organization>
+
+
+
+
+			<person id="Joseph_Kony">
+				<name>Joseph Kony</name>
+				<info>
+					<type>Guerilla leade</type>
+					<birthdate>
+						<time></time>
+						<day>15</day>
+						<month>8</month>
+						<year>1961</year>
+						<misc>Approximate</misc>
+					</birthdate>
+					<nationality>Ugandan</nationality>
+					<biography>Kony is the leader of the Lord's Resistance Army (LRA), a guerrilla group that has forced more than 60,000 children to fight in a murderous armed conflict lasting more than two decades.
+
+Born in 1987 or 1988 from the frustrations against the government of Uganda's marginalised Acholi ethnic group, the LRA has since dropped its national political agenda but continued with its campaign of murder and terror.
+
+Kony himself was born in 1964 in Uganda and his movement draws on messianic beliefs and a smattering of Christian motifs.
+
+Kony has declared himself a "spokesperson" of God and claims he can channel the Holy Spirit.</biography>
+				</info>
+				<ref>
+					<primaryImage>
+						<site></site>
+						<title>Mustafa Barzani</title>
+						<url>http://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Mustafa_barzani.jpg/280px-Mustafa_barzani.jpg</url>
+						<description>Barzani riding his horse</description>
+					</primaryImage>
+					<image>
+						<site>Journalist on the Run</site>
+						<title>Joseph Kony</title>
+						<url>http://janetnewenham.files.wordpress.com/2012/03/joseph-kony.jpg</url>
+					</image>
+					<video>
+						<site>Youtube</site>
+						<title>Rocketboom: 2006 Interview with Joseph Kony of the LRA - Kony 2012</title>
+						<url>http://youtu.be/M5oBxBAY3fg</url>
+						<description>Rocketboom field correspondent Ruud Elmendorp covers a rare press conference held by Joseph Kony, leader of the Lord's Resistance Army (LRA).</description>
+					</video>
+					<social>
+						<site>Facebook</site>
+						<title>Joseph Kony Facebook Page</title>
+						<url>http://www.facebook.com/pages/Joseph-Kony/24570038208</url>
+					</social>
+					<ext>
+						<site>Britannica</site>
+						<title>Joseph Kony</title>
+						<url>http://www.britannica.com/EBchecked/topic/1017670/Joseph-Kony</url>
+						<description>Joseph Kony Britannica Entry</description>
+					</ext>
+				</ref>
+				<misc></misc>
+				<crisis idref="invisible"/>
+				<org idref="abduction"/>
+        </person>
+
+        <person id="Felipe_Calderon">
+				<name>Felipe Calderon</name>
+				<info>
+					<type>President</type>
+					<birthdate>
+						<time></time>
+						<day>18</day>
+						<month>8</month>
+						<year>1962</year>
+						<misc></misc>
+					</birthdate>
+					<nationality>Michoacan</nationality>
+					<biography>Calderon comes from a political family. His father, Luis Calderon Vega, was one of several founders of the PAN party, at a time when Mexico was basically ruled by one party only, the PRI or Revolutionary Party. An excellent student, Felipe earned degrees in law and economics in Mexico before going to Harvard University, where he received a Masters of Public Administration. He joined the PAN as a young man and quickly proved capable of important posts within the party structure.</biography>
+				</info>
+				<ref>
+					<primaryImage>
+						<site>Wikipedia</site>
+						<title>Felipe Calderon</title>
+						<url>http://upload.wikimedia.org/wikipedia/commons/f/f4/Felipe_Calderon_banda.jpg</url>
+						<description>Felipe Calderon Hinojosa, Presidente de Mexico</description>
+					</primaryImage>
+					<image>
+						<site>Wikipedia</site>
+						<title>Obama and Calderon</title>
+						<url>http://upload.wikimedia.org/wikipedia/commons/a/a2/President_Barack_Obama_meets_President_Felipe_Calder%C3%B3n.jpg</url>
+						<description>United States President Barack Obama meets Mexico President Felipe Calderon</description>
+					</image>
+					<video>
+						<site>Youtube</site>
+						<title>Davos 2012 - Felipe Calderon - Global Economic Crisis - Role and Challenges of the G20</title>
+						<url>http://youtu.be/cyjQw1gGBxY</url>
+						<description>Global Economic Crisis: Role and Challenges of the G20
+Conversation with
+-Felipe Calderon, President of Mexico
+
+Introduced by
+-Klaus Schwab, Founder and Executive Chairman, World Economic Forum; Foundation Board Member
+
+Moderated by
+-William H. Gates III, Co-Chair, Bill and Melinda Gates Foundation, USA</description>
+					</video>
+					<social>
+						<site>Twitter</site>
+						<title>Felipe Calderon Twitter Page</title>
+						<url>https://twitter.com/#!/FelipeCalderon</url>
+						<description>Presidente Constitucional de los Estados Unidos Mexicanos</description>
+					</social>
+					<ext>
+						<site>Official Website of the Mexican President</site>
+						<title>PRESIDENT FELIPE CALDERON HINOJOSA</title>
+						<url>http://en.presidencia.gob.mx/presidency/president/</url>
+						<description></description>
+					</ext>
+				</ref>
+				<misc></misc>
+				<crisis idref="pan"/>
+				<org idref="drug"/>
+        </person>
+
+                <person id="John_Roberts">
+				<name>John Roberts</name>
+				<info>
+					<type>Chief justice of the United States</type>
+					<birthdate>
+						<time></time>
+						<day>27</day>
+						<month>1</month>
+						<year>1955</year>
+						<misc></misc>
+					</birthdate>
+					<nationality>American</nationality>
+					<biography>Roberts grew up in northern Indiana and was educated in a private school before attending Harvard College and Harvard Law School, where he was managing editor of the Harvard Law Review. After being admitted to the bar, he served as a law clerk for Judge Henry Friendly and then Justice Rehnquist before taking a position in the Attorney General's office during the Reagan Administration. He went on to serve the Reagan Administration and the George H. W. Bush administration in the Department of Justice and the Office of the White House Counsel, before spending fourteen years in private law practice. During this time, he argued thirty-nine cases before the Supreme Court.
+
+In 2003, he was appointed as a judge of the D.C. Circuit by President George W. Bush, where he served until his nomination to be an Associate Justice of the Supreme Court. When Chief Justice Rehnquist died before Roberts's confirmation hearings, Bush renominated Roberts to fill the newly vacant center seat.</biography>
+				</info>
+				<ref>
+					<primaryImage>
+						<site>Wikipedia</site>
+						<title>Official John Roberts Photo</title>
+						<url>http://upload.wikimedia.org/wikipedia/commons/0/0f/File-Official_roberts_CJ_cropped.jpg</url>
+						<description>John G. Roberts, Jr., Chief Justice of the United States of America (cropped version of official photo)</description>
+					</primaryImage>
+					<image>
+						<site>Wikipedia</site>
+						<title>John Roberts Oath</title>
+						<url>http://upload.wikimedia.org/wikipedia/commons/d/d2/Robertsoath6.jpg</url>
+						<description>President George W. Bush announces from the Oval Office the nomination of Supreme Court justice nominee John Roberts as his nominee as Chief Justice on Monday morning September 5, 2005.</description>
+					</image>
+					<video>
+						<site>Youtube</site>
+						<title>John Roberts: Supreme Court Nomination Hearings from PBS NewsHour and EMK Institute</title>
+						<url>http://youtu.be/PNF_pwkP6gg</url>
+						<description>s the Senate confirmation hearings for Supreme Court nominee Elena Kagan get underway, the Edward M. Kennedy Institute is partnering with the PBS NewsHour to provide video highlights of the nine most recent Senate confirmation hearings.
+
+Chief Justice John G. Roberts faced the Senate Judiciary Committee in 2005 and would be confirmed by a 78 to 22 vote.</description>
+					</video>
+					<social>
+						<site>Facebook</site>
+						<title>Chief Justice John Roberts Facebook Page</title>
+						<url>https://www.facebook.com/pages/Chief-Justice-John-Roberts/120073461399290</url>
+						<description></description>
+					</social>
+					<ext>
+						<site>SupremeCourt.gov</site>
+						<title>Biographies of Current Justices of the Supreme Court</title>
+						<url>http://www.supremecourt.gov/about/biographies.aspx</url>
+						<description></description>
+					</ext>
+				</ref>
+				<misc></misc>
+				<crisis idref="republican"/>
+				<org idref="health"/>
+        </person>
+
+        <person id="Lamar_Smith">
+				<name>Lamar Smith</name>
+				<info>
+					<type>U.S. Representative</type>
+					<birthdate>
+						<time></time>
+						<day>19</day>
+						<month>11</month>
+						<year>1947</year>
+						<misc></misc>
+					</birthdate>
+					<nationality>American</nationality>
+					<biography>U.S. Representative (Republican) for Texas's 21st congressional district, serving since 1987. The district includes most of the wealthier sections of San Antonio and Austin, as well as nearly all of the Texas Hill Country. He introduced the Stop Online Piracy Act (SOPA), and the Protecting Children From Internet Pornographers Act (PCIP). I heard somewhere that he likes wine coolers and being spanked by eunuchs. He also introduced the Leahy-Smith America Invents Act.</biography>
+				</info>
+				<ref>
+					<primaryImage>
+						<site>Wikipedia</site>
+						<title>Official Congressional Photo of Rep. Lamar Smith</title>
+						<url>http://upload.wikimedia.org/wikipedia/commons/e/e3/Lamar_Smith%2C_Official_Portrait%2C_c112th_Congress.jpg</url>
+						<description>US Congressman Lamar Smith</description>
+					</primaryImage>
+					<image>
+						<site>molempire</site>
+						<title>Lamar Smith Isn't Listening</title>
+						<url>http://molempire.com/wp-content/uploads/2012/01/lamar-smith-cant-hear-you.jpg</url>
+						<description>Major Websites Start Internet Blackout to Protest Against SOPA and PIPA.</description>
+					</image>
+					<video>
+						<site>Youtube</site>
+						<title>Lamar Smith- President's Address to Congress</title>
+						<url>http://youtu.be/BbSkwE9-8kA</url>
+						<description></description>
+					</video>
+					<social>
+						<site>Twitter</site>
+						<title>Lamar Smith Twitter Page</title>
+						<url>https://twitter.com/#!/LamarSmithTX21</url>
+						<description>"I represent the 21st District of TX in Congress and protect the Constitution as the top Republican on the Judiciary Com. Join me: www.facebook.com/LamarsmithTX21"</description>
+					</social>
+					<ext>
+						<site>lamarsmith.house.gov</site>
+						<title>Congressman Lamar Smith</title>
+						<url>http://lamarsmith.house.gov/</url>
+						<description></description>
+					</ext>
+				</ref>
+				<misc></misc>
+				<crisis idref="censorship"/>
+				<org idref="riaa"/>
+        </person>
+
+</worldCrises>
