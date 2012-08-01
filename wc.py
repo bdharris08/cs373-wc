@@ -183,10 +183,17 @@ class CrisisDisplayHandler(webapp2.RequestHandler):
         images = []
         for c in crises :
             extRefs = c.ref.fetch(None)
+            primaryImageFound = False
             for r in extRefs :
                 if(r.ref_type == "primaryImage") :
                     images.append(r.url)
+                    primaryImageFound = True
                     break
+            if not primaryImageFound:
+                for r in extRefs :
+                    if(r.ref_type == "image") :
+                        images.append(r.url)
+                        break
         dictionary["images"] = images
         path = os.path.join(os.path.dirname(__file__), 'crisis_display.html')
         self.response.out.write(template.render(path, dictionary))
@@ -200,10 +207,17 @@ class OrgDisplayHandler(webapp2.RequestHandler):
         images = []
         for o in orgs :
             extRefs = o.ref.fetch(None)
+            primaryImageFound = False
             for r in extRefs :
                 if(r.ref_type == "primaryImage") :
                     images.append(r.url)
+                    primaryImageFound = True
                     break
+            if not primaryImageFound:
+                for r in extRefs :
+                    if(r.ref_type == "image") :
+                        images.append(r.url)
+                        break
         dictionary["images"] = images
         path = os.path.join(os.path.dirname(__file__), 'org_display.html')
         self.response.out.write(template.render(path, dictionary))
@@ -217,10 +231,17 @@ class PersonDisplayHandler(webapp2.RequestHandler):
         images = []
         for p in persons :
             extRefs = p.ref.fetch(None)
+            primaryImageFound = False
             for r in extRefs :
                 if(r.ref_type == "primaryImage") :
                     images.append(r.url)
+                    primaryImageFound = True
                     break
+            if not primaryImageFound:
+                for r in extRefs :
+                    if(r.ref_type == "image") :
+                        images.append(r.url)
+                        break
         dictionary["images"] = images
         path = os.path.join(os.path.dirname(__file__), 'person_display.html')
         self.response.out.write(template.render(path, dictionary))
@@ -604,7 +625,7 @@ class UploadHandler(webapp.RequestHandler):
             crisis.worldCrises = wc
             crisis.id = c.get("id")
             crisis.name = c.find("name").text
-            if c.find("misc").text == None :
+            if c.find("misc") == None or c.find("misc").text == None:
                 crisis.misc = " "
             else :
                 crisis.misc = c.find("misc").text
@@ -613,19 +634,19 @@ class UploadHandler(webapp.RequestHandler):
             ci = c.find("info")
             crisisInfo = CrisisInfo()
             crisisInfo.crisis = crisis
-            if ci.find("history").text == None :
+            if ci.find("history") == None or ci.find("history").text == None :
                 crisisInfo.history = " "
             else :
                 crisisInfo.history = ci.find("history").text
-            if ci.find("help").text == None :
+            if ci.find("help") == None or ci.find("help").text == None :
                 crisisInfo.help = " "
             else :
                 crisisInfo.help = ci.find("help").text
-            if ci.find("resources").text == None :
+            if ci.find("resources") == None or ci.find("resources").text == None :
                 crisisInfo.resources = " "
             else :
                 crisisInfo.resources = ci.find("resources").text
-            if ci.find("type").text == None :
+            if ci.find("type") == None or ci.find("type").text == None :
                 crisisInfo.type = " "
             else :
                 crisisInfo.type = ci.find("type").text
@@ -634,23 +655,23 @@ class UploadHandler(webapp.RequestHandler):
             t = ci.find("time")
             time = Date()
             time.crisisInfo = crisisInfo
-            if t.find("time").text == None :
+            if t.find("time") == None or t.find("time").text == None :
                 time.time = " "
             else :
                time.time = t.find("time").text
-            if t.find("day").text == None :
+            if t.find("day") == None or t.find("day").text == None :
                 time.day = 0
             else :
                 time.day = int(t.find("day").text)
-            if t.find("month").text == None :
+            if t.find("month") == None or t.find("month").text == None :
                 time.month = 0
             else :
                 time.month = int(t.find("month").text)
-            if t.find("year").text == None :
+            if t.find("tear") == None or t.find("year").text == None :
                 time.year = 0
             else :
                 time.year = int(t.find("year").text)
-            if t.find("misc").text == None :
+            if t.find("misc") == None or t.find("misc").text == None :
                 time.misc = " "
             else :
                 time.misc = t.find("misc").text
@@ -659,15 +680,15 @@ class UploadHandler(webapp.RequestHandler):
             l = ci.find("loc")
             location = Location()
             location.crisisInfo = crisisInfo
-            if l.find("city").text == None :
+            if l.find("city") == None or l.find("city").text == None :
                 location.city = " "
             else :
                 location.city = l.find("city").text
-            if l.find("region").text == None :
+            if l.find("region") == None or l.find("region").text == None :
                 location.region = " "
             else :
                 location.region = l.find("region").text
-            if l.find("country").text == None :
+            if l.find("country") == None or l.find("country").text == None :
                 location.country = " "
             else :
                 location.country = l.find("country").text
@@ -678,23 +699,23 @@ class UploadHandler(webapp.RequestHandler):
             hi = i.find("human")
             humanImpact = HumanImpact()
             humanImpact.crisisInfo = crisisInfo
-            if hi.find("deaths").text == None :
+            if hi.find("deaths") == None or hi.find("deaths").text == None :
                 humanImpact.deaths = 0
             else :
                 humanImpact.deaths = int(hi.find("deaths").text)
-            if hi.find("displaced").text == None :
+            if hi.find("displaced") == None or hi.find("displaced").text == None :
                 humanImpact.displaced = 0
             else :
                 humanImpact.displaced = int(hi.find("displaced").text)
-            if hi.find("injured").text == None :
+            if hi.find("injured") == None or hi.find("injured").text == None :
                 humanImpact.injured = 0
             else :
                 humanImpact.injured = int(hi.find("injured").text)
-            if hi.find("missing").text == None :
+            if hi.find("missing") == None or hi.find("missing").text == None :
                 humanImpact.missing = 0
             else :
                 humanImpact.missing = int(hi.find("missing").text)
-            if hi.find("misc").text == None :
+            if hi.find("misc") == None or hi.find("misc").text == None :
                 humanImpact.misc = " "
             else :
                 humanImpact.misc = hi.find("misc").text
@@ -703,15 +724,15 @@ class UploadHandler(webapp.RequestHandler):
             ei = i.find("economic")
             economicImpact = EconomicImpact()
             economicImpact.crisisInfo = crisisInfo
-            if ei.find("amount").text == None :
+            if ei.find("amount") == None or ei.find("amount").text == None :
                 economicImpact.amount = 0
             else :
                 economicImpact.amount = int(ei.find("amount").text)
-            if ei.find("currency").text == None :
+            if ei.find("currency") == None or ei.find("currency").text == None :
                 economicImpact.currency = " "
             else :
                 economicImpact.currency = ei.find("currency").text
-            if ei.find("misc").text == None :
+            if ei.find("misc") == None or ei.find("misc").text == None :
                 economicImpact.misc = " "
             else :
                 economicImpact.misc = ei.find("misc").text
@@ -719,119 +740,124 @@ class UploadHandler(webapp.RequestHandler):
             
             r = c.find("ref")
             
-            pi = r.find("primaryImage")
-            piRef = ExternalLink()
-            piRef.crisis = crisis
-            piRef.ref_type = "primaryImage"
-            if pi.find("site").text == None :
-                piRef.site = " "
-            else :
-                piRef.site = pi.find("site").text
-            if pi.find("title").text == None :
-                piRef.title = " "
-            else :
-                piRef.title = pi.find("title").text
-            if pi.find("url").text == None :
-                piRef.url = " "
-            else :
-                piRef.url = pi.find("url").text
-            if pi.find("description").text == None :
-                piRef.description = " "
-            else :
-                piRef.description = pi.find("description").text
-            piRef.put()
+            if not r.find("primaryImage") == None:
+                pi = r.find("primaryImage")
+                piRef = ExternalLink()
+                piRef.crisis = crisis
+                piRef.ref_type = "primaryImage"
+                if pi.find("site").text == None :
+                    piRef.site = " "
+                else :
+                    piRef.site = pi.find("site").text
+                if pi.find("title").text == None :
+                    piRef.title = " "
+                else :
+                    piRef.title = pi.find("title").text
+                if pi.find("url").text == None :
+                    piRef.url = " "
+                else :
+                    piRef.url = pi.find("url").text
+                if pi.find("description").text == None :
+                    piRef.description = " "
+                else :
+                    piRef.description = pi.find("description").text
+                piRef.put()
             
-            image = r.findall("image")
-            for i in image:
-                ref = ExternalLink()
-                ref.crisis = crisis
-                ref.ref_type = "image"
-                if i.find("site").text == None :
-                    ref.site = " "
-                else :
-                    ref.site = i.find("site").text
-                if i.find("title").text == None :
-                    ref.title = " "
-                else :
-                    ref.title = i.find("title").text
-                if i.find("url").text == None :
-                    ref.url = " "
-                else :
-                    ref.url = i.find("url").text
-                if i.find("description").text == None :
-                    ref.description = " "
-                else :
-                    ref.description = i.find("description").text
-                ref.put()      
+            if not r.find("image") == None:
+                image = r.findall("image")
+                for i in image:
+                    ref = ExternalLink()
+                    ref.crisis = crisis
+                    ref.ref_type = "image"
+                    if i.find("site").text == None :
+                        ref.site = " "
+                    else :
+                        ref.site = i.find("site").text
+                    if i.find("title").text == None :
+                        ref.title = " "
+                    else :
+                        ref.title = i.find("title").text
+                    if i.find("url").text == None :
+                        ref.url = " "
+                    else :
+                        ref.url = i.find("url").text
+                    if i.find("description").text == None :
+                        ref.description = " "
+                    else :
+                        ref.description = i.find("description").text
+                    ref.put()      
                 
-            v = r.findall("video")
-            for i in v:
-                ref = ExternalLink()
-                ref.crisis = crisis
-                ref.ref_type = "video"
-                if i.find("site").text == None :
-                    ref.site = " "
-                else :
-                    ref.site = i.find("site").text
-                if i.find("title").text == None :
-                    ref.title = " "
-                else :
-                    ref.title = i.find("title").text
-                if i.find("url").text == None :
-                    ref.url = " "
-                else :
-                    ref.url = i.find("url").text
-                if i.find("description").text == None :
-                    ref.description = " "
-                else :
-                    ref.description = i.find("description").text
-                ref.put()  
-                
-            s = r.findall("social")
-            for i in s:
-                ref = ExternalLink()
-                ref.crisis = crisis
-                ref.ref_type = "social"
-                if i.find("site").text == None :
-                    ref.site = " "
-                else :
-                    ref.site = i.find("site").text
-                if i.find("title").text == None :
-                    ref.title = " "
-                else :
-                    ref.title = i.find("title").text
-                if i.find("url").text == None :
-                    ref.url = " "
-                else :
-                    ref.url = i.find("url").text
-                if i.find("description").text == None :
-                    ref.description = " "
-                else :
-                    ref.description = i.find("description").text
-                ref.put()   
-        
-            e = r.findall("ext")
-            for i in e:
-                ref = ExternalLink()
-                ref.crisis = crisis
-                ref.ref_type = "ext"
-                if i.find("site").text == None :
-                    ref.site = " "
-                else :
-                    ref.site = i.find("site").text
-                if i.find("title").text == None :
-                    ref.title = " "
-                else :
-                    ref.title = i.find("title").text
-                if i.find("url").text == None :
-                    ref.url = " "
-                else :
-                    ref.url = i.find("url").text
-                if i.find("description").text == None :
-                    ref.description = " "
-                else :
-                    ref.description = i.find("description").text
-                ref.put()
+            if not r.find("video") == None:
+                v = r.findall("video")
+                for i in v:
+                    ref = ExternalLink()
+                    ref.crisis = crisis
+                    ref.ref_type = "video"
+                    if i.find("site").text == None :
+                        ref.site = " "
+                    else :
+                        ref.site = i.find("site").text
+                    if i.find("title").text == None :
+                        ref.title = " "
+                    else :
+                        ref.title = i.find("title").text
+                    if i.find("url").text == None :
+                        ref.url = " "
+                    else :
+                        ref.url = i.find("url").text
+                    if i.find("description").text == None :
+                        ref.description = " "
+                    else :
+                        ref.description = i.find("description").text
+                    ref.put()  
+            
+            if not r.find("social") == None:    
+                s = r.findall("social")
+                for i in s:
+                    ref = ExternalLink()
+                    ref.crisis = crisis
+                    ref.ref_type = "social"
+                    if i.find("site").text == None :
+                        ref.site = " "
+                    else :
+                        ref.site = i.find("site").text
+                    if i.find("title").text == None :
+                        ref.title = " "
+                    else :
+                        ref.title = i.find("title").text
+                    if i.find("url").text == None :
+                        ref.url = " "
+                    else :
+                        ref.url = i.find("url").text
+                    if i.find("description").text == None :
+                        ref.description = " "
+                    else :
+                        ref.description = i.find("description").text
+                    ref.put()   
+            
+            if not r.find("ext") == None:        
+                e = r.findall("ext")
+                for i in e:
+                    ref = ExternalLink()
+                    ref.crisis = crisis
+                    ref.ref_type = "ext"
+                    if i.find("site").text == None :
+                        ref.site = " "
+                    else :
+                        ref.site = i.find("site").text
+                    if i.find("title").text == None :
+                        ref.title = " "
+                    else :
+                        ref.title = i.find("title").text
+                    if i.find("url").text == None :
+                        ref.url = " "
+                    else :
+                        ref.url = i.find("url").text
+                    if i.find("description").text == None :
+                        ref.description = " "
+                    else :
+                        ref.description = i.find("description").text
+                    ref.put()
                 
         for o in organizations:
 
@@ -851,7 +877,7 @@ class UploadHandler(webapp.RequestHandler):
             org.worldCrises = wc
             org.id = o.get("id")
             org.name = o.find("name").text
-            if o.find("misc").text == None :
+            if o.find("misc") == None or o.find("misc").text == None :
                 org.misc = " "
             else :
                 org.misc = o.find("misc").text
@@ -860,11 +886,11 @@ class UploadHandler(webapp.RequestHandler):
             oi = o.find("info")
             orgInfo = OrgInfo()
             orgInfo.organization = org
-            if oi.find("type").text == None :
+            if oi.find("info") == None or oi.find("type").text == None :
                 org.type = " "
             else :
                 orgInfo.type = oi.find("type").text
-            if oi.find("history").text == None :
+            if oi.find("history") == None or oi.find("history").text == None :
                 org.history = " "
             else :
                 orgInfo.history = oi.find("history").text
@@ -873,11 +899,11 @@ class UploadHandler(webapp.RequestHandler):
             c = oi.find("contact")
             contact = Contact()
             contact.orgInfo = orgInfo
-            if c.find("phone").text == None:
+            if c.find("phone") == None or c.find("phone").text == None:
                 contact.phone = " "
             else :
                 contact.phone = c.find("phone").text
-            if c.find("email").text == None :
+            if c.find("email") == None or c.find("email").text == None :
                 contact.email = " "
             else :
                 contact.email = c.find("email").text
@@ -886,23 +912,23 @@ class UploadHandler(webapp.RequestHandler):
             fa = c.find("mail")
             fullAddr = FullAddr()
             fullAddr.contact = contact
-            if fa.find("address").text == None :
+            if fa.find("address") == None or fa.find("address").text == None :
                 fullAddr.address = " "
             else :
                 fullAddr.address = fa.find("address").text
-            if fa.find("city").text == None :
+            if fa.find("city") == None or fa.find("city").text == None :
                 fullAddr.city = " "
             else :
                 fullAddr.city = fa.find("city").text
-            if fa.find("state").text == None :
+            if fa.find("state") == None or fa.find("state").text == None :
                 fullAddr.state = " "
             else :
                 fullAddr.state = fa.find("state").text
-            if fa.find("country").text == None :
+            if fa.find("country") == None or fa.find("country").text == None :
                 fullAddr.country = " "
             else :
                 fullAddr.country = fa.find("country").text
-            if fa.find("zip").text == None :
+            if fa.find("zip") == None or fa.find("zip").text == None :
                 fullAddr.zip = " "
             else :
                 fullAddr.zip = fa.find("zip").text
@@ -911,15 +937,15 @@ class UploadHandler(webapp.RequestHandler):
             l = oi.find("loc")
             loc = Location()
             loc.orgInfo = orgInfo
-            if l.find("city").text == None :
+            if l.find("city") == None or l.find("city").text == None :
                 loc.city = " "
             else :
                 loc.city = l.find("city").text
-            if l.find("region").text == None :
+            if l.find("region") == None or l.find("region").text == None :
                 loc.region = " "
             else :
                 loc.region = l.find("region").text
-            if l.find("country").text == None :
+            if l.find("country") == None or l.find("country").text == None :
                 loc.country = " "
             else :
                 loc.country = l.find("country").text
@@ -927,119 +953,124 @@ class UploadHandler(webapp.RequestHandler):
             
             r = o.find("ref")
             
-            pi = r.find("primaryImage")
-            piRef = ExternalLink()
-            piRef.organization = org
-            piRef.ref_type = "primaryImage"
-            if pi.find("site").text == None :
-                piRef.site = " "
-            else :
-                piRef.site = pi.find("site").text
-            if pi.find("title").text == None :
-                piRef.title = " "
-            else :
-                piRef.title = pi.find("title").text
-            if pi.find("url").text == None :
-                piRef.url = " "
-            else :
-                piRef.url = pi.find("url").text
-            if pi.find("description").text == None :
-                piRef.description = " "
-            else :
-                piRef.description = pi.find("description").text
-            piRef.put()
+            if not r.find("primaryImage") == None:
+                pi = r.find("primaryImage")
+                piRef = ExternalLink()
+                piRef.organization = org
+                piRef.ref_type = "primaryImage"
+                if pi.find("site").text == None :
+                    piRef.site = " "
+                else :
+                    piRef.site = pi.find("site").text
+                if pi.find("title").text == None :
+                    piRef.title = " "
+                else :
+                    piRef.title = pi.find("title").text
+                if pi.find("url").text == None :
+                    piRef.url = " "
+                else :
+                    piRef.url = pi.find("url").text
+                if pi.find("description").text == None :
+                    piRef.description = " "
+                else :
+                    piRef.description = pi.find("description").text
+                piRef.put()
             
-            image = r.findall("image")
-            for i in image:
-                ref = ExternalLink()
-                ref.organization = org
-                ref.ref_type = "image"
-                if i.find("site").text == None :
-                    ref.site = " "
-                else :
-                    ref.site = i.find("site").text
-                if i.find("title").text == None :
-                    ref.title = " "
-                else :
-                    ref.title = i.find("title").text
-                if i.find("url").text == None :
-                    ref.url = " "
-                else :
-                    ref.url = i.find("url").text
-                if i.find("description").text == None :
-                    ref.description = " "
-                else :
-                    ref.description = i.find("description").text
-                ref.put()      
-                
-            v = r.findall("video")
-            for i in v:
-                ref = ExternalLink()
-                ref.organization = org
-                ref.ref_type = "video"
-                if i.find("site").text == None :
-                    ref.site = " "
-                else :
-                    ref.site = i.find("site").text
-                if i.find("title").text == None :
-                    ref.title = " "
-                else :
-                    ref.title = i.find("title").text
-                if i.find("url").text == None :
-                    ref.url = " "
-                else :
-                    ref.url = i.find("url").text
-                if i.find("description").text == None :
-                    ref.description = " "
-                else :
-                    ref.description = i.find("description").text
-                ref.put()  
-                
-            s = r.findall("social")
-            for i in s:
-                ref = ExternalLink()
-                ref.organization = org
-                ref.ref_type = "social"
-                if i.find("site").text == None :
-                    ref.site = " "
-                else :
-                    ref.site = i.find("site").text
-                if i.find("title").text == None :
-                    ref.title = " "
-                else :
-                    ref.title = i.find("title").text
-                if i.find("url").text == None :
-                    ref.url = " "
-                else :
-                    ref.url = i.find("url").text
-                if i.find("description").text == None :
-                    ref.description = " "
-                else :
-                    ref.description = i.find("description").text
-                ref.put()   
-        
-            e = r.findall("ext")
-            for i in e:
-                ref = ExternalLink()
-                ref.organization = org
-                ref.ref_type = "ext"
-                if i.find("site").text == None :
-                    ref.site = " "
-                else :
-                    ref.site = i.find("site").text
-                if i.find("title").text == None :
-                    ref.title = " "
-                else :
-                    ref.title = i.find("title").text
-                if i.find("url").text == None :
-                    ref.url = " "
-                else :
-                    ref.url = i.find("url").text
-                if i.find("description").text == None :
-                    ref.description = " "
-                else :
-                    ref.description = i.find("description").text
-                ref.put()
+            if not r.find("image") == None:
+                image = r.findall("image")
+                for i in image:
+                    ref = ExternalLink()
+                    ref.organization = org
+                    ref.ref_type = "image"
+                    if i.find("site").text == None :
+                        ref.site = " "
+                    else :
+                        ref.site = i.find("site").text
+                    if i.find("title").text == None :
+                        ref.title = " "
+                    else :
+                        ref.title = i.find("title").text
+                    if i.find("url").text == None :
+                        ref.url = " "
+                    else :
+                        ref.url = i.find("url").text
+                    if i.find("description").text == None :
+                        ref.description = " "
+                    else :
+                        ref.description = i.find("description").text
+                    ref.put()      
+           
+            if not r.find("video") == None:    
+                v = r.findall("video")
+                for i in v:
+                    ref = ExternalLink()
+                    ref.organization = org
+                    ref.ref_type = "video"
+                    if i.find("site").text == None :
+                        ref.site = " "
+                    else :
+                        ref.site = i.find("site").text
+                    if i.find("title").text == None :
+                        ref.title = " "
+                    else :
+                        ref.title = i.find("title").text
+                    if i.find("url").text == None :
+                        ref.url = " "
+                    else :
+                        ref.url = i.find("url").text
+                    if i.find("description").text == None :
+                        ref.description = " "
+                    else :
+                        ref.description = i.find("description").text
+                    ref.put()  
+            
+            if not r.find("social") == None:    
+                s = r.findall("social")
+                for i in s:
+                    ref = ExternalLink()
+                    ref.organization = org
+                    ref.ref_type = "social"
+                    if i.find("site").text == None :
+                        ref.site = " "
+                    else :
+                        ref.site = i.find("site").text
+                    if i.find("title").text == None :
+                        ref.title = " "
+                    else :
+                        ref.title = i.find("title").text
+                    if i.find("url").text == None :
+                        ref.url = " "
+                    else :
+                        ref.url = i.find("url").text
+                    if i.find("description").text == None :
+                        ref.description = " "
+                    else :
+                        ref.description = i.find("description").text
+                    ref.put()   
+                    
+            if not r.find("primaryImage") == None:
+                e = r.findall("ext")
+                for i in e:
+                    ref = ExternalLink()
+                    ref.organization = org
+                    ref.ref_type = "ext"
+                    if i.find("site").text == None :
+                        ref.site = " "
+                    else :
+                        ref.site = i.find("site").text
+                    if i.find("title").text == None :
+                        ref.title = " "
+                    else :
+                        ref.title = i.find("title").text
+                    if i.find("url").text == None :
+                        ref.url = " "
+                    else :
+                        ref.url = i.find("url").text
+                    if i.find("description").text == None :
+                        ref.description = " "
+                    else :
+                        ref.description = i.find("description").text
+                    ref.put()
                 
         for p in people :
 
@@ -1057,7 +1088,7 @@ class UploadHandler(webapp.RequestHandler):
             person.worldCrises = wc
             person.id = p.get("id")
             person.name = p.find("name").text
-            if p.find("misc").text == None :
+            if p.find("misc") == None or p.find("misc").text == None :
                 person.misc = " "
             else :
                 person.misc = p.find("misc").text
@@ -1066,15 +1097,15 @@ class UploadHandler(webapp.RequestHandler):
             pi = p.find("info")
             pInfo = PersonInfo()
             pInfo.person = person
-            if pi.find("type").text == None :
+            if pi.find("type") == None or pi.find("type").text == None :
                 pInfo.type = " "
             else :
                 pInfo.type = pi.find("type").text
-            if pi.find("nationality").text == None :
+            if pi.find("nationality") == None or pi.find("nationality").text == None :
                 pInfo.nationality = " "
             else :
                 pInfo.nationality = pi.find("nationality").text
-            if pi.find("biography").text == None :
+            if pi.find("biography") == None or pi.find("biography").text == None :
                 pInfo.biography = " "
             else :
                 pInfo.biography = pi.find("biography").text
@@ -1083,23 +1114,23 @@ class UploadHandler(webapp.RequestHandler):
             bd = pi.find("birthdate")
             birthDate = Date()
             birthDate.personInfo = pInfo
-            if bd.find("time").text == None :
+            if bd.find("time") == None or bd.find("time").text == None :
                 birthDate.time = " "
             else :
                 birthDate.time = bd.find("time").text
-            if bd.find("day").text == None :
+            if bd.find("day") == None or bd.find("day").text == None :
                 birthDate.time = " "
             else :
                 birthDate.day = int(bd.find("day").text)
-            if bd.find("month").text == None :
+            if bd.find("month") == None or bd.find("month").text == None :
                 birthDate.month = " "
             else :
                 birthDate.month = int(bd.find("month").text)
-            if bd.find("year").text == None :
+            if bd.find("year") == None or bd.find("year").text == None :
                 birthDate.year = " "
             else :
                 birthDate.year = int(bd.find("year").text)
-            if bd.find("misc").text == None :
+            if bd.find("misc") == None or bd.find("misc").text == None :
                 birthDate.misc = " "
             else :
                 birthDate.misc = bd.find("misc").text
@@ -1107,119 +1138,124 @@ class UploadHandler(webapp.RequestHandler):
             
             r = p.find("ref")
             
-            pi = r.find("primaryImage")
-            piRef = ExternalLink()
-            piRef.person = person
-            piRef.ref_type = "primaryImage"
-            if pi.find("site").text == None :
-                piRef.site = " "
-            else :
-                piRef.site = pi.find("site").text
-            if pi.find("title").text == None :
-                piRef.title = " "
-            else :
-                piRef.title = pi.find("title").text
-            if pi.find("url").text == None :
-                piRef.url = " "
-            else :
-                piRef.url = pi.find("url").text
-            if pi.find("description").text == None :
-                piRef.description = " "
-            else :
-                piRef.description = pi.find("description").text
-            piRef.put()
+            if not r.find("primaryImage") == None:
+                pi = r.find("primaryImage")
+                piRef = ExternalLink()
+                piRef.person = person
+                piRef.ref_type = "primaryImage"
+                if pi.find("site").text == None :
+                    piRef.site = " "
+                else :
+                    piRef.site = pi.find("site").text
+                if pi.find("title").text == None :
+                    piRef.title = " "
+                else :
+                    piRef.title = pi.find("title").text
+                if pi.find("url").text == None :
+                    piRef.url = " "
+                else :
+                    piRef.url = pi.find("url").text
+                if pi.find("description").text == None :
+                    piRef.description = " "
+                else :
+                    piRef.description = pi.find("description").text
+                piRef.put()
             
-            image = r.findall("image")
-            for i in image:
-                ref = ExternalLink()
-                ref.person = person
-                ref.ref_type = "image"
-                if i.find("site").text == None :
-                    ref.site = " "
-                else :
-                    ref.site = i.find("site").text
-                if i.find("title").text == None :
-                    ref.title = " "
-                else :
-                    ref.title = i.find("title").text
-                if i.find("url").text == None :
-                    ref.url = " "
-                else :
-                    ref.url = i.find("url").text
-                if i.find("description").text == None :
-                    ref.description = " "
-                else :
-                    ref.description = i.find("description").text
-                ref.put()      
-                
-            v = r.findall("video")
-            for i in v:
-                ref = ExternalLink()
-                ref.person = person
-                ref.ref_type = "video"
-                if i.find("site").text == None :
-                    ref.site = " "
-                else :
-                    ref.site = i.find("site").text
-                if i.find("title").text == None :
-                    ref.title = " "
-                else :
-                    ref.title = i.find("title").text
-                if i.find("url").text == None :
-                    ref.url = " "
-                else :
-                    ref.url = i.find("url").text
-                if i.find("description").text == None :
-                    ref.description = " "
-                else :
-                    ref.description = i.find("description").text
-                ref.put()  
-                
+            if not r.find("image") == None:
+                image = r.findall("image")
+                for i in image:
+                    ref = ExternalLink()
+                    ref.person = person
+                    ref.ref_type = "image"
+                    if i.find("site").text == None :
+                        ref.site = " "
+                    else :
+                        ref.site = i.find("site").text
+                    if i.find("title").text == None :
+                        ref.title = " "
+                    else :
+                        ref.title = i.find("title").text
+                    if i.find("url").text == None :
+                        ref.url = " "
+                    else :
+                        ref.url = i.find("url").text
+                    if i.find("description").text == None :
+                        ref.description = " "
+                    else :
+                        ref.description = i.find("description").text
+                    ref.put()      
+            
+            if not r.find("video") == None:    
+                v = r.findall("video")
+                for i in v:
+                    ref = ExternalLink()
+                    ref.person = person
+                    ref.ref_type = "video"
+                    if i.find("site").text == None :
+                        ref.site = " "
+                    else :
+                        ref.site = i.find("site").text
+                    if i.find("title").text == None :
+                        ref.title = " "
+                    else :
+                        ref.title = i.find("title").text
+                    if i.find("url").text == None :
+                        ref.url = " "
+                    else :
+                        ref.url = i.find("url").text
+                    if i.find("description").text == None :
+                        ref.description = " "
+                    else :
+                        ref.description = i.find("description").text
+                    ref.put()  
+            
+            if not r.find("social") == None:    
             s = r.findall("social")
-            for i in s:
-                ref = ExternalLink()
-                ref.person = person
-                ref.ref_type = "social"
-                if i.find("site").text == None :
-                    ref.site = " "
-                else :
-                    ref.site = i.find("site").text
-                if i.find("title").text == None :
-                    ref.title = " "
-                else :
-                    ref.title = i.find("title").text
-                if i.find("url").text == None :
-                    ref.url = " "
-                else :
-                    ref.url = i.find("url").text
-                if i.find("description").text == None :
-                    ref.description = " "
-                else :
-                    ref.description = i.find("description").text
-                ref.put()   
-        
-            e = r.findall("ext")
-            for i in e:
-                ref = ExternalLink()
-                ref.person = person
-                ref.ref_type = "ext"
-                if i.find("site").text == None :
-                    ref.site = " "
-                else :
-                    ref.site = i.find("site").text
-                if i.find("title").text == None :
-                    ref.title = " "
-                else :
-                    ref.title = i.find("title").text
-                if i.find("url").text == None :
-                    ref.url = " "
-                else :
-                    ref.url = i.find("url").text
-                if i.find("description").text == None :
-                    ref.description = " "
-                else :
-                    ref.description = i.find("description").text
-                ref.put()
+                for i in s:
+                    ref = ExternalLink()
+                    ref.person = person
+                    ref.ref_type = "social"
+                    if i.find("site").text == None :
+                        ref.site = " "
+                    else :
+                        ref.site = i.find("site").text
+                    if i.find("title").text == None :
+                        ref.title = " "
+                    else :
+                        ref.title = i.find("title").text
+                    if i.find("url").text == None :
+                        ref.url = " "
+                    else :
+                        ref.url = i.find("url").text
+                    if i.find("description").text == None :
+                        ref.description = " "
+                    else :
+                        ref.description = i.find("description").text
+                    ref.put()   
+            
+            if not r.find("ext") == None:
+                e = r.findall("ext")
+                for i in e:
+                    ref = ExternalLink()
+                    ref.person = person
+                    ref.ref_type = "ext"
+                    if i.find("site").text == None :
+                        ref.site = " "
+                    else :
+                        ref.site = i.find("site").text
+                    if i.find("title").text == None :
+                        ref.title = " "
+                    else :
+                        ref.title = i.find("title").text
+                    if i.find("url").text == None :
+                        ref.url = " "
+                    else :
+                        ref.url = i.find("url").text
+                    if i.find("description").text == None :
+                        ref.description = " "
+                    else :
+                        ref.description = i.find("description").text
+                    ref.put()
         
         for c in crises :
             crisis = Crisis.all().filter("id =", c.get("id")).fetch(1).pop()
