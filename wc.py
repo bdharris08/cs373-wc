@@ -89,7 +89,8 @@ class SearchResultHandler(webapp2.RequestHandler):
             lines = a[1]
             for l in lines:
                 parsedLine = re.split(":", l, maxsplit = 1)
-                parsedLine = parsedLine[1].lower()
+                if(len(parsedLine) < 2): parsedLine = " " 
+                else: parsedLine = parsedLine[1].lower()
                 parsedLine = "".join((c if ord(c) < 128 else ' ' for c in parsedLine))
                 if(keyword.lower() in parsedLine):
                     parsedMatched = re.split(keywordI, l)
@@ -1303,6 +1304,10 @@ class UploadHandler(webapp.RequestHandler):
     
 class BuildDataCacheHandler(webapp.RequestHandler):
     def get(self):
+        
+        path = os.path.join(os.path.dirname(__file__), 'xmlsuccess.html')
+        self.response.out.write(template.render(path, {}))
+    
         #Build db.txt to cache data for efficient searching
         
         key = dataCacheKey.all().fetch(None)
