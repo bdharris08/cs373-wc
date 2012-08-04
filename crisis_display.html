@@ -81,13 +81,14 @@
       {% for c in crises %}
       	{% for url in images %}
       		{% if forloop.counter0 == forloop.parentloop.counter0 %}
-      		
+      		{% if forloop.counter0|divisibleby:"4" %} <div class="row"> {% endif %}	
         	<li class="span3">
           	<a href="/crisis/{{c.id}}" class="thumbnail">
             	<img src={{url}} alt="">
           	</a>
           	<h5>{{c.name}}</h5>
           	</li>
+          	{% if forloop.counter|divisibleby:"4" %} </div> {% endif %}	
           	{% endif %}
           {% endfor %}
 		{% endfor %}

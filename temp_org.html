@@ -88,19 +88,17 @@
 			{% endfor %}
 			</p>
 			<div class="well">
-				<h3>Organization</h3><br>
-				<p>
-				{{organization.name}}
-				</p>
-				
+				<h2>{{organization.name}}</h2>
+                <hr style="color:red;background-color:red;height:3px;border:none;" />
+
 				<h3>
-				Related Crises:</h3><br>
+				Related Crises:</h3>
 				<p>
 				{% for c in crisisRefs %}
                         	<a href="/crisis/{{c.id}}"> {{c.name}} </a><br>
                         	{% endfor %}
 				</p>
-				<h3>Related People:</h3><br><p>
+				<h3>Related People:</h3><p>
 				{% for p in personRefs %}
 					<a href='/person/{{p.id}}'> {{p.name}} </a><br> 
 				{% endfor %}
@@ -179,7 +177,7 @@
             
                     {% for i in video %}
 					  	{% if video.count > 1 %}
-                            <iframe width="100%" height="60%" src={{i.url}} frameborder="0" allowfullscreen></iframe><br>
+                            <iframe width="70%" height="40%" src={{i.url}} frameborder="0" allowfullscreen></iframe><br>
                         {% else %}
                         {% endif %}
                      {% endfor %}

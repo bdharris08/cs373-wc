@@ -1322,8 +1322,8 @@ class UploadHandler(webapp.RequestHandler):
         self.redirect("/xmlerror")
         
     except Exception, e :
-        self.response.out.write(traceback.format_exc())
-        #self.redirect("/xmlerror")
+        #self.response.out.write(traceback.format_exc())
+        self.redirect("/xmlerror")
     
     
     
