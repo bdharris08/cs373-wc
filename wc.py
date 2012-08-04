@@ -963,7 +963,7 @@ class UploadHandler(webapp.RequestHandler):
             if not r.find("primaryImage") == None:
                 pi = r.find("primaryImage")
                 piRef = ExternalLink()
-                piRef.crisis = crisis
+                piRef.organization = org
                 piRef.ref_type = "primaryImage"
                 if pi.find("site") == None or pi.find("site").text == None :
                     piRef.site = " "
@@ -987,7 +987,7 @@ class UploadHandler(webapp.RequestHandler):
                 image = r.findall("image")
                 for i in image:
                     ref = ExternalLink()
-                    ref.crisis = crisis
+                    ref.organization = org
                     ref.ref_type = "image"
                     if i.find("site") == None or i.find("site").text == None :
                         ref.site = " "
@@ -1011,7 +1011,7 @@ class UploadHandler(webapp.RequestHandler):
                 v = r.findall("video")
                 for i in v:
                     ref = ExternalLink()
-                    ref.crisis = crisis
+                    ref.organization = org
                     ref.ref_type = "video"
                     if i.find("site") == None or i.find("site").text == None :
                         ref.site = " "
@@ -1035,7 +1035,7 @@ class UploadHandler(webapp.RequestHandler):
                 s = r.findall("social")
                 for i in s:
                     ref = ExternalLink()
-                    ref.crisis = crisis
+                    ref.organization = org
                     ref.ref_type = "social"
                     if i.find("site") == None or i.find("site").text == None :
                         ref.site = " "
@@ -1059,7 +1059,7 @@ class UploadHandler(webapp.RequestHandler):
                 e = r.findall("ext")
                 for i in e:
                     ref = ExternalLink()
-                    ref.crisis = crisis
+                    ref.organization = org
                     ref.ref_type = "ext"
                     if i.find("site") == None or i.find("site").text == None :
                         ref.site = " "
@@ -1148,7 +1148,7 @@ class UploadHandler(webapp.RequestHandler):
             if not r.find("primaryImage") == None:
                 pi = r.find("primaryImage")
                 piRef = ExternalLink()
-                piRef.crisis = crisis
+                piRef.person = person
                 piRef.ref_type = "primaryImage"
                 if pi.find("site") == None or pi.find("site").text == None :
                     piRef.site = " "
@@ -1172,7 +1172,7 @@ class UploadHandler(webapp.RequestHandler):
                 image = r.findall("image")
                 for i in image:
                     ref = ExternalLink()
-                    ref.crisis = crisis
+                    ref.person = person
                     ref.ref_type = "image"
                     if i.find("site") == None or i.find("site").text == None :
                         ref.site = " "
@@ -1196,7 +1196,7 @@ class UploadHandler(webapp.RequestHandler):
                 v = r.findall("video")
                 for i in v:
                     ref = ExternalLink()
-                    ref.crisis = crisis
+                    ref.person = person
                     ref.ref_type = "video"
                     if i.find("site") == None or i.find("site").text == None :
                         ref.site = " "
@@ -1220,7 +1220,7 @@ class UploadHandler(webapp.RequestHandler):
                 s = r.findall("social")
                 for i in s:
                     ref = ExternalLink()
-                    ref.crisis = crisis
+                    ref.person = person
                     ref.ref_type = "social"
                     if i.find("site") == None or i.find("site").text == None :
                         ref.site = " "
@@ -1244,7 +1244,7 @@ class UploadHandler(webapp.RequestHandler):
                 e = r.findall("ext")
                 for i in e:
                     ref = ExternalLink()
-                    ref.crisis = crisis
+                    ref.person = person
                     ref.ref_type = "ext"
                     if i.find("site") == None or i.find("site").text == None :
                         ref.site = " "
