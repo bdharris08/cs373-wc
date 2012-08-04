@@ -118,14 +118,7 @@
                             {% endfor %}
                 </p>
 			</div><!--well-->
-					{% for i in video %}
-					  	{% if video.count > 1 %}
-					  		<li>
-                            <iframe width="100%" height="30%" src={{i.url}} frameborder="0" allowfullscreen></iframe><br>
-                            </li>
-                        {% else %}
-                        {% endif %}
-                     {% endfor %}
+
 		</div><!--Span3-->
 		<div class="span9">
 			<div class="container">
@@ -214,6 +207,12 @@
 							</tbody>
 						 
 			</table>
+                    {% for i in video %}
+					  	{% if video.count > 1 %}
+                            <iframe width="100%" height="60%" src={{i.url}} frameborder="0" allowfullscreen></iframe><br>
+                        {% else %}
+                        {% endif %}
+                     {% endfor %}
 
 		</div><!--span-->
 	</div><!--Row-->
