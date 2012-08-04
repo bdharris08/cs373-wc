@@ -87,6 +87,9 @@ class SearchResultHandler(webapp2.RequestHandler):
             url = a[0][0]
             name = a[0][1]
             lines = a[1]
+            SeenAlready_Exact = False
+            SeenAlready_And = False
+            SeenAlready_Or = False
             for l in lines:
                 parsedLine = re.split(":", l, maxsplit = 1)
                 if(len(parsedLine) < 2): parsedLine = " " 
@@ -94,7 +97,10 @@ class SearchResultHandler(webapp2.RequestHandler):
                 parsedLine = "".join((c if ord(c) < 128 else ' ' for c in parsedLine))
                 if(keyword.lower() in parsedLine):
                     parsedMatched = re.split(keywordI, l)
-                    matchedExact.append([name, url, parsedMatched])
+                    if SeenAlready_Exact : matchedExact.append([None, None, parsedMatched])
+                    else : 
+                        matchedExact.append([name, url, parsedMatched])
+                        SeenAlready_Exact = True
                 if len(splitKeyword) != 1 :
                     andn = 0
                     for key in keyword_re_and: 
@@ -124,7 +130,11 @@ class SearchResultHandler(webapp2.RequestHandler):
                             for j in keywordList:
                                 matchedText[temp] = j
                                 temp += 2
-                        matchedAnd.append([name, url, matchedText])
+                                
+                        if SeenAlready_And : matchedAnd.append([None, None, matchedText])
+                        else : 
+                            matchedAnd.append([name, url, matchedText])
+                            SeenAlready_And = True        
                     
                     if(keyword_re_or.search(parsedLine)):
                         keywordList = re.findall(keyword_re_or, l)
@@ -139,6 +149,7 @@ class SearchResultHandler(webapp2.RequestHandler):
                             for j in keywordList:
                                 matchedText[temp] = j
                                 temp += 2
+                            #go to next article
                         else: 
                             temp = 0                   
                             for i in parsedMatched:
@@ -148,7 +159,12 @@ class SearchResultHandler(webapp2.RequestHandler):
                             for j in keywordList:
                                 matchedText[temp] = j
                                 temp += 2
-                        matchedOr.append([name, url, matchedText])
+                                
+                                
+                        if SeenAlready_Or : matchedOr.append([None, None, matchedText])
+                        else : 
+                            matchedOr.append([name, url, matchedText])
+                            SeenAlready_Or = True
                         
                     
 

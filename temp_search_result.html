@@ -141,9 +141,10 @@
             {% if forloop.first and matchedAnd and matchedOr %}
                 <h2> Exact Match </h2>
             {% endif %}
-            <p><ul> 
-            <li> <a href="{{m.1}}">{{m.0}}</a><br>
-            Matched Text : 
+            <p><ul>
+            {% if m.1 %}
+                <li><a href="{{m.1}}">{{m.0}}</a><br>
+            {% endif %}
             {% for i in m.2 %}{% if forloop.last %}{{i}}{% else %}{{i}}<span style="background-color:yellow">{{keyword}}</span>{% endif %}{% endfor %}
             </li>
             </ul></p>
@@ -155,8 +156,9 @@
                 <h2> Full Match </h2>
             {% endif %}
             <p><ul> 
-            <li> <a href="{{m.1}}">{{m.0}}</a><br>
-            Matched Text : 
+            {% if m.1 %}
+                <li> <a href="{{m.1}}">{{m.0}}</a><br>
+            {% endif %}
             {% for i in m.2 %}{% if forloop.counter0|divisibleby:"2" %}{{i}}{% else %}<span style="background-color:yellow">{{i}}</span>{% endif %}{% endfor %}
             </li>
             </ul></p>
@@ -168,8 +170,9 @@
                 <h2> Partial Match </h2>
             {% endif %}
             <p><ul> 
-            <li> <a href="{{m.1}}">{{m.0}}</a><br>
-            Matched Text : 
+            {% if m.1 %}
+                <li> <a href="{{m.1}}">{{m.0}}</a><br>
+            {% endif %}
             {% for i in m.2 %}{% if forloop.counter0|divisibleby:"2" %}{{i}}{% else %}<span style="background-color:yellow">{{i}}</span>{% endif %}{% endfor %}
             </li>
             </ul></p>
