@@ -88,7 +88,7 @@
 			{% endfor %}
 			</p>
 			<div class="well">
-				<h2>{{organization.name}}</h2>
+				<center><h2>{{organization.name}}</h2></center>
                 <hr style="color:red;background-color:red;height:3px;border:none;" />
 
 				<h3>
@@ -122,9 +122,11 @@
 				
 					<ul class="thumbnails">
 					  {% for i in image %}
+					  {% if forloop.counter0|divisibleby:"4" %} <div class="row"> <li class="span0"> <p></p>  {% endif %}	
 							<li class="span2">
 								<a href={{i.url}} rel="lightbox"><img src={{i.url}} alt=""></a>
 							</li>
+							{% if forloop.counter|divisibleby:"4" %} </div> {% endif %}	
 					  {% endfor %}
 
 					
