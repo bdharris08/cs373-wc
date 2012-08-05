@@ -160,12 +160,13 @@ class SearchResultHandler(webapp2.RequestHandler):
                             for j in keywordList:
                                 matchedText[temp] = j
                                 temp += 2
-                                
-                                
-                        if SeenAlready_Or : matchedOr.append([None, None, matchedText])
-                        else : 
-                            matchedOr.append([name, url, matchedText])
-                            SeenAlready_Or = True
+                        
+                        if [name, url, matchedText] not in matchedAnd:    
+                            if SeenAlready_Or : 
+                                matchedOr.append([None, None, matchedText])
+                            else : 
+                                matchedOr.append([name, url, matchedText])
+                                SeenAlready_Or = True
                         
                     
 
