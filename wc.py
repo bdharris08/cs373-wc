@@ -1316,14 +1316,16 @@ class UploadHandler(webapp.RequestHandler):
         self.redirect("/buildDataCache")
         
     except pyxsval.XsvalError, errstr:
-        self.redirect("/xmlerror")
+        path = os.path.join(os.path.dirname(__file__), 'temp_error.html')
+        self.response.out.write(template.render(path, {"msg" : traceback.format_exc()}))
     
     except GenXmlIfError, errstr:
-        self.redirect("/xmlerror")
+        path = os.path.join(os.path.dirname(__file__), 'temp_error.html')
+        self.response.out.write(template.render(path, {"msg" : traceback.format_exc()}))
         
     except Exception, e :
-        #self.response.out.write(traceback.format_exc())
-        self.redirect("/xmlerror")
+        path = os.path.join(os.path.dirname(__file__), 'temp_error.html')
+        self.response.out.write(template.render(path, {"msg" : traceback.format_exc()}))
     
     
     
