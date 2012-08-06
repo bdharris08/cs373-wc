@@ -127,46 +127,44 @@
 <!--Beginning of Body-->
 <body style="margin-top: 80px; margin-left: 80px;" onload="initialize()">
     <!--<div id="map_canvas" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1;"></div>-->
-			<br>
-
-    
+	<br>
     <h1>Crisis Import</h1>
     <br>
-        <form action="/form_crisis" method="POST" enctype="multipart/form-data">
+        <form action="/import_crisis" method="POST" enctype="multipart/form-data">
          <h2> About </h2>
          Name: <input type="text" name="name" required="required">
          Misc: <input type="text" name="miscMain"><br>
          <h2> Information </h2>
-         History: <input type="text" name="history" required="required">
-         Help: <input type="text" name="help" required="required">
-         Resources: <input type="text" name="resources" required="required">
-         Type: <input type="text" name="type" required="required"><br>
+         History: <input type="text" name="history">
+         Help: <input type="text" name="help">
+         Resources: <input type="text" name="resources">
+         Type: <input type="text" name="type"><br>
          <h3> Time </h3>
-         Time: <input type="text" name="time" required="required">
-         Day: <input type="text" name="day" required="required">
-         Month: <input type="text" name="month" required="required"><br>
-         Year: <input type="text" name="year" required="required">
-         Misc: <input type="text" name="miscTime" required="required"><br>
+         Time: <input type="text" name="time">
+         Day: <input type="text" name="day">
+         Month: <input type="text" name="month"><br>
+         Year: <input type="text" name="year">
+         Misc: <input type="text" name="miscTime"><br>
          <h3> Location </h3>
-         City: <input type="text" name="city" required="required">
-         Region: <input type="text" name="region" required="required">
-         Country: <input type="text" name="country" required="required"><br>
+         City: <input type="text" name="city">
+         Region: <input type="text" name="region">
+         Country: <input type="text" name="country" ><br>
          <h2> Human Impact </h2>
-         Deaths: <input type="text" name="deaths" required="required">
-         Displaced: <input type="text" name="displaced" required="required">
-         Injured: <input type="text" name="injured" required="required"><br>
-         Missing: <input type="text" name="missing" required="required">
-         Misc: <input type="text" name="miscHI" required="required"><br>
+         Deaths: <input type="text" name="deaths" >
+         Displaced: <input type="text" name="displaced" >
+         Injured: <input type="text" name="injured" ><br>
+         Missing: <input type="text" name="missing" >
+         Misc: <input type="text" name="miscHI" ><br>
          <h2> Economic Impact </h2>
-         Amount: <input type="text" name="amount" required="required">
-         Currency: <input type="text" name="currency" required="required">
-         Misc: <input type="text" name="miscEI" required="required"><br>
+         Amount: <input type="text" name="amount" >
+         Currency: <input type="text" name="currency" >
+         Misc: <input type="text" name="miscEI" ><br>
          <h2> Reference </h2>
          <h3> Primary Image </h3>
-         Site: <input type="text" name="sitePI" required="required">
-         Title: <input type="text" name="titlePI" required="required">
+         Site: <input type="text" name="sitePI" >
+         Title: <input type="text" name="titlePI" >
          Url: <input type="text" name="urlPI" required="required">
-         Description: <input type="text" name="descriptionPI" required="required"><br>
+         Description: <input type="text" name="descriptionPI"><br>
          <h3> Images (optional) </h3>
          Site: <input type="text" name="siteI1" >
          Title: <input type="text" name="titleI1">

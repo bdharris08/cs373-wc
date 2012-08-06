@@ -381,6 +381,288 @@ class PersonHandler(webapp2.RequestHandler):
         path = os.path.join(os.path.dirname(__file__), 'temp_person.html')
         self.response.out.write(template.render(path, dictionary))
         
+class Import_Crisis(webapp.RequestHandler):
+    def post(self):
+        name = self.request.POST.get('name', None)
+        self.response.out.write(name)
+        
+
+        wc = WorldCrises.all().fetch(None).pop()
+
+        crisis = Crisis()
+        crisis.worldCrises = wc
+        crisis.id = re.sub(" ", "_", name)
+        crisis.name = name
+        misc = self.request.POST.get('miscMain', None)
+        if misc == "":
+            crisis.misc = " "
+        else :
+            crisis.misc = misc
+        crisis.put()
+        
+        crisisInfo = CrisisInfo()
+        crisisInfo.crisis = crisis
+        history = self.request.POST.get('history', None)
+        if history == "":
+            crisisInfo.history = " "
+        else :
+            crisisInfo.history = history
+        help = self.request.POST.get('help', None)
+        if help == "":
+            crisisInfo.help = " "
+        else :
+            crisisInfo.help = help
+        resources = self.request.POST.get('resources', None)
+        if resources == "":
+            crisisInfo.resources = " "
+        else :
+            crisisInfo.resources = resources
+        type = self.request.POST.get('type', None)
+        if type == "" :
+            crisisInfo.type = " "
+        else :
+            crisisInfo.type = type
+        crisisInfo.put()
+        
+        time = Date()
+        time.crisisInfo = crisisInfo
+        timeImport = self.request.POST.get('time', None)
+        if timeImport == "" :
+            time.time = " "
+        else :
+           time.time = timeImport
+        day = self.request.POST.get('day', None)
+        if day == "" :
+            time.day = 0
+        else :
+            time.day = int(day)
+        month = self.request.POST.get('month', None)
+        if month == "" :
+            time.month = 0
+        else :
+            time.month = int(month)
+        year = self.request.POST.get('year', None)
+        if year == "" :
+            time.year = 0
+        else :
+            time.year = int(year)
+        misc = self.request.POST.get('miscTime', None)
+        if misc == "" :
+            time.misc = " "
+        else :
+            time.misc = misc
+        time.put()
+        
+        location = Location()
+        location.crisisInfo = crisisInfo
+        city = self.request.POST.get('city', None)
+        if city == "" :
+            location.city = " "
+        else :
+            location.city = city
+        region = self.request.POST.get('region', None)
+        if region == "" :
+            location.region = " "
+        else :
+            location.region = region
+        country = self.request.POST.get('country', None)
+        if country == "" :
+            location.country = " "
+        else :
+            location.country = country
+        location.put()
+        
+        humanImpact = HumanImpact()
+        humanImpact.crisisInfo = crisisInfo
+        deaths = self.request.POST.get('deaths', None)
+        if deaths == "" :
+            humanImpact.deaths = 0
+        else :
+            humanImpact.deaths = int(deaths)
+        displaced = self.request.POST.get('displaced', None)
+        if displaced == "" :
+            humanImpact.displaced = 0
+        else :
+            humanImpact.displaced = displaced
+        injured = self.request.POST.get('injured', None)
+        if injured == "" :
+            humanImpact.injured = 0
+        else :
+            humanImpact.injured = injured
+        missing = self.request.POST.get('missing', None)
+        if missing == "" :
+            humanImpact.missing = 0
+        else :
+            humanImpact.missing = missing
+        misc = self.request.POST.get('miscHI', None)
+        if misc == "" :
+            humanImpact.misc = " "
+        else :
+            humanImpact.misc = misc
+        humanImpact.put()
+        
+        economicImpact = EconomicImpact()
+        economicImpact.crisisInfo = crisisInfo
+        amount = self.request.POST.get('amount', None)
+        if amount == "" :
+            economicImpact.amount = 0
+        else :
+            economicImpact.amount = amount
+        currency = self.request.POST.get('currency', None)
+        if currency == "" :
+            economicImpact.currency = " "
+        else :
+            economicImpact.currency = currency
+        misc = self.request.POST.get('miscEI', None)
+        if misc == "" :
+            economicImpact.misc = " "
+        else :
+            economicImpact.misc = misc
+        economicImpact.put()
+        
+        
+        piRef = ExternalLink()
+        piRef.crisis = crisis
+        piRef.ref_type = "primaryImage"
+        site = self.request.POST.get('sitePI', None)
+        if site == "" :
+            piRef.site = " "
+        else :
+            piRef.site = site
+        title = self.request.POST.get('titlePI', None)
+        if title == "" :
+            piRef.title = " "
+        else :
+            piRef.title = title
+        piRef.url = self.request.POST.get('urlPI', None)
+        description = self.request.POST.get('descriptionPI', None)
+        if description == "" :
+            piRef.description = " "
+        else :
+            piRef.description = description
+        piRef.put()
+        
+        for i in range(1,5):
+            temp = "urlI" + str(i)
+            url = self.request.POST.get(temp, None)
+            if url is not "":
+                ref = ExternalLink()
+                ref.crisis = crisis
+                ref.ref_type = "image"
+                temp = "siteI" + str(i)
+                site = self.request.POST.get(temp, None)
+                if site == "":
+                    ref.site = " "
+                else :
+                    ref.site = site
+                temp = "titleI" + str(i)
+                title = self.request.POST.get(temp, None)
+                if title == "" :
+                    ref.title = " "
+                else :
+                    ref.title = title
+                ref.url = url
+                temp = "descriptionI" + str(i)
+                description = self.request.POST.get(temp, None)
+                if description == "" :
+                    ref.description = " "
+                else :
+                    ref.description = description
+                ref.put()      
+            
+        for i in range(1,5):
+            temp = "urlV" + str(i)
+            url = self.request.POST.get(temp, None)
+            if url is not "":
+                ref = ExternalLink()
+                ref.crisis = crisis
+                ref.ref_type = "video"
+                temp = "siteV" + str(i)
+                site = self.request.POST.get(temp, None)
+                if site == "":
+                    ref.site = " "
+                else :
+                    ref.site = site
+                temp = "titleV" + str(i)
+                title = self.request.POST.get(temp, None)
+                if title == "" :
+                    ref.title = " "
+                else :
+                    ref.title = title
+                ref.url = url
+                temp = "descriptionV" + str(i)
+                description = self.request.POST.get(temp, None)
+                if description == "" :
+                    ref.description = " "
+                else :
+                    ref.description = description
+                ref.put()   
+        
+        for i in range(1,5):
+            temp = "urlS" + str(i)
+            url = self.request.POST.get(temp, None)
+            if url is not "":
+                ref = ExternalLink()
+                ref.crisis = crisis
+                ref.ref_type = "social"
+                temp = "siteS" + str(i)
+                site = self.request.POST.get(temp, None)
+                if site == "":
+                    ref.site = " "
+                else :
+                    ref.site = site
+                temp = "titleS" + str(i)
+                title = self.request.POST.get(temp, None)
+                if title == "" :
+                    ref.title = " "
+                else :
+                    ref.title = title
+                ref.url = url
+                temp = "descriptionS" + str(i)
+                description = self.request.POST.get(temp, None)
+                if description == "" :
+                    ref.description = " "
+                else :
+                    ref.description = description
+                ref.put()   
+       
+        for i in range(1,5):
+            temp = "urlE" + str(i)
+            url = self.request.POST.get(temp, None)
+            if url is not "":
+                ref = ExternalLink()
+                ref.crisis = crisis
+                ref.ref_type = "ext"
+                temp = "siteE" + str(i)
+                site = self.request.POST.get(temp, None)
+                if site == "":
+                    ref.site = " "
+                else :
+                    ref.site = site
+                temp = "titleE" + str(i)
+                title = self.request.POST.get(temp, None)
+                if title == "" :
+                    ref.title = " "
+                else :
+                    ref.title = title
+                ref.url = url
+                temp = "descriptionE" + str(i)
+                description = self.request.POST.get(temp, None)
+                if description == "" :
+                    ref.description = " "
+                else :
+                    ref.description = description
+                ref.put() 
+        
+        toBeDeleted = blobstore.BlobInfo.all().fetch(None)
+        for b in toBeDeleted: b.delete()
+        self.redirect("/buildDataCache")
+
+        
+class ImportHandler_form_crisis(webapp.RequestHandler):
+  def get(self):
+    path = os.path.join(os.path.dirname(__file__), 'temp_form_import_crisis.html')
+    self.response.out.write(template.render(path, {}))
         
 class ImportHandler(webapp.RequestHandler):
   def get(self):
@@ -1795,7 +2077,9 @@ class dataKey (db.Model):
     
     
 app = webapp2.WSGIApplication([('/', MainPage), 
-                            ('/import', ImportHandler), 
+                            ('/import', ImportHandler),
+                            ('/form_crisis', ImportHandler_form_crisis),
+                            ('/import_crisis', Import_Crisis),
                             ('/upload', UploadHandler),
                             ('/pre_upload', Pre_Upload_Handler),
                             ('/serve/([^/]+)?', ServeHandler), 
