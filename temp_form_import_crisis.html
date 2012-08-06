@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>World Crises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="stylesheets/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-bottom: 10px;
+        padding-right:40px;
+        padding-left:40px;
+        background-image: url(http://subtlepatterns.com/patterns/whitey.png);
+        height:100%;
+      }
+      .sidebar-nav {
+        padding: 9px ;
+      }
+        html { height: 100% }
+        #map_canvas { height: 100%;
+            width:100%;}
+               .outerLink 
+        {
+                background-color:black; 
+                display:block; 
+                opacity:1;
+                filter:alpha(opacity=100);
+                width:200px;
+        }
+
+        img.darkableImage 
+        {
+                opacity:1;
+                filter:alpha(opacity=100);
+        }
+    </style>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+        <script type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAzvqWKgC-tOlTlmcGnHELj-qGK69nYr2w&sensor=false">
+            </script>
+        <script type="text/javascript">
+            function initialize() {
+                var mapOptions = {
+                    center: new google.maps.LatLng(13.750181,30.338486),
+                    zoom: 5,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    disableDefaultUI: true
+                };
+                var map = new google.maps.Map(document.getElementById("map_canvas"),
+                                              mapOptions);
+                $(window).resize(function () {
+                                 var h = $(window).height(),
+                                 offsetTop = 60; // Calculate the top offset
+                                 
+                                 $('#map-canvas').css('height', (h - offsetTop));
+                                 }).resize();
+            }
+            </script>
+        <script>
+            $('.carousel').carousel({
+            interval: 2000
+            })
+        </script>
+        <link href="stylesheets/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+        <!--NAVBAR STUFF-->
+       <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand">
+                    <img src="http://i.imgur.com/uhFj0.png" width="35px" height="35px"></img>
+                        World Crises Database
+                    </a>
+                    
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="../">Home</a>
+                        </li>
+                        <li><a href="crisis">Crises</a></li>
+                        <li><a href="org">Organizations</a></li>
+                        <li><a href="person">People</a></li>
+                        <li class="dropdown">  
+                            <a href="#"  
+                                class="dropdown-toggle"  
+                                data-toggle="dropdown">  
+                                Utilities  
+                                <b class="caret"></b>  
+                            </a>  
+                            <ul class="dropdown-menu">   
+                                <li><a href="export">Export</a></li>  
+                                <li><a href="test">Test</a></li>  
+                                <li><a href="import">Import</a></li>
+                            </ul>  
+                        </li>  
+                    </ul>
+                    <form class="navbar-search pull-right" action="/search_result">
+           			 	<input type="text" class="search-query span2" placeholder="Search" name="keyword">
+           			 	<input type="submit" value="Submit"/>
+          			</form>
+                </div>
+            </div>
+        </div>	
+  </head>
+
+ <!-- <body style = "background-image: url('random_grey_variations.png');"> -->
+ 
+ 
+ 
+ 
+<!--Beginning of Body-->
+<body style="margin-top: 80px; margin-left: 80px;" onload="initialize()">
+    <!--<div id="map_canvas" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: -1;"></div>-->
+			<br>
+
+    
+    <h1>Crisis Import</h1>
+    <br>
+        <form action="/form_crisis" method="POST" enctype="multipart/form-data">
+         <h2> About </h2>
+         Name: <input type="text" name="name" required="required">
+         Misc: <input type="text" name="miscMain"><br>
+         <h2> Information </h2>
+         History: <input type="text" name="history" required="required">
+         Help: <input type="text" name="help" required="required">
+         Resources: <input type="text" name="resources" required="required">
+         Type: <input type="text" name="type" required="required"><br>
+         <h3> Time </h3>
+         Time: <input type="text" name="time" required="required">
+         Day: <input type="text" name="day" required="required">
+         Month: <input type="text" name="month" required="required"><br>
+         Year: <input type="text" name="year" required="required">
+         Misc: <input type="text" name="miscTime" required="required"><br>
+         <h3> Location </h3>
+         City: <input type="text" name="city" required="required">
+         Region: <input type="text" name="region" required="required">
+         Country: <input type="text" name="country" required="required"><br>
+         <h2> Human Impact </h2>
+         Deaths: <input type="text" name="deaths" required="required">
+         Displaced: <input type="text" name="displaced" required="required">
+         Injured: <input type="text" name="injured" required="required"><br>
+         Missing: <input type="text" name="missing" required="required">
+         Misc: <input type="text" name="miscHI" required="required"><br>
+         <h2> Economic Impact </h2>
+         Amount: <input type="text" name="amount" required="required">
+         Currency: <input type="text" name="currency" required="required">
+         Misc: <input type="text" name="miscEI" required="required"><br>
+         <h2> Reference </h2>
+         <h3> Primary Image </h3>
+         Site: <input type="text" name="sitePI" required="required">
+         Title: <input type="text" name="titlePI" required="required">
+         Url: <input type="text" name="urlPI" required="required">
+         Description: <input type="text" name="descriptionPI" required="required"><br>
+         <h3> Images (optional) </h3>
+         Site: <input type="text" name="siteI1" >
+         Title: <input type="text" name="titleI1">
+         Url: <input type="text" name="urlI1">
+         Description: <input type="text" name="descriptionI1"><br>
+         Site: <input type="text" name="siteI2" >
+         Title: <input type="text" name="titleI2">
+         Url: <input type="text" name="urlI2">
+         Description: <input type="text" name="descriptionI2"><br>
+         Site: <input type="text" name="siteI3" >
+         Title: <input type="text" name="titleI3">
+         Url: <input type="text" name="urlI3">
+         Description: <input type="text" name="descriptionI3"><br>
+         Site: <input type="text" name="siteI4" >
+         Title: <input type="text" name="titleI4">
+         Url: <input type="text" name="urlI4">
+         Description: <input type="text" name="descriptionI4"><br>
+         <h3> Videos (optional) </h3>
+         Site: <input type="text" name="siteV1" >
+         Title: <input type="text" name="titleV1">
+         Url: <input type="text" name="urlV1">
+         Description: <input type="text" name="descriptionV1"><br>
+         Site: <input type="text" name="siteV2" >
+         Title: <input type="text" name="titleV2">
+         Url: <input type="text" name="urlV2">
+         Description: <input type="text" name="descriptionV2"><br>
+         Site: <input type="text" name="siteV3" >
+         Title: <input type="text" name="titleV3">
+         Url: <input type="text" name="urlV3">
+         Description: <input type="text" name="descriptionV3"><br>
+         Site: <input type="text" name="siteV4" >
+         Title: <input type="text" name="titleV4">
+         Url: <input type="text" name="urlV4">
+         Description: <input type="text" name="descriptionV4"><br>
+         <h3> Socials (optional) </h3>
+         Site: <input type="text" name="siteS1" >
+         Title: <input type="text" name="titleS1">
+         Url: <input type="text" name="urlS1">
+         Description: <input type="text" name="descriptionS1"><br>
+         Site: <input type="text" name="siteS2" >
+         Title: <input type="text" name="titleS2">
+         Url: <input type="text" name="urlS2">
+         Description: <input type="text" name="descriptionS2"><br>
+         Site: <input type="text" name="siteS3" >
+         Title: <input type="text" name="titleS3">
+         Url: <input type="text" name="urlS3">
+         Description: <input type="text" name="descriptionS3"><br>
+         Site: <input type="text" name="siteS4" >
+         Title: <input type="text" name="titleS4">
+         Url: <input type="text" name="urlS4">
+         Description: <input type="text" name="descriptionS4"><br>
+         <h3> Other links (optional) </h3>
+         Site: <input type="text" name="siteE1" >
+         Title: <input type="text" name="titleE1">
+         Url: <input type="text" name="urlE1">
+         Description: <input type="text" name="descriptionE1"><br>
+         Site: <input type="text" name="siteE2" >
+         Title: <input type="text" name="titleE2">
+         Url: <input type="text" name="urlE2">
+         Description: <input type="text" name="descriptionE2"><br>
+         Site: <input type="text" name="siteE3" >
+         Title: <input type="text" name="titleE3">
+         Url: <input type="text" name="urlE3">
+         Description: <input type="text" name="descriptionE3"><br>
+         Site: <input type="text" name="siteE4" >
+         Title: <input type="text" name="titleE4">
+         Url: <input type="text" name="urlE4">
+         Description: <input type="text" name="descriptionE4"><br>
+           
+         
+         <input type="submit" name="Merge" value="Merge"> </form>
+    
+    
+    </body>
+    <footer>
+<hr>
+        <center>
+            <p>&copy; Super Seniors : Rohan Shah | Benjamin David Harris | Victor Pang | Ting-Yi Chen | Matt Granado | Elizabeth Hayden</p>
+        </center>
+    </footer>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="stylesheets/jquery.js"></script>
+    <script src="stylesheets/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="stylesheets/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="stylesheets/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="stylesheets/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
+  
+</html>
+
