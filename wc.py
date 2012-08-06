@@ -131,11 +131,12 @@ class SearchResultHandler(webapp2.RequestHandler):
                             for j in keywordList:
                                 matchedText[temp] = j
                                 temp += 2
-                                
-                        if SeenAlready_And : matchedAnd.append([None, None, matchedText])
-                        else : 
-                            matchedAnd.append([name, url, matchedText])
-                            SeenAlready_And = True        
+                        parsedMatched = re.split(keywordI, l)
+                        if [name, url, parsedMatched] not in matchedExact:       
+                            if SeenAlready_And : matchedAnd.append([None, None, matchedText])
+                            else : 
+                                matchedAnd.append([name, url, matchedText])
+                                SeenAlready_And = True        
                     
                     if(keyword_re_or.search(parsedLine)):
                         keywordList = re.findall(keyword_re_or, l)
@@ -161,7 +162,8 @@ class SearchResultHandler(webapp2.RequestHandler):
                                 matchedText[temp] = j
                                 temp += 2
                         
-                        if [name, url, matchedText] not in matchedAnd:    
+                        parsedMatched = re.split(keywordI, l)
+                        if [name, url, matchedText] not in matchedAnd and [name, url, parsedMatched] not in matchedExact :    
                             if SeenAlready_Or : 
                                 matchedOr.append([None, None, matchedText])
                             else : 
