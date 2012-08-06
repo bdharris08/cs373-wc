@@ -385,10 +385,12 @@ class Import_Crisis(webapp.RequestHandler):
     def post(self):
         name = self.request.POST.get('name', None)
         self.response.out.write(name)
+        wc = WorldCrises.all().fetch(None)
         
-
-        wc = WorldCrises.all().fetch(None).pop()
-
+        assert len(wc) == 1
+        
+        wc = wc.pop()
+        
         crisis = Crisis()
         crisis.worldCrises = wc
         crisis.id = re.sub(" ", "_", name)
@@ -483,17 +485,17 @@ class Import_Crisis(webapp.RequestHandler):
         if displaced == "" :
             humanImpact.displaced = 0
         else :
-            humanImpact.displaced = displaced
+            humanImpact.displaced = int(displaced)
         injured = self.request.POST.get('injured', None)
         if injured == "" :
             humanImpact.injured = 0
         else :
-            humanImpact.injured = injured
+            humanImpact.injured = int(injured)
         missing = self.request.POST.get('missing', None)
         if missing == "" :
             humanImpact.missing = 0
         else :
-            humanImpact.missing = missing
+            humanImpact.missing = int(missing)
         misc = self.request.POST.get('miscHI', None)
         if misc == "" :
             humanImpact.misc = " "
@@ -507,7 +509,7 @@ class Import_Crisis(webapp.RequestHandler):
         if amount == "" :
             economicImpact.amount = 0
         else :
-            economicImpact.amount = amount
+            economicImpact.amount = int(amount)
         currency = self.request.POST.get('currency', None)
         if currency == "" :
             economicImpact.currency = " "
@@ -545,7 +547,7 @@ class Import_Crisis(webapp.RequestHandler):
         for i in range(1,5):
             temp = "urlI" + str(i)
             url = self.request.POST.get(temp, None)
-            if url is not "":
+            if url != "":
                 ref = ExternalLink()
                 ref.crisis = crisis
                 ref.ref_type = "image"
@@ -573,7 +575,7 @@ class Import_Crisis(webapp.RequestHandler):
         for i in range(1,5):
             temp = "urlV" + str(i)
             url = self.request.POST.get(temp, None)
-            if url is not "":
+            if url != "":
                 ref = ExternalLink()
                 ref.crisis = crisis
                 ref.ref_type = "video"
@@ -601,7 +603,7 @@ class Import_Crisis(webapp.RequestHandler):
         for i in range(1,5):
             temp = "urlS" + str(i)
             url = self.request.POST.get(temp, None)
-            if url is not "":
+            if url != "":
                 ref = ExternalLink()
                 ref.crisis = crisis
                 ref.ref_type = "social"
@@ -629,7 +631,7 @@ class Import_Crisis(webapp.RequestHandler):
         for i in range(1,5):
             temp = "urlE" + str(i)
             url = self.request.POST.get(temp, None)
-            if url is not "":
+            if url != "":
                 ref = ExternalLink()
                 ref.crisis = crisis
                 ref.ref_type = "ext"
